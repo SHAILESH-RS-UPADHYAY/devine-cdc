@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Phone, CalendarCheck, ShieldCheck, HeartPulse, Star } from "lucide-react";
 import { CONTACT } from "@/lib/constants";
 import Link from "next/link";
+import { DropLetterTagline } from "@/components/ui/DropLetterTagline";
 
 export function HeroSection() {
   const containerVariants = {
@@ -58,6 +59,10 @@ export function HeroSection() {
             <motion.div variants={itemVariants} className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/60 backdrop-blur-md border border-devine-purple/20 shadow-sm mb-6">
               <span className="flex h-2 w-2 rounded-full bg-green-500 animate-pulse"></span>
               <span className="text-sm font-bold tracking-wide text-devine-purple uppercase">Accepting New Enrollments</span>
+            </motion.div>
+
+            <motion.div variants={itemVariants} className="mb-4">
+              <DropLetterTagline variant="hero" startDelay={0.2} className="!justify-start text-3xl md:text-4xl lg:text-5xl" />
             </motion.div>
 
             <motion.h1 variants={itemVariants} className="font-heading font-extrabold text-5xl md:text-6xl lg:text-7xl leading-[1.1] text-gray-900 mb-6 tracking-tight">

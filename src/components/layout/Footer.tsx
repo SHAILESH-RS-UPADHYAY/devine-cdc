@@ -3,83 +3,142 @@
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { CONTACT, SITE_CONFIG } from "@/lib/constants";
+import { CONTACT, SITE_CONFIG, ADDRESS } from "@/lib/constants";
+import { MapPin, Phone, Mail } from "lucide-react";
+
+const InstagramIcon = ({ size = 24 }: { size?: number }) => (
+  <svg 
+    xmlns="http://www.w3.org/2000/svg" 
+    width={size} 
+    height={size} 
+    viewBox="0 0 24 24" 
+    fill="none" 
+    stroke="currentColor" 
+    strokeWidth="2" 
+    strokeLinecap="round" 
+    strokeLinejoin="round"
+  >
+    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+  </svg>
+);
+import { Button } from "@/components/ui/button";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-slate-900 border-t border-slate-800 text-slate-400 py-10 mt-auto">
+    <footer className="bg-[#0b1121] border-t border-slate-800 text-slate-400 py-12 mt-auto">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-8 md:gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8 mb-12">
           
-          {/* Logo & Brand */}
-          <div className="flex flex-col md:flex-row items-center md:items-start gap-4 text-center md:text-left">
-            <Link 
-              href="/" 
-              className="inline-block"
-              onClick={(e) => {
-                if (window.location.pathname === "/") {
-                  e.preventDefault();
-                  window.scrollTo({ top: 0, behavior: 'smooth' });
-                }
-              }}
-            >
-              <motion.div
-                animate={{ y: [0, -15, 0], rotate: [-2, 2, -2] }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                className="w-24 h-24 rounded-full overflow-hidden flex items-center justify-center bg-white shadow-[0_10px_30px_rgba(255,105,180,0.5)] border-4 border-devine-pink p-1.5 mx-auto md:mx-0 relative group"
+          {/* Column 1: Logo & Brand */}
+          <div className="flex flex-col items-start gap-6">
+            <div className="flex items-center gap-4">
+              <Link 
+                href="/" 
+                className="inline-block"
+                onClick={(e) => {
+                  if (window.location.pathname === "/") {
+                    e.preventDefault();
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                  }
+                }}
               >
-                <div className="absolute inset-0 bg-gradient-to-tr from-devine-pink to-devine-yellow opacity-0 group-hover:opacity-20 transition-opacity rounded-full"></div>
-                <div className="w-full h-full rounded-full overflow-hidden bg-white flex items-center justify-center">
-                  <Image 
-                    src="/images/logo-textless.png" 
-                    alt="Devine CDC Logo" 
-                    width={80} 
-                    height={80} 
-                    className="w-full h-full object-contain drop-shadow-md"
-                  />
-                </div>
-              </motion.div>
-            </Link>
-            <div className="mt-2 md:mt-0">
-              <h3 className="text-white font-heading font-bold text-xl">{SITE_CONFIG.name}</h3>
-              <p className="text-sm text-slate-400 max-w-xs mx-auto md:mx-0">{SITE_CONFIG.description}</p>
+                <motion.div
+                  animate={{ y: [0, -15, 0], rotate: [-2, 2, -2] }}
+                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                  className="w-20 h-20 rounded-full overflow-hidden flex items-center justify-center bg-white shadow-[0_10px_30px_rgba(255,105,180,0.5)] border-4 border-devine-pink p-1.5 relative group"
+                >
+                  <div className="absolute inset-0 bg-gradient-to-tr from-devine-pink to-devine-yellow opacity-0 group-hover:opacity-20 transition-opacity rounded-full"></div>
+                  <div className="w-full h-full rounded-full overflow-hidden bg-white flex items-center justify-center relative z-0">
+                    <Image 
+                      src="/images/logo-textless.png" 
+                      alt="Devine CDC Logo" 
+                      width={64} 
+                      height={64} 
+                      className="w-full h-full object-contain drop-shadow-md"
+                    />
+                  </div>
+                </motion.div>
+              </Link>
+              <div className="flex flex-col">
+                <span className="text-white font-heading font-extrabold text-lg leading-tight">DEVINE CDC</span>
+                <span className="text-devine-pink font-heading font-bold text-xs tracking-widest mt-1 uppercase">YOUR SAFE SPACE</span>
+              </div>
+            </div>
+            <p className="text-sm text-slate-400 leading-relaxed max-w-xs">
+              Expert child development centre offering Speech Therapy, Occupational Therapy, ABA Therapy & Special Education in Gurgaon.
+            </p>
+            <div className="flex gap-4">
+              <a href={CONTACT.instagram} target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-devine-purple hover:text-white transition-colors">
+                <InstagramIcon size={18} />
+              </a>
+              <a href={`https://wa.me/${CONTACT.whatsapp}`} target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-green-500 hover:text-white transition-colors">
+                <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+              </a>
+            </div>
+            <div>
+              <p className="text-sm font-bold text-white mb-1">Follow us on Insta</p>
+              <p className="text-sm text-devine-pink-light">@{CONTACT.instagramHandle}</p>
             </div>
           </div>
 
-          {/* Links */}
-          <div className="flex flex-wrap items-center justify-center md:justify-end gap-x-8 gap-y-4 text-sm font-medium">
-            <Link 
-              href="/" 
-              className="hover:text-white transition-colors"
-              onClick={(e) => {
-                if (window.location.pathname === "/") {
-                  e.preventDefault();
-                  window.scrollTo({ top: 0, behavior: 'smooth' });
-                }
-              }}
-            >
-              Home
-            </Link>
-            <Link href="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</Link>
-            <Link href="/terms-of-service" className="hover:text-white transition-colors">Terms of Service</Link>
-            
-            <Link 
-              href={CONTACT.instagram} 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 text-devine-pink hover:text-white transition-colors"
-            >
-              <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-              <span>{CONTACT.instagramHandle}</span>
-            </Link>
+          {/* Column 2: Quick Links */}
+          <div>
+            <h3 className="text-white font-bold text-lg mb-6">Quick Links</h3>
+            <ul className="space-y-4 text-sm font-medium">
+              <li><Link href="/" className="hover:text-devine-pink transition-colors">Home</Link></li>
+              <li><Link href="/therapies" className="hover:text-devine-pink transition-colors">Therapies</Link></li>
+              <li><Link href="/conditions" className="hover:text-devine-pink transition-colors">Conditions</Link></li>
+              <li><Link href="/programs" className="hover:text-devine-pink transition-colors">Programs</Link></li>
+              <li><Link href="/#contact" className="hover:text-devine-pink transition-colors">Contact</Link></li>
+              <li><Link href="/about" className="hover:text-devine-pink transition-colors">About</Link></li>
+            </ul>
           </div>
+
+          {/* Column 3: Therapies */}
+          <div>
+            <h3 className="text-white font-bold text-lg mb-6">Therapies</h3>
+            <ul className="space-y-4 text-sm font-medium">
+              <li><Link href="/therapies/aba" className="hover:text-devine-pink transition-colors">ABA Therapy</Link></li>
+              <li><Link href="/therapies/occupational" className="hover:text-devine-pink transition-colors">Occupational Therapy</Link></li>
+              <li><Link href="/therapies/speech" className="hover:text-devine-pink transition-colors">Speech Therapy</Link></li>
+              <li><Link href="/therapies/special-education" className="hover:text-devine-pink transition-colors">Special Education</Link></li>
+            </ul>
+          </div>
+
+          {/* Column 4: Contact Us */}
+          <div className="flex flex-col gap-6">
+            <h3 className="text-white font-bold text-lg mb-2">Contact Us</h3>
+            <div className="flex gap-4 text-sm">
+              <MapPin className="shrink-0 text-slate-500" size={20} />
+              <p>{ADDRESS.full}</p>
+            </div>
+            <div className="flex gap-4 text-sm">
+              <Phone className="shrink-0 text-slate-500" size={20} />
+              <p>{CONTACT.phone}</p>
+            </div>
+            <div className="flex gap-4 text-sm">
+              <Mail className="shrink-0 text-slate-500" size={20} />
+              <p>{CONTACT.email}</p>
+            </div>
+            
+            <Button asChild className="w-full bg-[#9f5af0] hover:bg-[#8b4de0] text-white rounded-full mt-4 font-bold shadow-md shadow-[#9f5af0]/20">
+              <Link href="/#book-appointment">Book an Assessment</Link>
+            </Button>
+          </div>
+
         </div>
         
         {/* Copyright */}
-        <div className="mt-8 pt-8 border-t border-slate-800/50 text-center text-sm text-slate-500">
+        <div className="pt-8 border-t border-slate-800 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-slate-500">
           <p>© {currentYear} {SITE_CONFIG.name}. All rights reserved.</p>
+          <div className="flex gap-6">
+            <Link href="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</Link>
+            <Link href="/terms-of-service" className="hover:text-white transition-colors">Terms &amp; Conditions</Link>
+          </div>
         </div>
       </div>
     </footer>

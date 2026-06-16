@@ -19,8 +19,8 @@ const variantStyles: Record<string, { wrapper: string; letter: string }> = {
     letter: "text-transparent bg-clip-text bg-gradient-to-b from-devine-purple to-devine-pink",
   },
   navbar: {
-    wrapper: "text-[14px] md:text-[16px] font-black tracking-[0.2em] uppercase",
-    letter: "text-transparent bg-clip-text bg-gradient-to-r from-purple-600 via-pink-500 to-orange-400 drop-shadow-[0_2px_4px_rgba(255,105,180,0.4)]",
+    wrapper: "text-[11px] sm:text-[13px] md:text-[15px] lg:text-[16px] font-heading font-black tracking-[0.25em] uppercase",
+    letter: "text-white font-extrabold drop-shadow-[0_2px_6px_rgba(0,0,0,0.5)]",
   },
   divider: {
     wrapper: "text-5xl md:text-7xl lg:text-8xl font-heading font-black tracking-[0.15em]",

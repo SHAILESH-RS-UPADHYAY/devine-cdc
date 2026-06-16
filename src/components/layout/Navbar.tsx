@@ -80,7 +80,7 @@ export function Navbar() {
               whileTap={{ scale: 0.95 }}
               className="relative group"
             >
-              <div className="w-12 h-12 rounded-full overflow-hidden flex items-center justify-center bg-white shadow-[0_4px_15px_rgba(255,105,180,0.6)] border-2 border-devine-pink p-0.5">
+              <div className="w-12 h-12 rounded-full overflow-hidden flex items-center justify-center bg-white shadow-[0_0px_20px_rgba(255,105,180,0.8)] border-2 border-devine-pink p-0.5">
                 <div className="absolute inset-0 bg-gradient-to-tr from-devine-pink to-devine-yellow opacity-0 group-hover:opacity-20 transition-opacity rounded-full z-10 pointer-events-none"></div>
                 <div className="w-full h-full rounded-full overflow-hidden bg-white flex items-center justify-center relative z-0">
                   <Image 
@@ -94,21 +94,10 @@ export function Navbar() {
                 </div>
               </div>
             </motion.div>
-            {/* Brand tagline beside logo — desktop & tablet */}
-            <motion.div 
-              className="hidden lg:flex flex-col justify-center ml-5 overflow-hidden"
-              initial={{ opacity: 0, y: -30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, type: "spring", bounce: 0.7 }}
-            >
-              <motion.div 
-                animate={{ y: [0, -4, 0], filter: ["hue-rotate(0deg)", "hue-rotate(30deg)", "hue-rotate(0deg)"] }}
-                transition={{ repeat: Infinity, duration: 4, ease: "easeInOut", delay: 1 }}
-                className="font-heading font-extrabold text-xl tracking-[0.2em] bg-gradient-to-r from-devine-pink via-devine-purple to-devine-blue bg-clip-text text-transparent drop-shadow-sm"
-              >
-                {SITE_CONFIG.tagline}
-              </motion.div>
-            </motion.div>
+            {/* Brand tagline beside logo — small screens and up */}
+            <div className="hidden sm:flex flex-col justify-center ml-3 md:ml-5">
+              <DropLetterTagline variant="navbar" startDelay={0.3} />
+            </div>
           </Link>
 
           {/* Desktop Navigation */}
