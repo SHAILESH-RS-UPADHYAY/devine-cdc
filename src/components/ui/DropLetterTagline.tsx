@@ -19,12 +19,12 @@ const variantStyles: Record<string, { wrapper: string; letter: string }> = {
     letter: "text-transparent bg-clip-text bg-gradient-to-b from-devine-purple to-devine-pink",
   },
   navbar: {
-    wrapper: "text-[11px] sm:text-[13px] md:text-[15px] lg:text-[16px] font-heading font-black tracking-[0.25em] uppercase",
+    wrapper: "text-[9px] min-[375px]:text-[11px] sm:text-[13px] md:text-[15px] lg:text-[16px] font-heading font-black tracking-[0.1em] sm:tracking-[0.25em] uppercase",
     letter: "text-white font-extrabold drop-shadow-[0_2px_6px_rgba(0,0,0,0.5)]",
   },
   divider: {
-    wrapper: "text-5xl md:text-7xl lg:text-8xl font-heading font-black tracking-[0.15em]",
-    letter: "text-transparent bg-clip-text bg-gradient-to-br from-devine-purple/15 via-devine-pink/20 to-devine-blue/15",
+    wrapper: "text-[18px] min-[375px]:text-[22px] sm:text-4xl md:text-6xl lg:text-7xl font-heading font-black tracking-[0.05em] sm:tracking-[0.15em] uppercase",
+    letter: "text-white font-extrabold drop-shadow-[0_4px_12px_rgba(0,0,0,0.5)]",
   },
   footer: {
     wrapper: "text-3xl md:text-4xl font-heading font-extrabold tracking-[0.2em]",
@@ -42,11 +42,15 @@ export function DropLetterTagline({
   const style = variantStyles[variant] || variantStyles.hero;
   const letters = text.split("");
 
+  // Animate instantly on mount for the navbar variant to prevent layout jumps or delay issues.
+  const animationProps = variant === "navbar"
+    ? { animate: "visible" }
+    : { whileInView: "visible", viewport: { once: false, amount: 0.3 } };
+
   return (
     <motion.div
       initial="hidden"
-      whileInView="visible"
-      viewport={{ once: false, amount: 0.3 }}
+      {...animationProps}
       className={cn(
         "flex items-center justify-center gap-[1px] select-none overflow-hidden",
         style.wrapper,

@@ -18,7 +18,7 @@ export const CONTACT = {
   phoneDisplay: "+91 87440 97777",
   whatsapp: "918744097777", 
   whatsappMessage:
-    "Hi, I would like to know more about your child development services. Please share the details.",
+    "Hey! I would like to book an appointment. Here are my details:\n\nChild's Name:\nPreferred Date:\nPreferred Time:",
   email: "Devinechilddevelopmentcentre@gmail.com",
   instagram: "https://www.instagram.com/devinecdc",
   instagramHandle: "@devinecdc",

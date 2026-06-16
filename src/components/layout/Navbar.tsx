@@ -51,15 +51,15 @@ export function Navbar() {
         className={cn(
           "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
           isScrolled 
-            ? "py-2 bg-gradient-to-r from-devine-purple/90 via-devine-purple-dark/85 to-devine-purple/90 backdrop-blur-xl shadow-[0_4px_30px_rgba(93,63,211,0.3)]" 
-            : "py-3 bg-gradient-to-r from-devine-purple/85 via-devine-purple-dark/80 to-devine-purple/85 backdrop-blur-xl"
+            ? "py-2 bg-gradient-to-r from-devine-purple/35 via-devine-purple-dark/40 to-devine-purple/35 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.15)] border-b border-white/10" 
+            : "py-3 bg-gradient-to-r from-devine-purple/20 via-devine-purple-dark/25 to-devine-purple/20 backdrop-blur-lg border-b border-white/5"
         )}
       >
         <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
           {/* Logo */}
           <Link 
             href="/" 
-            className="relative z-50 flex items-center gap-3"
+            className="relative z-50 flex items-center gap-2 sm:gap-3"
             onClick={(e) => {
               if (window.location.pathname === "/") {
                 e.preventDefault();
@@ -80,7 +80,7 @@ export function Navbar() {
               whileTap={{ scale: 0.95 }}
               className="relative group"
             >
-              <div className="w-12 h-12 rounded-full overflow-hidden flex items-center justify-center bg-white shadow-[0_0px_20px_rgba(255,105,180,0.8)] border-2 border-devine-pink p-0.5">
+              <div className="w-9 h-9 sm:w-12 sm:h-12 rounded-full overflow-hidden flex items-center justify-center bg-white shadow-[0_0px_20px_rgba(255,105,180,0.8)] border-2 border-devine-pink p-0.5">
                 <div className="absolute inset-0 bg-gradient-to-tr from-devine-pink to-devine-yellow opacity-0 group-hover:opacity-20 transition-opacity rounded-full z-10 pointer-events-none"></div>
                 <div className="w-full h-full rounded-full overflow-hidden bg-white flex items-center justify-center relative z-0">
                   <Image 
@@ -94,14 +94,14 @@ export function Navbar() {
                 </div>
               </div>
             </motion.div>
-            {/* Brand tagline beside logo — small screens and up */}
-            <div className="hidden sm:flex flex-col justify-center ml-3 md:ml-5">
+            {/* Brand tagline beside logo — always visible and responsive */}
+            <div className="flex items-center justify-center px-2 py-1 sm:px-4 sm:py-1.5 rounded-full bg-gradient-to-r from-white/15 to-white/5 border border-white/10 backdrop-blur-md shadow-[0_4px_12px_rgba(255,255,255,0.03)]">
               <DropLetterTagline variant="navbar" startDelay={0.3} />
             </div>
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-7 bg-slate-900/30 backdrop-blur-xl px-7 py-2.5 rounded-full border border-white/10 shadow-[0_4px_20px_rgba(0,0,0,0.15)]">
+          <nav className="hidden md:flex items-center gap-7 bg-white/10 backdrop-blur-md px-7 py-2.5 rounded-full border border-white/15 shadow-[0_4px_20px_rgba(0,0,0,0.1)]">
             {NAV_LINKS.map((link) => (
               <Link
                 key={link.label}
@@ -112,7 +112,7 @@ export function Navbar() {
                     window.scrollTo({ top: 0, behavior: 'smooth' });
                   }
                 }}
-                className="text-sm font-semibold text-white/90 hover:text-white transition-colors relative group"
+                className="text-sm font-bold text-white hover:text-white/80 transition-colors relative group"
               >
                 {link.label}
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-devine-pink-light transition-all group-hover:w-full rounded-full"></span>
@@ -145,7 +145,7 @@ export function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-40 bg-gradient-to-b from-devine-purple via-devine-purple-dark to-devine-purple backdrop-blur-xl pt-24 px-6 pb-6 flex flex-col md:hidden"
+            className="fixed inset-0 z-40 bg-gradient-to-b from-devine-purple/90 via-devine-purple-dark/85 to-devine-purple/90 backdrop-blur-2xl pt-24 px-6 pb-6 flex flex-col md:hidden"
           >
             <nav className="flex flex-col gap-6 text-center mt-10">
               {NAV_LINKS.map((link, i) => (

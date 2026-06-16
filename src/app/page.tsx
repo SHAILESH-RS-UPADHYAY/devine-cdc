@@ -22,6 +22,8 @@ export default function Home() {
       <ScrollReveal delay={0.1}>
         <ServicesPreview />
       </ScrollReveal>
+
+      <SafeSpaceDivider />
       
       <ScrollReveal delay={0.1}>
         <ConditionsSection />
