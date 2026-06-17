@@ -129,7 +129,7 @@ export function HeroSection() {
                 <HeartPulse size={24} />
               </div>
               <div>
-                <p className="font-heading font-extrabold text-2xl text-gray-900">4+</p>
+                <p className="font-heading font-extrabold text-2xl text-gray-900">5+</p>
                 <p className="text-xs font-bold text-gray-500 uppercase tracking-wider">Years Experience</p>
               </div>
             </motion.div>

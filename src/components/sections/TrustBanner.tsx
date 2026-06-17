@@ -6,7 +6,7 @@ import { ShieldCheck, Stethoscope, Users, Award, HeartHandshake, Star } from "lu
 const TRUST_ITEMS = [
   { label: "RCI Certified Professionals", icon: ShieldCheck },
   { label: "Evidence-Based Therapy", icon: Stethoscope },
-  { label: "4+ Years Experience", icon: Award },
+  { label: "5+ Years Experience", icon: Award },
   { label: "Trusted by 500+ Parents", icon: Users },
   { label: "Compassionate Care", icon: HeartHandshake },
   { label: "Top Rated in Gurgaon", icon: Star },

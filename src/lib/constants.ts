@@ -50,12 +50,14 @@ export const FOUNDERS = [
     credentials: [
       "M.Sc. Clinical Psychology",
       "M.Phil. Clinical Psychology",
-      "4+ Years Experience",
-      "RCI Licensed",
+      "5+ Years Experience",
+      "250+ Children Supported",
+      "Specialized in Autism & ADHD",
+      "Evidence-based Therapies",
     ],
     instagram: "https://www.instagram.com/komalpahuja___",
     image: "/images/profile.png",
-    bio: "MPhil. Msc. Clinical Psychologist with 4+ years of experience. With a passion for nurturing young minds, Komal Pahuja founded Devine CDC to create a safe, supportive environment where every child can thrive.",
+    bio: "MPhil. Msc. Clinical Psychologist with 5+ years of experience. With a passion for nurturing young minds, Komal Pahuja founded Devine CDC to create a safe, supportive environment where every child can thrive.",
   },
 ] as const;
 
@@ -163,7 +165,7 @@ export const TRUST_STATS = [
   { label: "RCI Licensed", value: "RCI", icon: "ShieldCheck", suffix: "" },
   { label: "Therapies Offered", value: "5", icon: "Stethoscope", suffix: "+" },
   { label: "Happy Families", value: "100", icon: "Users", suffix: "+" },
-  { label: "Years Experience", value: "4", icon: "Award", suffix: "+" },
+  { label: "Years Experience", value: "5", icon: "Award", suffix: "+" },
 ] as const;
 
 export const WHATSAPP_URL = `https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent(CONTACT.whatsappMessage)}`;

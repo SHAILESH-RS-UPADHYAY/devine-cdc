@@ -49,18 +49,15 @@ export function Footer() {
                 <motion.div
                   animate={{ y: [0, -15, 0], rotate: [-2, 2, -2] }}
                   transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                  className="w-20 h-20 rounded-full overflow-hidden flex items-center justify-center bg-white shadow-[0_10px_30px_rgba(255,105,180,0.5)] border-4 border-devine-pink p-1.5 relative group"
+                  className="w-20 h-20 flex items-center justify-center relative group"
                 >
-                  <div className="absolute inset-0 bg-gradient-to-tr from-devine-pink to-devine-yellow opacity-0 group-hover:opacity-20 transition-opacity rounded-full"></div>
-                  <div className="w-full h-full rounded-full overflow-hidden bg-white flex items-center justify-center relative z-0">
-                    <Image 
-                      src="/images/logo-textless.png" 
-                      alt="Devine CDC Logo" 
-                      width={64} 
-                      height={64} 
-                      className="w-full h-full object-contain drop-shadow-md p-1.5"
-                    />
-                  </div>
+                  <Image 
+                    src="/images/logo-textless-transparent.png" 
+                    alt="Devine CDC Logo" 
+                    width={80} 
+                    height={80} 
+                    className="w-full h-full object-contain drop-shadow-[0_0px_15px_rgba(255,105,180,0.5)]"
+                  />
                 </motion.div>
               </Link>
               <div className="flex flex-col">

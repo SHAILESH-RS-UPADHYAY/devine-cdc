@@ -80,18 +80,15 @@ export function Navbar() {
               whileTap={{ scale: 0.95 }}
               className="relative group"
             >
-              <div className="w-9 h-9 sm:w-12 sm:h-12 rounded-full overflow-hidden flex items-center justify-center bg-white shadow-[0_0px_20px_rgba(255,105,180,0.8)] border-2 border-devine-pink p-0.5">
-                <div className="absolute inset-0 bg-gradient-to-tr from-devine-pink to-devine-yellow opacity-0 group-hover:opacity-20 transition-opacity rounded-full z-10 pointer-events-none"></div>
-                <div className="w-full h-full rounded-full overflow-hidden bg-white flex items-center justify-center relative z-0">
-                  <Image 
-                    src="/images/logo-textless.png" 
-                    alt="Devine CDC Logo" 
-                    width={48} 
-                    height={48} 
-                    className="w-full h-full object-contain drop-shadow-sm p-1"
-                    priority
-                  />
-                </div>
+              <div className="w-10 h-10 sm:w-14 sm:h-14 flex items-center justify-center relative">
+                <Image 
+                  src="/images/logo-textless-transparent.png" 
+                  alt="Devine CDC Logo" 
+                  width={56} 
+                  height={56} 
+                  className="w-full h-full object-contain drop-shadow-[0_0px_10px_rgba(255,105,180,0.4)]"
+                  priority
+                />
               </div>
             </motion.div>
             {/* Brand tagline beside logo — always visible and responsive */}
