@@ -123,7 +123,17 @@ export function Footer() {
             </div>
             
             <Button asChild className="w-full bg-[#9f5af0] hover:bg-[#8b4de0] text-white rounded-full mt-4 font-bold shadow-md shadow-[#9f5af0]/20">
-              <Link href="/#book-appointment">Book an Assessment</Link>
+              <Link href="/#book-appointment" onClick={(e) => {
+                if (window.location.pathname === "/") {
+                  e.preventDefault();
+                  const element = document.getElementById("book-appointment");
+                  if (element) {
+                    const y = element.getBoundingClientRect().top + window.scrollY - 100;
+                    window.scrollTo({ top: y, behavior: 'smooth' });
+                    window.history.pushState(null, '', '/#book-appointment');
+                  }
+                }
+              }}>Book an Assessment</Link>
             </Button>
           </div>
 

@@ -5,9 +5,21 @@ import Link from "next/link";
 import { CalendarCheck } from "lucide-react";
 
 export function FloatingBookButton() {
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (window.location.pathname === '/') {
+      e.preventDefault();
+      const element = document.getElementById('book-appointment');
+      if (element) {
+        const y = element.getBoundingClientRect().top + window.scrollY - 100;
+        window.scrollTo({ top: y, behavior: 'smooth' });
+        window.history.pushState(null, '', '/#book-appointment');
+      }
+    }
+  };
+
   return (
     <div className="fixed bottom-6 left-6 z-50">
-      <Link href="/#book-appointment">
+      <Link href="/#book-appointment" onClick={handleClick}>
         <motion.div
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}

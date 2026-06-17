@@ -120,7 +120,17 @@ export function Navbar() {
           {/* Desktop CTA */}
           <div className="hidden md:flex items-center gap-4">
             <Button className="rounded-full bg-white text-devine-purple hover:bg-white/90 font-bold shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 px-6" asChild>
-              <Link href="/#book-appointment">Book Assessment</Link>
+              <Link href="/#book-appointment" onClick={(e) => {
+                if (window.location.pathname === "/") {
+                  e.preventDefault();
+                  const element = document.getElementById("book-appointment");
+                  if (element) {
+                    const y = element.getBoundingClientRect().top + window.scrollY - 100;
+                    window.scrollTo({ top: y, behavior: 'smooth' });
+                    window.history.pushState(null, '', '/#book-appointment');
+                  }
+                }
+              }}>Book Assessment</Link>
             </Button>
           </div>
 
@@ -170,7 +180,18 @@ export function Navbar() {
             </nav>
             <div className="mt-auto flex flex-col gap-4">
               <Button size="lg" className="w-full text-lg bg-white text-devine-purple hover:bg-white/90 font-bold" asChild>
-                <Link href="/#book-appointment" onClick={() => setIsMobileMenuOpen(false)}>Book Assessment</Link>
+                <Link href="/#book-appointment" onClick={(e) => {
+                  if (window.location.pathname === "/") {
+                    e.preventDefault();
+                    const element = document.getElementById("book-appointment");
+                    if (element) {
+                      const y = element.getBoundingClientRect().top + window.scrollY - 100;
+                      window.scrollTo({ top: y, behavior: 'smooth' });
+                      window.history.pushState(null, '', '/#book-appointment');
+                    }
+                  }
+                  setIsMobileMenuOpen(false);
+                }}>Book Assessment</Link>
               </Button>
               <div className="flex justify-center gap-4 mt-4">
                 <a 

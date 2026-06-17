@@ -69,9 +69,11 @@ export function HeroSection() {
             </motion.p>
 
             <motion.div variants={itemVariants} className="flex flex-col sm:flex-row flex-wrap gap-4 w-full">
-              <Button size="lg" className="text-lg px-8 py-7 h-auto gap-2 group w-full sm:w-auto">
-                <CalendarCheck className="group-hover:scale-110 transition-transform" />
-                Book Your Appointment
+              <Button size="lg" className="text-lg px-8 py-7 h-auto gap-2 group w-full sm:w-auto" asChild>
+                <Link href="/#book-appointment">
+                  <CalendarCheck className="group-hover:scale-110 transition-transform" />
+                  Book Your Appointment
+                </Link>
               </Button>
               <Link href={`tel:${CONTACT.phone.replace(/\s/g, '')}`} className="w-full sm:w-auto">
                 <Button variant="outline" size="lg" className="text-lg px-8 py-7 h-auto gap-2 bg-white/50 backdrop-blur-md w-full">
