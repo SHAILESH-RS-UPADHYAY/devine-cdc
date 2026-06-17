@@ -8,6 +8,7 @@
 [![Next.js](https://img.shields.io/badge/Next.js-14+-000000?style=for-the-badge&logo=next.js&logoColor=white)](https://nextjs.org/)
 [![React](https://img.shields.io/badge/React-18+-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://reactjs.org/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 
 </div>
 
@@ -15,18 +16,9 @@
 
 ## 🚀 Overview
 
-Devine CDC is designed to move beyond the limitations of generic AI-generated templates. It is a custom-coded, highly secure, and SEO-optimized platform explicitly architected for pediatric therapy clinics. 
+Devine CDC is designed to move beyond the limitations of generic CMS templates. It is a custom-coded, highly secure, and SEO-optimized platform explicitly architected for pediatric therapy clinics. 
 
 It provides an engaging, empathetic, and premium user experience for parents seeking care for their children, while laying the groundwork for a scalable backend system that handles appointment management and administrative analytics.
-
----
-
-## ✨ Key Features
-
-- **Premium UI/UX Aesthetics:** Features a warm, engaging color palette with glowing borders, smooth scroll behaviors, and responsive, interactive elements (like pink-to-yellow hover gradients) to build trust and warmth.
-- **Modern Component Architecture:** Built using atomic design principles with highly reusable layout and section components.
-- **High Performance & SEO:** Server-Side Rendering (SSR) via Next.js ensures lightning-fast page loads and robust search engine indexing.
-- **Future-Ready Backend Scaffold:** Architected to integrate seamlessly with Supabase for student data tracking, appointment scheduling, and secure administrative dashboards.
 
 ---
 
@@ -46,13 +38,13 @@ graph TD
     D --> F["Appointment Analytics"]:::backend
 ```
 
----
+### 🧠 Technical Design Decisions
 
-## 🧠 Why These Technical Choices?
-
-*   **Next.js (App Router):** Provides the best hybrid rendering experience, ensuring the public-facing clinic pages are SEO-optimized and fast, while allowing for complex interactive dashboards on the administrative side.
-*   **Tailwind CSS:** Enables rapid, highly customized styling. The specific use of bespoke utility classes (e.g., custom pink borders and glowing drop shadows) ensures the site doesn't look like a generic template, but a bespoke, premium healthcare brand.
-*   **Clean Git History:** The repository maintains a rigorously squashed, humanized commit history grouped by logical engineering stages (Tooling, Layouts, Features, Routing, Assets) to ensure maximum readability and professional presentation for code reviews.
+*   **Next.js (App Router):** Selected for hybrid rendering (SSR/SSG), ensuring public-facing clinic pages are SEO-optimized with sub-second TTI, while supporting interactive client-side dashboards.
+*   **Modular Component Architecture:** Enforces strict separation of concerns. UI atoms, layout wrappers, and business-logic sections are isolated.
+*   **Production-Grade Configs:** Strict TypeScript configurations, enforced HTTP security headers, and automated static generation rules in `next.config.ts`.
+*   **SEO & Accessibility:** Dynamic `sitemap.xml`, `robots.txt`, and metadata generation. Semantic HTML and accessible color contrast ratios ensure WCAG compliance.
+*   **Error Boundaries:** Global custom `error.tsx` and `not-found.tsx` ensure application resilience and graceful failure degradation.
 
 ---
 
@@ -62,19 +54,20 @@ graph TD
 devine-cdc/
 ├── public/               # Static assets, fonts, and HD clinic imagery
 ├── src/
-│   ├── app/              # Next.js App Router pages and global layouts
+│   ├── app/              # Next.js App Router (Pages, Layouts, Error Boundaries, SEO)
 │   ├── components/       # Reusable UI architecture
-│   │   ├── layout/       # Navbar, Footer, Container wrappers
-│   │   ├── sections/     # Modular page sections (Hero, Services, Testimonials)
-│   │   └── ui/           # Atomic UI elements (Buttons, Inputs, Cards)
-│   └── lib/              # Utility functions and shared logic
-├── tailwind.config.ts    # Custom design system tokens and theme extensions
+│   │   ├── layout/       # Global wrappers (Navbar, Footer, Container)
+│   │   ├── sections/     # Modular business-logic sections
+│   │   └── ui/           # Atomic UI elements
+│   └── lib/              # Shared utilities, constants, and content models
+├── next.config.ts        # Next.js configuration and security headers
+├── tailwind.config.ts    # Custom design system tokens
 └── README.md             # Project documentation
 ```
 
 ---
 
-## 💻 Run It Locally
+## 💻 Local Development
 
 **1. Clone the repository**
 ```bash
@@ -87,13 +80,18 @@ cd devine-cdc
 npm install
 ```
 
-**3. Start the development server**
+**3. Environment Variables**
+Copy the `.env.example` to `.env.local` (if applicable) and populate required keys.
+
+**4. Start the development server**
 ```bash
 npm run dev
 ```
 
-**4. View the application**
-Open [http://localhost:3000](http://localhost:3000) in your browser.
+**5. Production Build Testing**
+```bash
+npm run build && npm start
+```
 
 ---
 
