@@ -5,10 +5,9 @@ import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Phone } from "lucide-react";
 import Image from "next/image";
-import { SITE_CONFIG, CONTACT, NAV_LINKS } from "@/lib/constants";
+import { CONTACT, NAV_LINKS } from "@/lib/constants";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { DropLetterTagline } from "@/components/ui/DropLetterTagline";
 
 const InstagramIcon = ({ size = 24 }: { size?: number }) => (
   <svg 
@@ -27,8 +26,6 @@ const InstagramIcon = ({ size = 24 }: { size?: number }) => (
     <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
   </svg>
 );
-
-// Local NAV_LINKS removed, using global NAV_LINKS from constants
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -49,77 +46,78 @@ export function Navbar() {
         animate={{ y: 0 }}
         transition={{ type: "spring", stiffness: 100, damping: 20 }}
         className={cn(
-          "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
+          "sticky top-0 left-0 right-0 z-50 transition-all duration-500",
           isScrolled 
-            ? "py-2 bg-gradient-to-r from-devine-purple/35 via-devine-purple-dark/40 to-devine-purple/35 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.15)] border-b border-white/10" 
-            : "py-3 bg-gradient-to-r from-devine-purple/20 via-devine-purple-dark/25 to-devine-purple/20 backdrop-blur-lg border-b border-white/5"
+            ? "py-3 bg-white/95 backdrop-blur-2xl shadow-[0_10px_40px_rgba(0,0,0,0.08)] border-b border-slate-200/50" 
+            : "py-5 bg-transparent"
         )}
       >
-        <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
-          {/* Logo */}
-          <Link 
-            href="/" 
-            className="relative z-50 flex items-center gap-2 sm:gap-3"
-            onClick={(e) => {
-              if (window.location.pathname === "/") {
-                e.preventDefault();
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-              }
-            }}
-          >
-            <motion.div
-              animate={{ 
-                y: [0, -6, 0]
+        <div className="container mx-auto px-4 md:px-6 relative flex items-center justify-between">
+          {/* Left: Logo and Brand Name */}
+          <div className="flex-1 flex justify-start">
+            <Link 
+              href="/" 
+              className="relative z-50 flex items-center gap-3 sm:gap-4 group"
+              onClick={(e) => {
+                if (window.location.pathname === "/") {
+                  e.preventDefault();
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
               }}
-              transition={{ 
-                repeat: Infinity, 
-                duration: 3,
-                ease: "easeInOut"
-              }}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="relative group"
             >
-              <div className="w-10 h-10 sm:w-14 sm:h-14 flex items-center justify-center relative">
-                <Image 
-                  src="/images/logo-textless-transparent.png" 
-                  alt="Devine CDC Logo" 
-                  width={56} 
-                  height={56} 
-                  className="w-full h-full object-contain drop-shadow-[0_0px_10px_rgba(255,105,180,0.4)]"
-                  priority
-                />
+              <div className="relative flex items-center">
+                <div className="absolute inset-0 bg-devine-pink/20 blur-xl rounded-full scale-150 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <motion.div 
+                  animate={{ y: [-4, 4, -4] }}
+                  transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                  className="w-12 h-12 sm:w-14 sm:h-14 flex items-center justify-center relative"
+                >
+                  <Image 
+                    src="/images/logo-textless-transparent.png" 
+                    alt="Devine CDC Logo" 
+                    width={56} 
+                    height={56} 
+                    className="w-full h-full object-contain drop-shadow-[0_0_15px_rgba(168,85,247,0.8)] transition-all duration-500 group-hover:scale-110 group-hover:drop-shadow-[0_0_25px_rgba(168,85,247,1)]"
+                    priority
+                  />
+                </motion.div>
               </div>
-            </motion.div>
-            {/* Brand tagline beside logo — always visible and responsive */}
-            <div className="flex items-center justify-center px-2 py-1 sm:px-4 sm:py-1.5 rounded-full bg-gradient-to-r from-white/15 to-white/5 border border-white/10 backdrop-blur-md shadow-[0_4px_12px_rgba(255,255,255,0.03)]">
-              <DropLetterTagline variant="navbar" startDelay={0.3} />
-            </div>
-          </Link>
+              
+              <div className="flex flex-col justify-center">
+                <span className="text-[11px] sm:text-[13px] md:text-[15px] lg:text-[17px] font-heading font-black text-slate-900 uppercase tracking-tight leading-none whitespace-nowrap">
+                  Devine Child <span className="text-devine-purple">Development Centre</span>
+                </span>
+                <span className="text-[8px] sm:text-[9px] md:text-[10px] font-medium text-slate-500 uppercase tracking-[0.25em] leading-none mt-1 sm:mt-1.5 ml-0.5">
+                  your safe space
+                </span>
+              </div>
+            </Link>
+          </div>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-7 bg-white/10 backdrop-blur-md px-7 py-2.5 rounded-full border border-white/15 shadow-[0_4px_20px_rgba(0,0,0,0.1)]">
-            {NAV_LINKS.map((link) => (
-              <Link
-                key={link.label}
-                href={link.href}
-                onClick={(e) => {
-                  if (link.label === "Home" && window.location.pathname === "/") {
-                    e.preventDefault();
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                  }
-                }}
-                className="text-sm font-bold text-white hover:text-white/80 transition-colors relative group"
-              >
-                {link.label}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-devine-pink-light transition-all group-hover:w-full rounded-full"></span>
-              </Link>
-            ))}
-          </nav>
+          {/* Center: Desktop Navigation */}
+          <div className="hidden xl:flex flex-none justify-center absolute left-1/2 -translate-x-1/2">
+            <nav className="flex items-center gap-1 bg-white/50 backdrop-blur-md px-2 py-1.5 rounded-full border border-slate-200/50 shadow-[0_4px_20px_rgba(0,0,0,0.03)]">
+              {NAV_LINKS.map((link) => (
+                <Link
+                  key={link.label}
+                  href={link.href}
+                  onClick={(e) => {
+                    if (link.label === "Home" && window.location.pathname === "/") {
+                      e.preventDefault();
+                      window.scrollTo({ top: 0, behavior: 'smooth' });
+                    }
+                  }}
+                  className="px-5 py-2 rounded-full text-[13px] font-bold text-slate-600 hover:text-devine-purple hover:bg-white/80 transition-all"
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </nav>
+          </div>
 
-          {/* Desktop CTA */}
-          <div className="hidden md:flex items-center gap-4">
-            <Button className="rounded-full bg-white text-devine-purple hover:bg-white/90 font-bold shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 px-6" asChild>
+          {/* Right: Desktop CTA */}
+          <div className="flex-1 hidden xl:flex justify-end items-center gap-4">
+            <Button className="rounded-full bg-slate-900 text-white hover:bg-devine-purple font-bold shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 px-7 h-11" asChild>
               <Link href="/#book-appointment" onClick={(e) => {
                 if (window.location.pathname === "/") {
                   e.preventDefault();
@@ -134,13 +132,15 @@ export function Navbar() {
             </Button>
           </div>
 
-          {/* Mobile Menu Toggle */}
-          <button
-            className="md:hidden relative z-50 w-10 h-10 flex items-center justify-center rounded-full bg-white/20 backdrop-blur-sm shadow-sm border border-white/30 text-white"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          >
-            {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
-          </button>
+          {/* Mobile Menu Toggle (Shows below xl to make room for wide title) */}
+          <div className="flex-1 flex justify-end xl:hidden">
+            <button
+              className="relative z-50 w-11 h-11 flex items-center justify-center rounded-full bg-white shadow-[0_2px_10px_rgba(0,0,0,0.05)] border border-slate-100 text-slate-800"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            >
+              {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+            </button>
+          </div>
         </div>
       </motion.header>
 
@@ -151,8 +151,8 @@ export function Navbar() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-40 bg-gradient-to-b from-devine-purple/90 via-devine-purple-dark/85 to-devine-purple/90 backdrop-blur-2xl pt-24 px-6 pb-6 flex flex-col md:hidden"
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            className="fixed inset-0 z-40 bg-white/95 backdrop-blur-xl pt-28 px-6 pb-6 flex flex-col xl:hidden"
           >
             <nav className="flex flex-col gap-6 text-center mt-10">
               {NAV_LINKS.map((link, i) => (
@@ -160,7 +160,7 @@ export function Navbar() {
                   key={link.label}
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: i * 0.1 }}
+                  transition={{ delay: i * 0.05 }}
                 >
                   <Link
                     href={link.href}
@@ -171,7 +171,7 @@ export function Navbar() {
                       }
                       setIsMobileMenuOpen(false);
                     }}
-                    className="text-2xl font-heading font-bold text-white/90 hover:text-white"
+                    className="text-3xl font-heading font-black text-slate-800 hover:text-devine-purple transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -179,7 +179,7 @@ export function Navbar() {
               ))}
             </nav>
             <div className="mt-auto flex flex-col gap-4">
-              <Button size="lg" className="w-full text-lg bg-white text-devine-purple hover:bg-white/90 font-bold" asChild>
+              <Button size="lg" className="w-full text-lg bg-devine-purple text-white hover:bg-devine-purple-dark font-bold h-14 rounded-2xl" asChild>
                 <Link href="/#book-appointment" onClick={(e) => {
                   if (window.location.pathname === "/") {
                     e.preventDefault();
@@ -198,17 +198,17 @@ export function Navbar() {
                   href={CONTACT.instagram} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="w-12 h-12 flex items-center justify-center rounded-full bg-white/15 text-devine-pink-light hover:bg-devine-pink hover:text-white transition-colors border border-white/20 shadow-sm"
+                  className="w-14 h-14 flex items-center justify-center rounded-2xl bg-slate-50 text-slate-600 hover:bg-devine-pink hover:text-white transition-all border border-slate-100 shadow-sm"
                 >
-                  <InstagramIcon size={20} />
+                  <InstagramIcon size={24} />
                 </a>
                 <a 
                   href={`https://wa.me/${CONTACT.whatsapp}`} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="w-12 h-12 flex items-center justify-center rounded-full bg-white/15 text-green-300 hover:bg-green-500 hover:text-white transition-colors border border-white/20 shadow-sm"
+                  className="w-14 h-14 flex items-center justify-center rounded-2xl bg-slate-50 text-slate-600 hover:bg-green-500 hover:text-white transition-all border border-slate-100 shadow-sm"
                 >
-                  <Phone size={20} />
+                  <Phone size={24} />
                 </a>
               </div>
             </div>

@@ -3,7 +3,7 @@ import { ServicesPreview } from "@/components/sections/ServicesPreview";
 
 export const metadata: Metadata = {
   title: "Therapies | Devine Child Development Centre",
-  description: "Explore our comprehensive, evidence-based therapies including ABA, Occupational Therapy, Speech Therapy, and Special Education.",
+  description: "Explore our comprehensive, evidence-based therapies including ABA, Occupational Therapy, Speech & Language Therapy, and Special Education.",
 };
 
 export default function TherapiesPage() {

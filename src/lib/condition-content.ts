@@ -95,7 +95,7 @@ export const CONDITION_CONTENT: Record<string, ConditionContent> = {
         role: "Primary intervention for building communication, social, and daily living skills through positive reinforcement.",
       },
       {
-        therapy: "Speech Therapy",
+        therapy: "Speech & Language Therapy",
         role: "Addresses speech delays, language comprehension, and social communication challenges.",
       },
       {
@@ -237,7 +237,7 @@ export const CONDITION_CONTENT: Record<string, ConditionContent> = {
         role: "Provides academic strategies, organisational skills training, and study techniques adapted for ADHD learners.",
       },
       {
-        therapy: "Speech Therapy",
+        therapy: "Speech & Language Therapy",
         role: "Supports pragmatic language skills — turn-taking in conversation, listening, and organised verbal expression.",
       },
     ],
@@ -340,7 +340,7 @@ export const CONDITION_CONTENT: Record<string, ConditionContent> = {
           "We conduct a thorough evaluation to identify the type and severity of the delay, check for underlying causes (like hearing issues or oral motor weakness), and establish a clear baseline.",
       },
       {
-        title: "Play-Based Speech Therapy",
+        title: "Play-Based Speech & Language Therapy",
         description:
           "Our sessions are filled with songs, bubbles, puppets, and games that naturally elicit speech. Children don't even realise they're in therapy — they think they're playing.",
       },
@@ -367,7 +367,7 @@ export const CONDITION_CONTENT: Record<string, ConditionContent> = {
     ],
     therapiesUsed: [
       {
-        therapy: "Speech Therapy",
+        therapy: "Speech & Language Therapy",
         role: "Primary intervention targeting speech sounds, language comprehension, expressive language, and social communication.",
       },
       {

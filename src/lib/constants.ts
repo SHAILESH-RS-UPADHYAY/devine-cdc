@@ -8,7 +8,7 @@ export const SITE_CONFIG = {
   shortName: "Devine CDC",
   tagline: "YOUR SAFE SPACE",
   description:
-    "Expert child development centre offering Speech Therapy, Occupational Therapy, ABA Therapy & Special Education in Gurgaon.",
+    "Expert child development centre offering Speech & Language Therapy, Occupational Therapy, ABA Therapy & Special Education in Gurgaon.",
   url: "https://devinecdc.com",
   ogImage: "/images/og-image.jpg",
 } as const;
@@ -21,7 +21,7 @@ export const CONTACT = {
     "Hey! I would like to book an appointment. Here are my details:\n\nChild's Name:\nPreferred Date:\nPreferred Time:",
   email: "Devinechilddevelopmentcentre@gmail.com",
   instagram: "https://www.instagram.com/devinecdc",
-  instagramHandle: "@devinecdc",
+  instagramHandle: "devinecdc",
 } as const;
 
 export const ADDRESS = {
@@ -84,7 +84,7 @@ export const THERAPIES = [
   },
   {
     id: "speech-therapy",
-    title: "Speech Therapy",
+    title: "Speech & Language Therapy",
     fullTitle: "Speech & Language Therapy",
     shortDescription:
       "Enhances communication skills with tailored sessions, helping every child find their voice and express themselves confidently.",
@@ -101,6 +101,16 @@ export const THERAPIES = [
     icon: "BookOpen",
     href: "/therapies/special-education",
     color: "#E87461",
+  },
+  {
+    id: "psychological-behavioral-intervention",
+    title: "Psychological & Behavioral Intervention",
+    fullTitle: "Psychological & Behavioral Intervention",
+    shortDescription:
+      "We support children’s emotional, behavioral, and social development through evidence-based approaches including ABA therapy, behavioral therapy, play therapy, psychological support, and parent guidance.",
+    icon: "HeartHandshake",
+    href: "/therapies/psychological-behavioral-intervention",
+    color: "#14B8A6",
   },
 ] as const;
 

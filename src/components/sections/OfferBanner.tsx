@@ -1,101 +1,185 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { CalendarDays, Clock, ArrowRight, Sparkles, Tag } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Calendar, Clock, Sparkles, ArrowRight, Tag } from "lucide-react";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 import { WHATSAPP_URL } from "@/lib/constants";
 
-export function OfferBanner() {
+export const OfferBanner = () => {
+  // Target Date: 22nd June 2026, 9:00 AM (IST)
+  const targetDate = new Date("2026-06-22T09:00:00+05:30").getTime();
+  const [timeLeft, setTimeLeft] = useState<number | null>(null);
+
+  useEffect(() => {
+    const calculateTimeLeft = () => {
+      const now = new Date().getTime();
+      const difference = targetDate - now;
+      return difference > 0 ? difference : 0;
+    };
+    
+    setTimeLeft(calculateTimeLeft());
+    const timer = setInterval(() => {
+      setTimeLeft(calculateTimeLeft());
+    }, 1000);
+    return () => clearInterval(timer);
+  }, [targetDate]);
+
+  const formatTime = (ms: number | null) => {
+    if (ms === null) return { d: "00", h: "00", m: "00", s: "00" };
+    const d = Math.floor(ms / (1000 * 60 * 60 * 24));
+    const h = Math.floor((ms % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const m = Math.floor((ms % (1000 * 60 * 60)) / (1000 * 60));
+    const s = Math.floor((ms % (1000 * 60)) / 1000);
+    return {
+      d: d.toString().padStart(2, "0"),
+      h: h.toString().padStart(2, "0"),
+      m: m.toString().padStart(2, "0"),
+      s: s.toString().padStart(2, "0")
+    };
+  };
+
+  const time = formatTime(timeLeft);
+
+  // Animation variants for the "rain drop" staggering effect
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.12,
+        delayChildren: 0.1,
+      }
+    }
+  };
+
+  const dropVariants = {
+    hidden: { opacity: 0, y: -40, scale: 0.95 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      scale: 1,
+      transition: {
+        type: "spring" as const,
+        stiffness: 250,
+        damping: 15,
+        mass: 0.8
+      }
+    }
+  };
+
+  const floatVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: {
+        type: "spring" as const,
+        stiffness: 100,
+        damping: 10,
+        delay: 0.5
+      }
+    }
+  };
+
   return (
-    <section className="pt-10 pb-10 mt-[88px] md:mt-[100px] mx-4 md:mx-8 mb-8 rounded-[2.5rem] relative overflow-hidden bg-slate-900 shadow-2xl">
-      {/* Background Gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-devine-purple via-devine-purple-dark to-devine-pink/80">
-        <div className="absolute inset-0 opacity-15" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '32px 32px' }}></div>
+    <div className="relative w-full overflow-hidden bg-gradient-to-r from-[#090514] via-[#13082E] to-[#090514] py-10 md:py-12 border-b border-indigo-500/20 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.5)] z-20">
+      {/* Premium Background Effects */}
+      <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+        {/* Animated glowing orbs */}
+        <div className="absolute top-[-30%] left-[-10%] w-[50%] h-[150%] bg-blue-500/20 rounded-full blur-[100px] mix-blend-screen animate-[pulse_6s_ease-in-out_infinite]" />
+        <div className="absolute bottom-[-30%] right-[-10%] w-[50%] h-[150%] bg-purple-500/20 rounded-full blur-[100px] mix-blend-screen animate-[pulse_8s_ease-in-out_infinite_1s]" />
+        {/* Subtle grid overlay for texture */}
+        <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-[0.15] mix-blend-overlay" />
       </div>
 
-      <div className="container mx-auto px-4 md:px-6 relative z-10">
-        <div className="bg-white/95 backdrop-blur-xl border border-white/30 rounded-[2rem] p-8 md:p-12 shadow-[0_20px_50px_rgba(0,0,0,0.3)] flex flex-col md:flex-row items-center justify-between gap-8">
+      <div className="container relative z-10 mx-auto px-4 sm:px-6">
+        <div className="flex flex-col xl:flex-row items-center justify-between gap-10 xl:gap-12">
           
-          <div className="text-slate-900 space-y-5 max-w-2xl">
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="inline-flex items-center gap-2 px-4 py-1.5 bg-devine-purple/10 text-devine-purple rounded-full text-sm font-bold tracking-wide border border-devine-purple/20"
-            >
-              <span className="w-2 h-2 rounded-full bg-devine-pink animate-pulse"></span>
-              Special Event
+          {/* Left Content with Staggered Rain Drop Animation */}
+          <motion.div 
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+            className="flex-1 text-center xl:text-left space-y-6 max-w-3xl"
+          >
+            <motion.div variants={dropVariants} className="inline-block">
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-blue-500/20 to-purple-500/20 border border-blue-400/30 text-blue-100 text-sm font-semibold shadow-[0_0_20px_rgba(59,130,246,0.2)] backdrop-blur-md">
+                <Sparkles className="w-4 h-4 text-blue-300" />
+                <span>Special Event</span>
+              </div>
             </motion.div>
             
-            <motion.h2 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
-              className="text-3xl md:text-5xl font-heading font-extrabold leading-tight tracking-tight text-slate-900"
-            >
+            <motion.h2 variants={dropVariants} className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-tight drop-shadow-md">
               Special Discounts on Packages
             </motion.h2>
             
-            <motion.p 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
-              className="text-slate-600 text-lg md:text-xl font-medium"
-            >
-              Discover the right path for your child&apos;s development with our expert team of therapists.
+            <motion.p variants={dropVariants} className="text-blue-100/90 text-lg md:text-xl font-medium max-w-2xl mx-auto xl:mx-0 drop-shadow-sm">
+              Discover the right path for your child's development with our expert team of therapists.
             </motion.p>
-            
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.3 }}
-              className="flex flex-col sm:flex-row gap-4 pt-2"
-            >
-              <div className="flex items-center gap-3 bg-devine-purple/5 border border-devine-purple/10 px-5 py-3 rounded-2xl">
-                <CalendarDays className="w-6 h-6 text-devine-purple" />
-                <span className="font-bold text-slate-800">22nd June 2026</span>
+
+            <motion.div variants={dropVariants} className="flex flex-wrap items-center justify-center xl:justify-start gap-3 pt-2">
+              <div className="flex items-center gap-2 text-sm font-semibold text-white bg-white/10 hover:bg-white/15 transition-colors px-4 py-2 rounded-xl border border-white/10 backdrop-blur-md shadow-lg">
+                <Calendar className="w-4 h-4 text-blue-300" />
+                <span>22nd June 2026</span>
               </div>
-              <div className="flex items-center gap-3 bg-devine-purple/5 border border-devine-purple/10 px-5 py-3 rounded-2xl">
-                <Clock className="w-6 h-6 text-devine-purple" />
-                <span className="font-bold text-slate-800">9:00 AM - 6:00 PM</span>
+              <div className="flex items-center gap-2 text-sm font-semibold text-white bg-white/10 hover:bg-white/15 transition-colors px-4 py-2 rounded-xl border border-white/10 backdrop-blur-md shadow-lg">
+                <Clock className="w-4 h-4 text-blue-300" />
+                <span>9:00 AM - 6:00 PM</span>
+              </div>
+              <div className="flex items-center gap-2 text-sm font-bold text-amber-200 bg-gradient-to-r from-amber-500/20 to-orange-500/20 px-4 py-2 rounded-xl border border-amber-400/30 backdrop-blur-md shadow-[0_0_15px_rgba(245,158,11,0.2)]">
+                <Tag className="w-4 h-4 text-amber-300" />
+                <span>Limited Slots Available</span>
               </div>
             </motion.div>
-          </div>
+          </motion.div>
 
+          {/* Right Content / Countdown & CTA */}
           <motion.div 
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.4 }}
-            className="w-full md:w-auto flex flex-col items-center gap-5"
+            variants={floatVariants}
+            initial="hidden"
+            animate="visible"
+            className="flex flex-col items-center xl:items-end gap-6 shrink-0 w-full xl:w-auto mt-6 xl:mt-0"
           >
-            {/* Limited Slots Badge */}
-            <div className="flex items-center gap-2 px-5 py-2.5 bg-devine-pink/10 border border-devine-pink/20 rounded-full">
-              <Sparkles className="w-4 h-4 text-devine-pink animate-pulse" />
-              <span className="text-sm font-bold text-devine-purple">Limited Slots Available</span>
+            {/* Premium Countdown */}
+            <div className="flex flex-col items-center xl:items-end gap-3 w-full">
+              <span className="text-sm text-blue-200 font-bold uppercase tracking-[0.2em] drop-shadow-sm">
+                Offer Starts In
+              </span>
+              <div className="flex items-center justify-center gap-2 md:gap-3">
+                <TimeUnit value={time.d} label="Days" />
+                <span className="text-3xl font-light text-blue-300/50 mb-6 animate-pulse">:</span>
+                <TimeUnit value={time.h} label="Hours" />
+                <span className="text-3xl font-light text-blue-300/50 mb-6 animate-pulse">:</span>
+                <TimeUnit value={time.m} label="Mins" />
+                <span className="text-3xl font-light text-blue-300/50 mb-6 animate-pulse">:</span>
+                <TimeUnit value={time.s} label="Secs" />
+              </div>
             </div>
 
             {/* CTA Button */}
-            <Button size="lg" className="w-full bg-devine-purple hover:bg-devine-purple-dark text-white text-lg font-bold h-16 px-12 rounded-full shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group" asChild>
-              <Link href={WHATSAPP_URL} target="_blank">
-                Book Your Slot 
-                <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-              </Link>
-            </Button>
-
-            {/* Discounts Tag */}
-            <div className="flex items-center gap-2 text-sm font-semibold text-devine-purple">
-              <Tag className="w-4 h-4" />
-              <span>Special discounts on packages</span>
-            </div>
+            <Link href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
+              <div className="group relative w-full sm:w-auto flex items-center justify-center gap-3 px-10 py-4 md:py-5 bg-white text-indigo-950 font-extrabold text-lg rounded-2xl overflow-hidden transition-all duration-300 hover:scale-[1.03] hover:shadow-[0_0_30px_rgba(255,255,255,0.4)] cursor-pointer">
+                <div className="absolute inset-0 bg-gradient-to-r from-slate-100 to-slate-200 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <span className="relative flex items-center gap-2 drop-shadow-sm">
+                  Book Your Slot
+                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1.5 transition-transform duration-300" />
+                </span>
+              </div>
+            </Link>
           </motion.div>
-          
+
         </div>
       </div>
-    </section>
+    </div>
   );
-}
+};
+
+const TimeUnit = ({ value, label }: { value: string; label: string }) => (
+  <div className="flex flex-col items-center gap-2">
+    <div className="flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-b from-white/10 to-white/5 border border-white/20 rounded-2xl backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.3)] inset-shadow-sm transition-transform hover:scale-105 duration-300">
+      <span className="text-3xl md:text-5xl font-extrabold text-white font-mono tracking-tighter drop-shadow-md">{value}</span>
+    </div>
+    <span className="text-[10px] md:text-xs text-blue-200 font-bold uppercase tracking-widest drop-shadow-sm">{label}</span>
+  </div>
+);

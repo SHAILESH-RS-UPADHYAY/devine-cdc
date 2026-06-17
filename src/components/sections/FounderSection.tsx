@@ -49,7 +49,7 @@ export function FounderSection() {
                 <div className="relative w-full aspect-[1045/1505] rounded-[2rem] overflow-hidden">
                   <Image 
                     src={founder.image} 
-                    alt={`Dr. ${founder.name}`} 
+                    alt={`Mrs. ${founder.name}`} 
                     fill 
                     className="object-cover object-top transition-transform duration-700 group-hover:scale-105 filter contrast-102 saturate-105"
                     sizes="(max-width: 768px) 400px, 600px"
@@ -83,11 +83,11 @@ export function FounderSection() {
           <div className="w-full lg:w-1/2 space-y-5 lg:pl-6">
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-brand-purple/5 rounded-full text-brand-purple font-semibold text-sm">
               <span className="w-2 h-2 rounded-full bg-brand-pink"></span>
-              Meet Our Doctor
+              Meet Our Psychologist
             </div>
             
             <h2 className="text-3xl md:text-5xl font-heading font-extrabold text-gray-900 leading-tight">
-              Dr. {founder.name}
+              Mrs. {founder.name}
             </h2>
             <p className="text-xl text-brand-purple font-bold">
               {founder.role}

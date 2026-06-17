@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     template: "%s | Devine CDC",
   },
   description:
-    "Devine Child Development Centre offers expert Speech Therapy, Occupational Therapy, ABA Therapy & Special Education for children with Autism, ADHD, and Speech Delay in Gurgaon. RCI licensed professionals. Book your free assessment today.",
+    "Devine Child Development Centre offers expert Speech & Language Therapy, Occupational Therapy, ABA Therapy & Special Education for children with Autism, ADHD, and Speech Delay in Gurgaon. RCI licensed professionals. Book your free assessment today.",
   keywords: [
     "child development centre gurgaon",
     "speech therapy gurgaon",
@@ -102,7 +102,7 @@ export default function RootLayout({
               name: "Devine Child Development Centre",
               alternateName: "Devine CDC",
               description:
-                "Expert child development centre offering Speech Therapy, Occupational Therapy, ABA Therapy & Special Education for children with Autism, ADHD, and developmental delays.",
+                "Expert child development centre offering Speech & Language Therapy, Occupational Therapy, ABA Therapy & Special Education for children with Autism, ADHD, and developmental delays.",
               url: "https://devinecdc.com",
               logo: "https://devinecdc.com/images/logo.png",
               image: "https://devinecdc.com/images/og-image.jpg",
@@ -129,10 +129,11 @@ export default function RootLayout({
               },
               priceRange: "₹₹",
               medicalSpecialty: [
-                "Speech Therapy",
+                "Speech & Language Therapy",
                 "Occupational Therapy",
                 "ABA Therapy",
                 "Special Education",
+                "Psychological & Behavioral Intervention",
                 "Child Psychology",
               ],
               sameAs: [

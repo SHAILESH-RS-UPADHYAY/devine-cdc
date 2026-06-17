@@ -66,7 +66,7 @@ export function Footer() {
               </div>
             </div>
             <p className="text-sm text-slate-400 leading-relaxed max-w-xs">
-              Expert child development centre offering Speech Therapy, Occupational Therapy, ABA Therapy & Special Education in Gurgaon.
+              Expert child development centre offering Speech & Language Therapy, Occupational Therapy, ABA Therapy & Special Education in Gurgaon.
             </p>
             <div className="flex gap-4">
               <a href={CONTACT.instagram} target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-devine-purple hover:text-white transition-colors">
@@ -101,8 +101,9 @@ export function Footer() {
             <ul className="space-y-4 text-sm font-medium">
               <li><Link href="/therapies/aba-therapy" className="hover:text-devine-pink transition-colors">ABA Therapy</Link></li>
               <li><Link href="/therapies/occupational-therapy" className="hover:text-devine-pink transition-colors">Occupational Therapy</Link></li>
-              <li><Link href="/therapies/speech-therapy" className="hover:text-devine-pink transition-colors">Speech Therapy</Link></li>
+              <li><Link href="/therapies/speech-therapy" className="hover:text-devine-pink transition-colors">Speech & Language Therapy</Link></li>
               <li><Link href="/therapies/special-education" className="hover:text-devine-pink transition-colors">Special Education</Link></li>
+              <li><Link href="/therapies/psychological-behavioral-intervention" className="hover:text-devine-pink transition-colors">Psychological & Behavioral Intervention</Link></li>
             </ul>
           </div>
 

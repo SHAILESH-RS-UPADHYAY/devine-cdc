@@ -59,14 +59,17 @@ export function ServicesPreview() {
           viewport={{ once: true, margin: "-80px" }}
           className="grid grid-cols-1 md:grid-cols-2 gap-8"
         >
-          {THERAPIES.map((therapy) => {
+          {THERAPIES.map((therapy, index) => {
+            const isLastOdd = index === THERAPIES.length - 1 && THERAPIES.length % 2 !== 0;
             const Icon = iconMap[therapy.icon];
             return (
               <motion.div
                 key={therapy.id}
                 variants={itemVariants}
                 whileHover={{ y: -8, transition: { duration: 0.3 } }}
-                className="group relative bg-white/90 backdrop-blur-md rounded-3xl p-8 transition-all duration-500 overflow-hidden"
+                className={`group relative bg-white/90 backdrop-blur-md rounded-3xl p-8 transition-all duration-500 overflow-hidden ${
+                  isLastOdd ? "md:col-span-2 md:w-1/2 md:justify-self-center md:mx-auto" : ""
+                }`}
                 style={{
                   boxShadow: `0 10px 40px -10px ${therapy.color}40, inset 0 0 0 1px ${therapy.color}30, inset 0 0 20px ${therapy.color}05`,
                   borderBottom: `4px solid ${therapy.color}`

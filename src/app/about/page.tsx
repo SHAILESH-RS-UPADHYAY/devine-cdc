@@ -86,7 +86,7 @@ export default function AboutPage() {
       {/* Founders Section */}
       <section className="container mx-auto px-4 md:px-6">
         <h2 className="text-3xl md:text-5xl font-heading font-extrabold text-center text-devine-purple mb-16">
-          Meet Our Doctor
+          Meet Our Psychologist
         </h2>
         <div className="flex flex-col gap-12 max-w-7xl mx-auto">
           {FOUNDERS.map((founder, i) => (

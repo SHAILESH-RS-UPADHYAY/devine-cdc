@@ -13,6 +13,7 @@ export interface TherapyContent {
   signsToWatch: string[];
   faqs: { question: string; answer: string }[];
   parentNote: string;
+  imageUrl?: string;
 }
 
 export const THERAPY_CONTENT: Record<string, TherapyContent> = {
@@ -419,5 +420,108 @@ export const THERAPY_CONTENT: Record<string, TherapyContent> = {
     ],
     parentNote:
       "Learning is not a race. Every child has their own timeline and their own brilliance. At Devine CDC, we don't try to fit your child into a mould — we find the mould that fits them. And we celebrate every milestone, no matter how small it may seem.",
+  },
+
+  "psychological-behavioral-intervention": {
+    id: "psychological-behavioral-intervention",
+    heroTagline: "Fostering emotional well-being and social confidence.",
+    whatIs:
+      "Psychological & Behavioral Intervention is a comprehensive approach that supports children's emotional, behavioral, and social development. At Devine CDC, our experienced psychologists use evidence-based therapies, including behavioral therapy, play therapy, and psychological counseling, to help children navigate their feelings, develop coping strategies, and build positive relationships.",
+    whyItMatters:
+      "Children face various challenges as they grow, from anxiety and emotional regulation difficulties to social struggles and behavioral issues. Early psychological intervention provides them with a safe space to express themselves, understand their emotions, and learn effective ways to manage challenges. By addressing these issues early, we can prevent long-term emotional distress and equip children with the resilience they need to succeed in life.",
+    benefits: [
+      {
+        title: "Emotional Regulation",
+        description:
+          "Teaches children to identify, understand, and manage their emotions, reducing anxiety, frustration, and emotional outbursts.",
+      },
+      {
+        title: "Behavioral Management",
+        description:
+          "Addresses challenging behaviors through positive reinforcement and skill-building, promoting more adaptive and socially acceptable responses.",
+      },
+      {
+        title: "Social Skills Development",
+        description:
+          "Helps children navigate social interactions, build empathy, resolve conflicts, and form meaningful friendships with peers.",
+      },
+      {
+        title: "Anxiety Reduction",
+        description:
+          "Provides coping strategies and therapeutic support to alleviate anxiety, fears, and phobias, empowering children to face challenges with confidence.",
+      },
+      {
+        title: "Self-Esteem Enhancement",
+        description:
+          "Fosters a positive self-image and a sense of self-worth by celebrating achievements, building resilience, and challenging negative thought patterns.",
+      },
+      {
+        title: "Family Support & Guidance",
+        description:
+          "Equips parents with effective strategies, communication techniques, and a deeper understanding of their child's needs to support them at home.",
+      },
+    ],
+    approach: [
+      {
+        step: "Comprehensive Psychological Assessment",
+        detail:
+          "We begin with a thorough evaluation to understand your child's emotional, behavioral, and cognitive functioning, identifying their strengths and areas for support.",
+      },
+      {
+        step: "Individualised Therapy Plan",
+        detail:
+          "Based on the assessment, our psychologists create a tailored treatment plan with clear goals, drawing from various therapeutic approaches to best meet your child's needs.",
+      },
+      {
+        step: "Evidence-Based Therapies",
+        detail:
+          "We utilize a range of interventions, including Cognitive Behavioral Therapy (CBT), play therapy, and behavior modification techniques, in a safe and supportive environment.",
+      },
+      {
+        step: "Collaboration with Parents and School",
+        detail:
+          "We believe in a holistic approach, working closely with parents and educators to ensure consistency and support across all environments.",
+      },
+      {
+        step: "Ongoing Monitoring and Review",
+        detail:
+          "We regularly review your child's progress, adjusting the therapy plan as needed to ensure continued growth and well-being.",
+      },
+    ],
+    signsToWatch: [
+      "Frequent or severe temper tantrums",
+      "Difficulty managing anger or frustration",
+      "Excessive worry, anxiety, or fears",
+      "Sadness, withdrawal, or loss of interest in activities",
+      "Difficulty making or keeping friends",
+      "Changes in sleep or appetite",
+      "School refusal or declining academic performance",
+      "Aggressive behavior towards themselves or others",
+    ],
+    faqs: [
+      {
+        question: "How do I know if my child needs psychological support?",
+        answer:
+          "If your child's behavior, emotions, or social interactions are interfering with their daily life, school performance, or family relationships, a psychological assessment can help identify the underlying issues and provide guidance on appropriate support.",
+      },
+      {
+        question: "What happens during a therapy session?",
+        answer:
+          "Therapy sessions are tailored to your child's age and needs. For younger children, play therapy is often used to help them express their feelings and learn new skills. Older children and teenagers may participate in talk therapy or cognitive-behavioral interventions.",
+      },
+      {
+        question: "Will you involve me in my child's therapy?",
+        answer:
+          "Absolutely. Parent involvement is crucial for successful outcomes. We provide regular updates, parent training, and strategies you can use at home to support your child's progress.",
+      },
+      {
+        question: "How long does therapy take?",
+        answer:
+          "The duration of therapy varies depending on the child's needs and goals. Some children benefit from short-term intervention to address specific issues, while others may require longer-term support for ongoing challenges.",
+      },
+    ],
+    parentNote:
+      "We understand that seeking psychological support for your child can be a big step. Rest assured that our team provides a compassionate, non-judgmental, and safe space for your family. We are here to support your child's emotional well-being and help them thrive.",
+    imageUrl: "/images/psychological-intervention.png",
   },
 };
