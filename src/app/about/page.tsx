@@ -32,14 +32,20 @@ export default function AboutPage() {
       {/* Mission & Vision */}
       <section className="container mx-auto px-4 md:px-6 mb-20">
         <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div className="relative h-[500px] rounded-[2.5rem] overflow-hidden shadow-[0_0_40px_rgba(255,105,180,0.4)] border-4 border-devine-pink/50 group">
-            <Image
-              src="https://images.unsplash.com/photo-1587691592099-24045742c181?auto=format&fit=crop&w=3840&q=100"
-              alt="Therapist helping a child"
-              fill
-              className="object-cover transition-transform duration-700 group-hover:scale-105"
-            />
-            <div className="absolute inset-0 bg-gradient-to-tr from-devine-purple/40 to-transparent mix-blend-overlay"></div>
+          <div className="relative h-[500px] rounded-[2.5rem] group">
+            {/* Glowing Edge Effect */}
+            <div className="absolute -inset-3 bg-gradient-to-r from-devine-pink via-devine-purple to-blue-400 rounded-[3rem] blur-2xl opacity-60 group-hover:opacity-100 transition-opacity duration-700"></div>
+            
+            <div className="relative h-full w-full rounded-[2.5rem] overflow-hidden border-4 border-white/60 shadow-2xl">
+              <Image
+                src="/images/about-therapy.png"
+                alt="Therapist helping a child in a bright clinic"
+                fill
+                className="object-cover transition-transform duration-1000 group-hover:scale-110"
+                priority
+              />
+              <div className="absolute inset-0 bg-gradient-to-tr from-devine-purple/20 to-transparent mix-blend-overlay"></div>
+            </div>
           </div>
           <div>
             <h2 className="text-3xl font-heading font-bold text-devine-purple mb-6">Our Mission</h2>
