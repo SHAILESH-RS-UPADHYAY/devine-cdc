@@ -88,7 +88,7 @@ export function Navbar() {
                     alt="Devine CDC Logo" 
                     width={48} 
                     height={48} 
-                    className="w-full h-full object-contain drop-shadow-sm"
+                    className="w-full h-full object-contain drop-shadow-sm p-1"
                     priority
                   />
                 </div>

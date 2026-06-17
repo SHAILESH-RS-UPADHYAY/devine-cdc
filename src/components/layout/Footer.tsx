@@ -58,7 +58,7 @@ export function Footer() {
                       alt="Devine CDC Logo" 
                       width={64} 
                       height={64} 
-                      className="w-full h-full object-contain drop-shadow-md"
+                      className="w-full h-full object-contain drop-shadow-md p-1.5"
                     />
                   </div>
                 </motion.div>
@@ -102,9 +102,9 @@ export function Footer() {
           <div>
             <h3 className="text-white font-bold text-lg mb-6">Therapies</h3>
             <ul className="space-y-4 text-sm font-medium">
-              <li><Link href="/therapies/aba" className="hover:text-devine-pink transition-colors">ABA Therapy</Link></li>
-              <li><Link href="/therapies/occupational" className="hover:text-devine-pink transition-colors">Occupational Therapy</Link></li>
-              <li><Link href="/therapies/speech" className="hover:text-devine-pink transition-colors">Speech Therapy</Link></li>
+              <li><Link href="/therapies/aba-therapy" className="hover:text-devine-pink transition-colors">ABA Therapy</Link></li>
+              <li><Link href="/therapies/occupational-therapy" className="hover:text-devine-pink transition-colors">Occupational Therapy</Link></li>
+              <li><Link href="/therapies/speech-therapy" className="hover:text-devine-pink transition-colors">Speech Therapy</Link></li>
               <li><Link href="/therapies/special-education" className="hover:text-devine-pink transition-colors">Special Education</Link></li>
             </ul>
           </div>
