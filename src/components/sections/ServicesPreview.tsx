@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { THERAPIES } from "@/lib/constants";
 import Link from "next/link";
-import { ArrowRight, Brain, Hand, MessageCircle, BookOpen } from "lucide-react";
+import { ArrowRight, Brain, Hand, MessageCircle, BookOpen, HeartHandshake } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const iconMap: Record<string, React.ElementType> = {
@@ -11,6 +11,7 @@ const iconMap: Record<string, React.ElementType> = {
   Hand: Hand,
   MessageCircle: MessageCircle,
   BookOpen: BookOpen,
+  HeartHandshake: HeartHandshake,
 };
 
 export function ServicesPreview() {
