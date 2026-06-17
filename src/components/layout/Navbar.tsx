@@ -96,7 +96,7 @@ export function Navbar() {
 
           {/* Center: Desktop Navigation */}
           <div className="hidden xl:flex flex-none justify-center absolute left-1/2 -translate-x-1/2">
-            <nav className="flex items-center gap-1 bg-white/50 backdrop-blur-md px-2 py-1.5 rounded-full border border-slate-200/50 shadow-[0_4px_20px_rgba(0,0,0,0.03)]">
+            <nav aria-label="Main Navigation" className="flex items-center gap-1 bg-white/50 backdrop-blur-md px-2 py-1.5 rounded-full border border-slate-200/50 shadow-[0_4px_20px_rgba(0,0,0,0.03)]">
               {NAV_LINKS.map((link) => (
                 <Link
                   key={link.label}
@@ -137,8 +137,11 @@ export function Navbar() {
             <button
               className="relative z-50 w-11 h-11 flex items-center justify-center rounded-full bg-white shadow-[0_2px_10px_rgba(0,0,0,0.05)] border border-slate-100 text-slate-800"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              aria-expanded={isMobileMenuOpen}
+              aria-label="Toggle Mobile Menu"
+              aria-controls="mobile-menu"
             >
-              {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+              {isMobileMenuOpen ? <X size={20} aria-hidden="true" /> : <Menu size={20} aria-hidden="true" />}
             </button>
           </div>
         </div>
@@ -198,6 +201,7 @@ export function Navbar() {
                   href={CONTACT.instagram} 
                   target="_blank" 
                   rel="noopener noreferrer"
+                  aria-label="Visit our Instagram page"
                   className="w-14 h-14 flex items-center justify-center rounded-2xl bg-slate-50 text-slate-600 hover:bg-devine-pink hover:text-white transition-all border border-slate-100 shadow-sm"
                 >
                   <InstagramIcon size={24} />
@@ -206,9 +210,10 @@ export function Navbar() {
                   href={`https://wa.me/${CONTACT.whatsapp}`} 
                   target="_blank" 
                   rel="noopener noreferrer"
+                  aria-label="Contact us on WhatsApp"
                   className="w-14 h-14 flex items-center justify-center rounded-2xl bg-slate-50 text-slate-600 hover:bg-green-500 hover:text-white transition-all border border-slate-100 shadow-sm"
                 >
-                  <Phone size={24} />
+                  <Phone size={24} aria-hidden="true" />
                 </a>
               </div>
             </div>

@@ -57,7 +57,7 @@ export function HeroSection() {
             </motion.div>
 
             {/* Headline */}
-            <motion.h1 variants={itemVariants} className="font-heading font-black text-5xl sm:text-6xl lg:text-[4.5rem] xl:text-[5.5rem] leading-[1.05] text-slate-900 mb-6 tracking-[-0.03em]">
+            <motion.h1 variants={itemVariants} className="font-heading font-black text-4xl sm:text-5xl md:text-6xl lg:text-[4.5rem] xl:text-[5.5rem] leading-[1.05] sm:leading-[1.1] text-slate-900 mb-6 tracking-[-0.03em]">
               Unlock Your Child&apos;s <br />
               <span className="relative inline-block mt-2">
                 <span className="absolute -inset-1 bg-gradient-to-r from-devine-purple/20 to-devine-pink/20 blur-xl rounded-lg"></span>
@@ -84,24 +84,24 @@ export function HeroSection() {
                     }
                   }
                 }}>
-                  <CalendarCheck className="w-5 h-5 group-hover:scale-110 transition-transform" />
+                  <CalendarCheck className="w-5 h-5 group-hover:scale-110 transition-transform" aria-hidden="true" />
                   Book Assessment
                 </Link>
               </Button>
-              <Link href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
+              <Link href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto" aria-label="Book a free consultation via WhatsApp">
                 <Button variant="outline" size="lg" className="text-base sm:text-lg px-8 py-7 h-auto gap-3 w-full sm:w-auto rounded-2xl bg-white/70 backdrop-blur-md border-slate-200 text-slate-700 hover:text-slate-900 hover:bg-white shadow-[0_4px_15px_rgba(0,0,0,0.02)] hover:shadow-[0_8px_25px_rgba(0,0,0,0.06)] transition-all duration-300 group">
-                  <Phone className="w-5 h-5 text-devine-purple group-hover:rotate-12 transition-transform" />
+                  <Phone className="w-5 h-5 text-devine-purple group-hover:rotate-12 transition-transform" aria-hidden="true" />
                   Free Consultation
                 </Button>
               </Link>
             </motion.div>
 
             {/* Social Proof Mini */}
-            <motion.div variants={itemVariants} className="mt-12 flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6">
+            <motion.div variants={itemVariants} whileTap={{ scale: 0.97 }} className="mt-12 flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6 cursor-pointer">
               <div className="flex -space-x-3">
                 {[1, 2, 3, 4].map((i) => (
                   <div key={i} className="w-11 h-11 rounded-full border-[3px] border-[#FAFAFC] shadow-sm overflow-hidden relative z-10">
-                    <Image src={`https://i.pravatar.cc/150?img=${i + 10}`} alt="Parent review" width={44} height={44} className="w-full h-full object-cover" />
+                    <Image src={`https://i.pravatar.cc/150?img=${i + 10}`} alt={`Parent review ${i}`} width={44} height={44} className="w-full h-full object-cover" />
                   </div>
                 ))}
                 <div className="w-11 h-11 rounded-full border-[3px] border-[#FAFAFC] shadow-sm bg-slate-100 flex items-center justify-center relative z-0">
@@ -114,7 +114,7 @@ export function HeroSection() {
                     <Star key={i} fill="currentColor" size={16} />
                   ))}
                 </div>
-                <span className="text-sm font-semibold text-slate-600">Trusted by 500+ Parents</span>
+                <span className="text-sm font-semibold text-slate-600">Trusted by 100+ Families</span>
               </div>
             </motion.div>
           </motion.div>
@@ -131,11 +131,12 @@ export function HeroSection() {
               <div className="absolute inset-2 rounded-[2rem] overflow-hidden bg-slate-100">
                 <Image 
                   src="/images/children_sensory_play.png" 
-                  alt="Happy child in therapy"
+                  alt="Happy child engaging in sensory play during therapy"
                   fill
                   sizes="(max-width: 768px) 100vw, 50vw"
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
                   priority
+                  quality={90}
                 />
                 {/* Elegant overlay gradient */}
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent opacity-80" />
@@ -147,9 +148,10 @@ export function HeroSection() {
               animate={{ y: [0, -12, 0] }}
               transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
               className="absolute -left-4 sm:-left-10 top-[15%] bg-white/95 backdrop-blur-xl p-4 sm:p-5 rounded-2xl shadow-[0_15px_40px_rgba(0,0,0,0.08)] border border-slate-100 flex items-center gap-4 z-30"
+              aria-hidden="true"
             >
               <div className="w-12 h-12 rounded-full bg-devine-pink/10 flex items-center justify-center text-devine-pink shadow-inner">
-                <HeartPulse size={24} />
+                <HeartPulse size={24} aria-hidden="true" />
               </div>
               <div>
                 <p className="font-heading font-black text-2xl text-slate-900">5+</p>
@@ -162,9 +164,10 @@ export function HeroSection() {
               animate={{ y: [0, 15, 0] }}
               transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
               className="absolute -right-2 sm:-right-8 bottom-[10%] bg-white/95 backdrop-blur-xl p-4 sm:p-5 rounded-2xl shadow-[0_15px_40px_rgba(0,0,0,0.08)] border border-slate-100 flex items-center gap-4 z-30"
+              aria-hidden="true"
             >
               <div className="w-12 h-12 rounded-full bg-devine-blue/10 flex items-center justify-center text-devine-blue shadow-inner">
-                <ShieldCheck size={24} />
+                <ShieldCheck size={24} aria-hidden="true" />
               </div>
               <div>
                 <p className="font-heading font-black text-xl text-slate-900">Certified</p>

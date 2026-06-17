@@ -1,13 +1,15 @@
+import dynamic from "next/dynamic";
 import { OfferBanner } from "@/components/sections/OfferBanner";
 import { HeroSection } from "@/components/sections/HeroSection";
-import { TrustBanner } from "@/components/sections/TrustBanner";
-import { ServicesPreview } from "@/components/sections/ServicesPreview";
-import { ConditionsSection } from "@/components/sections/ConditionsSection";
-import { GroupClassesSection } from "@/components/sections/GroupClassesSection";
-import { FounderSection } from "@/components/sections/FounderSection";
-import { BookingFormSection } from "@/components/sections/BookingFormSection";
-import { ScrollReveal } from "@/components/ui/ScrollReveal";
-import { SafeSpaceDivider } from "@/components/sections/SafeSpaceDivider";
+
+const TrustBanner = dynamic(() => import("@/components/sections/TrustBanner").then(mod => mod.TrustBanner));
+const ServicesPreview = dynamic(() => import("@/components/sections/ServicesPreview").then(mod => mod.ServicesPreview));
+const ConditionsSection = dynamic(() => import("@/components/sections/ConditionsSection").then(mod => mod.ConditionsSection));
+const GroupClassesSection = dynamic(() => import("@/components/sections/GroupClassesSection").then(mod => mod.GroupClassesSection));
+const FounderSection = dynamic(() => import("@/components/sections/FounderSection").then(mod => mod.FounderSection));
+const BookingFormSection = dynamic(() => import("@/components/sections/BookingFormSection").then(mod => mod.BookingFormSection));
+const ScrollReveal = dynamic(() => import("@/components/ui/ScrollReveal").then(mod => mod.ScrollReveal));
+const SafeSpaceDivider = dynamic(() => import("@/components/sections/SafeSpaceDivider").then(mod => mod.SafeSpaceDivider));
 
 export default function Home() {
   return (

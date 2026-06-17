@@ -68,11 +68,12 @@ export function ServicesPreview() {
                 key={therapy.id}
                 variants={itemVariants}
                 whileHover={{ y: -8, transition: { duration: 0.3 } }}
+                whileTap={{ scale: 0.98 }}
                 className={`group relative bg-white/90 backdrop-blur-md rounded-3xl p-8 transition-all duration-500 overflow-hidden ${
                   isLastOdd ? "md:col-span-2 md:w-1/2 md:justify-self-center md:mx-auto" : ""
                 }`}
                 style={{
-                  boxShadow: `0 10px 40px -10px ${therapy.color}40, inset 0 0 0 1px ${therapy.color}30, inset 0 0 20px ${therapy.color}05`,
+                  boxShadow: `0 10px 40px -10px ${therapy.color}50, inset 0 0 0 1px ${therapy.color}40, inset 0 0 20px ${therapy.color}15`,
                   borderBottom: `4px solid ${therapy.color}`
                 }}
               >
@@ -95,6 +96,7 @@ export function ServicesPreview() {
                   <div 
                     className="inline-flex items-center justify-center rounded-2xl mb-6 transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg w-14 h-14"
                     style={{ backgroundColor: `${therapy.color}15`, color: therapy.color, boxShadow: `0 4px 20px ${therapy.color}30` }}
+                    aria-hidden="true"
                   >
                     {Icon && <Icon className="w-7 h-7" />}
                   </div>
@@ -108,12 +110,13 @@ export function ServicesPreview() {
                   </p>
 
                   <div className="mt-auto pt-2">
-                    <Link href={therapy.href} className="inline-flex items-center text-base font-bold group/link">
+                    <Link href={therapy.href} className="inline-flex items-center text-base font-bold group/link" aria-label={`Learn more about ${therapy.title}`}>
                       <span style={{ color: therapy.color }}>Learn more</span>
                       <ArrowRight 
                         size={18} 
                         className="ml-2 transition-transform duration-300 group-hover/link:translate-x-2" 
                         style={{ color: therapy.color }}
+                        aria-hidden="true"
                       />
                     </Link>
                   </div>
