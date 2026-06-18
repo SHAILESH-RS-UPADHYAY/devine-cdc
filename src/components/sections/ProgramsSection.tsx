@@ -30,7 +30,7 @@ export function ProgramsSection() {
   };
 
   return (
-    <section id="programs" className="py-24 bg-white relative overflow-hidden">
+    <section id="programs" className="py-24 bg-transparent relative overflow-hidden">
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         
         {/* Conditions We Treat Section */}
@@ -42,7 +42,7 @@ export function ProgramsSection() {
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="text-sm font-bold tracking-widest text-devine-purple uppercase mb-3">Conditions We Treat</h2>
+              <h2 className="text-sm font-bold tracking-widest text-devine-orange uppercase mb-3">Conditions We Treat</h2>
               <h3 className="font-heading text-4xl md:text-5xl font-extrabold text-gray-900 mb-6">
                 Specialized support for every need.
               </h3>
@@ -62,9 +62,9 @@ export function ProgramsSection() {
                 <motion.div
                   key={condition.id}
                   variants={itemVariants}
-                  className="bg-gray-50 rounded-3xl p-8 border border-gray-100 hover:border-devine-purple/30 hover:shadow-lg transition-all duration-300"
+                  className="bg-gray-50 rounded-3xl p-8 border border-gray-100 hover:border-devine-orange/30 hover:shadow-lg transition-all duration-300"
                 >
-                  <div className="w-12 h-12 rounded-xl bg-devine-purple/10 text-devine-purple flex items-center justify-center mb-6">
+                  <div className="w-12 h-12 rounded-xl bg-devine-orange/10 text-devine-orange flex items-center justify-center mb-6">
                     {Icon && <Icon className="w-6 h-6" />}
                   </div>
                   <h4 className="font-heading font-bold text-2xl text-gray-900 mb-3">
@@ -88,7 +88,7 @@ export function ProgramsSection() {
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="text-sm font-bold tracking-widest text-devine-pink uppercase mb-3">Holistic Development</h2>
+              <h2 className="text-sm font-bold tracking-widest text-devine-peach uppercase mb-3">Holistic Development</h2>
               <h3 className="font-heading text-4xl md:text-5xl font-extrabold text-gray-900 mb-6">
                 Enriching group classes.
               </h3>

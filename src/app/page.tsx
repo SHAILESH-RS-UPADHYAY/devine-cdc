@@ -3,6 +3,7 @@ import { OfferBanner } from "@/components/sections/OfferBanner";
 import { HeroSection } from "@/components/sections/HeroSection";
 
 const TrustBanner = dynamic(() => import("@/components/sections/TrustBanner").then(mod => mod.TrustBanner));
+const AnimatedLogoSection = dynamic(() => import("@/components/sections/AnimatedLogoSection").then(mod => mod.AnimatedLogoSection));
 const ServicesPreview = dynamic(() => import("@/components/sections/ServicesPreview").then(mod => mod.ServicesPreview));
 const ConditionsSection = dynamic(() => import("@/components/sections/ConditionsSection").then(mod => mod.ConditionsSection));
 const GroupClassesSection = dynamic(() => import("@/components/sections/GroupClassesSection").then(mod => mod.GroupClassesSection));
@@ -15,8 +16,11 @@ export default function Home() {
   return (
     <>
       <OfferBanner />
-      <HeroSection />
       
+      <AnimatedLogoSection />
+
+      <HeroSection />
+
       <ScrollReveal>
         <TrustBanner />
       </ScrollReveal>
@@ -24,8 +28,6 @@ export default function Home() {
       <ScrollReveal delay={0.1}>
         <ServicesPreview />
       </ScrollReveal>
-
-      <SafeSpaceDivider />
       
       <ScrollReveal delay={0.1}>
         <ConditionsSection />
@@ -39,6 +41,8 @@ export default function Home() {
         <FounderSection />
       </ScrollReveal>
       
+      <SafeSpaceDivider />
+
       <BookingFormSection />
     </>
   );

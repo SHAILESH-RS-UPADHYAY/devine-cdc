@@ -5,6 +5,7 @@ import { THERAPIES } from "@/lib/constants";
 import Link from "next/link";
 import { ArrowRight, Brain, Hand, MessageCircle, BookOpen, HeartHandshake } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { AnimatedSectionHeader } from "@/components/ui/AnimatedSectionHeader";
 
 const iconMap: Record<string, React.ElementType> = {
   Brain: Brain,
@@ -31,27 +32,17 @@ export function ServicesPreview() {
   };
 
   return (
-    <section className="py-24 bg-gray-50 relative overflow-hidden">
+    <section className="py-24 bg-transparent relative overflow-hidden">
       {/* Subtle Background Pattern */}
       <div className="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] opacity-30 pointer-events-none" />
       
       <div className="container mx-auto px-4 md:px-6 relative z-10">
-        <div className="max-w-3xl mb-16">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.7 }}
-          >
-            <h2 className="text-sm font-bold tracking-widest text-devine-purple uppercase mb-3">The Therapies We Provide</h2>
-            <h3 className="font-heading text-4xl md:text-5xl font-extrabold text-gray-900 mb-6">
-              Personalized care for your child&apos;s unique journey.
-            </h3>
-            <p className="text-lg text-gray-600">
-              We offer comprehensive, evidence-based therapies designed to unlock every child&apos;s potential in a safe, nurturing environment.
-            </p>
-          </motion.div>
-        </div>
+        <AnimatedSectionHeader 
+          title="Therapies We Provide"
+          subtitle="Personalized care for your child's unique journey."
+          description="We offer comprehensive, evidence-based therapies designed to unlock every child's potential in a safe, nurturing environment."
+          align="center"
+        />
 
         <motion.div
           variants={containerVariants}
@@ -134,7 +125,7 @@ export function ServicesPreview() {
           className="mt-16 text-center"
         >
           <Link href="/programs" target="_blank">
-            <Button variant="outline" size="lg" className="rounded-full px-8 py-6 text-lg border-gray-200 hover:border-devine-purple hover:text-devine-purple hover:bg-devine-purple/5 transition-colors">
+            <Button variant="outline" size="lg" className="rounded-full px-8 py-6 text-lg border-gray-200 hover:border-devine-orange hover:text-devine-orange hover:bg-devine-orange/5 transition-colors">
               View All Programs
             </Button>
           </Link>

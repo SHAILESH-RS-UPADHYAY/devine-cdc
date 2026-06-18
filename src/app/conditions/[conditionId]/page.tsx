@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import { CONDITIONS, SITE_CONFIG, WHATSAPP_URL, CONTACT } from "@/lib/constants";
 import { CONDITION_CONTENT } from "@/lib/condition-content";
 import {
@@ -105,18 +106,32 @@ export default async function ConditionDetailPage({ params }: PageProps) {
         <div className="grid lg:grid-cols-3 gap-12 lg:gap-16">
           {/* ═══ Main Content ═══ */}
           <div className="lg:col-span-2 space-y-16">
-            {/* Overview */}
+            {/* Overview with Image */}
             {content && (
-              <section>
-                <h2 className="text-2xl md:text-3xl font-heading font-bold text-gray-900 mb-6">
-                  Understanding {condition.shortTitle}
-                </h2>
-                <p className="text-lg text-gray-600 leading-relaxed">
-                  {content.overview}
-                </p>
-                <p className="text-lg text-gray-600 leading-relaxed mt-4">
-                  {content.understanding}
-                </p>
+              <section className="grid lg:grid-cols-2 gap-10 items-center">
+                <div className="order-2 lg:order-1">
+                  <h2 className="text-2xl md:text-3xl font-heading font-bold text-gray-900 mb-6">
+                    Understanding {condition.shortTitle}
+                  </h2>
+                  <p className="text-lg text-gray-600 leading-relaxed">
+                    {content.overview}
+                  </p>
+                  <p className="text-lg text-gray-600 leading-relaxed mt-4">
+                    {content.understanding}
+                  </p>
+                </div>
+                <div className="order-1 lg:order-2 relative h-[300px] md:h-[400px] w-full rounded-[2.5rem] overflow-hidden shadow-2xl ring-1 ring-black/5 group">
+                  <Image 
+                    src={`/images/condition-${condition.id}.png`}
+                    alt={condition.title}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-700 ease-in-out"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    quality={100}
+                    priority
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-tr from-devine-purple/20 to-transparent mix-blend-overlay"></div>
+                </div>
               </section>
             )}
 

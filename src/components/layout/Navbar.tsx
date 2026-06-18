@@ -66,7 +66,6 @@ export function Navbar() {
               }}
             >
               <div className="relative flex items-center">
-                <div className="absolute inset-0 bg-devine-pink/20 blur-xl rounded-full scale-150 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <motion.div 
                   animate={{ y: [-4, 4, -4] }}
                   transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
@@ -74,10 +73,27 @@ export function Navbar() {
                 >
                   <Image 
                     src="/images/logo-textless-transparent.png" 
+                    alt="" 
+                    width={56} 
+                    height={56} 
+                    quality={100}
+                    className="absolute inset-0 w-full h-full object-contain blur-[4px] opacity-90 group-hover:opacity-100 group-hover:blur-[8px] group-hover:scale-110 transition-all duration-500 saturate-[2] brightness-125"
+                  />
+                  <Image 
+                    src="/images/logo-textless-transparent.png" 
+                    alt="" 
+                    width={56} 
+                    height={56} 
+                    quality={100}
+                    className="absolute inset-0 w-full h-full object-contain blur-[2px] opacity-60 group-hover:opacity-80 group-hover:blur-[4px] group-hover:scale-110 transition-all duration-500 saturate-[2.5] brightness-150 mix-blend-screen"
+                  />
+                  <Image 
+                    src="/images/logo-textless-transparent.png" 
                     alt="Devine CDC Logo" 
                     width={56} 
                     height={56} 
-                    className="w-full h-full object-contain drop-shadow-[0_0_15px_rgba(168,85,247,0.8)] transition-all duration-500 group-hover:scale-110 group-hover:drop-shadow-[0_0_25px_rgba(168,85,247,1)]"
+                    quality={100}
+                    className="relative z-10 w-full h-full object-contain transition-all duration-500 group-hover:scale-110 drop-shadow-sm"
                     priority
                   />
                 </motion.div>
@@ -85,7 +101,7 @@ export function Navbar() {
               
               <div className="flex flex-col justify-center">
                 <span className="text-[11px] sm:text-[13px] md:text-[15px] lg:text-[17px] font-heading font-black text-slate-900 uppercase tracking-tight leading-none whitespace-nowrap">
-                  Devine Child <span className="text-devine-purple">Development Centre</span>
+                  Devine Child <span className="text-devine-orange">Development Centre</span>
                 </span>
                 <span className="text-[8px] sm:text-[9px] md:text-[10px] font-medium text-slate-500 uppercase tracking-[0.25em] leading-none mt-1 sm:mt-1.5 ml-0.5">
                   your safe space
@@ -107,7 +123,7 @@ export function Navbar() {
                       window.scrollTo({ top: 0, behavior: 'smooth' });
                     }
                   }}
-                  className="px-5 py-2 rounded-full text-[13px] font-bold text-slate-600 hover:text-devine-purple hover:bg-white/80 transition-all"
+                  className="px-5 py-2 rounded-full text-[13px] font-bold text-slate-600 hover:text-devine-orange hover:bg-white/80 transition-all"
                 >
                   {link.label}
                 </Link>
@@ -117,7 +133,7 @@ export function Navbar() {
 
           {/* Right: Desktop CTA */}
           <div className="flex-1 hidden xl:flex justify-end items-center gap-4">
-            <Button className="rounded-full bg-slate-900 text-white hover:bg-devine-purple font-bold shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 px-7 h-11" asChild>
+            <Button className="rounded-full bg-slate-900 text-white hover:bg-devine-orange font-bold shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 px-7 h-11" asChild>
               <Link href="/#book-appointment" onClick={(e) => {
                 if (window.location.pathname === "/") {
                   e.preventDefault();
@@ -174,7 +190,7 @@ export function Navbar() {
                       }
                       setIsMobileMenuOpen(false);
                     }}
-                    className="text-3xl font-heading font-black text-slate-800 hover:text-devine-purple transition-colors"
+                    className="text-3xl font-heading font-black text-slate-800 hover:text-devine-orange transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -182,7 +198,7 @@ export function Navbar() {
               ))}
             </nav>
             <div className="mt-auto flex flex-col gap-4">
-              <Button size="lg" className="w-full text-lg bg-devine-purple text-white hover:bg-devine-purple-dark font-bold h-14 rounded-2xl" asChild>
+              <Button size="lg" className="w-full text-lg bg-devine-orange text-white hover:bg-devine-orange-dark font-bold h-14 rounded-2xl" asChild>
                 <Link href="/#book-appointment" onClick={(e) => {
                   if (window.location.pathname === "/") {
                     e.preventDefault();
@@ -202,7 +218,7 @@ export function Navbar() {
                   target="_blank" 
                   rel="noopener noreferrer"
                   aria-label="Visit our Instagram page"
-                  className="w-14 h-14 flex items-center justify-center rounded-2xl bg-slate-50 text-slate-600 hover:bg-devine-pink hover:text-white transition-all border border-slate-100 shadow-sm"
+                  className="w-14 h-14 flex items-center justify-center rounded-2xl bg-slate-50 text-slate-600 hover:bg-devine-peach hover:text-white transition-all border border-slate-100 shadow-sm"
                 >
                   <InstagramIcon size={24} />
                 </a>

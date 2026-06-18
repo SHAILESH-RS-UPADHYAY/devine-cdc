@@ -6,7 +6,7 @@
 
 /* ═══════════════════════════════════════════════════════
    DEVINE CDC — Design System
-   Brand: Purple-Blue-Pink (derived from heart logo)
+   Brand: Orange-Cream-Warm (client-recommended palette)
    Tone: Warm, trustworthy, child-friendly yet professional
    ═══════════════════════════════════════════════════════ */
 
@@ -53,68 +53,78 @@
   --radius-3xl: calc(var(--radius) * 2.2);
   --radius-4xl: calc(var(--radius) * 2.6);
 
-  /* ── Devine CDC Brand Colours ── */
-  --color-devine-purple: #9B59B6;
-  --color-devine-purple-light: #C39BD3;
-  --color-devine-purple-dark: #7D3C98;
+  /* ── Devine CDC Brand Colours (Orange & Cream) ── */
+  --color-devine-orange: #E8773A;
+  --color-devine-orange-light: #F4A76C;
+  --color-devine-orange-dark: #C45E1A;
+  --color-devine-peach: #FFCBA4;
+  --color-devine-peach-light: #FFE0C4;
+  --color-devine-cream-bg: #FFFAF5;
+  --color-devine-surface: #FFF5EB;
+  --color-devine-text: #2D2B3A;
+  --color-devine-muted: #848190;
+
+  /* ── Supporting Accent Colours (retained) ── */
   --color-devine-blue: #5B8CC5;
   --color-devine-blue-light: #85B1DB;
   --color-devine-blue-dark: #2E6DA4;
-  --color-devine-pink: #D4A0D4;
-  --color-devine-pink-light: #E8C8E8;
   --color-devine-coral: #E87461;
   --color-devine-coral-light: #F09A8D;
   --color-devine-mint: #7BC8A4;
   --color-devine-gold: #E8B832;
   --color-devine-yellow: #E8B832;
-  --color-devine-lavender-bg: #FAF8FC;
-  --color-devine-surface: #F3F0F5;
-  --color-devine-text: #2D2B3A;
-  --color-devine-muted: #848190;
   --color-whatsapp: #25D366;
   --color-whatsapp-dark: #128C7E;
 
+  /* ── Legacy aliases (backwards compatibility) ── */
+  --color-devine-purple: #E8773A;
+  --color-devine-purple-light: #F4A76C;
+  --color-devine-purple-dark: #C45E1A;
+  --color-devine-pink: #FFCBA4;
+  --color-devine-pink-light: #FFE0C4;
+  --color-devine-lavender-bg: #FFFAF5;
+
   /* ── Mapped Brand Colors for backwards compatibility ── */
-  --color-brand-purple: #9B59B6;
-  --color-brand-pink: #D4A0D4;
+  --color-brand-purple: #E8773A;
+  --color-brand-pink: #FFCBA4;
   --color-brand-blue: #5B8CC5;
   --color-brand-yellow: #E8B832;
 }
 
 :root {
   /* ── shadcn tokens mapped to Devine brand ── */
-  --background: #FAF8FC;
+  --background: #FFFAF5;
   --foreground: #2D2B3A;
   --card: #FFFFFF;
   --card-foreground: #2D2B3A;
   --popover: #FFFFFF;
   --popover-foreground: #2D2B3A;
-  --primary: #9B59B6;
+  --primary: #E8773A;
   --primary-foreground: #FFFFFF;
-  --secondary: #F3F0F5;
+  --secondary: #FFF5EB;
   --secondary-foreground: #2D2B3A;
-  --muted: #F3F0F5;
+  --muted: #FFF5EB;
   --muted-foreground: #848190;
-  --accent: #E8C8E8;
+  --accent: #FFE0C4;
   --accent-foreground: #2D2B3A;
   --destructive: #E87461;
-  --border: #E8E4EC;
-  --input: #E8E4EC;
-  --ring: #9B59B6;
-  --chart-1: #9B59B6;
+  --border: #F0E6DA;
+  --input: #F0E6DA;
+  --ring: #E8773A;
+  --chart-1: #E8773A;
   --chart-2: #5B8CC5;
-  --chart-3: #D4A0D4;
+  --chart-3: #FFCBA4;
   --chart-4: #E87461;
   --chart-5: #7BC8A4;
   --radius: 0.75rem;
-  --sidebar: #FAF8FC;
+  --sidebar: #FFFAF5;
   --sidebar-foreground: #2D2B3A;
-  --sidebar-primary: #9B59B6;
+  --sidebar-primary: #E8773A;
   --sidebar-primary-foreground: #FFFFFF;
-  --sidebar-accent: #F3F0F5;
+  --sidebar-accent: #FFF5EB;
   --sidebar-accent-foreground: #2D2B3A;
-  --sidebar-border: #E8E4EC;
-  --sidebar-ring: #9B59B6;
+  --sidebar-border: #F0E6DA;
+  --sidebar-ring: #E8773A;
 
   /* ── Typography ── */
   --font-heading: 'Nunito', sans-serif;
@@ -164,7 +174,7 @@
 
   /* ── Selection ── */
   ::selection {
-    background: #C39BD380;
+    background: #F4A76C80;
     color: #2D2B3A;
   }
 }
@@ -177,19 +187,19 @@
   .gradient-hero {
     background: linear-gradient(
       135deg,
-      #FAF8FC 0%,
-      #E8C8E8 35%,
-      #C39BD3 65%,
+      #FFFAF5 0%,
+      #FFE0C4 35%,
+      #F4A76C 65%,
       #85B1DB 100%
     );
   }
 
   .gradient-primary {
-    background: linear-gradient(135deg, #9B59B6 0%, #5B8CC5 100%);
+    background: linear-gradient(135deg, #E8773A 0%, #5B8CC5 100%);
   }
 
   .gradient-warm {
-    background: linear-gradient(135deg, #D4A0D4 0%, #E87461 100%);
+    background: linear-gradient(135deg, #FFCBA4 0%, #E87461 100%);
   }
 
   .gradient-cta {
@@ -197,7 +207,7 @@
   }
 
   .gradient-text {
-    background: linear-gradient(135deg, #9B59B6, #5B8CC5);
+    background: linear-gradient(135deg, #E8773A, #5B8CC5);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -215,17 +225,17 @@
     background: rgba(255, 255, 255, 0.85);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    border: 3px solid rgba(155, 89, 182, 0.6);
+    border: 3px solid rgba(232, 119, 58, 0.6);
     border-radius: var(--radius-2xl);
-    box-shadow: 0 0 20px rgba(155, 89, 182, 0.5), inset 0 0 10px rgba(91, 140, 197, 0.3);
+    box-shadow: 0 0 20px rgba(232, 119, 58, 0.5), inset 0 0 10px rgba(91, 140, 197, 0.3);
     animation: colorfulGlow 3s ease-in-out infinite alternate;
   }
 
   @keyframes colorfulGlow {
-    0% { box-shadow: 0 0 25px rgba(155, 89, 182, 0.6), 0 0 10px rgba(212, 160, 212, 0.7); border-color: rgba(155, 89, 182, 0.8); }
+    0% { box-shadow: 0 0 25px rgba(232, 119, 58, 0.6), 0 0 10px rgba(255, 203, 164, 0.7); border-color: rgba(232, 119, 58, 0.8); }
     33% { box-shadow: 0 0 30px rgba(91, 140, 197, 0.7), 0 0 15px rgba(123, 200, 164, 0.6); border-color: rgba(91, 140, 197, 0.8); }
     66% { box-shadow: 0 0 28px rgba(232, 116, 97, 0.6), 0 0 12px rgba(232, 184, 50, 0.7); border-color: rgba(232, 116, 97, 0.8); }
-    100% { box-shadow: 0 0 25px rgba(212, 160, 212, 0.7), 0 0 10px rgba(155, 89, 182, 0.6); border-color: rgba(212, 160, 212, 0.8); }
+    100% { box-shadow: 0 0 25px rgba(255, 203, 164, 0.7), 0 0 10px rgba(232, 119, 58, 0.6); border-color: rgba(255, 203, 164, 0.8); }
   }
 
   /* ── Card Hover Lift ── */
@@ -235,8 +245,8 @@
   .hover-lift:hover {
     transform: translateY(-4px);
     box-shadow:
-      0 20px 40px -12px rgba(155, 89, 182, 0.15),
-      0 8px 16px -8px rgba(155, 89, 182, 0.1);
+      0 20px 40px -12px rgba(232, 119, 58, 0.15),
+      0 8px 16px -8px rgba(232, 119, 58, 0.1);
   }
 
   /* ── Section Spacing ── */
@@ -294,7 +304,7 @@
 
   /* ── Stats Counter Glow ── */
   .stat-glow {
-    text-shadow: 0 0 20px rgba(155, 89, 182, 0.3);
+    text-shadow: 0 0 20px rgba(232, 119, 58, 0.3);
   }
 
   /* ── Decorative Underline ── */
@@ -303,7 +313,7 @@
     display: block;
     width: 60px;
     height: 4px;
-    background: linear-gradient(90deg, #9B59B6, #5B8CC5);
+    background: linear-gradient(90deg, #E8773A, #5B8CC5);
     border-radius: 2px;
     margin-top: 12px;
   }
@@ -313,7 +323,7 @@
     display: block;
     width: 60px;
     height: 4px;
-    background: linear-gradient(90deg, #9B59B6, #5B8CC5);
+    background: linear-gradient(90deg, #E8773A, #5B8CC5);
     border-radius: 2px;
     margin: 12px auto 0;
   }

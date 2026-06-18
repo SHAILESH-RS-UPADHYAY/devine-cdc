@@ -87,10 +87,10 @@ export function BookingFormSection() {
           
           {/* Contact Information Side */}
           <div className="w-full lg:w-5/12 bg-[url('https://images.unsplash.com/photo-1606092195730-5d7b9af1efc5?auto=format&fit=crop&q=80')] bg-cover bg-center relative overflow-hidden text-white p-10 md:p-14">
-            <div className="absolute inset-0 bg-devine-purple/85 backdrop-blur-[2px] z-0"></div>
+            <div className="absolute inset-0 bg-devine-orange/85 backdrop-blur-[2px] z-0"></div>
             {/* Background decorative elements */}
             <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
-            <div className="absolute bottom-0 left-0 w-48 h-48 bg-devine-pink/20 rounded-full blur-2xl translate-y-1/4 -translate-x-1/4" />
+            <div className="absolute bottom-0 left-0 w-48 h-48 bg-devine-peach/20 rounded-full blur-2xl translate-y-1/4 -translate-x-1/4" />
             
             <div className="relative z-10 h-full flex flex-col">
               <h3 className="font-heading text-3xl font-bold mb-4">Get in Touch</h3>
@@ -101,7 +101,7 @@ export function BookingFormSection() {
               <div className="space-y-8 flex-1">
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center flex-shrink-0">
-                    <MapPin className="text-devine-pink" size={24} />
+                    <MapPin className="text-devine-peach" size={24} />
                   </div>
                   <div>
                     <h4 className="font-bold text-lg mb-1">Visit Us</h4>
@@ -111,7 +111,7 @@ export function BookingFormSection() {
 
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center flex-shrink-0">
-                    <Phone className="text-devine-pink" size={24} />
+                    <Phone className="text-devine-peach" size={24} />
                   </div>
                   <div>
                     <h4 className="font-bold text-lg mb-1">Call Us</h4>
@@ -121,7 +121,7 @@ export function BookingFormSection() {
 
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center flex-shrink-0">
-                    <Mail className="text-devine-pink" size={24} />
+                    <Mail className="text-devine-peach" size={24} />
                   </div>
                   <div>
                     <h4 className="font-bold text-lg mb-1">Email</h4>

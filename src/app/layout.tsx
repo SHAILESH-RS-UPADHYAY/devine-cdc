@@ -5,6 +5,7 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { FloatingWhatsApp } from "@/components/ui/FloatingWhatsApp";
 import { FloatingBookButton } from "@/components/ui/FloatingBookButton";
+import { GlobalBackground } from "@/components/ui/GlobalBackground";
 import { CONTACT } from "@/lib/constants";
 
 const nunito = Nunito({
@@ -155,8 +156,9 @@ export default function RootLayout({
         <a href="#main-content" className="skip-nav">
           Skip to main content
         </a>
+        <GlobalBackground />
         <Navbar />
-        <main id="main-content" className="flex-grow">
+        <main id="main-content" className="flex-grow relative z-0">
           {children}
         </main>
         <Footer />

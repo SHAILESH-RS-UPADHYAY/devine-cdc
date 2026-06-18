@@ -14,7 +14,7 @@ const TRUST_ITEMS = [
 
 export function TrustBanner() {
   return (
-    <div className="w-full bg-devine-purple text-white py-4 overflow-hidden border-y border-devine-purple/20">
+    <div className="w-full bg-devine-orange text-white py-4 overflow-hidden border-y border-devine-orange/20">
       <div className="relative flex w-full flex-col items-center justify-center overflow-hidden">
         <div className="flex w-full overflow-hidden">
           <motion.div
@@ -36,7 +36,7 @@ export function TrustBanner() {
                   key={index} 
                   className="flex items-center gap-3 px-8 sm:px-12 opacity-90 hover:opacity-100 transition-opacity"
                 >
-                  <Icon className="w-5 h-5 sm:w-6 sm:h-6 text-devine-pink" />
+                  <Icon className="w-5 h-5 sm:w-6 sm:h-6 text-devine-peach" />
                   <span className="font-heading font-semibold text-sm sm:text-base tracking-wide uppercase">
                     {item.label}
                   </span>

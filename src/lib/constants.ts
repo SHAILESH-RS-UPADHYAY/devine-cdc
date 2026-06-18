@@ -32,7 +32,7 @@ export const ADDRESS = {
   city: "Gurugram",
   state: "Haryana",
   pincode: "122018",
-  googleMapsUrl: "https://maps.google.com/?q=Devine+Child+Development+Centre+Mayfield+Garden+Gurgaon",
+  googleMapsUrl: "https://maps.app.goo.gl/DynQCWGtbGhzEiWN9?g_st=ic",
   googleMapsEmbed: "https://maps.google.com/maps?q=N-17,+Mayfield+Garden,+Sector+51,+Gurugram&t=&z=15&ie=UTF8&iwloc=&output=embed",
 } as const;
 
@@ -150,6 +150,7 @@ export const CONDITIONS = [
       "Autism Spectrum Disorder (ASD) affects how a child communicates, behaves, and interacts with others. Our expert team provides personalised assessment and therapy plans to help children with ASD build essential life skills.",
     href: "/conditions/autism",
     icon: "Puzzle",
+    image: "/images/condition-autism.png",
   },
   {
     id: "adhd",
@@ -159,6 +160,7 @@ export const CONDITIONS = [
       "Attention Deficit Hyperactivity Disorder (ADHD) affects a child's ability to focus, sit still, and control impulses. We offer structured interventions that help children manage their behaviour and succeed in daily life.",
     href: "/conditions/adhd",
     icon: "Zap",
+    image: "/images/condition-adhd.png",
   },
   {
     id: "speech-delay",
@@ -168,6 +170,7 @@ export const CONDITIONS = [
       "Speech delay means a child takes longer to develop language skills than expected. With early, targeted speech therapy and a supportive environment, children can make remarkable progress at their own pace.",
     href: "/conditions/speech-delay",
     icon: "MessageSquare",
+    image: "/images/condition-speech-delay.png",
   },
 ] as const;
 

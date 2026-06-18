@@ -16,19 +16,19 @@ interface DropLetterTaglineProps {
 const variantStyles: Record<string, { wrapper: string; letter: string }> = {
   hero: {
     wrapper: "text-4xl md:text-6xl lg:text-7xl font-heading font-extrabold tracking-[0.25em]",
-    letter: "text-transparent bg-clip-text bg-gradient-to-b from-devine-purple to-devine-pink",
+    letter: "text-transparent bg-clip-text bg-gradient-to-b from-devine-orange to-devine-peach",
   },
   navbar: {
     wrapper: "text-[9px] min-[375px]:text-[11px] sm:text-[13px] md:text-[15px] lg:text-[16px] font-heading font-black tracking-[0.1em] sm:tracking-[0.25em] uppercase",
     letter: "text-white font-extrabold drop-shadow-[0_2px_6px_rgba(0,0,0,0.5)]",
   },
   divider: {
-    wrapper: "text-[18px] min-[375px]:text-[22px] sm:text-4xl md:text-6xl lg:text-7xl font-heading font-black tracking-[0.05em] sm:tracking-[0.15em] uppercase",
-    letter: "text-white font-extrabold drop-shadow-[0_4px_12px_rgba(0,0,0,0.5)]",
+    wrapper: "text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-heading font-black tracking-[0.02em] sm:tracking-[0.05em] uppercase",
+    letter: "text-white drop-shadow-sm font-extrabold",
   },
   footer: {
     wrapper: "text-3xl md:text-4xl font-heading font-extrabold tracking-[0.2em]",
-    letter: "text-transparent bg-clip-text bg-gradient-to-r from-devine-purple-light/60 to-devine-pink/40",
+    letter: "text-transparent bg-clip-text bg-gradient-to-r from-devine-orange/60 to-devine-peach/40",
   },
 };
 

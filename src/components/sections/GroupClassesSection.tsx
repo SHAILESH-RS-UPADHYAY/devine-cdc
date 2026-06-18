@@ -24,8 +24,8 @@ export function GroupClassesSection() {
           className="flex flex-col lg:flex-row items-end justify-between mb-16 gap-6"
         >
           <div className="max-w-2xl">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-devine-pink/10 rounded-full text-devine-pink font-semibold text-sm mb-6">
-              <span className="w-2 h-2 rounded-full bg-devine-purple"></span>
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-devine-peach/10 rounded-full text-devine-peach font-semibold text-sm mb-6">
+              <span className="w-2 h-2 rounded-full bg-devine-orange"></span>
               Holistic Development
             </div>
             <h2 className="text-4xl md:text-5xl font-heading font-extrabold text-gray-900 mb-4">
@@ -50,16 +50,35 @@ export function GroupClassesSection() {
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ delay: index * 0.15, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-              className="bg-gray-50 rounded-[2rem] p-8 hover:bg-white hover:shadow-2xl transition-all duration-500 group border border-gray-100 relative overflow-hidden"
+              className="bg-gray-50 rounded-[2rem] p-8 hover:bg-white hover:shadow-2xl transition-all duration-500 group border border-gray-100 relative overflow-hidden flex flex-col"
             >
+              {/* Bottom Edge Glow */}
+              <motion.div 
+                className="absolute bottom-0 left-0 right-0 h-[8px] z-10"
+                style={{ backgroundColor: cls.color }}
+                animate={{
+                  boxShadow: [
+                    `0px 0px 15px 2px ${cls.color}80`,
+                    `0px -6px 30px 8px ${cls.color}`,
+                    `0px 0px 15px 2px ${cls.color}80`,
+                  ],
+                }}
+                transition={{
+                  duration: 2.5,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: index * 0.3
+                }}
+              />
+
               <div 
-                className="w-16 h-16 rounded-2xl flex items-center justify-center mb-6 text-white shadow-lg transform group-hover:-translate-y-2 transition-transform duration-300"
+                className="w-16 h-16 rounded-2xl flex items-center justify-center mb-6 text-white shadow-lg transform group-hover:-translate-y-2 transition-transform duration-300 relative z-20"
                 style={{ backgroundColor: cls.color }}
               >
                 {iconMap[cls.icon]}
               </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">{cls.title}</h3>
-              <p className="text-gray-600 leading-relaxed mb-6">
+              <h3 className="text-2xl font-bold text-gray-900 mb-4 relative z-20">{cls.title}</h3>
+              <p className="text-gray-600 leading-relaxed mb-6 relative z-20">
                 {cls.description}
               </p>
             </motion.div>

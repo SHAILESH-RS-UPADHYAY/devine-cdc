@@ -25,11 +25,11 @@ export function HeroSection() {
   };
 
   return (
-    <section className="relative min-h-[95vh] flex items-center pt-28 pb-16 overflow-hidden bg-[#FAFAFC]">
+    <section className="relative min-h-[95vh] flex items-center pt-28 pb-16 overflow-hidden bg-transparent">
       {/* Premium Aurora Background */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-[-10%] left-[-10%] w-[50vw] h-[50vw] rounded-full bg-devine-purple/10 blur-[120px] mix-blend-multiply opacity-70 animate-pulse-slow"></div>
-        <div className="absolute bottom-[-10%] right-[-10%] w-[60vw] h-[60vw] rounded-full bg-devine-pink/10 blur-[150px] mix-blend-multiply opacity-60"></div>
+        <div className="absolute top-[-10%] left-[-10%] w-[50vw] h-[50vw] rounded-full bg-devine-orange/10 blur-[120px] mix-blend-multiply opacity-70 animate-pulse-slow"></div>
+        <div className="absolute bottom-[-10%] right-[-10%] w-[60vw] h-[60vw] rounded-full bg-devine-peach/10 blur-[150px] mix-blend-multiply opacity-60"></div>
         <div className="absolute top-[20%] right-[10%] w-[30vw] h-[30vw] rounded-full bg-devine-blue/10 blur-[100px] mix-blend-multiply opacity-50"></div>
         
         {/* Subtle grid texture overlay for depth */}
@@ -60,8 +60,8 @@ export function HeroSection() {
             <motion.h1 variants={itemVariants} className="font-heading font-black text-4xl sm:text-5xl md:text-6xl lg:text-[4.5rem] xl:text-[5.5rem] leading-[1.05] sm:leading-[1.1] text-slate-900 mb-6 tracking-[-0.03em]">
               Unlock Your Child&apos;s <br />
               <span className="relative inline-block mt-2">
-                <span className="absolute -inset-1 bg-gradient-to-r from-devine-purple/20 to-devine-pink/20 blur-xl rounded-lg"></span>
-                <span className="relative text-transparent bg-clip-text bg-gradient-to-r from-devine-purple via-devine-purple-dark to-devine-pink">Infinite Potential</span>
+                <span className="absolute -inset-1 bg-gradient-to-r from-devine-orange/20 to-devine-peach/20 blur-xl rounded-lg"></span>
+                <span className="relative text-transparent bg-clip-text bg-gradient-to-r from-devine-orange via-devine-orange-dark to-devine-peach">Infinite Potential</span>
               </span>
             </motion.h1>
 
@@ -72,7 +72,7 @@ export function HeroSection() {
 
             {/* CTA Group */}
             <motion.div variants={itemVariants} className="flex flex-col sm:flex-row flex-wrap gap-4 w-full sm:w-auto">
-              <Button size="lg" className="text-base sm:text-lg px-8 py-7 h-auto gap-3 group w-full sm:w-auto bg-slate-900 text-white hover:bg-devine-purple rounded-2xl shadow-[0_8px_30px_rgba(0,0,0,0.12)] hover:shadow-[0_12px_40px_rgba(110,62,143,0.3)] transition-all duration-300" asChild>
+              <Button size="lg" className="text-base sm:text-lg px-8 py-7 h-auto gap-3 group w-full sm:w-auto bg-slate-900 text-white hover:bg-devine-orange rounded-2xl shadow-[0_8px_30px_rgba(0,0,0,0.12)] hover:shadow-[0_12px_40px_rgba(232,119,58,0.3)] transition-all duration-300" asChild>
                 <Link href="/#book-appointment" onClick={(e) => {
                   if (window.location.pathname === "/") {
                     e.preventDefault();
@@ -90,7 +90,7 @@ export function HeroSection() {
               </Button>
               <Link href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto" aria-label="Book a free consultation via WhatsApp">
                 <Button variant="outline" size="lg" className="text-base sm:text-lg px-8 py-7 h-auto gap-3 w-full sm:w-auto rounded-2xl bg-white/70 backdrop-blur-md border-slate-200 text-slate-700 hover:text-slate-900 hover:bg-white shadow-[0_4px_15px_rgba(0,0,0,0.02)] hover:shadow-[0_8px_25px_rgba(0,0,0,0.06)] transition-all duration-300 group">
-                  <Phone className="w-5 h-5 text-devine-purple group-hover:rotate-12 transition-transform" aria-hidden="true" />
+                  <Phone className="w-5 h-5 text-devine-orange group-hover:rotate-12 transition-transform" aria-hidden="true" />
                   Free Consultation
                 </Button>
               </Link>
@@ -150,7 +150,7 @@ export function HeroSection() {
               className="absolute -left-4 sm:-left-10 top-[15%] bg-white/95 backdrop-blur-xl p-4 sm:p-5 rounded-2xl shadow-[0_15px_40px_rgba(0,0,0,0.08)] border border-slate-100 flex items-center gap-4 z-30"
               aria-hidden="true"
             >
-              <div className="w-12 h-12 rounded-full bg-devine-pink/10 flex items-center justify-center text-devine-pink shadow-inner">
+              <div className="w-12 h-12 rounded-full bg-devine-peach/10 flex items-center justify-center text-devine-peach shadow-inner">
                 <HeartPulse size={24} aria-hidden="true" />
               </div>
               <div>
