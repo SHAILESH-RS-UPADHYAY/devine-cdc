@@ -135,9 +135,9 @@ export default async function ProgramPage({
             </section>
 
             {/* Parent Note */}
-            <section className="bg-gradient-to-br from-devine-purple/5 to-devine-pink/5 rounded-3xl p-8 border border-devine-purple/10">
-              <h2 className="text-2xl font-bold text-devine-purple mb-4 flex items-center gap-2">
-                <Heart size={24} className="text-devine-pink" />
+            <section className="bg-gradient-to-br from-devine-orange/5 to-devine-peach/5 rounded-3xl p-8 border border-devine-orange/10">
+              <h2 className="text-2xl font-bold text-devine-orange mb-4 flex items-center gap-2">
+                <Heart size={24} className="text-devine-peach" />
                 {programData.parentNote.title}
               </h2>
               <p className="text-lg text-gray-700 italic">

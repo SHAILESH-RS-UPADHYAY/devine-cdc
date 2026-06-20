@@ -6,7 +6,7 @@ export default function NotFound() {
     <div className="min-h-[70vh] flex flex-col items-center justify-center text-center px-4">
       <div className="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] opacity-30 pointer-events-none -z-10" />
       
-      <h1 className="text-9xl font-extrabold text-devine-purple/20 mb-4 tracking-tighter">404</h1>
+      <h1 className="text-9xl font-extrabold text-devine-orange/20 mb-4 tracking-tighter">404</h1>
       <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 font-heading">
         Page Not Found
       </h2>
@@ -15,7 +15,7 @@ export default function NotFound() {
       </p>
       
       <Link href="/">
-        <Button size="lg" className="bg-devine-purple hover:bg-devine-purple/90 text-white rounded-full px-8 py-6 text-lg font-semibold shadow-lg hover:shadow-xl transition-all hover:-translate-y-1">
+        <Button size="lg" className="bg-devine-orange hover:bg-devine-orange/90 text-white rounded-full px-8 py-6 text-lg font-semibold shadow-lg hover:shadow-xl transition-all hover:-translate-y-1">
           Return to Home
         </Button>
       </Link>

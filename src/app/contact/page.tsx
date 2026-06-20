@@ -14,7 +14,7 @@ export default function ContactPage() {
       <div className="container mx-auto px-4 md:px-6">
         {/* Header */}
         <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-heading font-extrabold text-devine-purple mb-4">
+          <h1 className="text-4xl md:text-5xl font-heading font-extrabold text-devine-orange mb-4">
             Contact Us
           </h1>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
@@ -25,7 +25,7 @@ export default function ContactPage() {
         <div className="grid lg:grid-cols-2 gap-12 items-start max-w-6xl mx-auto">
           {/* Contact Information */}
           <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12">
-            <h2 className="text-3xl font-heading font-bold text-devine-purple mb-8">
+            <h2 className="text-3xl font-heading font-bold text-devine-orange mb-8">
               Get In Touch
             </h2>
             
@@ -41,13 +41,13 @@ export default function ContactPage() {
               </div>
 
               <div className="flex items-start">
-                <div className="bg-devine-pink/10 p-3 rounded-full mr-4">
-                  <Phone className="w-6 h-6 text-devine-pink" />
+                <div className="bg-devine-peach/10 p-3 rounded-full mr-4">
+                  <Phone className="w-6 h-6 text-devine-peach" />
                 </div>
                 <div>
                   <h3 className="text-xl font-bold text-gray-900 mb-1">Phone & WhatsApp</h3>
                   <p className="text-gray-600 mb-2">{CONTACT.phoneDisplay}</p>
-                  <Button asChild variant="outline" className="text-devine-pink border-devine-pink hover:bg-devine-pink hover:text-white">
+                  <Button asChild variant="outline" className="text-devine-peach border-devine-peach hover:bg-devine-peach hover:text-white">
                     <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
                       <MessageCircle className="w-4 h-4 mr-2" />
                       Chat on WhatsApp
@@ -69,8 +69,8 @@ export default function ContactPage() {
               </div>
 
               <div className="flex items-start">
-                <div className="bg-devine-purple/10 p-3 rounded-full mr-4">
-                  <Clock className="w-6 h-6 text-devine-purple" />
+                <div className="bg-devine-orange/10 p-3 rounded-full mr-4">
+                  <Clock className="w-6 h-6 text-devine-orange" />
                 </div>
                 <div>
                   <h3 className="text-xl font-bold text-gray-900 mb-1">Opening Hours</h3>

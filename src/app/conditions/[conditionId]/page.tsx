@@ -72,12 +72,12 @@ export default async function ConditionDetailPage({ params }: PageProps) {
     <main className="pt-28 pb-20 min-h-screen bg-white">
       {/* ═══ Hero Section ═══ */}
       <section className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-devine-lavender-bg via-white to-devine-pink/5" />
+        <div className="absolute inset-0 bg-gradient-to-br from-devine-cream-bg via-white to-devine-peach/5" />
         <div className="container mx-auto px-4 md:px-6 relative z-10 py-12 md:py-20">
           <div className="mb-6">
             <Link
               href="/conditions"
-              className="inline-flex items-center text-devine-muted hover:text-devine-purple transition-colors font-medium text-sm"
+              className="inline-flex items-center text-devine-muted hover:text-devine-orange transition-colors font-medium text-sm"
             >
               <ArrowLeft className="w-4 h-4 mr-2" />
               All Conditions
@@ -85,7 +85,7 @@ export default async function ConditionDetailPage({ params }: PageProps) {
           </div>
 
           <div className="max-w-4xl">
-            <div className="w-20 h-20 rounded-2xl bg-devine-purple/10 text-devine-purple flex items-center justify-center mb-8 shadow-sm">
+            <div className="w-20 h-20 rounded-2xl bg-devine-orange/10 text-devine-orange flex items-center justify-center mb-8 shadow-sm">
               <Icon className="w-10 h-10" />
             </div>
 
@@ -94,7 +94,7 @@ export default async function ConditionDetailPage({ params }: PageProps) {
             </h1>
 
             {content && (
-              <p className="text-xl md:text-2xl text-devine-purple font-heading font-semibold italic">
+              <p className="text-xl md:text-2xl text-devine-orange font-heading font-semibold italic">
                 &ldquo;{content.heroTagline}&rdquo;
               </p>
             )}
@@ -130,7 +130,7 @@ export default async function ConditionDetailPage({ params }: PageProps) {
                     quality={100}
                     priority
                   />
-                  <div className="absolute inset-0 bg-gradient-to-tr from-devine-purple/20 to-transparent mix-blend-overlay"></div>
+                  <div className="absolute inset-0 bg-gradient-to-tr from-devine-orange/20 to-transparent mix-blend-overlay"></div>
                 </div>
               </section>
             )}
@@ -171,7 +171,7 @@ export default async function ConditionDetailPage({ params }: PageProps) {
             {content && (
               <section>
                 <div className="flex items-center gap-3 mb-8">
-                  <Stethoscope className="w-6 h-6 text-devine-purple" />
+                  <Stethoscope className="w-6 h-6 text-devine-orange" />
                   <h2 className="text-2xl md:text-3xl font-heading font-bold text-gray-900">
                     How We Help at Devine CDC
                   </h2>
@@ -180,10 +180,10 @@ export default async function ConditionDetailPage({ params }: PageProps) {
                   {content.howWeHelp.map((item, i) => (
                     <div
                       key={i}
-                      className="bg-gradient-to-br from-gray-50 to-white p-6 rounded-2xl border border-gray-100 hover:border-devine-purple/20 hover:shadow-md transition-all duration-300"
+                      className="bg-gradient-to-br from-gray-50 to-white p-6 rounded-2xl border border-gray-100 hover:border-devine-orange/20 hover:shadow-md transition-all duration-300"
                     >
                       <div className="flex items-start gap-3">
-                        <CheckCircle2 className="w-6 h-6 flex-shrink-0 mt-0.5 text-devine-purple" />
+                        <CheckCircle2 className="w-6 h-6 flex-shrink-0 mt-0.5 text-devine-orange" />
                         <div>
                           <h3 className="font-bold text-gray-900 mb-2">
                             {item.title}
@@ -203,7 +203,7 @@ export default async function ConditionDetailPage({ params }: PageProps) {
             {content && (
               <section>
                 <div className="flex items-center gap-3 mb-8">
-                  <Lightbulb className="w-6 h-6 text-devine-purple" />
+                  <Lightbulb className="w-6 h-6 text-devine-orange" />
                   <h2 className="text-2xl md:text-3xl font-heading font-bold text-gray-900">
                     Therapies We Use for {condition.shortTitle}
                   </h2>
@@ -212,10 +212,10 @@ export default async function ConditionDetailPage({ params }: PageProps) {
                   {content.therapiesUsed.map((t, i) => (
                     <div
                       key={i}
-                      className="flex gap-5 p-5 bg-devine-purple/5 rounded-2xl border border-devine-purple/10"
+                      className="flex gap-5 p-5 bg-devine-orange/5 rounded-2xl border border-devine-orange/10"
                     >
                       <div className="flex-shrink-0">
-                        <div className="w-10 h-10 rounded-full bg-devine-purple text-white flex items-center justify-center font-bold text-sm">
+                        <div className="w-10 h-10 rounded-full bg-devine-orange text-white flex items-center justify-center font-bold text-sm">
                           {i + 1}
                         </div>
                       </div>
@@ -268,7 +268,7 @@ export default async function ConditionDetailPage({ params }: PageProps) {
             {content && (
               <section>
                 <div className="flex items-center gap-3 mb-8">
-                  <HelpCircle className="w-6 h-6 text-devine-purple" />
+                  <HelpCircle className="w-6 h-6 text-devine-orange" />
                   <h2 className="text-2xl md:text-3xl font-heading font-bold text-gray-900">
                     Frequently Asked Questions
                   </h2>
@@ -293,10 +293,10 @@ export default async function ConditionDetailPage({ params }: PageProps) {
 
             {/* Parent Message */}
             {content && (
-              <section className="bg-gradient-to-br from-devine-purple/5 to-devine-pink/5 rounded-3xl p-8 md:p-10 border border-devine-purple/10">
+              <section className="bg-gradient-to-br from-devine-orange/5 to-devine-peach/5 rounded-3xl p-8 md:p-10 border border-devine-orange/10">
                 <div className="flex items-center gap-3 mb-4">
                   <Heart
-                    className="w-6 h-6 text-devine-pink"
+                    className="w-6 h-6 text-devine-peach"
                     fill="currentColor"
                   />
                   <h3 className="text-xl font-heading font-bold text-gray-900">
@@ -317,7 +317,7 @@ export default async function ConditionDetailPage({ params }: PageProps) {
           <div className="lg:col-span-1 space-y-8">
             <div className="sticky top-28 space-y-8">
               {/* CTA Card */}
-              <div className="bg-gradient-to-br from-devine-purple to-devine-purple-dark rounded-3xl p-8 shadow-xl text-white">
+              <div className="bg-gradient-to-br from-devine-orange to-devine-orange-dark rounded-3xl p-8 shadow-xl text-white">
                 <h3 className="text-2xl font-heading font-bold mb-4">
                   We&apos;re here to help
                 </h3>
@@ -330,7 +330,7 @@ export default async function ConditionDetailPage({ params }: PageProps) {
                   <Button
                     asChild
                     size="lg"
-                    className="w-full bg-white text-devine-purple hover:bg-white/90 font-bold h-14 rounded-xl"
+                    className="w-full bg-white text-devine-orange hover:bg-white/90 font-bold h-14 rounded-xl"
                   >
                     <Link href={WHATSAPP_URL} target="_blank">
                       Book a Consultation
@@ -364,7 +364,7 @@ export default async function ConditionDetailPage({ params }: PageProps) {
                         href={c.href}
                         className="flex items-center gap-3 p-3 rounded-xl hover:bg-white hover:shadow-sm transition-all group"
                       >
-                        <div className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 bg-devine-purple/10 text-devine-purple">
+                        <div className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 bg-devine-orange/10 text-devine-orange">
                           <OtherIcon className="w-5 h-5" />
                         </div>
                         <div className="flex-1 min-w-0">
@@ -372,7 +372,7 @@ export default async function ConditionDetailPage({ params }: PageProps) {
                             {c.shortTitle}
                           </p>
                         </div>
-                        <ArrowRight className="w-4 h-4 text-gray-400 group-hover:text-devine-purple group-hover:translate-x-1 transition-all" />
+                        <ArrowRight className="w-4 h-4 text-gray-400 group-hover:text-devine-orange group-hover:translate-x-1 transition-all" />
                       </Link>
                     );
                   })}

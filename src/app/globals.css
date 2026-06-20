@@ -76,17 +76,10 @@
   --color-whatsapp: #25D366;
   --color-whatsapp-dark: #128C7E;
 
-  /* ── Legacy aliases (backwards compatibility) ── */
-  --color-devine-purple: #E8773A;
-  --color-devine-purple-light: #F4A76C;
-  --color-devine-purple-dark: #C45E1A;
-  --color-devine-pink: #FFCBA4;
-  --color-devine-pink-light: #FFE0C4;
-  --color-devine-lavender-bg: #FFFAF5;
 
   /* ── Mapped Brand Colors for backwards compatibility ── */
-  --color-brand-purple: #E8773A;
-  --color-brand-pink: #FFCBA4;
+  --color-brand-orange: #E8773A;
+  --color-brand-peach: #FFCBA4;
   --color-brand-blue: #5B8CC5;
   --color-brand-yellow: #E8B832;
 }

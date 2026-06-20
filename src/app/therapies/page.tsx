@@ -10,7 +10,7 @@ export default function TherapiesPage() {
   return (
     <main className="pt-32 pb-16 min-h-screen bg-gray-50">
       <div className="container mx-auto px-4 md:px-6 mb-4 text-center">
-        <h1 className="text-4xl md:text-5xl font-heading font-extrabold text-devine-purple mb-4">
+        <h1 className="text-4xl md:text-5xl font-heading font-extrabold text-devine-orange mb-4">
           Our Therapies
         </h1>
         <p className="text-lg text-gray-600 max-w-2xl mx-auto">

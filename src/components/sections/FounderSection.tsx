@@ -10,7 +10,7 @@ export function FounderSection() {
   return (
     <section className="pt-16 pb-12 bg-transparent relative overflow-hidden" id="founder">
       {/* Decorative background elements */}
-      <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-bl from-brand-pink/20 to-transparent rounded-bl-full pointer-events-none"></div>
+      <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-bl from-brand-peach/20 to-transparent rounded-bl-full pointer-events-none"></div>
       <div className="absolute bottom-0 left-0 w-1/4 h-1/2 bg-gradient-to-tr from-brand-blue/20 to-transparent rounded-tr-full pointer-events-none"></div>
       
       <div className="container mx-auto px-4 md:px-6 relative z-10 py-8">
@@ -70,7 +70,7 @@ export function FounderSection() {
                 className="absolute -bottom-6 -left-6 bg-white rounded-2xl p-4 shadow-xl border border-gray-100 flex items-center gap-3 z-10"
               >
                 <div className="w-12 h-12 bg-brand-yellow/20 rounded-full flex items-center justify-center">
-                  <span className="text-brand-purple font-bold text-xl">RCI</span>
+                  <span className="text-brand-orange font-bold text-xl">RCI</span>
                 </div>
                 <div>
                   <p className="text-xs text-gray-500 font-medium uppercase tracking-wider">Licensed</p>
@@ -82,19 +82,19 @@ export function FounderSection() {
 
           {/* Founder Content */}
           <div className="w-full lg:w-1/2 space-y-5 lg:pl-6">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-brand-purple/5 rounded-full text-brand-purple font-semibold text-sm">
-              <span className="w-2 h-2 rounded-full bg-brand-pink"></span>
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-brand-orange/5 rounded-full text-brand-orange font-semibold text-sm">
+              <span className="w-2 h-2 rounded-full bg-brand-peach"></span>
               Meet Our Psychologist
             </div>
             
             <h2 className="text-3xl md:text-5xl font-heading font-extrabold text-gray-900 leading-tight">
               Mrs. {founder.name}
             </h2>
-            <p className="text-xl text-brand-purple font-bold">
+            <p className="text-xl text-brand-orange font-bold">
               {founder.role}
             </p>
             
-            <div className="w-16 h-1.5 bg-gradient-to-r from-brand-pink to-brand-yellow rounded-full"></div>
+            <div className="w-16 h-1.5 bg-gradient-to-r from-brand-peach to-brand-yellow rounded-full"></div>
             
             <p className="text-lg text-gray-600 leading-relaxed pt-2">
               {founder.bio}
@@ -104,7 +104,7 @@ export function FounderSection() {
               {founder.credentials.map((cred, idx) => (
                 <div 
                   key={idx}
-                  className="px-4 py-2 bg-white/90 backdrop-blur-md border border-brand-purple/10 rounded-lg text-sm font-bold text-gray-800 shadow-sm"
+                  className="px-4 py-2 bg-white/90 backdrop-blur-md border border-brand-orange/10 rounded-lg text-sm font-bold text-gray-800 shadow-sm"
                 >
                   {cred}
                 </div>

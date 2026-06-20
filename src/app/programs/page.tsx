@@ -23,8 +23,8 @@ export default function ProgramsPage() {
     <div className="pt-32 pb-24 bg-gray-50 min-h-screen">
       <div className="container mx-auto px-4 md:px-6">
         <div className="max-w-3xl mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-devine-purple/10 rounded-full text-devine-purple font-semibold text-sm mb-6">
-            <span className="w-2 h-2 rounded-full bg-devine-pink"></span>
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-devine-orange/10 rounded-full text-devine-orange font-semibold text-sm mb-6">
+            <span className="w-2 h-2 rounded-full bg-devine-peach"></span>
             Comprehensive Care
           </div>
           <h1 className="text-4xl md:text-6xl font-heading font-extrabold text-gray-900 mb-6">
@@ -92,7 +92,7 @@ export default function ProgramsPage() {
                   <p className="text-gray-600 leading-relaxed mb-8">
                     {cls.description}
                   </p>
-                  <Button asChild variant="ghost" className="rounded-full text-devine-purple hover:bg-devine-purple/10 -ml-4 group/btn">
+                  <Button asChild variant="ghost" className="rounded-full text-devine-orange hover:bg-devine-orange/10 -ml-4 group/btn">
                     <Link href={cls.href}>
                       Explore Details <ArrowRight size={18} className="ml-2 transition-transform duration-300 group-hover/btn:translate-x-1" />
                     </Link>

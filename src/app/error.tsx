@@ -49,7 +49,7 @@ export default function Error({
         <Button 
           onClick={reset}
           size="lg" 
-          className="bg-devine-purple hover:bg-devine-purple/90 text-white rounded-full px-8 py-6 text-lg font-semibold shadow-lg hover:shadow-xl transition-all"
+          className="bg-devine-orange hover:bg-devine-orange/90 text-white rounded-full px-8 py-6 text-lg font-semibold shadow-lg hover:shadow-xl transition-all"
         >
           Try again
         </Button>
@@ -57,7 +57,7 @@ export default function Error({
           <Button 
             variant="outline"
             size="lg" 
-            className="border-devine-purple text-devine-purple hover:bg-devine-purple/5 rounded-full px-8 py-6 text-lg font-semibold"
+            className="border-devine-orange text-devine-orange hover:bg-devine-orange/5 rounded-full px-8 py-6 text-lg font-semibold"
           >
             Return to Home
           </Button>

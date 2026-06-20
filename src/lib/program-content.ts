@@ -4,7 +4,7 @@ export const PROGRAM_CONTENT: Record<string, any> = {
     title: "Dance & Movement Therapy",
     shortTitle: "Dance Therapy",
     tagline: "Express, move, and grow.",
-    color: "devine-pink",
+    color: "devine-peach",
     hexColor: "#FF69B4", // using a pinkish color for dance
     heroImage: "/images/programs-hero-bg.jpg",
     overview: {
@@ -63,7 +63,7 @@ export const PROGRAM_CONTENT: Record<string, any> = {
     title: "Therapeutic Clay Workshop",
     shortTitle: "Clay Workshop",
     tagline: "Mold, create, and discover.",
-    color: "devine-purple",
+    color: "devine-orange",
     hexColor: "#5D3FD3",
     heroImage: "/images/programs-hero-bg.jpg",
     overview: {

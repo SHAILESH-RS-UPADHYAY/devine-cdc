@@ -22,7 +22,7 @@ export default function ConditionsPage() {
       
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="max-w-3xl mb-16 text-center mx-auto">
-          <h1 className="text-4xl md:text-5xl font-heading font-extrabold text-devine-purple mb-6">
+          <h1 className="text-4xl md:text-5xl font-heading font-extrabold text-devine-orange mb-6">
             Conditions We Treat
           </h1>
           <p className="text-lg text-gray-600">
@@ -36,9 +36,9 @@ export default function ConditionsPage() {
             return (
               <div 
                 key={condition.id}
-                className="group flex flex-col bg-white rounded-3xl p-8 border border-gray-100 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.08)] hover:border-devine-purple/20 transition-all duration-300"
+                className="group flex flex-col bg-white rounded-3xl p-8 border border-gray-100 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.08)] hover:border-devine-orange/20 transition-all duration-300"
               >
-                <div className="w-14 h-14 rounded-2xl bg-devine-purple/10 text-devine-purple flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-devine-purple group-hover:text-white transition-all duration-300">
+                <div className="w-14 h-14 rounded-2xl bg-devine-orange/10 text-devine-orange flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-devine-orange group-hover:text-white transition-all duration-300">
                   <Icon className="w-7 h-7" />
                 </div>
                 
@@ -53,7 +53,7 @@ export default function ConditionsPage() {
                 <div className="mt-auto pt-4 border-t border-gray-50">
                   <Link 
                     href={condition.href}
-                    className="inline-flex items-center font-bold text-devine-purple group/btn"
+                    className="inline-flex items-center font-bold text-devine-orange group/btn"
                   >
                     Learn about our approach
                     <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover/btn:translate-x-1" />
