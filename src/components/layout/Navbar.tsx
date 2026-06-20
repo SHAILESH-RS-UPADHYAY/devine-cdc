@@ -76,7 +76,7 @@ export function Navbar() {
                     alt="" 
                     width={56} 
                     height={56} 
-                    quality={100}
+                    quality={75}
                     className="absolute inset-0 w-full h-full object-contain blur-[4px] opacity-90 group-hover:opacity-100 group-hover:blur-[8px] group-hover:scale-110 transition-all duration-500 saturate-[2] brightness-125"
                     priority
                   />
@@ -85,7 +85,7 @@ export function Navbar() {
                     alt="" 
                     width={56} 
                     height={56} 
-                    quality={100}
+                    quality={75}
                     className="absolute inset-0 w-full h-full object-contain blur-[2px] opacity-60 group-hover:opacity-80 group-hover:blur-[4px] group-hover:scale-110 transition-all duration-500 saturate-[2.5] brightness-150 mix-blend-screen"
                     priority
                   />
@@ -94,7 +94,7 @@ export function Navbar() {
                     alt="Devine CDC Logo" 
                     width={56} 
                     height={56} 
-                    quality={100}
+                    quality={75}
                     className="relative z-10 w-full h-full object-contain transition-all duration-500 group-hover:scale-110 drop-shadow-sm"
                     priority
                   />

@@ -4,8 +4,10 @@ const nextConfig: NextConfig = {
   reactStrictMode: true,
   poweredByHeader: false, // Security: hide X-Powered-By
   images: {
-    unoptimized: true,
+    deviceSizes: [640, 768, 1024, 1280],
+    imageSizes: [128, 256, 384, 512],
     formats: ['image/avif', 'image/webp'],
+    qualities: [60, 75],
     remotePatterns: [
       {
         protocol: "https",

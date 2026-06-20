@@ -27,14 +27,15 @@ export function HeroSection() {
 
   return (
     <section className="relative min-h-[95vh] flex items-center pt-28 pb-16 overflow-hidden bg-transparent">
-      {/* Premium Aurora Background */}
+      {/* Premium Aurora Background - Optimized for older devices */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-[-10%] left-[-10%] w-[50vw] h-[50vw] rounded-full bg-devine-orange/10 blur-[120px] mix-blend-multiply opacity-70 animate-pulse-slow"></div>
-        <div className="absolute bottom-[-10%] right-[-10%] w-[60vw] h-[60vw] rounded-full bg-devine-peach/10 blur-[150px] mix-blend-multiply opacity-60"></div>
-        <div className="absolute top-[20%] right-[10%] w-[30vw] h-[30vw] rounded-full bg-devine-blue/10 blur-[100px] mix-blend-multiply opacity-50"></div>
+        {/* Simpler, non-animated gradients without heavy mix-blend or massive blurs */}
+        <div className="absolute top-[-10%] left-[-10%] w-[50vw] h-[50vw] rounded-full bg-gradient-radial from-devine-orange/10 to-transparent"></div>
+        <div className="absolute bottom-[-10%] right-[-10%] w-[60vw] h-[60vw] rounded-full bg-gradient-radial from-devine-peach/10 to-transparent"></div>
+        <div className="absolute top-[20%] right-[10%] w-[30vw] h-[30vw] rounded-full bg-gradient-radial from-devine-blue/10 to-transparent"></div>
         
         {/* Subtle grid texture overlay for depth */}
-        <div className="absolute inset-0 bg-[url('/images/noise.webp')] opacity-[0.015] mix-blend-overlay"></div>
+        <div className="absolute inset-0 opacity-[0.015] mix-blend-overlay" style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E\")" }}></div>
         <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'linear-gradient(rgba(0,0,0,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.1) 1px, transparent 1px)', backgroundSize: '40px 40px' }}></div>
       </div>
 
@@ -137,7 +138,7 @@ export function HeroSection() {
                   sizes="(max-width: 768px) 100vw, 50vw"
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
                   priority
-                  quality={90}
+                  quality={60}
                   placeholder="blur"
                 />
                 {/* Elegant overlay gradient */}

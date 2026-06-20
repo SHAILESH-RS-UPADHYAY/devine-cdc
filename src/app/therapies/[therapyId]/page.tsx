@@ -128,7 +128,8 @@ export default async function TherapyDetailPage({ params }: PageProps) {
                     alt={`${therapy.title} at ${SITE_CONFIG.shortName}`}
                     fill
                     className="object-cover"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 66vw"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 66vw, 50vw"
+                    quality={60}
                     priority
                   />
                 </div>

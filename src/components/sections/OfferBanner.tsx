@@ -84,13 +84,10 @@ export const OfferBanner = () => {
 
   return (
     <div className="relative w-full overflow-hidden bg-gradient-to-r from-[#090514] via-[#13082E] to-[#090514] py-10 md:py-12 border-b border-indigo-500/20 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.5)] z-20">
-      {/* Premium Background Effects */}
-      <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
-        {/* Animated glowing orbs */}
-        <div className="absolute top-[-30%] left-[-10%] w-[50%] h-[150%] bg-blue-500/20 rounded-full blur-[100px] mix-blend-screen animate-[pulse_6s_ease-in-out_infinite]" />
-        <div className="absolute bottom-[-30%] right-[-10%] w-[50%] h-[150%] bg-purple-500/20 rounded-full blur-[100px] mix-blend-screen animate-[pulse_8s_ease-in-out_infinite_1s]" />
+      {/* Premium Background Effects - Optimized for all devices */}
+      <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden bg-[radial-gradient(ellipse_at_top_left,_rgba(59,130,246,0.15)_0%,_transparent_50%),radial-gradient(ellipse_at_bottom_right,_rgba(168,85,247,0.15)_0%,_transparent_50%)]">
         {/* Subtle grid overlay for texture */}
-        <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-[0.15] mix-blend-overlay" />
+        <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-[0.05]" />
       </div>
 
       <div className="container relative z-10 mx-auto px-4 sm:px-6">
@@ -104,7 +101,7 @@ export const OfferBanner = () => {
             className="flex-1 text-center xl:text-left space-y-6 max-w-3xl"
           >
             <motion.div variants={dropVariants} className="inline-block">
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-blue-500/20 to-purple-500/20 border border-blue-400/30 text-blue-100 text-sm font-semibold shadow-[0_0_20px_rgba(59,130,246,0.2)] backdrop-blur-md">
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-[#1e3a8a] to-[#4c1d95] border border-blue-400/30 text-blue-100 text-sm font-semibold shadow-[0_0_20px_rgba(59,130,246,0.2)]">
                 <Sparkles className="w-4 h-4 text-blue-300" />
                 <span>Special Event</span>
               </div>
@@ -119,15 +116,15 @@ export const OfferBanner = () => {
             </motion.p>
 
             <motion.div variants={dropVariants} className="flex flex-wrap items-center justify-center xl:justify-start gap-3 pt-2">
-              <div className="flex items-center gap-2 text-sm font-semibold text-white bg-white/10 hover:bg-white/15 transition-colors px-4 py-2 rounded-xl border border-white/10 backdrop-blur-md shadow-lg">
+              <div className="flex items-center gap-2 text-sm font-semibold text-white bg-[#1a103c] hover:bg-[#231551] transition-colors px-4 py-2 rounded-xl border border-white/10 shadow-lg">
                 <Calendar className="w-4 h-4 text-blue-300" />
                 <span>22nd June 2026</span>
               </div>
-              <div className="flex items-center gap-2 text-sm font-semibold text-white bg-white/10 hover:bg-white/15 transition-colors px-4 py-2 rounded-xl border border-white/10 backdrop-blur-md shadow-lg">
+              <div className="flex items-center gap-2 text-sm font-semibold text-white bg-[#1a103c] hover:bg-[#231551] transition-colors px-4 py-2 rounded-xl border border-white/10 shadow-lg">
                 <Clock className="w-4 h-4 text-blue-300" />
                 <span>9:00 AM - 6:00 PM</span>
               </div>
-              <div className="flex items-center gap-2 text-sm font-bold text-amber-200 bg-gradient-to-r from-amber-500/20 to-orange-500/20 px-4 py-2 rounded-xl border border-amber-400/30 backdrop-blur-md shadow-[0_0_15px_rgba(245,158,11,0.2)]">
+              <div className="flex items-center gap-2 text-sm font-bold text-amber-200 bg-gradient-to-r from-[#78350f] to-[#7c2d12] px-4 py-2 rounded-xl border border-amber-400/30 shadow-[0_0_15px_rgba(245,158,11,0.2)]">
                 <Tag className="w-4 h-4 text-amber-300" />
                 <span>Limited Slots Available</span>
               </div>
@@ -158,15 +155,15 @@ export const OfferBanner = () => {
             </div>
 
             {/* CTA Button */}
-            <a href={`tel:${CONTACT.phone.replace(/\s+/g, '')}`} className="w-full sm:w-auto">
+            <Link href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
               <div className="group relative w-full sm:w-auto flex items-center justify-center gap-3 px-10 py-4 md:py-5 bg-white text-indigo-950 font-extrabold text-lg rounded-2xl overflow-hidden transition-all duration-300 hover:scale-[1.03] hover:shadow-[0_0_30px_rgba(255,255,255,0.4)] cursor-pointer">
                 <div className="absolute inset-0 bg-gradient-to-r from-slate-100 to-slate-200 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 <span className="relative flex items-center gap-2 drop-shadow-sm">
-                  Free Consultation
+                  Book Your Slot
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1.5 transition-transform duration-300" />
                 </span>
               </div>
-            </a>
+            </Link>
           </motion.div>
 
         </div>
@@ -177,7 +174,7 @@ export const OfferBanner = () => {
 
 const TimeUnit = ({ value, label }: { value: string; label: string }) => (
   <div className="flex flex-col items-center gap-2">
-    <div className="flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-b from-white/10 to-white/5 border border-white/20 rounded-2xl backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.3)] inset-shadow-sm transition-transform hover:scale-105 duration-300">
+    <div className="flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 bg-[#160d33] border border-white/10 rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.3)] inset-shadow-sm transition-transform hover:scale-105 duration-300">
       <span className="text-3xl md:text-5xl font-extrabold text-white font-mono tracking-tighter drop-shadow-md">{value}</span>
     </div>
     <span className="text-[10px] md:text-xs text-blue-200 font-bold uppercase tracking-widest drop-shadow-sm">{label}</span>

@@ -42,6 +42,8 @@ export default function AboutPage() {
                 alt="Therapist helping a child in a bright clinic"
                 fill
                 className="object-cover transition-transform duration-1000 group-hover:scale-110"
+                sizes="(max-width: 768px) 100vw, 50vw"
+                quality={60}
                 priority
               />
               <div className="absolute inset-0 bg-gradient-to-tr from-devine-orange/20 to-transparent mix-blend-overlay"></div>
@@ -101,6 +103,8 @@ export default function AboutPage() {
                     alt={founder.name}
                     fill
                     className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    quality={60}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
                 </div>

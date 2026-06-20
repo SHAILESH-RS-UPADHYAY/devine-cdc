@@ -52,9 +52,9 @@ export function FounderSection() {
                     alt={`Mrs. ${founder.name}`} 
                     fill 
                     className="object-cover object-top transition-transform duration-700 group-hover:scale-105 filter contrast-102 saturate-105"
-                    sizes="(max-width: 768px) 400px, 600px"
+                    sizes="(max-width: 768px) 100vw, 50vw"
                     priority
-                    quality={90}
+                    quality={60}
                   />
                   {/* Subtle overlay for better contrast */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-40"></div>

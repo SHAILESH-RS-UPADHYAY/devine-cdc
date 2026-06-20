@@ -56,7 +56,7 @@ export function Footer() {
                     alt="" 
                     width={80} 
                     height={80} 
-                    quality={100}
+                    quality={75}
                     className="absolute inset-0 w-full h-full object-contain blur-[8px] opacity-80 group-hover:opacity-100 group-hover:blur-[12px] group-hover:scale-110 transition-all duration-500 saturate-150 brightness-110"
                   />
                   <Image 
@@ -64,7 +64,7 @@ export function Footer() {
                     alt="Devine CDC Logo" 
                     width={80} 
                     height={80} 
-                    quality={100}
+                    quality={75}
                     className="relative z-10 w-full h-full object-contain transition-all duration-500 group-hover:scale-110"
                   />
                 </motion.div>

@@ -10,17 +10,17 @@ export const AnimatedLogoSection = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.3,
+        staggerChildren: 0.2,
       },
     },
   };
 
-    const textVariants: Variants = {
-    hidden: { opacity: 0, y: -40 },
+  const textVariants: Variants = {
+    hidden: { opacity: 0, y: -20 },
     visible: { 
       opacity: 1, 
       y: 0, 
-      transition: { duration: 1.0, type: "spring", bounce: 0.5, delay: 0.5 } 
+      transition: { duration: 0.8, type: "spring", bounce: 0.4 } 
     },
   };
 
@@ -33,161 +33,116 @@ export const AnimatedLogoSection = () => {
     },
   };
 
-  const logoVariants: Variants = {
-    hidden: { opacity: 0, scale: 0.9 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: { duration: 0.8, ease: "easeOut" },
-    },
-  };
-
   return (
-    <section className="relative w-full overflow-hidden bg-white py-4 lg:py-8">
+    <section className="relative w-full overflow-hidden bg-white py-12 lg:py-20">
       <div className="container mx-auto px-4 flex justify-center">
-        
-        {/* Animation Canvas */}
         <motion.div 
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
-          className="relative w-full max-w-4xl mx-auto scale-125 sm:scale-110 md:scale-100 mt-8 mb-8"
+          className="relative w-full max-w-3xl mx-auto flex items-center justify-center min-h-[400px] md:min-h-[500px]"
         >
-          {/* Combined SVG for perfect alignment */}
+          {/* Centered Logo Image - Placed outside SVG for better alignment and mobile performance */}
+          <div className="absolute z-30 w-[180px] h-[180px] md:w-[240px] md:h-[240px]">
+            <motion.div
+              className="w-full h-full relative flex items-center justify-center"
+              variants={{
+                hidden: { opacity: 0, scale: 0.8 },
+                visible: {
+                  opacity: 1,
+                  scale: 1,
+                  transition: { duration: 1.2, ease: "easeOut" }
+                }
+              }}
+            >
+              {/* Lightweight CSS Glow - no heavy filters */}
+              <div className="absolute inset-0 bg-blue-500/10 rounded-full blur-2xl" />
+              <Image 
+                src="/images/logo-textless-transparent.webp" 
+                alt="Devine CDC Logo" 
+                fill
+                sizes="(max-width: 768px) 180px, 240px"
+                quality={75}
+                priority
+                className="object-contain relative z-10 drop-shadow-xl"
+              />
+            </motion.div>
+          </div>
+
+          {/* SVG Canvas for paths and text */}
           <svg 
-            className="relative z-20 w-full h-auto drop-shadow-sm overflow-visible" 
-            viewBox="50 30 700 500" 
+            className="absolute inset-0 w-full h-full z-20 pointer-events-none" 
+            viewBox="0 0 800 500" 
             preserveAspectRatio="xMidYMid meet"
           >
-            <defs>
-              <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
-                <feGaussianBlur stdDeviation="4" result="blur" />
-                <feMerge>
-                  <feMergeNode in="blur" />
-                  <feMergeNode in="SourceGraphic" />
-                </feMerge>
-              </filter>
-              <linearGradient id="ring-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#ef4444" />
-                <stop offset="50%" stopColor="#3b82f6" />
-                <stop offset="100%" stopColor="#a855f7" />
-              </linearGradient>
-            </defs>
-
-            {/* HD Logo using foreignObject for Next.js Image optimization */}
-            <foreignObject x="280" y="150" width="240" height="240">
-              <motion.div
-                className="w-full h-full relative"
-                variants={{
-                  hidden: { opacity: 0, clipPath: "circle(0% at 50% 50%)" },
-                  visible: {
-                    opacity: 1,
-                    clipPath: "circle(100% at 50% 50%)",
-                    transition: { duration: 2.5, ease: "easeInOut" }
-                  }
-                }}
-              >
-                {/* Intense color-matching glow using a tight, highly saturated blur */}
-                <Image 
-                  src="/images/logo-textless-transparent.webp" 
-                  alt="" 
-                  fill
-                  sizes="(max-width: 768px) 100vw, 240px"
-                  quality={100}
-                  className="object-contain blur-[6px] opacity-100 saturate-[3] brightness-[1.5] contrast-[1.2]"
-                />
-                <Image 
-                  src="/images/logo-textless-transparent.webp" 
-                  alt="" 
-                  fill
-                  sizes="(max-width: 768px) 100vw, 240px"
-                  quality={100}
-                  className="object-contain blur-[15px] opacity-70 saturate-[2] brightness-125"
-                />
-                <Image 
-                  src="/images/logo-textless-transparent.webp" 
-                  alt="Devine CDC Logo" 
-                  fill
-                  sizes="(max-width: 768px) 100vw, 240px"
-                  quality={100}
-                  priority
-                  className="object-contain relative z-10 drop-shadow-[0_0_2px_rgba(255,255,255,0.5)]"
-                />
-              </motion.div>
-            </foreignObject>
-
-            {/* --- CURLY PATHS --- */}
-            
             {/* Top Left Path: Power of Togetherness */}
             <motion.path 
-              d="M 315 185 C 275 185, 230 115, 200 115" 
+              d="M 330 200 C 270 190, 220 140, 200 120" 
               fill="transparent" 
               stroke="#ef4444" 
-              strokeWidth="2.5" 
+              strokeWidth="3" 
               strokeLinecap="round"
-              filter="url(#glow)"
+              className="drop-shadow-sm"
               variants={pathVariants}
             />
 
             {/* Top Right Path: Child */}
             <motion.path 
-              d="M 485 185 C 525 185, 570 115, 600 115" 
+              d="M 470 200 C 530 190, 580 140, 600 120" 
               fill="transparent" 
               stroke="#f59e0b" 
-              strokeWidth="2.5" 
+              strokeWidth="3" 
               strokeLinecap="round"
-              filter="url(#glow)"
+              className="drop-shadow-sm"
               variants={pathVariants}
             />
 
             {/* Bottom Left Path: Heart Shaped Loop */}
             <motion.path 
-              d="M 315 355 C 275 355, 230 425, 200 425" 
+              d="M 330 300 C 270 310, 220 360, 200 380" 
               fill="transparent" 
               stroke="#3b82f6" 
-              strokeWidth="2.5" 
+              strokeWidth="3" 
               strokeLinecap="round"
-              filter="url(#glow)"
+              className="drop-shadow-sm"
               variants={pathVariants}
             />
 
             {/* Bottom Right Path: Holding Hands */}
             <motion.path 
-              d="M 485 355 C 525 355, 570 425, 600 425" 
+              d="M 470 300 C 530 310, 580 360, 600 380" 
               fill="transparent" 
               stroke="#a855f7" 
-              strokeWidth="2.5" 
+              strokeWidth="3" 
               strokeLinecap="round"
-              filter="url(#glow)"
+              className="drop-shadow-sm"
               variants={pathVariants}
             />
-
-            {/* --- TEXTS --- */}
 
             {/* Top Left Text */}
             <motion.text
               variants={textVariants}
               x="200"
-              y="65"
+              y="70"
               textAnchor="middle"
               fill="#ef4444"
-              className="font-bold uppercase tracking-widest drop-shadow-md"
-              style={{ fontSize: "18px" }}
+              className="font-bold uppercase tracking-widest drop-shadow-sm"
+              style={{ fontSize: "16px" }}
             >
               <tspan x="200" dy="0">POWER OF</tspan>
-              <tspan x="200" dy="24">TOGETHERNESS</tspan>
+              <tspan x="200" dy="22">TOGETHERNESS</tspan>
             </motion.text>
 
             {/* Top Right Text */}
             <motion.text
               variants={textVariants}
               x="600"
-              y="80"
+              y="85"
               textAnchor="middle"
               fill="#f59e0b"
-              className="font-bold uppercase tracking-widest drop-shadow-md"
-              style={{ fontSize: "18px" }}
+              className="font-bold uppercase tracking-widest drop-shadow-sm"
+              style={{ fontSize: "16px" }}
             >
               <tspan x="600" dy="0">CHILD</tspan>
             </motion.text>
@@ -196,30 +151,29 @@ export const AnimatedLogoSection = () => {
             <motion.text
               variants={textVariants}
               x="200"
-              y="460"
+              y="420"
               textAnchor="middle"
               fill="#3b82f6"
-              className="font-bold uppercase tracking-widest drop-shadow-md"
-              style={{ fontSize: "18px" }}
+              className="font-bold uppercase tracking-widest drop-shadow-sm"
+              style={{ fontSize: "16px" }}
             >
               <tspan x="200" dy="0">HEART SHAPED</tspan>
-              <tspan x="200" dy="24">LOOP</tspan>
+              <tspan x="200" dy="22">LOOP</tspan>
             </motion.text>
 
             {/* Bottom Right Text */}
             <motion.text
               variants={textVariants}
               x="600"
-              y="460"
+              y="420"
               textAnchor="middle"
               fill="#a855f7"
-              className="font-bold uppercase tracking-widest drop-shadow-md"
-              style={{ fontSize: "18px" }}
+              className="font-bold uppercase tracking-widest drop-shadow-sm"
+              style={{ fontSize: "16px" }}
             >
               <tspan x="600" dy="0">HOLDING</tspan>
-              <tspan x="600" dy="24">HANDS</tspan>
+              <tspan x="600" dy="22">HANDS</tspan>
             </motion.text>
-
           </svg>
         </motion.div>
       </div>
