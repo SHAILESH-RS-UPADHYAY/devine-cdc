@@ -10,7 +10,7 @@ const GroupClassesSection = dynamic(() => import("@/components/sections/GroupCla
 const FounderSection = dynamic(() => import("@/components/sections/FounderSection").then(mod => mod.FounderSection));
 const BookingFormSection = dynamic(() => import("@/components/sections/BookingFormSection").then(mod => mod.BookingFormSection));
 const ScrollReveal = dynamic(() => import("@/components/ui/ScrollReveal").then(mod => mod.ScrollReveal));
-const SafeSpaceDivider = dynamic(() => import("@/components/sections/SafeSpaceDivider").then(mod => mod.SafeSpaceDivider));
+
 
 export default function Home() {
   return (
@@ -40,8 +40,6 @@ export default function Home() {
       <ScrollReveal delay={0.1}>
         <FounderSection />
       </ScrollReveal>
-      
-      <SafeSpaceDivider />
 
       <BookingFormSection />
     </>
