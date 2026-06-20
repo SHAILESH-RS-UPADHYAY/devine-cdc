@@ -3,7 +3,7 @@ import { Nunito, DM_Sans } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
-import { FloatingWhatsApp } from "@/components/ui/FloatingWhatsApp";
+import { FloatingContactButtons } from "@/components/ui/FloatingContactButtons";
 import { FloatingBookButton } from "@/components/ui/FloatingBookButton";
 import { GlobalBackground } from "@/components/ui/GlobalBackground";
 import { CONTACT } from "@/lib/constants";
@@ -162,7 +162,7 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
-        <FloatingWhatsApp />
+        <FloatingContactButtons />
         <FloatingBookButton />
       </body>
     </html>

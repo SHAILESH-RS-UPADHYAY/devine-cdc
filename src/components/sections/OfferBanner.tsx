@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { Calendar, Clock, Sparkles, ArrowRight, Tag } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { WHATSAPP_URL } from "@/lib/constants";
+import { WHATSAPP_URL, CONTACT } from "@/lib/constants";
 
 export const OfferBanner = () => {
   // Target Date: 22nd June 2026, 9:00 AM (IST)
@@ -158,15 +158,15 @@ export const OfferBanner = () => {
             </div>
 
             {/* CTA Button */}
-            <Link href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
+            <a href={`tel:${CONTACT.phone.replace(/\s+/g, '')}`} className="w-full sm:w-auto">
               <div className="group relative w-full sm:w-auto flex items-center justify-center gap-3 px-10 py-4 md:py-5 bg-white text-indigo-950 font-extrabold text-lg rounded-2xl overflow-hidden transition-all duration-300 hover:scale-[1.03] hover:shadow-[0_0_30px_rgba(255,255,255,0.4)] cursor-pointer">
                 <div className="absolute inset-0 bg-gradient-to-r from-slate-100 to-slate-200 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 <span className="relative flex items-center gap-2 drop-shadow-sm">
-                  Book Your Slot
+                  Free Consultation
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1.5 transition-transform duration-300" />
                 </span>
               </div>
-            </Link>
+            </a>
           </motion.div>
 
         </div>

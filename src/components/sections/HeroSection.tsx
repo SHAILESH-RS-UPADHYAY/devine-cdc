@@ -88,12 +88,12 @@ export function HeroSection() {
                   Book Assessment
                 </Link>
               </Button>
-              <Link href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto" aria-label="Book a free consultation via WhatsApp">
+              <a href={`tel:${CONTACT.phone.replace(/\s+/g, '')}`} className="w-full sm:w-auto" aria-label="Call for a free consultation">
                 <Button variant="outline" size="lg" className="text-base sm:text-lg px-8 py-7 h-auto gap-3 w-full sm:w-auto rounded-2xl bg-white/70 backdrop-blur-md border-slate-200 text-slate-700 hover:text-slate-900 hover:bg-white shadow-[0_4px_15px_rgba(0,0,0,0.02)] hover:shadow-[0_8px_25px_rgba(0,0,0,0.06)] transition-all duration-300 group">
                   <Phone className="w-5 h-5 text-devine-orange group-hover:rotate-12 transition-transform" aria-hidden="true" />
                   Free Consultation
                 </Button>
-              </Link>
+              </a>
             </motion.div>
 
             {/* Social Proof Mini */}
