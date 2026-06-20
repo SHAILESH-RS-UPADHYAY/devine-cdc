@@ -6,7 +6,7 @@ export const PROGRAM_CONTENT: Record<string, any> = {
     tagline: "Express, move, and grow.",
     color: "devine-peach",
     hexColor: "#FF69B4", // using a pinkish color for dance
-    heroImage: "/images/programs-hero-bg.jpg",
+    heroImage: "/images/programs-hero-bg.webp",
     overview: {
       heading: "Rhythm, Coordination, and Confidence",
       paragraphs: [
@@ -65,7 +65,7 @@ export const PROGRAM_CONTENT: Record<string, any> = {
     tagline: "Mold, create, and discover.",
     color: "devine-orange",
     hexColor: "#5D3FD3",
-    heroImage: "/images/programs-hero-bg.jpg",
+    heroImage: "/images/programs-hero-bg.webp",
     overview: {
       heading: "Tactile Learning and Fine Motor Development",
       paragraphs: [
@@ -121,7 +121,7 @@ export const PROGRAM_CONTENT: Record<string, any> = {
     tagline: "Breathe, balance, and calm.",
     color: "teal-500",
     hexColor: "#14B8A6",
-    heroImage: "/images/programs-hero-bg.jpg",
+    heroImage: "/images/programs-hero-bg.webp",
     overview: {
       heading: "Fostering Calm, Focus, and Flexibility",
       paragraphs: [

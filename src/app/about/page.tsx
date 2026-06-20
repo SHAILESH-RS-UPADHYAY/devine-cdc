@@ -38,7 +38,7 @@ export default function AboutPage() {
             
             <div className="relative h-full w-full rounded-[2.5rem] overflow-hidden border-4 border-white/60 shadow-2xl">
               <Image
-                src="/images/about-therapy.png"
+                src="/images/about-therapy.webp"
                 alt="Therapist helping a child in a bright clinic"
                 fill
                 className="object-cover transition-transform duration-1000 group-hover:scale-110"

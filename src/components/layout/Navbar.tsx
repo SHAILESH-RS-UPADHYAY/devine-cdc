@@ -72,23 +72,25 @@ export function Navbar() {
                   className="w-12 h-12 sm:w-14 sm:h-14 flex items-center justify-center relative"
                 >
                   <Image 
-                    src="/images/logo-textless-transparent.png" 
+                    src="/images/logo-textless-transparent.webp" 
                     alt="" 
                     width={56} 
                     height={56} 
                     quality={100}
                     className="absolute inset-0 w-full h-full object-contain blur-[4px] opacity-90 group-hover:opacity-100 group-hover:blur-[8px] group-hover:scale-110 transition-all duration-500 saturate-[2] brightness-125"
+                    priority
                   />
                   <Image 
-                    src="/images/logo-textless-transparent.png" 
+                    src="/images/logo-textless-transparent.webp" 
                     alt="" 
                     width={56} 
                     height={56} 
                     quality={100}
                     className="absolute inset-0 w-full h-full object-contain blur-[2px] opacity-60 group-hover:opacity-80 group-hover:blur-[4px] group-hover:scale-110 transition-all duration-500 saturate-[2.5] brightness-150 mix-blend-screen"
+                    priority
                   />
                   <Image 
-                    src="/images/logo-textless-transparent.png" 
+                    src="/images/logo-textless-transparent.webp" 
                     alt="Devine CDC Logo" 
                     width={56} 
                     height={56} 

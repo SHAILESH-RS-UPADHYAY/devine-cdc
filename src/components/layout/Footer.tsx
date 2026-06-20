@@ -52,7 +52,7 @@ export function Footer() {
                   className="w-20 h-20 flex items-center justify-center relative group"
                 >
                   <Image 
-                    src="/images/logo-textless-transparent.png" 
+                    src="/images/logo-textless-transparent.webp" 
                     alt="" 
                     width={80} 
                     height={80} 
@@ -60,7 +60,7 @@ export function Footer() {
                     className="absolute inset-0 w-full h-full object-contain blur-[8px] opacity-80 group-hover:opacity-100 group-hover:blur-[12px] group-hover:scale-110 transition-all duration-500 saturate-150 brightness-110"
                   />
                   <Image 
-                    src="/images/logo-textless-transparent.png" 
+                    src="/images/logo-textless-transparent.webp" 
                     alt="Devine CDC Logo" 
                     width={80} 
                     height={80} 

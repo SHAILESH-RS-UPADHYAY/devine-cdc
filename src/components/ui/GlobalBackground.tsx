@@ -52,7 +52,7 @@ export function GlobalBackground() {
       {/* Fine Noise Texture for Premium Feel */}
       <div 
         className="absolute inset-0 opacity-[0.03] mix-blend-overlay"
-        style={{ backgroundImage: "url('/images/noise.png')" }}
+        style={{ backgroundImage: "url('/images/noise.webp')" }}
       />
     </div>
   );

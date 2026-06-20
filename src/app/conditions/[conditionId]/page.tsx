@@ -122,7 +122,7 @@ export default async function ConditionDetailPage({ params }: PageProps) {
                 </div>
                 <div className="order-1 lg:order-2 relative h-[300px] md:h-[400px] w-full rounded-[2.5rem] overflow-hidden shadow-2xl ring-1 ring-black/5 group">
                   <Image 
-                    src={`/images/condition-${condition.id}.png`}
+                    src={`/images/condition-${condition.id}.webp`}
                     alt={condition.title}
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-700 ease-in-out"

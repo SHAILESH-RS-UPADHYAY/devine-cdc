@@ -6,6 +6,7 @@ import { Phone, CalendarCheck, ShieldCheck, HeartPulse, Star } from "lucide-reac
 import { CONTACT, WHATSAPP_URL } from "@/lib/constants";
 import Link from "next/link";
 import Image from "next/image";
+import heroImage from "../../../public/images/children_sensory_play.webp";
 
 export function HeroSection() {
   const containerVariants = {
@@ -33,7 +34,7 @@ export function HeroSection() {
         <div className="absolute top-[20%] right-[10%] w-[30vw] h-[30vw] rounded-full bg-devine-blue/10 blur-[100px] mix-blend-multiply opacity-50"></div>
         
         {/* Subtle grid texture overlay for depth */}
-        <div className="absolute inset-0 bg-[url('/images/noise.png')] opacity-[0.015] mix-blend-overlay"></div>
+        <div className="absolute inset-0 bg-[url('/images/noise.webp')] opacity-[0.015] mix-blend-overlay"></div>
         <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'linear-gradient(rgba(0,0,0,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.1) 1px, transparent 1px)', backgroundSize: '40px 40px' }}></div>
       </div>
 
@@ -130,13 +131,14 @@ export function HeroSection() {
             <div className="relative w-full max-w-[500px] lg:max-w-none lg:w-[110%] aspect-square lg:aspect-[4/5] rounded-[2.5rem] overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.1)] border border-white/60 bg-white/40 backdrop-blur-3xl group">
               <div className="absolute inset-2 rounded-[2rem] overflow-hidden bg-slate-100">
                 <Image 
-                  src="/images/children_sensory_play.png" 
+                  src={heroImage} 
                   alt="Happy child engaging in sensory play during therapy"
                   fill
                   sizes="(max-width: 768px) 100vw, 50vw"
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
                   priority
                   quality={90}
+                  placeholder="blur"
                 />
                 {/* Elegant overlay gradient */}
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent opacity-80" />

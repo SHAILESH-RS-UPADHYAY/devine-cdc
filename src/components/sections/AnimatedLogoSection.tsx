@@ -90,7 +90,7 @@ export const AnimatedLogoSection = () => {
               >
                 {/* Intense color-matching glow using a tight, highly saturated blur */}
                 <Image 
-                  src="/images/logo-textless-transparent.png" 
+                  src="/images/logo-textless-transparent.webp" 
                   alt="" 
                   fill
                   sizes="(max-width: 768px) 100vw, 240px"
@@ -98,7 +98,7 @@ export const AnimatedLogoSection = () => {
                   className="object-contain blur-[6px] opacity-100 saturate-[3] brightness-[1.5] contrast-[1.2]"
                 />
                 <Image 
-                  src="/images/logo-textless-transparent.png" 
+                  src="/images/logo-textless-transparent.webp" 
                   alt="" 
                   fill
                   sizes="(max-width: 768px) 100vw, 240px"
@@ -106,7 +106,7 @@ export const AnimatedLogoSection = () => {
                   className="object-contain blur-[15px] opacity-70 saturate-[2] brightness-125"
                 />
                 <Image 
-                  src="/images/logo-textless-transparent.png" 
+                  src="/images/logo-textless-transparent.webp" 
                   alt="Devine CDC Logo" 
                   fill
                   sizes="(max-width: 768px) 100vw, 240px"

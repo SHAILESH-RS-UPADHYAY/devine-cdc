@@ -105,7 +105,7 @@ export default function RootLayout({
               description:
                 "Expert child development centre offering Speech & Language Therapy, Occupational Therapy, ABA Therapy & Special Education for children with Autism, ADHD, and developmental delays.",
               url: "https://devinecdc.com",
-              logo: "https://devinecdc.com/images/logo.png",
+              logo: "https://devinecdc.com/images/logo.webp",
               image: "https://devinecdc.com/images/og-image.jpg",
               telephone: CONTACT.phoneDisplay,
               email: CONTACT.email,

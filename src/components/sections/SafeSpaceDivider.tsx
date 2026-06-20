@@ -24,7 +24,7 @@ export function SafeSpaceDivider() {
       <div className="absolute inset-0 overflow-hidden">
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-transform duration-1000 group-hover:scale-105"
-          style={{ backgroundImage: "url('/images/children_therapy_laughing.png')" }}
+          style={{ backgroundImage: "url('/images/children_therapy_laughing.webp')" }}
         />
         {/* Adjusted dark overlay for readability without making text background blurry */}
         <div className="absolute inset-0 bg-slate-900/70" />

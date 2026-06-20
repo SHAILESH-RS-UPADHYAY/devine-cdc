@@ -116,7 +116,7 @@ export const THERAPY_CONTENT: Record<string, TherapyContent> = {
     ],
     parentNote:
       "We understand that starting therapy can feel overwhelming. At Devine CDC, we walk alongside you every step of the way — answering your questions, celebrating small wins, and ensuring your child feels safe and happy throughout their journey.",
-    imageUrl: "/images/aba-therapy.png",
+    imageUrl: "/images/aba-therapy.webp",
   },
 
   "occupational-therapy": {
@@ -218,7 +218,7 @@ export const THERAPY_CONTENT: Record<string, TherapyContent> = {
     ],
     parentNote:
       "Your child's world is full of sensory experiences and physical challenges. OT helps them navigate this world with confidence. We create a safe, playful space where every child can explore, learn, and grow at their own pace.",
-    imageUrl: "/images/occupational-therapy.png",
+    imageUrl: "/images/occupational-therapy.webp",
   },
 
   "speech-therapy": {
@@ -321,7 +321,7 @@ export const THERAPY_CONTENT: Record<string, TherapyContent> = {
     ],
     parentNote:
       "Every word your child learns is a bridge to the world. We celebrate every babble, every new sound, every sentence — because we know how much courage it takes. At Devine CDC, your child's voice matters, however it sounds.",
-    imageUrl: "/images/speech-therapy.png",
+    imageUrl: "/images/speech-therapy.webp",
   },
 
   "special-education": {
@@ -423,7 +423,7 @@ export const THERAPY_CONTENT: Record<string, TherapyContent> = {
     ],
     parentNote:
       "Learning is not a race. Every child has their own timeline and their own brilliance. At Devine CDC, we don't try to fit your child into a mould — we find the mould that fits them. And we celebrate every milestone, no matter how small it may seem.",
-    imageUrl: "/images/special-education.png",
+    imageUrl: "/images/special-education.webp",
   },
 
   "psychological-behavioral-intervention": {
@@ -526,6 +526,6 @@ export const THERAPY_CONTENT: Record<string, TherapyContent> = {
     ],
     parentNote:
       "We understand that seeking psychological support for your child can be a big step. Rest assured that our team provides a compassionate, non-judgmental, and safe space for your family. We are here to support your child's emotional well-being and help them thrive.",
-    imageUrl: "/images/psychological-intervention.png",
+    imageUrl: "/images/psychological-intervention.webp",
   },
 };
