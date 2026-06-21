@@ -5,113 +5,108 @@ import Image from "next/image";
 import { FOUNDERS } from "@/lib/constants";
 
 export function FounderSection() {
-  const founder = FOUNDERS[0]; // Komal Pahuja
+  const founder = FOUNDERS[0];
 
   return (
-    <section className="pt-16 pb-12 bg-transparent relative overflow-hidden" id="founder">
+    <section className="md:pt-16 md:pb-12 pt-14 pb-6 bg-transparent relative overflow-hidden" id="founder">
       {/* Decorative background elements */}
-      <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-bl from-brand-peach/20 to-transparent rounded-bl-full pointer-events-none"></div>
-      <div className="absolute bottom-0 left-0 w-1/4 h-1/2 bg-gradient-to-tr from-brand-blue/20 to-transparent rounded-tr-full pointer-events-none"></div>
-      
-      <div className="container mx-auto px-4 md:px-6 relative z-10 py-8">
-          <motion.div 
-          initial={{ opacity: 0, scale: 0.9, y: 80 }}
+      <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-bl from-brand-peach/20 to-transparent rounded-bl-full pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-1/4 h-1/2 bg-gradient-to-tr from-brand-blue/20 to-transparent rounded-tr-full pointer-events-none" />
+
+      <div className="container mx-auto px-4 md:px-6 relative z-10 md:py-8 py-3">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95, y: 60 }}
           whileInView={{ opacity: 1, scale: 1, y: 0 }}
           viewport={{ once: false, amount: 0.15 }}
-          transition={{ 
+          transition={{
             type: "spring",
-            stiffness: 80,
-            damping: 12,
-            mass: 0.9,
-            opacity: { duration: 0.5 }
+            stiffness: 70,
+            damping: 14,
+            mass: 0.8,
+            opacity: { duration: 0.5 },
           }}
-          className="flex flex-col lg:flex-row items-center gap-8 lg:gap-16 p-8 md:p-12 lg:p-16 rounded-[3rem] bg-white/40 backdrop-blur-3xl border border-violet-100 shadow-[0_0_60px_rgba(167,139,250,0.25)] w-full max-w-7xl mx-auto glass-card relative group"
+          className="relative overflow-hidden md:rounded-[3rem] rounded-2xl shadow-[0_0_80px_rgba(167,139,250,0.3)] border border-white/10 group"
         >
-          {/* Subtle colorful glow that follows the box */}
-          <div className="absolute inset-0 bg-gradient-to-tr from-violet-200/30 via-fuchsia-100/20 to-blue-200/30 opacity-0 group-hover:opacity-100 transition-opacity duration-1000 rounded-[3rem] -z-10 blur-xl"></div>
-          
-          {/* Founder Image */}
-          <div className="w-full lg:w-1/2 flex justify-center lg:justify-end">
-            <div className="relative w-full max-w-[380px] lg:max-w-[450px] mx-auto lg:mx-0">
-              {/* Decorative Frame */}
-              <motion.div 
-                animate={{ scale: [1.02, 1.05, 1.02], rotate: [2, 4, 2] }}
-                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute inset-0 bg-gradient-to-tr from-violet-300 via-fuchsia-200 to-sky-300 rounded-[2.5rem] opacity-60 blur-2xl"
+          {/* Split layout: stacked on mobile/tablet, side-by-side on desktop */}
+          <div className="flex flex-col lg:flex-row min-h-[75svh] lg:min-h-[70vh] bg-[#0a0a12]">
+            
+            {/* Image Block — Mobile/Tablet: Top, Desktop: Right */}
+            <div className="relative w-full lg:w-[45%] xl:w-1/2 aspect-[4/5] sm:aspect-[4/5] md:aspect-square lg:aspect-auto lg:min-h-full overflow-hidden order-1 lg:order-2">
+              <Image
+                src={founder.image}
+                alt={`Mrs. ${founder.name}`}
+                fill
+                className="object-cover object-top lg:object-contain lg:object-center transition-transform duration-[8000ms] ease-out group-hover:scale-105"
+                priority
+                quality={100}
+                sizes="(max-width: 1024px) 100vw, 50vw"
               />
-              <motion.div 
-                animate={{ scale: [1.02, 1.05, 1.02], rotate: [-2, -4, -2] }}
-                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                className="absolute inset-0 bg-gradient-to-bl from-blue-300 via-violet-200 to-purple-300 rounded-[2.5rem] opacity-60 blur-xl"
-              />
-              
-              <div className="relative bg-white p-3 rounded-[2.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.1)] overflow-hidden group">
-                <div className="relative w-full aspect-[1045/1505] rounded-[2rem] overflow-hidden">
-                  <Image 
-                    src={founder.image} 
-                    alt={`Mrs. ${founder.name}`} 
-                    fill 
-                    className="object-cover object-top transition-transform duration-700 group-hover:scale-105 filter contrast-102 saturate-105"
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                    priority
-                    quality={60}
-                  />
-                  {/* Subtle overlay for better contrast */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-40"></div>
-                </div>
-              </div>
+              {/* Desktop smooth fade into the background */}
+              <div className="absolute inset-0 bg-gradient-to-r from-[#0a0a12] via-[#0a0a12]/20 to-transparent hidden lg:block pointer-events-none" />
+              {/* Subtle top-left vignette for depth */}
+              <div className="absolute inset-0 bg-gradient-to-r from-black/20 to-transparent pointer-events-none" />
+              {/* Subtle hover glow overlay */}
+              <div className="absolute inset-0 bg-gradient-to-tr from-violet-500/10 via-fuchsia-400/10 to-sky-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-1000 pointer-events-none" />
+            </div>
 
-              {/* Experience Badge */}
-              <motion.div 
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
+            {/* Content Block — Mobile/Tablet: Bottom, Desktop: Left */}
+            <div className="relative z-10 flex flex-col justify-center w-full lg:w-[55%] xl:w-1/2 px-6 py-10 sm:p-10 md:p-14 lg:p-20 xl:px-24 xl:py-20 order-2 lg:order-1 bg-[#0a0a12] border-t border-white/5 lg:border-t-0">
+              {/* Side-glow background behind text */}
+              <div className="absolute inset-0 bg-gradient-to-tr from-violet-500/5 via-fuchsia-400/5 to-sky-500/5 pointer-events-none" />
+
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: false }}
-                transition={{ delay: 0.3, type: "spring", bounce: 0.5 }}
-                className="absolute -bottom-6 -left-6 bg-white rounded-2xl p-4 shadow-xl border border-gray-100 flex items-center gap-3 z-10"
+                transition={{ delay: 0.15, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+                className="relative z-10 space-y-4 md:space-y-5 max-w-2xl"
               >
-                <div className="w-12 h-12 bg-brand-yellow/20 rounded-full flex items-center justify-center">
-                  <span className="text-brand-orange font-bold text-xl">RCI</span>
+                {/* Badge */}
+                <div className="inline-flex items-center gap-2 px-3 py-1.5 md:px-5 md:py-2 bg-white/10 backdrop-blur-md rounded-full border border-white/15 text-white font-semibold md:text-sm text-[11px] tracking-wide w-fit">
+                  <span className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-brand-peach shadow-[0_0_6px_rgba(255,203,164,0.6)]" />
+                  Meet Our Psychologist
                 </div>
-                <div>
-                  <p className="text-xs text-gray-500 font-medium uppercase tracking-wider">Licensed</p>
-                  <p className="text-sm font-bold text-gray-900">Professional</p>
+
+                {/* Name */}
+                <h2 className="text-white font-heading font-black leading-tight"
+                  style={{ fontSize: "clamp(1.8rem, 5vw, 3.5rem)" }}
+                >
+                  Mrs. {founder.name}
+                </h2>
+
+                {/* Role + RCI badge */}
+                <div className="flex flex-wrap items-center gap-2 md:gap-3">
+                  <span className="text-brand-peach font-bold md:text-xl text-sm">
+                    {founder.role}
+                  </span>
+                  <span className="inline-flex items-center gap-1 px-2 py-0.5 md:px-3 md:py-1 bg-amber-400/15 border border-amber-400/25 rounded-md text-amber-300 font-bold md:text-xs text-[10px] leading-none">
+                    RCI Licensed
+                  </span>
+                </div>
+
+                {/* Decorative rule */}
+                <div className="w-12 md:w-16 h-0.5 md:h-1 bg-gradient-to-r from-brand-peach to-amber-400/60 rounded-full" />
+
+                {/* Bio — shortened on mobile to free up space */}
+                <p className="text-gray-300 md:text-lg text-[13px] leading-[1.6] md:leading-relaxed max-w-xl">
+                  <span className="md:hidden">MPhil. Msc. Clinical Psychologist, 5+ yrs experience. Founder of Devine CDC.</span>
+                  <span className="hidden md:inline">MPhil. Msc. Clinical Psychologist, 5+ yrs experience. Founder of Devine CDC — nurturing young minds in a safe, supportive space.</span>
+                </p>
+
+                {/* Credential chips */}
+                <div className="flex flex-wrap gap-1.5 md:gap-2 pt-2 md:pt-3">
+                  {founder.credentials.map((cred, idx) => (
+                    <span
+                      key={idx}
+                      className="px-2.5 py-1.5 md:px-3.5 md:py-2 bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg md:text-sm text-[11px] font-semibold text-gray-200 leading-tight"
+                    >
+                      {cred}
+                    </span>
+                  ))}
                 </div>
               </motion.div>
             </div>
           </div>
-
-          {/* Founder Content */}
-          <div className="w-full lg:w-1/2 space-y-5 lg:pl-6">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-brand-orange/5 rounded-full text-brand-orange font-semibold text-sm">
-              <span className="w-2 h-2 rounded-full bg-brand-peach"></span>
-              Meet Our Psychologist
-            </div>
-            
-            <h2 className="text-3xl md:text-5xl font-heading font-extrabold text-gray-900 leading-tight">
-              Mrs. {founder.name}
-            </h2>
-            <p className="text-xl text-brand-orange font-bold">
-              {founder.role}
-            </p>
-            
-            <div className="w-16 h-1.5 bg-gradient-to-r from-brand-peach to-brand-yellow rounded-full"></div>
-            
-            <p className="text-lg text-gray-600 leading-relaxed pt-2">
-              {founder.bio}
-            </p>
-
-            <div className="flex flex-wrap gap-3 pt-4">
-              {founder.credentials.map((cred, idx) => (
-                <div 
-                  key={idx}
-                  className="px-4 py-2 bg-white/90 backdrop-blur-md border border-brand-orange/10 rounded-lg text-sm font-bold text-gray-800 shadow-sm"
-                >
-                  {cred}
-                </div>
-              ))}
-            </div>
-          </div>
-
         </motion.div>
       </div>
     </section>
