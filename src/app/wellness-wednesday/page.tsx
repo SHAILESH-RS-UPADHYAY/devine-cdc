@@ -4,7 +4,6 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { WELLNESS_WEDNESDAY_CLASSES } from "@/lib/constants";
 import { ArrowLeft, Calendar, ChevronRight } from "lucide-react";
-import Image from "next/image";
 import Link from "next/link";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
@@ -60,17 +59,6 @@ export default function WellnessWednesdayPage() {
                       onClick={() => setSelectedId(cls.id)}
                       className="flex flex-col bg-white rounded-3xl border border-gray-100 hover:border-gray-200 hover:shadow-xl transition-all text-left overflow-hidden group"
                     >
-                      <div className="relative w-full h-48 bg-gray-100 overflow-hidden">
-                        <Image
-                          src={cls.image}
-                          alt={cls.title}
-                          fill
-                          className="object-cover transition-transform duration-500 group-hover:scale-110"
-                        />
-                        <div className="absolute top-4 right-4 px-3 py-1 bg-white/90 backdrop-blur-sm rounded-full text-xs font-bold shadow-sm" style={{ color: cls.color }}>
-                          {cls.date}
-                        </div>
-                      </div>
                       <div className="p-6 relative flex-1 flex flex-col">
                         <div 
                           className="absolute left-0 top-0 w-full h-1 transition-all duration-300 group-hover:h-1.5"
@@ -109,21 +97,8 @@ export default function WellnessWednesdayPage() {
                     </div>
                   </div>
                   
-                  <div className="flex flex-col md:flex-row">
-                    <div className="md:w-1/2 relative min-h-[300px] md:min-h-[500px] bg-gray-100">
-                      <Image
-                        src={selectedClass.image}
-                        alt={selectedClass.title}
-                        fill
-                        className="object-cover"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent md:hidden" />
-                      <h2 className="absolute bottom-6 left-6 right-6 text-3xl font-bold text-white md:hidden drop-shadow-md">
-                        {selectedClass.title}
-                      </h2>
-                    </div>
-                    
-                    <div className="md:w-1/2 p-6 sm:p-8 md:p-12 flex flex-col justify-center bg-white relative">
+                  <div className="flex flex-col">
+                    <div className="p-6 sm:p-8 md:p-12 flex flex-col justify-center bg-white relative">
                       <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-gray-50 to-transparent rounded-bl-full opacity-50" />
                       <h2 className="text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-900 mb-6 hidden md:block">
                         {selectedClass.title}

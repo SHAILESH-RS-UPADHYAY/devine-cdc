@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
 import { motion, type Variants } from "framer-motion";
 
 export const AnimatedLogoSection = () => {
@@ -61,30 +60,23 @@ export const AnimatedLogoSection = () => {
               </filter>
             </defs>
 
-            {/* HD Logo using foreignObject for Next.js Image optimization */}
-            <foreignObject x="280" y="150" width="240" height="240">
-              <motion.div
-                className="w-full h-full relative"
-                variants={{
-                  hidden: { opacity: 0, clipPath: "circle(0% at 50% 50%)" },
-                  visible: {
-                    opacity: 1,
-                    clipPath: "circle(100% at 50% 50%)",
-                    transition: { duration: 2.5, ease: "easeInOut" }
-                  }
-                }}
-              >
-                <Image 
-                  src="/images/logo-textless-transparent.webp" 
-                  alt="Devine CDC Logo" 
-                  fill
-                  sizes="(max-width: 768px) 100vw, 240px"
-                  quality={100}
-                  priority
-                  className="object-contain relative z-10"
-                />
-              </motion.div>
-            </foreignObject>
+            {/* HD Logo using native SVG image for perfect cross-browser alignment */}
+            <motion.image
+              href="/images/logo-textless-transparent.webp"
+              x="280"
+              y="150"
+              width="240"
+              height="240"
+              preserveAspectRatio="xMidYMid meet"
+              variants={{
+                hidden: { opacity: 0, clipPath: "circle(0% at 50% 50%)" },
+                visible: {
+                  opacity: 1,
+                  clipPath: "circle(100% at 50% 50%)",
+                  transition: { duration: 2.5, ease: "easeInOut" }
+                }
+              }}
+            />
 
             {/* --- CURLY PATHS --- */}
             

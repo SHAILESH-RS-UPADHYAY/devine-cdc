@@ -1,7 +1,6 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import Image from "next/image";
 import { THERAPIES, SITE_CONFIG, WHATSAPP_URL, CONTACT } from "@/lib/constants";
 import { THERAPY_CONTENT } from "@/lib/therapy-content";
 import {
@@ -114,28 +113,6 @@ export default async function TherapyDetailPage({ params }: PageProps) {
         <div className="grid lg:grid-cols-3 gap-12 lg:gap-16">
           {/* ═══ Main Content ═══ */}
           <div className="lg:col-span-2 space-y-16">
-            {/* Image (if available) */}
-            {content?.imageUrl && (
-              <section 
-                className="rounded-3xl overflow-hidden border border-gray-100 transition-all duration-700 hover:scale-[1.02]"
-                style={{
-                  boxShadow: `0 20px 50px -10px ${therapy.color}50`,
-                }}
-              >
-                <div className="relative w-full aspect-video">
-                  <Image
-                    src={content.imageUrl}
-                    alt={`${therapy.title} at ${SITE_CONFIG.shortName}`}
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 66vw, 50vw"
-                    quality={60}
-                    priority
-                  />
-                </div>
-              </section>
-            )}
-
             {/* What Is Section */}
             {content && (
               <section>

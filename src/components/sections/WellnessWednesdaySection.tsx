@@ -228,19 +228,7 @@ export function WellnessWednesdaySection() {
                 >
                   Wellness Wednesday
                 </motion.h2>
-                <motion.p
-                  initial={{ y: 20, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  transition={{ delay: 0.1 }}
-                  className="font-medium mx-auto ww-text"
-                  style={{
-                    fontSize: "clamp(0.85rem, 2.5vw, 1.05rem)",
-                    color: "rgba(255,255,255,0.5)",
-                    maxWidth: "32rem",
-                  }}
-                >
-                  Extra Group Classes
-                </motion.p>
+
                 <motion.p
                   initial={{ y: 20, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
