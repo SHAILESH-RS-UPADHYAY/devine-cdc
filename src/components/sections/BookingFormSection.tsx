@@ -48,17 +48,23 @@ export function BookingFormSection() {
         // Fallback to simulate API call if no ID is provided
         await new Promise((resolve) => setTimeout(resolve, 1500));
       } else {
-        const response = await fetch(`https://formspree.io/f/${formspreeId}`, {
+        // Clean up the endpoint in case it includes the full URL
+        let endpoint = formspreeId.trim();
+        if (!endpoint.startsWith("http")) {
+          endpoint = `https://formspree.io/f/${endpoint}`;
+        }
+
+        const response = await fetch(endpoint, {
           method: "POST",
           headers: {
-            "Accept": "application/json",
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
+            "Accept": "application/json"
           },
           body: JSON.stringify(data)
         });
         
         if (!response.ok) {
-          throw new Error("Failed to submit form");
+          throw new Error("Failed to submit form to Formspree");
         }
       }
 
