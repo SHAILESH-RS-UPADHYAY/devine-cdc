@@ -51,6 +51,7 @@ export function BookingFormSection() {
         const response = await fetch(`https://formspree.io/f/${formspreeId}`, {
           method: "POST",
           headers: {
+            "Accept": "application/json",
             "Content-Type": "application/json"
           },
           body: JSON.stringify(data)
