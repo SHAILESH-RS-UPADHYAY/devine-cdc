@@ -66,8 +66,7 @@ export function Navbar() {
           {/* Left: Logo + Brand */}
           <Link 
             href="/" 
-            className="relative z-50 flex items-center gap-2 sm:gap-3 group"
-            style={{ paddingLeft: "clamp(16px, 2.5vw, 32px)" }}
+            className="relative z-50 flex items-center gap-2 sm:gap-3 group shrink min-w-0"
             onClick={(e) => {
               if (window.location.pathname === "/") {
                 e.preventDefault();
@@ -86,11 +85,11 @@ export function Navbar() {
                 priority
               />
             </div>
-            <div className="flex flex-col justify-center">
-              <span className="text-[12px] sm:text-[14px] md:text-[15px] font-heading font-black text-slate-900 uppercase tracking-tight leading-none whitespace-nowrap">
+            <div className="flex flex-col justify-center min-w-0">
+              <span className="text-[11px] sm:text-[14px] md:text-[15px] font-heading font-black text-slate-900 uppercase tracking-tight leading-[1.15] sm:leading-none sm:whitespace-nowrap">
                 Devine Child <span className="text-devine-orange">Development Centre</span>
               </span>
-              <span className="text-[8px] sm:text-[9px] font-medium text-slate-500 uppercase tracking-[0.25em] leading-none mt-0.5">
+              <span className="text-[8px] sm:text-[9px] font-medium text-slate-500 uppercase tracking-[0.25em] leading-none mt-1 sm:mt-0.5 truncate">
                 your safe space
               </span>
             </div>
@@ -111,9 +110,13 @@ export function Navbar() {
                       e.preventDefault();
                       window.scrollTo({ top: 0, behavior: 'smooth' });
                     }
-                    if (link.label === "Conditions" && window.location.pathname === "/") {
+                    if (link.label === "Conditions") {
                       e.preventDefault();
-                      scrollToConditions();
+                      if (window.location.pathname === "/") {
+                        scrollToConditions();
+                      } else {
+                        window.location.href = "/#conditions-we-support";
+                      }
                     }
                   }}
                   className="px-4 py-2 rounded-full text-[15px] font-medium text-slate-600 hover:text-devine-orange hover:bg-white/80 transition-all"
@@ -126,7 +129,7 @@ export function Navbar() {
           </div>
 
           {/* Desktop CTA */}
-          <div className="hidden xl:flex items-center gap-4" style={{ paddingRight: "clamp(16px, 2.5vw, 32px)" }}>
+          <div className="hidden xl:flex items-center gap-4">
             <Button className="rounded-full bg-slate-900 text-white hover:bg-devine-orange font-bold shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 px-6 h-10 text-sm" asChild>
               <Link href="/#book-appointment" onClick={(e) => {
                 if (window.location.pathname === "/") {
@@ -143,9 +146,9 @@ export function Navbar() {
           </div>
 
           {/* Mobile Menu Toggle */}
-          <div className="flex items-center xl:hidden" style={{ paddingRight: "clamp(16px, 2.5vw, 20px)" }}>
+          <div className="flex items-center xl:hidden shrink-0">
             <button
-              className="relative z-50 flex items-center justify-center rounded-full bg-white shadow-[0_2px_10px_rgba(0,0,0,0.05)] border border-slate-100 text-slate-800"
+              className="relative z-50 flex items-center justify-center rounded-full bg-white shadow-[0_2px_10px_rgba(0,0,0,0.05)] border border-slate-100 text-slate-800 shrink-0"
               style={{ width: 44, height: 44 }}
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               aria-expanded={isMobileMenuOpen}
@@ -185,9 +188,13 @@ export function Navbar() {
                         e.preventDefault();
                         window.scrollTo({ top: 0, behavior: 'smooth' });
                       }
-                      if (link.label === "Conditions" && window.location.pathname === "/") {
+                      if (link.label === "Conditions") {
                         e.preventDefault();
-                        scrollToConditions();
+                        if (window.location.pathname === "/") {
+                          scrollToConditions();
+                        } else {
+                          window.location.href = "/#conditions-we-support";
+                        }
                       }
                       setIsMobileMenuOpen(false);
                     }}

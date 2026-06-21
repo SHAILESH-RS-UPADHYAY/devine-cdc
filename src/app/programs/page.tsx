@@ -46,7 +46,7 @@ export default function ProgramsPage() {
               return (
                 <div
                   key={therapy.id}
-                  className="bg-white rounded-[2rem] p-8 shadow-sm border border-gray-100 hover:shadow-xl transition-all duration-300 group"
+                  className="bg-white rounded-[2rem] p-6 sm:p-8 shadow-sm border border-gray-100 hover:shadow-xl transition-all duration-300 group flex flex-col h-full"
                 >
                   <div 
                     className="w-16 h-16 rounded-2xl flex items-center justify-center mb-6 transition-transform duration-300 group-hover:scale-110"
@@ -58,11 +58,13 @@ export default function ProgramsPage() {
                   <p className="text-gray-600 leading-relaxed mb-8">
                     {therapy.shortDescription}
                   </p>
-                  <Button asChild variant="outline" className="rounded-full hover:bg-gray-50 text-gray-700">
-                    <Link href={therapy.href}>
-                      Learn more about {therapy.title} <ArrowRight size={18} className="ml-2" />
-                    </Link>
-                  </Button>
+                  <div className="mt-auto pt-4">
+                    <Button asChild variant="outline" className="rounded-full hover:bg-gray-50 text-gray-700 w-full h-auto py-3 px-6 whitespace-normal text-left inline-flex items-center justify-between">
+                      <Link href={therapy.href}>
+                        <span className="flex-1">Learn more about {therapy.title}</span> <ArrowRight size={18} className="ml-2 shrink-0" />
+                      </Link>
+                    </Button>
+                  </div>
                 </div>
               );
             })}
@@ -80,7 +82,7 @@ export default function ProgramsPage() {
               return (
                 <div
                   key={cls.id}
-                  className="bg-white rounded-[2rem] p-8 shadow-sm border border-gray-100 hover:shadow-xl transition-all duration-300 group"
+                  className="bg-white rounded-[2rem] p-6 sm:p-8 shadow-sm border border-gray-100 hover:shadow-xl transition-all duration-300 group flex flex-col h-full"
                 >
                   <div 
                     className="w-16 h-16 rounded-2xl flex items-center justify-center mb-6 text-white shadow-md transform group-hover:-translate-y-2 transition-transform duration-300"
@@ -92,11 +94,13 @@ export default function ProgramsPage() {
                   <p className="text-gray-600 leading-relaxed mb-8">
                     {cls.description}
                   </p>
-                  <Button asChild variant="ghost" className="rounded-full text-devine-orange hover:bg-devine-orange/10 -ml-4 group/btn">
-                    <Link href={cls.href}>
-                      Explore Details <ArrowRight size={18} className="ml-2 transition-transform duration-300 group-hover/btn:translate-x-1" />
-                    </Link>
-                  </Button>
+                  <div className="mt-auto pt-4">
+                    <Button asChild variant="ghost" className="rounded-full text-devine-orange hover:bg-devine-orange/10 sm:-ml-4 group/btn w-full sm:w-auto h-auto py-3 whitespace-normal text-left inline-flex items-center justify-between sm:justify-start">
+                      <Link href={cls.href}>
+                        <span className="flex-1">Explore Details</span> <ArrowRight size={18} className="ml-2 shrink-0 transition-transform duration-300 group-hover/btn:translate-x-1" />
+                      </Link>
+                    </Button>
+                  </div>
                 </div>
               );
             })}

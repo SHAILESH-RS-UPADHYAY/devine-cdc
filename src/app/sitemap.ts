@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next';
 import { THERAPIES } from '@/lib/constants';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://devine-cdc.vercel.app';
+  const baseUrl = 'https://devinecdc.in';
 
   const staticRoutes: MetadataRoute.Sitemap = [
     {
@@ -23,20 +23,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'weekly',
       priority: 0.9,
     },
-    {
-      url: `${baseUrl}/admissions`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
-    {
+{
       url: `${baseUrl}/contact`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/conditions`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.8,

@@ -6,7 +6,7 @@ import { Footer } from "@/components/layout/Footer";
 import { FloatingContactButtons } from "@/components/ui/FloatingContactButtons";
 import { FloatingBookButton } from "@/components/ui/FloatingBookButton";
 import { GlobalBackground } from "@/components/ui/GlobalBackground";
-import { CONTACT } from "@/lib/constants";
+import { CONTACT, SITE_CONFIG } from "@/lib/constants";
 
 const nunito = Nunito({
   variable: "--font-heading",
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
   authors: [{ name: "Devine Child Development Centre" }],
   creator: "Devine CDC",
   publisher: "Devine Child Development Centre",
-  metadataBase: new URL("https://devinecdc.com"),
+  metadataBase: new URL(SITE_CONFIG.url),
   openGraph: {
     type: "website",
     locale: "en_IN",
@@ -104,9 +104,9 @@ export default function RootLayout({
               alternateName: "Devine CDC",
               description:
                 "Expert child development centre offering Speech & Language Therapy, Occupational Therapy, ABA Therapy & Special Education for children with Autism, ADHD, and developmental delays.",
-              url: "https://devinecdc.com",
-              logo: "https://devinecdc.com/images/logo.webp",
-              image: "https://devinecdc.com/images/og-image.jpg",
+              url: SITE_CONFIG.url,
+              logo: `${SITE_CONFIG.url}/images/logo.webp`,
+              image: `${SITE_CONFIG.url}/images/og-image.jpg`,
               telephone: CONTACT.phoneDisplay,
               email: CONTACT.email,
               address: {

@@ -9,7 +9,7 @@ export const SITE_CONFIG = {
   tagline: "YOUR SAFE SPACE",
   description:
     "Expert child development centre offering Speech & Language Therapy, Occupational Therapy, ABA Therapy & Special Education in Gurgaon.",
-  url: "https://devinecdc.com",
+  url: "https://devinecdc.in",
   ogImage: "/images/og-image.jpg",
 } as const;
 
@@ -242,39 +242,6 @@ export const WELLNESS_WEDNESDAY_CLASSES = [
 
 export const TOP_WELLNESS_CLASSES = ["wellness-3", "wellness-5", "wellness-8", "wellness-6"];
 
-export const CONDITIONS = [
-  {
-    id: "autism",
-    title: "Autism Spectrum Disorder",
-    shortTitle: "Autism",
-    description:
-      "Autism Spectrum Disorder (ASD) affects how a child communicates, behaves, and interacts with others. Our expert team provides personalised assessment and therapy plans to help children with ASD build essential life skills.",
-    href: "/conditions/autism",
-    icon: "Puzzle",
-    image: "/images/condition-autism.webp",
-  },
-  {
-    id: "adhd",
-    title: "ADHD",
-    shortTitle: "ADHD",
-    description:
-      "Attention Deficit Hyperactivity Disorder (ADHD) affects a child's ability to focus, sit still, and control impulses. We offer structured interventions that help children manage their behaviour and succeed in daily life.",
-    href: "/conditions/adhd",
-    icon: "Zap",
-    image: "/images/condition-adhd.webp",
-  },
-  {
-    id: "speech-delay",
-    title: "Speech Delay",
-    shortTitle: "Speech Delay",
-    description:
-      "Speech delay means a child takes longer to develop language skills than expected. With early, targeted speech therapy and a supportive environment, children can make remarkable progress at their own pace.",
-    href: "/conditions/speech-delay",
-    icon: "MessageSquare",
-    image: "/images/condition-speech-delay.webp",
-  },
-] as const;
-
 export const TRUST_STATS = [
   { label: "RCI Licensed", value: "RCI", icon: "ShieldCheck", suffix: "" },
   { label: "Therapies Offered", value: "5", icon: "Stethoscope", suffix: "+" },
@@ -287,7 +254,7 @@ export const WHATSAPP_URL = `https://wa.me/${CONTACT.whatsapp}?text=${encodeURIC
 export const NAV_LINKS = [
   { label: "Home", href: "/" },
   { label: "Therapies", href: "/therapies" },
-  { label: "Conditions", href: "/conditions" },
+  { label: "Conditions", href: "/" },
   { label: "Programs", href: "/programs" },
   { label: "Contact", href: "/contact" },
   { label: "About", href: "/about" },

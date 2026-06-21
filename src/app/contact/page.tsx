@@ -30,8 +30,8 @@ export default function ContactPage() {
             </h2>
             
             <div className="space-y-8">
-              <div className="flex items-start">
-                <div className="bg-devine-teal/10 p-3 rounded-full mr-4">
+              <div className="flex items-start gap-4 sm:gap-6">
+                <div className="bg-devine-teal/10 p-3 rounded-full shrink-0">
                   <MapPin className="w-6 h-6 text-devine-teal" />
                 </div>
                 <div>
@@ -40,24 +40,24 @@ export default function ContactPage() {
                 </div>
               </div>
 
-              <div className="flex items-start">
-                <div className="bg-devine-peach/10 p-3 rounded-full mr-4">
+              <div className="flex items-start gap-4 sm:gap-6">
+                <div className="bg-devine-peach/10 p-3 rounded-full shrink-0">
                   <Phone className="w-6 h-6 text-devine-peach" />
                 </div>
                 <div>
                   <h3 className="text-xl font-bold text-gray-900 mb-1">Phone & WhatsApp</h3>
                   <p className="text-gray-600 mb-2">{CONTACT.phoneDisplay}</p>
-                  <Button asChild variant="outline" className="text-devine-peach border-devine-peach hover:bg-devine-peach hover:text-white">
+                  <Button asChild variant="outline" className="text-devine-peach border-devine-peach hover:bg-devine-peach hover:text-white mt-2 w-full sm:w-auto whitespace-normal h-auto py-2 inline-flex items-center justify-center">
                     <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
-                      <MessageCircle className="w-4 h-4 mr-2" />
-                      Chat on WhatsApp
+                      <MessageCircle className="w-4 h-4 mr-2 shrink-0" />
+                      <span>Chat on WhatsApp</span>
                     </a>
                   </Button>
                 </div>
               </div>
 
-              <div className="flex items-start">
-                <div className="bg-devine-green/10 p-3 rounded-full mr-4">
+              <div className="flex items-start gap-4 sm:gap-6">
+                <div className="bg-devine-green/10 p-3 rounded-full shrink-0">
                   <Mail className="w-6 h-6 text-devine-green" />
                 </div>
                 <div>
@@ -68,8 +68,8 @@ export default function ContactPage() {
                 </div>
               </div>
 
-              <div className="flex items-start">
-                <div className="bg-devine-orange/10 p-3 rounded-full mr-4">
+              <div className="flex items-start gap-4 sm:gap-6">
+                <div className="bg-devine-orange/10 p-3 rounded-full shrink-0">
                   <Clock className="w-6 h-6 text-devine-orange" />
                 </div>
                 <div>

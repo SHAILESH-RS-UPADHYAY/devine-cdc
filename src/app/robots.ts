@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: ['/private/'],
     },
-    sitemap: 'https://devine-cdc.vercel.app/sitemap.xml',
+    sitemap: 'https://devinecdc.in/sitemap.xml',
   };
 }
