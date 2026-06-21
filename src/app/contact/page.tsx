@@ -22,9 +22,9 @@ export default function ContactPage() {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-start max-w-6xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start max-w-6xl mx-auto">
           {/* Contact Information */}
-          <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12">
+          <div className="bg-white rounded-2xl shadow-xl p-6 sm:p-8 md:p-12">
             <h2 className="text-3xl font-heading font-bold text-devine-orange mb-8">
               Get In Touch
             </h2>
@@ -83,7 +83,7 @@ export default function ContactPage() {
           </div>
 
           {/* Map */}
-          <div className="bg-white rounded-2xl shadow-xl overflow-hidden h-[600px] relative">
+          <div className="bg-white rounded-2xl shadow-xl overflow-hidden h-[350px] sm:h-[450px] lg:h-[600px] relative">
             {ADDRESS.googleMapsEmbed ? (
               <a href={ADDRESS.googleMapsUrl} target="_blank" rel="noopener noreferrer" className="block w-full h-full relative group cursor-pointer">
                 <iframe
