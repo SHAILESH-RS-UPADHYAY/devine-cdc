@@ -97,7 +97,18 @@ export function Footer() {
             <ul className="space-y-4 text-sm font-medium">
               <li><Link href="/" className="hover:text-devine-peach transition-colors">Home</Link></li>
               <li><Link href="/therapies" className="hover:text-devine-peach transition-colors">Therapies</Link></li>
-              <li><Link href="/conditions" className="hover:text-devine-peach transition-colors">Conditions</Link></li>
+              <li><Link href="/" className="hover:text-devine-peach transition-colors" onClick={(e) => {
+                if (window.location.pathname === "/") {
+                  e.preventDefault();
+                  const el = document.getElementById("conditions-we-support");
+                  if (el) {
+                    const y = el.getBoundingClientRect().top + window.scrollY - 72;
+                    window.scrollTo({ top: y, behavior: "smooth" });
+                  }
+                } else {
+                  window.location.href = "/#conditions-we-support";
+                }
+              }}>Conditions</Link></li>
               <li><Link href="/programs" className="hover:text-devine-peach transition-colors">Programs</Link></li>
               <li><Link href="/contact" className="hover:text-devine-peach transition-colors">Contact</Link></li>
               <li><Link href="/about" className="hover:text-devine-peach transition-colors">About</Link></li>

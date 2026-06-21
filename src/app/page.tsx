@@ -6,7 +6,7 @@ const TrustBanner = dynamic(() => import("@/components/sections/TrustBanner").th
 const AnimatedLogoSection = dynamic(() => import("@/components/sections/AnimatedLogoSection").then(mod => mod.AnimatedLogoSection));
 const ServicesPreview = dynamic(() => import("@/components/sections/ServicesPreview").then(mod => mod.ServicesPreview));
 const ConditionsSection = dynamic(() => import("@/components/sections/ConditionsSection").then(mod => mod.ConditionsSection));
-const GroupClassesSection = dynamic(() => import("@/components/sections/GroupClassesSection").then(mod => mod.GroupClassesSection));
+const WellnessWednesdaySection = dynamic(() => import("@/components/sections/WellnessWednesdaySection").then(mod => mod.WellnessWednesdaySection));
 const FounderSection = dynamic(() => import("@/components/sections/FounderSection").then(mod => mod.FounderSection));
 const BookingFormSection = dynamic(() => import("@/components/sections/BookingFormSection").then(mod => mod.BookingFormSection));
 const ScrollReveal = dynamic(() => import("@/components/ui/ScrollReveal").then(mod => mod.ScrollReveal));
@@ -34,7 +34,7 @@ export default function Home() {
       </ScrollReveal>
       
       <ScrollReveal delay={0.1}>
-        <GroupClassesSection />
+        <WellnessWednesdaySection />
       </ScrollReveal>
 
       <ScrollReveal delay={0.1}>

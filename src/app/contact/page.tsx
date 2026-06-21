@@ -85,17 +85,25 @@ export default function ContactPage() {
           {/* Map */}
           <div className="bg-white rounded-2xl shadow-xl overflow-hidden h-[600px] relative">
             {ADDRESS.googleMapsEmbed ? (
-              <iframe
-                src={ADDRESS.googleMapsEmbed}
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                className="absolute inset-0"
-                title="Devine CDC Location Map"
-              ></iframe>
+              <a href={ADDRESS.googleMapsUrl} target="_blank" rel="noopener noreferrer" className="block w-full h-full relative group cursor-pointer">
+                <iframe
+                  src={ADDRESS.googleMapsEmbed}
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0, pointerEvents: 'none' }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  className="absolute inset-0"
+                  title="Devine CDC Location Map"
+                ></iframe>
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-all flex items-center justify-center">
+                  <div className="bg-white text-devine-orange px-6 py-3 rounded-full font-bold shadow-lg opacity-0 group-hover:opacity-100 transition-all transform translate-y-4 group-hover:translate-y-0 flex items-center gap-2">
+                    <MapPin className="w-5 h-5" />
+                    Open in Google Maps
+                  </div>
+                </div>
+              </a>
             ) : (
               <div className="flex items-center justify-center h-full bg-gray-100 text-gray-500">
                 Map loading...

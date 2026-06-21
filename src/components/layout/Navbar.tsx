@@ -27,15 +27,21 @@ const InstagramIcon = ({ size = 24 }: { size?: number }) => (
   </svg>
 );
 
+function scrollToConditions() {
+  const el = document.getElementById("conditions-we-support");
+  if (el) {
+    const y = el.getBoundingClientRect().top + window.scrollY - 72;
+    window.scrollTo({ top: y, behavior: "smooth" });
+  }
+}
+
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
-    window.addEventListener("scroll", handleScroll);
+    const handleScroll = () => setIsScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -48,73 +54,54 @@ export function Navbar() {
         className={cn(
           "sticky top-0 left-0 right-0 z-50 transition-all duration-500",
           isScrolled 
-            ? "py-3 bg-white/95 backdrop-blur-2xl shadow-[0_10px_40px_rgba(0,0,0,0.08)] border-b border-slate-200/50" 
-            : "py-5 bg-transparent"
+            ? "bg-white/95 backdrop-blur-2xl shadow-[0_10px_40px_rgba(0,0,0,0.08)] border-b border-slate-200/50" 
+            : "bg-transparent"
         )}
+        style={{ height: "clamp(64px, 8vw, 72px)" }}
       >
-        <div className="container mx-auto px-4 md:px-6 relative flex items-center justify-between">
-          {/* Left: Logo and Brand Name */}
-          <div className="flex-1 flex justify-start">
-            <Link 
-              href="/" 
-              className="relative z-50 flex items-center gap-3 sm:gap-4 group"
-              onClick={(e) => {
-                if (window.location.pathname === "/") {
-                  e.preventDefault();
-                  window.scrollTo({ top: 0, behavior: 'smooth' });
-                }
-              }}
-            >
-              <div className="relative flex items-center">
-                <motion.div 
-                  animate={{ y: [-4, 4, -4] }}
-                  transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                  className="w-12 h-12 sm:w-14 sm:h-14 flex items-center justify-center relative"
-                >
-                  <Image 
-                    src="/images/logo-textless-transparent.webp" 
-                    alt="" 
-                    width={56} 
-                    height={56} 
-                    quality={75}
-                    className="absolute inset-0 w-full h-full object-contain blur-[4px] opacity-90 group-hover:opacity-100 group-hover:blur-[8px] group-hover:scale-110 transition-all duration-500 saturate-[2] brightness-125"
-                    priority
-                  />
-                  <Image 
-                    src="/images/logo-textless-transparent.webp" 
-                    alt="" 
-                    width={56} 
-                    height={56} 
-                    quality={75}
-                    className="absolute inset-0 w-full h-full object-contain blur-[2px] opacity-60 group-hover:opacity-80 group-hover:blur-[4px] group-hover:scale-110 transition-all duration-500 saturate-[2.5] brightness-150 mix-blend-screen"
-                    priority
-                  />
-                  <Image 
-                    src="/images/logo-textless-transparent.webp" 
-                    alt="Devine CDC Logo" 
-                    width={56} 
-                    height={56} 
-                    quality={75}
-                    className="relative z-10 w-full h-full object-contain transition-all duration-500 group-hover:scale-110 drop-shadow-sm"
-                    priority
-                  />
-                </motion.div>
-              </div>
-              
-              <div className="flex flex-col justify-center">
-                <span className="text-[11px] sm:text-[13px] md:text-[15px] lg:text-[17px] font-heading font-black text-slate-900 uppercase tracking-tight leading-none whitespace-nowrap">
-                  Devine Child <span className="text-devine-orange">Development Centre</span>
-                </span>
-                <span className="text-[8px] sm:text-[9px] md:text-[10px] font-medium text-slate-500 uppercase tracking-[0.25em] leading-none mt-1 sm:mt-1.5 ml-0.5">
-                  your safe space
-                </span>
-              </div>
-            </Link>
-          </div>
+        <div
+          className="container mx-auto px-4 md:px-6 flex items-center justify-between"
+          style={{ height: "100%" }}
+        >
+          {/* Left: Logo + Brand */}
+          <Link 
+            href="/" 
+            className="relative z-50 flex items-center gap-2 sm:gap-3 group"
+            style={{ paddingLeft: "clamp(16px, 2.5vw, 32px)" }}
+            onClick={(e) => {
+              if (window.location.pathname === "/") {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }
+            }}
+          >
+            <div className="relative flex items-center shrink-0" style={{ width: 40, height: 40 }}>
+              <Image 
+                src="/images/logo-textless-transparent.webp" 
+                alt="Devine CDC Logo" 
+                width={40} 
+                height={40} 
+                quality={75}
+                className="w-full h-full object-contain"
+                priority
+              />
+            </div>
+            <div className="flex flex-col justify-center">
+              <span className="text-[12px] sm:text-[14px] md:text-[15px] font-heading font-black text-slate-900 uppercase tracking-tight leading-none whitespace-nowrap">
+                Devine Child <span className="text-devine-orange">Development Centre</span>
+              </span>
+              <span className="text-[8px] sm:text-[9px] font-medium text-slate-500 uppercase tracking-[0.25em] leading-none mt-0.5">
+                your safe space
+              </span>
+            </div>
+          </Link>
 
-          {/* Center: Desktop Navigation */}
-          <div className="hidden xl:flex flex-none justify-center absolute left-1/2 -translate-x-1/2">
-            <nav aria-label="Main Navigation" className="flex items-center gap-1 bg-white/50 backdrop-blur-md px-2 py-1.5 rounded-full border border-slate-200/50 shadow-[0_4px_20px_rgba(0,0,0,0.03)]">
+          {/* Desktop Navigation */}
+          <div className="hidden lg:flex items-center justify-center">
+            <nav
+              aria-label="Main Navigation"
+              className="flex items-center gap-1"
+            >
               {NAV_LINKS.map((link) => (
                 <Link
                   key={link.label}
@@ -124,8 +111,13 @@ export function Navbar() {
                       e.preventDefault();
                       window.scrollTo({ top: 0, behavior: 'smooth' });
                     }
+                    if (link.label === "Conditions" && window.location.pathname === "/") {
+                      e.preventDefault();
+                      scrollToConditions();
+                    }
                   }}
-                  className="px-5 py-2 rounded-full text-[13px] font-bold text-slate-600 hover:text-devine-orange hover:bg-white/80 transition-all"
+                  className="px-4 py-2 rounded-full text-[15px] font-medium text-slate-600 hover:text-devine-orange hover:bg-white/80 transition-all"
+                  style={{ fontSize: "15px", fontWeight: 500, lineHeight: 1.4 }}
                 >
                   {link.label}
                 </Link>
@@ -133,9 +125,9 @@ export function Navbar() {
             </nav>
           </div>
 
-          {/* Right: Desktop CTA */}
-          <div className="flex-1 hidden xl:flex justify-end items-center gap-4">
-            <Button className="rounded-full bg-slate-900 text-white hover:bg-devine-orange font-bold shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 px-7 h-11" asChild>
+          {/* Desktop CTA */}
+          <div className="hidden lg:flex items-center gap-4" style={{ paddingRight: "clamp(16px, 2.5vw, 32px)" }}>
+            <Button className="rounded-full bg-slate-900 text-white hover:bg-devine-orange font-bold shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 px-6 h-10 text-sm" asChild>
               <Link href="/#book-appointment" onClick={(e) => {
                 if (window.location.pathname === "/") {
                   e.preventDefault();
@@ -150,10 +142,11 @@ export function Navbar() {
             </Button>
           </div>
 
-          {/* Mobile Menu Toggle (Shows below xl to make room for wide title) */}
-          <div className="flex-1 flex justify-end xl:hidden">
+          {/* Mobile Menu Toggle */}
+          <div className="flex items-center lg:hidden" style={{ paddingRight: "clamp(16px, 2.5vw, 20px)" }}>
             <button
-              className="relative z-50 w-11 h-11 flex items-center justify-center rounded-full bg-white shadow-[0_2px_10px_rgba(0,0,0,0.05)] border border-slate-100 text-slate-800"
+              className="relative z-50 flex items-center justify-center rounded-full bg-white shadow-[0_2px_10px_rgba(0,0,0,0.05)] border border-slate-100 text-slate-800"
+              style={{ width: 44, height: 44 }}
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               aria-expanded={isMobileMenuOpen}
               aria-label="Toggle Mobile Menu"
@@ -165,23 +158,25 @@ export function Navbar() {
         </div>
       </motion.header>
 
-      {/* Mobile Menu Overlay */}
+      {/* Mobile Menu */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -20 }}
+            id="mobile-menu"
+            initial={{ opacity: 0, y: -12 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="fixed inset-0 z-40 bg-white/95 backdrop-blur-xl pt-28 px-6 pb-6 flex flex-col xl:hidden"
+            exit={{ opacity: 0, y: -12 }}
+            transition={{ duration: 0.25, ease: "easeInOut" }}
+            className="fixed inset-0 z-40 bg-white/95 backdrop-blur-xl pt-24 px-6 pb-6 flex flex-col lg:hidden"
+            style={{ top: "clamp(64px, 8vw, 72px)" }}
           >
-            <nav className="flex flex-col gap-6 text-center mt-10">
+            <nav className="flex flex-col text-center mt-6">
               {NAV_LINKS.map((link, i) => (
                 <motion.div
                   key={link.label}
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: i * 0.05 }}
+                  transition={{ delay: i * 0.04 }}
                 >
                   <Link
                     href={link.href}
@@ -190,9 +185,14 @@ export function Navbar() {
                         e.preventDefault();
                         window.scrollTo({ top: 0, behavior: 'smooth' });
                       }
+                      if (link.label === "Conditions" && window.location.pathname === "/") {
+                        e.preventDefault();
+                        scrollToConditions();
+                      }
                       setIsMobileMenuOpen(false);
                     }}
-                    className="text-3xl font-heading font-black text-slate-800 hover:text-devine-orange transition-colors"
+                    className="text-2xl font-heading font-bold text-slate-800 hover:text-devine-orange transition-colors flex items-center justify-center"
+                    style={{ minHeight: 48, WebkitTapHighlightColor: "transparent" }}
                   >
                     {link.label}
                   </Link>
@@ -221,6 +221,7 @@ export function Navbar() {
                   rel="noopener noreferrer"
                   aria-label="Visit our Instagram page"
                   className="w-14 h-14 flex items-center justify-center rounded-2xl bg-slate-50 text-slate-600 hover:bg-devine-peach hover:text-white transition-all border border-slate-100 shadow-sm"
+                  style={{ WebkitTapHighlightColor: "transparent" }}
                 >
                   <InstagramIcon size={24} />
                 </a>
@@ -230,6 +231,7 @@ export function Navbar() {
                   rel="noopener noreferrer"
                   aria-label="Contact us on WhatsApp"
                   className="w-14 h-14 flex items-center justify-center rounded-2xl bg-slate-50 text-slate-600 hover:bg-green-500 hover:text-white transition-all border border-slate-100 shadow-sm"
+                  style={{ WebkitTapHighlightColor: "transparent" }}
                 >
                   <Phone size={24} aria-hidden="true" />
                 </a>
