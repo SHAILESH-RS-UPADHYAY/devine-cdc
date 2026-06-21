@@ -123,9 +123,9 @@ export function BookingFormSection() {
                   <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center flex-shrink-0">
                     <Mail className="text-devine-peach" size={24} />
                   </div>
-                  <div>
+                  <div className="min-w-0 flex-1">
                     <h4 className="font-bold text-lg mb-1">Email</h4>
-                    <p className="text-white/80">{CONTACT.email}</p>
+                    <p className="text-white/80 break-all md:break-normal">{CONTACT.email}</p>
                   </div>
                 </div>
               </div>

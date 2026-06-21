@@ -63,7 +63,7 @@ export default function AboutPage() {
       </section>
 
       {/* Trust Stats */}
-      <section className="bg-devine-orange text-white py-16 mb-20">
+      <section className="bg-devine-orange text-white py-16 mb-8 md:mb-20">
         <div className="container mx-auto px-4 md:px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {TRUST_STATS.map((stat, i) => {
@@ -87,7 +87,7 @@ export default function AboutPage() {
 
       {/* Founders Section */}
       <section className="container mx-auto px-4 md:px-6">
-        <h2 className="text-3xl md:text-5xl font-heading font-extrabold text-center text-devine-orange mb-16">
+        <h2 className="text-3xl md:text-5xl font-heading font-extrabold text-center text-devine-orange mb-6 md:mb-16">
           Meet Our Psychologist
         </h2>
         <div className="flex flex-col gap-12 max-w-7xl mx-auto">
