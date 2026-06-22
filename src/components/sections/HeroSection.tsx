@@ -127,7 +127,7 @@ export function HeroSection() {
             className="relative lg:h-[650px] w-full flex items-center justify-center lg:justify-end"
           >
             {/* Main Image Container */}
-            <div className="relative w-full max-w-[500px] lg:max-w-none lg:w-[110%] aspect-square lg:aspect-[4/5] rounded-[2.5rem] overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.1)] border border-white/60 bg-white/40 backdrop-blur-3xl group">
+            <div className="relative w-full max-w-[500px] lg:max-w-none lg:w-[110%] aspect-square lg:aspect-[4/5] rounded-[2.5rem] overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.1)] border border-white/60 bg-white/20 group">
               <div className="absolute inset-2 rounded-[2rem] overflow-hidden bg-slate-100">
                 <Image 
                   src={heroImage} 
@@ -148,7 +148,7 @@ export function HeroSection() {
             <motion.div 
               animate={{ y: [0, -12, 0] }}
               transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute -left-4 sm:-left-10 top-[15%] bg-white/95 backdrop-blur-xl p-4 sm:p-5 rounded-2xl shadow-[0_15px_40px_rgba(0,0,0,0.08)] border border-slate-100 flex items-center gap-4 z-30"
+              className="absolute -left-4 sm:-left-10 top-[15%] bg-white/95 p-4 sm:p-5 rounded-2xl shadow-[0_15px_40px_rgba(0,0,0,0.08)] border border-slate-100 flex items-center gap-4 z-30"
               aria-hidden="true"
             >
               <div className="w-12 h-12 rounded-full bg-devine-peach/10 flex items-center justify-center text-devine-peach shadow-inner">
@@ -164,7 +164,7 @@ export function HeroSection() {
             <motion.div 
               animate={{ y: [0, 15, 0] }}
               transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
-              className="absolute -right-2 sm:-right-8 bottom-[10%] bg-white/95 backdrop-blur-xl p-4 sm:p-5 rounded-2xl shadow-[0_15px_40px_rgba(0,0,0,0.08)] border border-slate-100 flex items-center gap-4 z-30"
+              className="absolute -right-2 sm:-right-8 bottom-[10%] bg-white/95 p-4 sm:p-5 rounded-2xl shadow-[0_15px_40px_rgba(0,0,0,0.08)] border border-slate-100 flex items-center gap-4 z-30"
               aria-hidden="true"
             >
               <div className="w-12 h-12 rounded-full bg-devine-blue/10 flex items-center justify-center text-devine-blue shadow-inner">

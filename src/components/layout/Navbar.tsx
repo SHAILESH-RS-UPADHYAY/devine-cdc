@@ -54,7 +54,7 @@ export function Navbar() {
         className={cn(
           "sticky top-0 left-0 right-0 z-50 transition-all duration-500",
           isScrolled 
-            ? "bg-white/95 backdrop-blur-2xl shadow-[0_10px_40px_rgba(0,0,0,0.08)] border-b border-slate-200/50" 
+            ? "bg-white/95 shadow-[0_10px_40px_rgba(0,0,0,0.08)] border-b border-slate-200/50" 
             : "bg-transparent"
         )}
         style={{ height: "clamp(64px, 8vw, 72px)" }}

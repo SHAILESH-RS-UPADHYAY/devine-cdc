@@ -30,11 +30,10 @@ export function AnimatedSectionHeader({
   };
 
   const wordVariants: Variants = {
-    hidden: { opacity: 0, y: 40, filter: "blur(8px)", scale: 0.9 },
+    hidden: { opacity: 0, y: 40, scale: 0.9 },
     visible: { 
       opacity: 1, 
       y: 0, 
-      filter: "blur(0px)",
       scale: 1,
       transition: { 
         duration: 0.8, 

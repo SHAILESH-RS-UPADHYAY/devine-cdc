@@ -139,9 +139,17 @@ export function WellnessWednesdaySection() {
       }}
     >
       <style>{`
-        @keyframes edgePulse {
-          0% { box-shadow: 0 0 8px 1px rgba(var(--gr), var(--gg), var(--gb), 0.3), 0 0 0 1px rgba(var(--gr), var(--gg), var(--gb), 0.5); }
-          100% { box-shadow: 0 0 16px 4px rgba(var(--gr), var(--gg), var(--gb), 0.6), 0 0 0 1.5px rgba(var(--gr), var(--gg), var(--gb), 0.9); }
+        @keyframes edgeGlow {
+          0% { opacity: 0.4; }
+          100% { opacity: 0.9; }
+        }
+        .ww-card-glow::before {
+          content: '';
+          position: absolute;
+          inset: -1px;
+          border-radius: 14px;
+          pointer-events: none;
+          animation: edgeGlow 2.8s infinite alternate ease-in-out;
         }
         @keyframes typewriterReveal {
           0% { clip-path: inset(0 100% 0 0); }
@@ -161,32 +169,27 @@ export function WellnessWednesdaySection() {
       {/* Ambient glow — matches Conditions Section's side-glow style */}
       <motion.div
         animate={{
-          scale: [1, 1.15, 1],
-          x: [0, 80, 0],
-          y: [0, -40, 0],
+          opacity: [0.6, 1, 0.6],
         }}
         transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
         className="absolute top-[-8%] left-[-8%] w-[500px] h-[500px] rounded-full pointer-events-none z-0"
-        style={{ background: "rgba(232,119,58,0.25)", filter: "blur(120px)" }}
+        style={{ background: "radial-gradient(circle, rgba(232,119,58,0.3) 0%, transparent 70%)" }}
       />
       <motion.div
         animate={{
-          scale: [1, 1.3, 1],
-          x: [0, -80, 0],
-          y: [0, 80, 0],
+          opacity: [0.5, 0.9, 0.5],
         }}
         transition={{ duration: 18, repeat: Infinity, ease: "easeInOut", delay: 2 }}
         className="absolute bottom-[-15%] right-[-8%] w-[600px] h-[600px] rounded-full pointer-events-none z-0"
-        style={{ background: "rgba(244,167,108,0.2)", filter: "blur(150px)" }}
+        style={{ background: "radial-gradient(circle, rgba(244,167,108,0.25) 0%, transparent 70%)" }}
       />
       <motion.div
         animate={{
-          scale: [1, 1.2, 1],
-          opacity: [0.4, 0.7, 0.4],
+          opacity: [0.4, 0.8, 0.4],
         }}
         transition={{ duration: 16, repeat: Infinity, ease: "easeInOut", delay: 5 }}
         className="absolute top-[30%] right-[5%] w-[400px] h-[400px] rounded-full pointer-events-none z-0"
-        style={{ background: "rgba(255,203,164,0.18)", filter: "blur(100px)" }}
+        style={{ background: "radial-gradient(circle, rgba(255,203,164,0.2) 0%, transparent 70%)" }}
       />
 
       <div className="container mx-auto px-4 relative z-10 w-full max-w-5xl flex-1 flex flex-col justify-center">
@@ -276,11 +279,8 @@ export function WellnessWednesdaySection() {
                         overflow: "hidden",
                         position: "relative",
                         cursor: "pointer",
-                        "--gr": activity.glowR,
-                        "--gg": activity.glowG,
-                        "--gb": activity.glowB,
-                        animation: `edgePulse 2.8s ${pulseDelay}ms infinite alternate ease-in-out`,
-                      } as any}
+                        boxShadow: `0 0 12px 2px rgba(${activity.glowR}, ${activity.glowG}, ${activity.glowB}, 0.4), 0 0 0 1px rgba(${activity.glowR}, ${activity.glowG}, ${activity.glowB}, 0.6)`,
+                      }}
                     >
                       <Icon size={16} className="mb-1 relative z-10" style={{ color: activity.color, opacity: 0.9 }} />
                       <div className="relative z-10 flex flex-col items-center justify-center w-full px-0.5">
@@ -311,9 +311,7 @@ export function WellnessWednesdaySection() {
               transition={{ duration: 0.3 }}
               className="fixed inset-0 z-50 flex items-center justify-center p-4"
               style={{
-                background: "rgba(0,0,0,0.7)",
-                backdropFilter: "blur(4px)",
-                WebkitBackdropFilter: "blur(4px)",
+                background: "rgba(0,0,0,0.8)",
               }}
             >
               <motion.div
@@ -359,8 +357,7 @@ export function WellnessWednesdaySection() {
                             height: size,
                             margin: 3,
                             transform: `rotate(${rot}deg)`,
-                            opacity: 0.18,
-                            filter: "blur(1.5px)",
+                            opacity: 0.15,
                           }}
                         >
                           <Image src={act.image} alt="" fill sizes="80px" className="object-cover" />

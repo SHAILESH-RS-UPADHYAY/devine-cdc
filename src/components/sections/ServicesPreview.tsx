@@ -60,7 +60,7 @@ export function ServicesPreview() {
                 variants={itemVariants}
                 whileHover={{ y: -8, transition: { duration: 0.3 } }}
                 whileTap={{ scale: 0.98 }}
-                className={`group relative bg-white/90 backdrop-blur-md rounded-3xl p-8 transition-all duration-500 overflow-hidden ${
+                className={`group relative bg-white/90 rounded-3xl p-8 transition-all duration-500 overflow-hidden ${
                   isLastOdd ? "md:col-span-2 md:w-1/2 md:justify-self-center md:mx-auto" : ""
                 }`}
                 style={{

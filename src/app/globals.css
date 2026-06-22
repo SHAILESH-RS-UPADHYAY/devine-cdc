@@ -221,14 +221,23 @@
     border: 3px solid rgba(232, 119, 58, 0.6);
     border-radius: var(--radius-2xl);
     box-shadow: 0 0 20px rgba(232, 119, 58, 0.5), inset 0 0 10px rgba(91, 140, 197, 0.3);
-    animation: colorfulGlow 3s ease-in-out infinite alternate;
+    position: relative;
   }
 
-  @keyframes colorfulGlow {
-    0% { box-shadow: 0 0 25px rgba(232, 119, 58, 0.6), 0 0 10px rgba(255, 203, 164, 0.7); border-color: rgba(232, 119, 58, 0.8); }
-    33% { box-shadow: 0 0 30px rgba(91, 140, 197, 0.7), 0 0 15px rgba(123, 200, 164, 0.6); border-color: rgba(91, 140, 197, 0.8); }
-    66% { box-shadow: 0 0 28px rgba(232, 116, 97, 0.6), 0 0 12px rgba(232, 184, 50, 0.7); border-color: rgba(232, 116, 97, 0.8); }
-    100% { box-shadow: 0 0 25px rgba(255, 203, 164, 0.7), 0 0 10px rgba(232, 119, 58, 0.6); border-color: rgba(255, 203, 164, 0.8); }
+  .glass-card::before {
+    content: '';
+    position: absolute;
+    inset: -3px;
+    border-radius: var(--radius-2xl);
+    pointer-events: none;
+    animation: cardGlow 3s ease-in-out infinite alternate;
+  }
+
+  @keyframes cardGlow {
+    0% { opacity: 0.5; box-shadow: 0 0 25px rgba(232, 119, 58, 0.6), 0 0 10px rgba(255, 203, 164, 0.7); }
+    33% { opacity: 0.8; box-shadow: 0 0 30px rgba(91, 140, 197, 0.7), 0 0 15px rgba(123, 200, 164, 0.6); }
+    66% { opacity: 0.7; box-shadow: 0 0 28px rgba(232, 116, 97, 0.6), 0 0 12px rgba(232, 184, 50, 0.7); }
+    100% { opacity: 0.5; box-shadow: 0 0 25px rgba(255, 203, 164, 0.7), 0 0 10px rgba(232, 119, 58, 0.6); }
   }
 
   /* ── Card Hover Lift ── */
@@ -271,13 +280,21 @@
 @layer components {
   /* ── WhatsApp Pulse ── */
   .whatsapp-pulse {
+    position: relative;
+  }
+  .whatsapp-pulse::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    border: 3px solid rgba(37, 211, 102, 0.5);
     animation: whatsapp-ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
   }
 
   @keyframes whatsapp-ping {
-    0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5); }
-    70% { box-shadow: 0 0 0 16px rgba(37, 211, 102, 0); }
-    100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+    0% { opacity: 0.6; transform: scale(1); }
+    70% { opacity: 0; transform: scale(1.5); }
+    100% { opacity: 0; transform: scale(1.5); }
   }
 
   /* ── Floating Shapes (Hero decorative) ── */
