@@ -3,43 +3,52 @@
 import { motion } from "framer-motion";
 import { Calendar, Clock, Sparkles, ArrowRight, Tag } from "lucide-react";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import { WHATSAPP_URL, CONTACT } from "@/lib/constants";
 
 export const OfferBanner = () => {
-  // Target Date: 22nd June 2026, 9:00 AM (IST)
-  const targetDate = new Date("2026-06-22T09:00:00+05:30").getTime();
-  const [timeLeft, setTimeLeft] = useState<number | null>(null);
+  const [now, setNow] = useState<number>(Date.now());
 
   useEffect(() => {
-    const calculateTimeLeft = () => {
-      const now = new Date().getTime();
-      const difference = targetDate - now;
-      return difference > 0 ? difference : 0;
-    };
-    
-    setTimeLeft(calculateTimeLeft());
-    const timer = setInterval(() => {
-      setTimeLeft(calculateTimeLeft());
-    }, 1000);
-    return () => clearInterval(timer);
-  }, [targetDate]);
+    const tick = () => setNow(Date.now());
+    tick();
+    const id = setInterval(tick, 1000);
+    return () => clearInterval(id);
+  }, []);
 
-  const formatTime = (ms: number | null) => {
-    if (ms === null) return { d: "00", h: "00", m: "00", s: "00" };
-    const d = Math.floor(ms / (1000 * 60 * 60 * 24));
-    const h = Math.floor((ms % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const m = Math.floor((ms % (1000 * 60 * 60)) / (1000 * 60));
-    const s = Math.floor((ms % (1000 * 60)) / 1000);
+  const { phase, target, label } = useMemo(() => {
+    const fmt = new Intl.DateTimeFormat("en-CA", {
+      timeZone: "Asia/Kolkata",
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+    });
+    const p = fmt.formatToParts(new Date());
+    const today = `${p.find((x) => x.type === "year")!.value}-${p.find((x) => x.type === "month")!.value}-${p.find((x) => x.type === "day")!.value}`;
+    const open = new Date(`${today}T09:00:00+05:30`).getTime();
+    const close = new Date(`${today}T18:00:00+05:30`).getTime();
+    if (now < open) return { phase: "before" as const, target: open, label: "Offer Starts In" };
+    if (now < close) return { phase: "active" as const, target: close, label: "Offer Ends In" };
+    return { phase: "ended" as const, target: 0, label: "" };
+  }, [now]);
+
+  const diff = Math.max(0, target - now);
+
+  const formatTime = (ms: number) => {
+    const d = Math.floor(ms / 86400000);
+    const h = Math.floor((ms % 86400000) / 3600000);
+    const m = Math.floor((ms % 3600000) / 60000);
+    const s = Math.floor((ms % 60000) / 1000);
     return {
       d: d.toString().padStart(2, "0"),
       h: h.toString().padStart(2, "0"),
       m: m.toString().padStart(2, "0"),
-      s: s.toString().padStart(2, "0")
+      s: s.toString().padStart(2, "0"),
     };
   };
 
-  const time = formatTime(timeLeft);
+  const time = formatTime(diff);
+  if (phase === "ended") return null;
 
   // Animation variants for the "rain drop" staggering effect
   const containerVariants = {
@@ -141,7 +150,7 @@ export const OfferBanner = () => {
             {/* Premium Countdown */}
             <div className="flex flex-col items-center xl:items-end gap-3 w-full">
               <span className="text-sm text-blue-200 font-bold uppercase tracking-[0.2em] drop-shadow-sm">
-                Offer Starts In
+                {label}
               </span>
               <div className="flex items-center justify-center gap-2 md:gap-3">
                 <TimeUnit value={time.d} label="Days" />
