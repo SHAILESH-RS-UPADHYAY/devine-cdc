@@ -7,7 +7,7 @@ import { useEffect, useState, useMemo } from "react";
 import { WHATSAPP_URL, CONTACT } from "@/lib/constants";
 
 export const OfferBanner = () => {
-  const [now, setNow] = useState<number>(Date.now());
+  const [now, setNow] = useState<number>(0);
 
   useEffect(() => {
     const tick = () => setNow(Date.now());
@@ -48,6 +48,7 @@ export const OfferBanner = () => {
   };
 
   const time = formatTime(diff);
+  if (now === 0) return null;
   if (phase === "ended") return null;
 
   // Animation variants for the "rain drop" staggering effect
