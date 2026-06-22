@@ -34,7 +34,7 @@ export default function ContactPage() {
                 <div className="bg-devine-teal/10 p-3 rounded-full shrink-0">
                   <MapPin className="w-6 h-6 text-devine-teal" />
                 </div>
-                <div>
+                <div className="min-w-0 flex-1">
                   <h3 className="text-xl font-bold text-gray-900 mb-1">Our Location</h3>
                   <p className="text-gray-600 leading-relaxed">{ADDRESS.full}</p>
                 </div>
@@ -44,7 +44,7 @@ export default function ContactPage() {
                 <div className="bg-devine-peach/10 p-3 rounded-full shrink-0">
                   <Phone className="w-6 h-6 text-devine-peach" />
                 </div>
-                <div>
+                <div className="min-w-0 flex-1">
                   <h3 className="text-xl font-bold text-gray-900 mb-1">Phone & WhatsApp</h3>
                   <p className="text-gray-600 mb-2">{CONTACT.phoneDisplay}</p>
                   <Button asChild variant="outline" className="text-devine-peach border-devine-peach hover:bg-devine-peach hover:text-white mt-2 w-full sm:w-auto whitespace-normal h-auto py-2 inline-flex items-center justify-center">
@@ -60,9 +60,9 @@ export default function ContactPage() {
                 <div className="bg-devine-green/10 p-3 rounded-full shrink-0">
                   <Mail className="w-6 h-6 text-devine-green" />
                 </div>
-                <div>
+                <div className="min-w-0 flex-1">
                   <h3 className="text-xl font-bold text-gray-900 mb-1">Email</h3>
-                  <a href={`mailto:${CONTACT.email}`} className="text-gray-600 hover:text-devine-green transition-colors">
+                  <a href={`mailto:${CONTACT.email}`} className="text-gray-600 hover:text-devine-green transition-colors break-all sm:break-words block">
                     {CONTACT.email}
                   </a>
                 </div>
@@ -72,7 +72,7 @@ export default function ContactPage() {
                 <div className="bg-devine-orange/10 p-3 rounded-full shrink-0">
                   <Clock className="w-6 h-6 text-devine-orange" />
                 </div>
-                <div>
+                <div className="min-w-0 flex-1">
                   <h3 className="text-xl font-bold text-gray-900 mb-1">Opening Hours</h3>
                   <p className="text-gray-600">{HOURS.days}</p>
                   <p className="text-gray-600 font-medium">{HOURS.display}</p>
