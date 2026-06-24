@@ -1,5 +1,4 @@
 import dynamic from "next/dynamic";
-import { OfferBanner } from "@/components/sections/OfferBanner";
 import { HeroSection } from "@/components/sections/HeroSection";
 
 const TrustBanner = dynamic(() => import("@/components/sections/TrustBanner").then(mod => mod.TrustBanner));
@@ -15,8 +14,6 @@ const ScrollReveal = dynamic(() => import("@/components/ui/ScrollReveal").then(m
 export default function Home() {
   return (
     <>
-      <OfferBanner />
-      
       <AnimatedLogoSection />
 
       <HeroSection />
