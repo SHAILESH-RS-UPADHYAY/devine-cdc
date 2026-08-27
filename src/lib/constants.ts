@@ -259,3 +259,10 @@ export const NAV_LINKS = [
   { label: "Contact", href: "/contact" },
   { label: "About", href: "/about" },
 ] as const;
+
+export const ANALYTICS_CONFIG = {
+  metaPixelId: "27613243531693205",
+  googleAdsId: "AW-18374173106",
+  gtmId: "GTM-MRZ8HL2F",
+} as const;
+
