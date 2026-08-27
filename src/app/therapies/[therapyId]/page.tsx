@@ -46,7 +46,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   }
   const content = THERAPY_CONTENT[therapy.id];
   return {
-    title: `${therapy.fullTitle} for Children | ${SITE_CONFIG.shortName} Gurgaon`,
+    title: `${therapy.fullTitle} for Children in Gurgaon`,
     description: content?.whatIs?.slice(0, 155) || therapy.shortDescription,
     openGraph: {
       title: `${therapy.fullTitle} | ${SITE_CONFIG.name}`,

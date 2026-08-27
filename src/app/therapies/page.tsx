@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import { ServicesPreview } from "@/components/sections/ServicesPreview";
 
 export const metadata: Metadata = {
-  title: "Therapies | Devine Child Development Centre",
+  title: "Therapies",
   description: "Explore our comprehensive, evidence-based therapies including ABA, Occupational Therapy, Speech & Language Therapy, and Special Education.",
 };
 
@@ -14,7 +14,7 @@ export default function TherapiesPage() {
           Our Therapies
         </h1>
         <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-          Evidence-based approaches tailored to unlock your child's full potential.
+          Evidence-based approaches tailored to unlock your child&apos;s full potential.
         </p>
       </div>
       <ServicesPreview />

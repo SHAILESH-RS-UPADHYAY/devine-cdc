@@ -5,7 +5,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { ShieldCheck, Stethoscope, Users, Award } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "About Us | " + SITE_CONFIG.shortName,
+  title: "About Us",
   description: "Learn more about our mission, our founders, and our commitment to providing the best pediatric therapy in Gurgaon.",
 };
 

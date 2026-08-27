@@ -177,7 +177,7 @@ export function ConditionsSection() {
               maxWidth: "36rem",
             }}
           >
-            Support is provided based on each child's individual developmental needs, assessment findings, and goals.
+            Support is provided based on each child&apos;s individual developmental needs, assessment findings, and goals.
           </p>
         </div>
 

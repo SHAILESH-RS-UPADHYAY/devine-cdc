@@ -158,6 +158,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
         {/* Meta Pixel (noscript) */}
         <noscript>
+          {/* eslint-disable-next-line @next/next/no-img-element -- tracking pixel, next/image cannot render inside noscript */}
           <img
             height="1"
             width="1"

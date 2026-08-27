@@ -1,4 +1,18 @@
-export const PROGRAM_CONTENT: Record<string, any> = {
+export type ProgramContent = {
+  id: string;
+  title: string;
+  shortTitle: string;
+  tagline: string;
+  color: string;
+  hexColor: string;
+  heroImage: string;
+  overview: { heading: string; paragraphs: string[] };
+  benefits: { title: string; description: string; icon: string }[];
+  faqs: { question: string; answer: string }[];
+  parentNote: { title: string; content: string };
+};
+
+export const PROGRAM_CONTENT: Record<string, ProgramContent> = {
   "dance": {
     id: "dance",
     title: "Dance & Movement Therapy",
@@ -35,9 +49,6 @@ export const PROGRAM_CONTENT: Record<string, any> = {
         description: "Improves memory and attention by learning and retaining choreography sequences.",
         icon: "Brain"
       }
-    ],
-    gallery: [
-      // Optional gallery if needed
     ],
     faqs: [
       {

@@ -3,8 +3,9 @@ import { PROGRAM_CONTENT } from "@/lib/program-content";
 import { GROUP_CLASSES } from "@/lib/constants";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { ArrowLeft, CheckCircle2, Phone, Calendar, Heart } from "lucide-react";
+import { ArrowLeft, Phone, Calendar, Heart } from "lucide-react";
 import * as LucideIcons from "lucide-react";
+import type { LucideProps } from "lucide-react";
 import { Metadata } from "next";
 
 export async function generateStaticParams() {
@@ -23,7 +24,7 @@ export async function generateMetadata({
   if (!programData) return { title: "Program Not Found" };
 
   return {
-    title: `${programData.title} | Devine CDC`,
+    title: programData.title,
     description: programData.tagline,
     openGraph: {
       title: `${programData.title} | Devine CDC`,
@@ -98,8 +99,9 @@ export default async function ProgramPage({
                 Key Benefits
               </h2>
               <div className="grid sm:grid-cols-2 gap-6">
-                {programData.benefits.map((benefit: any, idx: number) => {
-                  const Icon = (LucideIcons as any)[benefit.icon] || LucideIcons.CheckCircle2;
+                {programData.benefits.map((benefit, idx) => {
+                  const icons = LucideIcons as unknown as Record<string, React.ComponentType<LucideProps>>;
+                  const Icon = icons[benefit.icon] || LucideIcons.CircleCheckBig;
                   return (
                     <div key={idx} className="bg-gray-50 p-6 rounded-2xl border border-gray-100">
                       <div 
@@ -122,7 +124,7 @@ export default async function ProgramPage({
                 Frequently Asked Questions
               </h2>
               <div className="space-y-6">
-                {programData.faqs.map((faq: any, idx: number) => (
+                {programData.faqs.map((faq, idx) => (
                   <div key={idx} className="bg-gray-50 rounded-2xl p-6">
                     <h3 className="text-xl font-bold text-gray-900 mb-3 flex items-start gap-3">
                       <span style={{ color: programData.hexColor }}>Q.</span>
@@ -141,7 +143,7 @@ export default async function ProgramPage({
                 {programData.parentNote.title}
               </h2>
               <p className="text-lg text-gray-700 italic">
-                "{programData.parentNote.content}"
+                &ldquo;{programData.parentNote.content}&rdquo;
               </p>
             </section>
 

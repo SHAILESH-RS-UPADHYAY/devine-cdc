@@ -1,10 +1,10 @@
 import { Metadata } from "next";
-import { ADDRESS, CONTACT, HOURS, SITE_CONFIG, WHATSAPP_URL } from "@/lib/constants";
+import { ADDRESS, CONTACT, HOURS, WHATSAPP_URL } from "@/lib/constants";
 import { Button } from "@/components/ui/button";
 import { MapPin, Phone, Mail, Clock, MessageCircle } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Contact Us | " + SITE_CONFIG.shortName,
+  title: "Contact Us",
   description: "Get in touch with Devine Child Development Centre. Book an appointment or visit our clinic in Gurgaon.",
 };
 
@@ -18,7 +18,7 @@ export default function ContactPage() {
             Contact Us
           </h1>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            We are here to answer your questions and support your child's journey. Reach out to us today to book an assessment.
+            We are here to answer your questions and support your child&apos;s journey. Reach out to us today to book an assessment.
           </p>
         </div>
 

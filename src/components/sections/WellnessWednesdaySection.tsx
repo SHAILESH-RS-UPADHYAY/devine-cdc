@@ -251,7 +251,6 @@ export function WellnessWednesdaySection() {
               <div className="grid grid-cols-2 md:grid-cols-5 gap-2.5 md:gap-3">
                 {WELLNESS_ACTIVITIES.map((activity, index) => {
                   const Icon = activity.icon;
-                  const pulseDelay = index * 280;
                   return (
                     <motion.button
                       layoutId={`card-${activity.id}`}

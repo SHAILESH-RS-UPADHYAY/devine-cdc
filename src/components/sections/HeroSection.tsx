@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Phone, CalendarCheck, ShieldCheck, HeartPulse, Star } from "lucide-react";
-import { CONTACT, WHATSAPP_URL } from "@/lib/constants";
+import { CONTACT } from "@/lib/constants";
 import Link from "next/link";
 import Image from "next/image";
 import heroImage from "../../../public/images/children_sensory_play.webp";

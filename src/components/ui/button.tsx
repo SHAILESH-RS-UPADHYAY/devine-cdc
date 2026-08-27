@@ -3,7 +3,7 @@
 import * as React from "react"
 import { Slot } from "@radix-ui/react-slot"
 import { cva, type VariantProps } from "class-variance-authority"
-import { motion } from "framer-motion"
+import { motion, type HTMLMotionProps } from "framer-motion"
 
 import { cn } from "@/lib/utils"
 
@@ -45,17 +45,20 @@ const MotionButton = motion.button;
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant, size, asChild = false, ...props }, ref) => {
-    const Comp = asChild ? Slot : MotionButton
-    
-    // Only pass motion props if it's actually a motion component
-    const motionProps = asChild ? {} : { whileTap: { scale: 0.97 } }
+    const classes = cn(buttonVariants({ variant, size, className }))
+
+    // Split the branches so each is typed: Slot forwards to its child,
+    // MotionButton needs framer's prop types for the tap animation.
+    if (asChild) {
+      return <Slot className={classes} ref={ref} {...props} />
+    }
 
     return (
-      <Comp
-        className={cn(buttonVariants({ variant, size, className }))}
-        ref={ref as any}
-        {...motionProps}
-        {...(props as any)}
+      <MotionButton
+        className={classes}
+        ref={ref}
+        whileTap={{ scale: 0.97 }}
+        {...(props as HTMLMotionProps<"button">)}
       />
     )
   }

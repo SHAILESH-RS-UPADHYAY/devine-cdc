@@ -31,7 +31,7 @@ export default function ProgramsPage() {
             Our Programs & Therapies
           </h1>
           <p className="text-lg md:text-xl text-gray-600">
-            Discover our full range of evidence-based therapies and holistic group classes designed to support every aspect of your child's development.
+            Discover our full range of evidence-based therapies and holistic group classes designed to support every aspect of your child&apos;s development.
           </p>
         </div>
 

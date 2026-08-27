@@ -5,8 +5,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import { WELLNESS_WEDNESDAY_CLASSES } from "@/lib/constants";
 import { ArrowLeft, Calendar, ChevronRight } from "lucide-react";
 import Link from "next/link";
-import { Navbar } from "@/components/layout/Navbar";
-import { Footer } from "@/components/layout/Footer";
 
 export default function WellnessWednesdayPage() {
   const [selectedId, setSelectedId] = useState<string | null>(null);
@@ -14,10 +12,8 @@ export default function WellnessWednesdayPage() {
   const selectedClass = WELLNESS_WEDNESDAY_CLASSES.find(c => c.id === selectedId);
 
   return (
-    <div className="min-h-screen flex flex-col bg-gray-50">
-      <Navbar />
-      
-      <main className="flex-1 pt-24 pb-20">
+    <div className="bg-gray-50">
+      <div className="pt-24 pb-20">
         <div className="container mx-auto px-4 md:px-6">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
@@ -121,9 +117,7 @@ export default function WellnessWednesdayPage() {
             </AnimatePresence>
           </div>
         </div>
-      </main>
-      
-      <Footer />
+      </div>
     </div>
   );
 }

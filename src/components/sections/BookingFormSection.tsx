@@ -11,7 +11,14 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { CONTACT, ADDRESS, THERAPIES } from "@/lib/constants";
-import { MapPin, Phone, Mail, Clock, Send, CheckCircle2 } from "lucide-react";
+import { MapPin, Phone, Mail, Send, CheckCircle2 } from "lucide-react";
+
+declare global {
+  interface Window {
+    fbq?: (...args: unknown[]) => void;
+    dataLayer?: Record<string, unknown>[];
+  }
+}
 
 const formSchema = z.object({
   childName: z.string().min(2, "Child's name is required"),
@@ -41,32 +48,33 @@ export function BookingFormSection() {
     setIsSubmitting(true);
     
     try {
-      const formspreeId = process.env.NEXT_PUBLIC_FORMSPREE_ID;
-      
-      if (!formspreeId) {
-        console.warn("Formspree ID is missing in environment variables. Simulating submission.");
-        // Fallback to simulate API call if no ID is provided
-        await new Promise((resolve) => setTimeout(resolve, 1500));
-      } else {
-        // Clean up the endpoint in case it includes the full URL
-        let endpoint = formspreeId.trim();
-        if (!endpoint.startsWith("http")) {
-          endpoint = `https://formspree.io/f/${endpoint}`;
-        }
+      const formspreeId = process.env.NEXT_PUBLIC_FORMSPREE_ID?.trim();
 
-        const response = await fetch(endpoint, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            "Accept": "application/json"
-          },
-          body: JSON.stringify(data)
-        });
-        
-        if (!response.ok) {
-          throw new Error("Failed to submit form to Formspree");
-        }
+      if (!formspreeId) {
+        throw new Error("NEXT_PUBLIC_FORMSPREE_ID is not set - the lead would be lost");
       }
+
+      // Clean up the endpoint in case it includes the full URL
+      const endpoint = formspreeId.startsWith("http")
+        ? formspreeId
+        : `https://formspree.io/f/${formspreeId}`;
+
+      const response = await fetch(endpoint, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify(data)
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to submit form to Formspree");
+      }
+
+      // Conversion signals. Ads conversion is wired off `lead_submit` in GTM.
+      window.fbq?.("track", "Lead");
+      window.dataLayer?.push({ event: "lead_submit", service: data.service });
 
       setIsSuccess(true);
       reset();
@@ -160,7 +168,7 @@ export function BookingFormSection() {
               <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-6">
                   <div className="space-y-2">
-                    <Label htmlFor="childName">Child's Name *</Label>
+                    <Label htmlFor="childName">Child&apos;s Name *</Label>
                     <Input 
                       id="childName" 
                       placeholder="e.g. Rahul" 
@@ -171,7 +179,7 @@ export function BookingFormSection() {
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="parentName">Parent's Name *</Label>
+                    <Label htmlFor="parentName">Parent&apos;s Name *</Label>
                     <Input 
                       id="parentName" 
                       placeholder="e.g. John Doe" 
