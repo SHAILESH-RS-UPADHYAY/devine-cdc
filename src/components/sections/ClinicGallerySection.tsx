@@ -1,9 +1,10 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
+import { createPortal } from "react-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
-import { Maximize2, X, ChevronRight, ShieldCheck, HeartHandshake, Building2, MapPin } from "lucide-react";
+import { Maximize2, X, ChevronRight, ShieldCheck, HeartHandshake, Building2, MapPin, Phone, MessageCircle } from "lucide-react";
 
 interface ClinicPhoto {
   id: string;
@@ -107,6 +108,32 @@ const FILTER_TABS = [
 export function ClinicGallerySection() {
   const [activeTab, setActiveTab] = useState<"all" | "motor-sensory" | "speech-cognition" | "team">("all");
   const [selectedPhoto, setSelectedPhoto] = useState<ClinicPhoto | null>(null);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  // Lock background scroll when modal is open
+  useEffect(() => {
+    if (selectedPhoto) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [selectedPhoto]);
+
+  // Handle ESC key to close modal
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setSelectedPhoto(null);
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, []);
 
   const filteredPhotos = useMemo(() => {
     if (activeTab === "all") return CLINIC_PHOTOS;
@@ -157,76 +184,85 @@ export function ClinicGallerySection() {
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"
         >
           <AnimatePresence>
-            {filteredPhotos.map((photo, index) => (
-              <motion.div
-                key={photo.id}
-                layout
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, scale: 0.95 }}
-                transition={{ duration: 0.35, delay: index * 0.05 }}
-                onClick={() => setSelectedPhoto(photo)}
-                className="group bg-white rounded-2xl border border-slate-200/90 shadow-sm hover:shadow-xl hover:border-devine-orange/50 transition-all duration-300 overflow-hidden flex flex-col h-full cursor-pointer"
-              >
-                {/* Photo Container - Exact 4:3 Aspect Ratio across all cards */}
-                <div className="relative w-full aspect-[4/3] overflow-hidden bg-slate-100">
-                  <Image
-                    src={photo.src}
-                    alt={photo.alt}
-                    fill
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    className="object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out"
-                    quality={92}
-                  />
+            {filteredPhotos.map((photo, index) => {
+              // When there is 1 leftover card on the last row (e.g. 7th card in 3-column grid), center it in the middle
+              const isCenteredLast = index === filteredPhotos.length - 1 && filteredPhotos.length % 3 === 1;
 
-                  {/* Soft subtle top vignette for pill readability */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-black/30 pointer-events-none" />
+              return (
+                <motion.div
+                  key={photo.id}
+                  layout
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, scale: 0.95 }}
+                  transition={{ duration: 0.35, delay: index * 0.05 }}
+                  onClick={() => setSelectedPhoto(photo)}
+                  className={`group bg-white rounded-2xl border border-slate-200/90 shadow-sm hover:shadow-xl hover:border-devine-orange/50 transition-all duration-300 overflow-hidden flex flex-col h-full cursor-pointer ${
+                    isCenteredLast
+                      ? "lg:col-start-2 md:col-span-2 md:max-w-md md:mx-auto w-full lg:col-span-1 lg:max-w-none"
+                      : ""
+                  }`}
+                >
+                  {/* Photo Container - Exact 4:3 Aspect Ratio across all cards */}
+                  <div className="relative w-full aspect-[4/3] overflow-hidden bg-slate-100">
+                    <Image
+                      src={photo.src}
+                      alt={photo.alt}
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      className="object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out"
+                      quality={92}
+                    />
 
-                  {/* Clinical Category Badge */}
-                  <div className="absolute top-3.5 left-3.5 z-10">
-                    <span className="inline-flex items-center px-3 py-1 rounded-full text-[11px] font-bold bg-white/95 text-slate-800 shadow-sm backdrop-blur-sm border border-white/40">
-                      {photo.categoryName}
-                    </span>
-                  </div>
+                    {/* Soft subtle top vignette for pill readability */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-black/30 pointer-events-none" />
 
-                  {/* Zoom Indicator */}
-                  <div className="absolute top-3.5 right-3.5 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-                    <span className="w-8 h-8 rounded-full bg-white/95 text-slate-800 flex items-center justify-center shadow-md backdrop-blur-sm">
-                      <Maximize2 size={13} />
-                    </span>
-                  </div>
-                </div>
-
-                {/* Card Body with Clinical Insights */}
-                <div className="p-5 sm:p-6 flex flex-col flex-1 bg-white justify-between">
-                  <div>
-                    <p className="text-[11px] font-bold uppercase tracking-wider text-devine-orange mb-1">
-                      {photo.subtitle}
-                    </p>
-                    <h3 className="font-heading font-bold text-lg text-slate-900 group-hover:text-devine-orange transition-colors duration-200 mb-2 leading-snug">
-                      {photo.title}
-                    </h3>
-                    <p className="text-slate-600 text-xs sm:text-sm leading-relaxed mb-4 line-clamp-3">
-                      {photo.description}
-                    </p>
-                  </div>
-
-                  {/* Card Footer */}
-                  <div className="pt-3 border-t border-slate-100 flex items-center justify-between">
-                    <div className="flex flex-wrap gap-1.5">
-                      {photo.tags.slice(0, 2).map((tag, idx) => (
-                        <span key={idx} className="text-[10px] font-medium text-slate-500 bg-slate-50 border border-slate-100 px-2 py-0.5 rounded-md">
-                          #{tag}
-                        </span>
-                      ))}
+                    {/* Clinical Category Badge */}
+                    <div className="absolute top-3.5 left-3.5 z-10">
+                      <span className="inline-flex items-center px-3 py-1 rounded-full text-[11px] font-bold bg-white/95 text-slate-800 shadow-sm backdrop-blur-sm border border-white/40">
+                        {photo.categoryName}
+                      </span>
                     </div>
-                    <span className="inline-flex items-center gap-1 text-xs font-semibold text-devine-orange group-hover:translate-x-0.5 transition-transform">
-                      View Space <ChevronRight size={13} />
-                    </span>
+
+                    {/* Zoom Indicator */}
+                    <div className="absolute top-3.5 right-3.5 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                      <span className="w-8 h-8 rounded-full bg-white/95 text-slate-800 flex items-center justify-center shadow-md backdrop-blur-sm">
+                        <Maximize2 size={13} />
+                      </span>
+                    </div>
                   </div>
-                </div>
-              </motion.div>
-            ))}
+
+                  {/* Card Body with Clinical Insights */}
+                  <div className="p-5 sm:p-6 flex flex-col flex-1 bg-white justify-between">
+                    <div>
+                      <p className="text-[11px] font-bold uppercase tracking-wider text-devine-orange mb-1">
+                        {photo.subtitle}
+                      </p>
+                      <h3 className="font-heading font-bold text-lg text-slate-900 group-hover:text-devine-orange transition-colors duration-200 mb-2 leading-snug">
+                        {photo.title}
+                      </h3>
+                      <p className="text-slate-600 text-xs sm:text-sm leading-relaxed mb-4 line-clamp-3">
+                        {photo.description}
+                      </p>
+                    </div>
+
+                    {/* Card Footer */}
+                    <div className="pt-3 border-t border-slate-100 flex items-center justify-between">
+                      <div className="flex flex-wrap gap-1.5">
+                        {photo.tags.slice(0, 2).map((tag, idx) => (
+                          <span key={idx} className="text-[10px] font-medium text-slate-500 bg-slate-50 border border-slate-100 px-2 py-0.5 rounded-md">
+                            #{tag}
+                          </span>
+                        ))}
+                      </div>
+                      <span className="inline-flex items-center gap-1 text-xs font-semibold text-devine-orange group-hover:translate-x-0.5 transition-transform">
+                        View Space <ChevronRight size={13} />
+                      </span>
+                    </div>
+                  </div>
+                </motion.div>
+              );
+            })}
           </AnimatePresence>
         </motion.div>
 
@@ -291,83 +327,111 @@ export function ClinicGallerySection() {
 
       </div>
 
-      {/* Clean High-Resolution Lightbox Modal */}
-      <AnimatePresence>
-        {selectedPhoto && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onClick={() => setSelectedPhoto(null)}
-            className="fixed inset-0 z-50 bg-slate-950/85 backdrop-blur-md flex items-center justify-center p-4 sm:p-6"
-          >
+      {/* High-Resolution Lightbox Modal Portaled to Body (z-[99999] so it never collides with header or buttons) */}
+      {mounted && typeof document !== "undefined" && createPortal(
+        <AnimatePresence>
+          {selectedPhoto && (
             <motion.div
-              initial={{ scale: 0.96, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.96, opacity: 0 }}
-              onClick={(e) => e.stopPropagation()}
-              className="relative max-w-4xl w-full bg-white rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl flex flex-col max-h-[90vh]"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setSelectedPhoto(null)}
+              className="fixed inset-0 z-[99999] bg-slate-950/90 backdrop-blur-md flex items-center justify-center p-3 sm:p-6 lg:p-8 overflow-y-auto"
             >
-              {/* Close Button */}
-              <button
-                onClick={() => setSelectedPhoto(null)}
-                aria-label="Close photo"
-                className="absolute top-4 right-4 z-20 w-9 h-9 rounded-full bg-slate-900/70 text-white hover:bg-devine-orange flex items-center justify-center transition-colors"
+              <motion.div
+                initial={{ scale: 0.95, opacity: 0, y: 15 }}
+                animate={{ scale: 1, opacity: 1, y: 0 }}
+                exit={{ scale: 0.95, opacity: 0, y: 15 }}
+                transition={{ type: "spring", damping: 25, stiffness: 300 }}
+                onClick={(e) => e.stopPropagation()}
+                className="relative max-w-5xl w-full bg-white rounded-2xl sm:rounded-3xl shadow-2xl overflow-hidden flex flex-col md:flex-row border border-slate-200/60 max-h-[92vh]"
               >
-                <X size={18} />
-              </button>
+                {/* Close Button */}
+                <button
+                  onClick={() => setSelectedPhoto(null)}
+                  aria-label="Close photo preview"
+                  className="absolute top-3.5 right-3.5 z-30 w-10 h-10 rounded-full bg-slate-900/80 hover:bg-devine-orange text-white flex items-center justify-center transition-colors shadow-lg cursor-pointer backdrop-blur-sm"
+                >
+                  <X size={20} />
+                </button>
 
-              {/* Lightbox Image Container */}
-              <div className="relative w-full aspect-[4/3] sm:aspect-[16/10] bg-slate-900 overflow-hidden shrink-0">
-                <Image
-                  src={selectedPhoto.src}
-                  alt={selectedPhoto.alt}
-                  fill
-                  className="object-contain"
-                  quality={95}
-                />
-              </div>
-
-              {/* Lightbox Details Panel */}
-              <div className="p-6 sm:p-8 bg-white overflow-y-auto">
-                <div className="flex flex-wrap items-center gap-2 mb-2.5">
-                  <span className="px-3 py-1 rounded-full text-xs font-bold text-devine-orange bg-devine-orange/10 border border-devine-orange/20">
-                    {selectedPhoto.categoryName}
-                  </span>
-                  <span className="text-xs font-semibold text-slate-500 uppercase tracking-wide">
-                    {selectedPhoto.subtitle}
-                  </span>
+                {/* Left Side: Photo Viewport - Flexible, fits landscape and portrait without collisions */}
+                <div className="relative md:w-3/5 lg:w-2/3 bg-slate-950 flex items-center justify-center p-4 sm:p-6 min-h-[280px] sm:min-h-[400px] md:min-h-[550px] overflow-hidden shrink-0">
+                  <div className="relative w-full h-full min-h-[280px] sm:min-h-[380px] md:min-h-[500px] flex items-center justify-center">
+                    <Image
+                      src={selectedPhoto.src}
+                      alt={selectedPhoto.alt}
+                      fill
+                      priority
+                      className="object-contain"
+                      quality={95}
+                      sizes="(max-width: 768px) 100vw, 65vw"
+                    />
+                  </div>
                 </div>
-                <h3 className="font-heading font-bold text-xl sm:text-2xl text-slate-900 mb-2">
-                  {selectedPhoto.title}
-                </h3>
-                <p className="text-slate-600 text-sm sm:text-base leading-relaxed mb-6">
-                  {selectedPhoto.description}
-                </p>
 
-                <div className="flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-slate-100">
-                  <div className="flex flex-wrap gap-2">
-                    {selectedPhoto.tags.map((tag, idx) => (
-                      <span key={idx} className="text-xs font-medium text-slate-600 bg-slate-100 px-2.5 py-1 rounded-full">
-                        #{tag}
+                {/* Right Side: Clinical Context & Direct Action Panel */}
+                <div className="md:w-2/5 lg:w-1/3 p-6 sm:p-8 bg-white flex flex-col justify-between overflow-y-auto max-h-[50vh] md:max-h-[92vh]">
+                  <div>
+                    <div className="flex flex-wrap items-center gap-2 mb-3">
+                      <span className="px-3 py-1 rounded-full text-xs font-bold text-devine-orange bg-devine-orange/10 border border-devine-orange/20">
+                        {selectedPhoto.categoryName}
                       </span>
-                    ))}
+                    </div>
+
+                    <p className="text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-1">
+                      {selectedPhoto.subtitle}
+                    </p>
+
+                    <h3 className="font-heading font-bold text-xl sm:text-2xl text-slate-900 mb-3 leading-snug">
+                      {selectedPhoto.title}
+                    </h3>
+
+                    <p className="text-slate-600 text-sm sm:text-base leading-relaxed mb-6">
+                      {selectedPhoto.description}
+                    </p>
+
+                    <div className="mb-6">
+                      <p className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">
+                        Clinical Focus Areas
+                      </p>
+                      <div className="flex flex-wrap gap-2">
+                        {selectedPhoto.tags.map((tag, idx) => (
+                          <span key={idx} className="text-xs font-semibold text-slate-600 bg-slate-100 border border-slate-200/60 px-3 py-1 rounded-lg">
+                            #{tag}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
                   </div>
 
-                  <a
-                    href="https://wa.me/918744097777?text=Hi%2C%20I%20would%20like%20to%20know%20more%20about%20your%20services%20at%20Devine%20CDC"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-devine-orange hover:bg-devine-orange/90 text-white font-bold text-xs sm:text-sm transition-colors shadow-sm"
-                  >
-                    Consult Our Specialists
-                  </a>
+                  {/* Consultation / Visit Actions */}
+                  <div className="pt-5 border-t border-slate-100 space-y-3 shrink-0">
+                    <a
+                      href={`https://wa.me/918744097777?text=Hi%2C%20I%20saw%20the%20${encodeURIComponent(selectedPhoto.title)}%20space%20at%20Devine%20CDC%20and%20would%20like%20to%20consult%20your%20specialists.`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-devine-orange hover:bg-devine-orange/90 text-white font-bold text-sm transition-all shadow-md hover:shadow-lg shadow-devine-orange/20"
+                    >
+                      <MessageCircle size={16} />
+                      Consult Our Specialists
+                    </a>
+
+                    <a
+                      href="tel:+918744097777"
+                      className="w-full inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 font-semibold text-xs transition-colors"
+                    >
+                      <Phone size={14} />
+                      Call Clinic: +91 87440 97777
+                    </a>
+                  </div>
                 </div>
-              </div>
+              </motion.div>
             </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+          )}
+        </AnimatePresence>,
+        document.body
+      )}
     </section>
   );
 }
