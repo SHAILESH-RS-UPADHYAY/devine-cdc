@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import { THERAPIES, SITE_CONFIG, WHATSAPP_URL, CONTACT } from "@/lib/constants";
 import { THERAPY_CONTENT } from "@/lib/therapy-content";
 import {
@@ -26,6 +27,39 @@ const iconMap: Record<string, React.ElementType> = {
   MessageCircle,
   BookOpen,
   HeartHandshake,
+};
+
+const THERAPY_CLINIC_IMAGES: Record<string, { src: string; alt: string; caption: string; tag: string }> = {
+  "aba-therapy": {
+    src: "/images/clinic/clinic_aba_early_intervention.webp",
+    alt: "Devine CDC therapists guiding a child during structured ABA therapy",
+    caption: "Our therapists providing focused, compassionate early intervention at Devine CDC Gurgaon.",
+    tag: "Real ABA Session"
+  },
+  "occupational-therapy": {
+    src: "/images/clinic/clinic_occupational_therapy.webp",
+    alt: "1-on-1 Occupational Therapy fine-motor session at Devine CDC",
+    caption: "Personalized fine-motor and sensory stimulation session in our Gurgaon clinic.",
+    tag: "Real OT Session"
+  },
+  "speech-therapy": {
+    src: "/images/clinic/clinic_speech_expression.webp",
+    alt: "Children building confident communication and expression at Devine CDC",
+    caption: "Building expressive vocabulary, confidence, and joyful communication in our safe space.",
+    tag: "Real Speech & Expression"
+  },
+  "special-education": {
+    src: "/images/clinic/clinic_sensory_rangoli.webp",
+    alt: "Special education and sensory pattern learning activity at Devine CDC",
+    caption: "Hands-on tactile and cognitive developmental activities tailored to individual pace.",
+    tag: "Real Learning Activity"
+  },
+  "psychological-behavioral-intervention": {
+    src: "/images/clinic/clinic_behavioral_learning.webp",
+    alt: "Child psychologist conducting interactive behavioral therapy at Devine CDC",
+    caption: "Targeted cognitive and behavioral support nurturing attention, social readiness, and focus.",
+    tag: "Real Clinical Intervention"
+  }
 };
 
 interface PageProps {
@@ -67,6 +101,7 @@ export default async function TherapyDetailPage({ params }: PageProps) {
   const Icon = iconMap[therapy.icon] || Brain;
   const content = THERAPY_CONTENT[therapy.id];
   const otherTherapies = THERAPIES.filter((t) => t.id !== therapy.id);
+  const clinicImage = THERAPY_CLINIC_IMAGES[therapy.id];
 
   return (
     <main className="pt-24 min-h-screen bg-white">
@@ -126,6 +161,36 @@ export default async function TherapyDetailPage({ params }: PageProps) {
                   {content.whyItMatters}
                 </p>
               </section>
+            )}
+
+            {/* Real Clinic Photo Card */}
+            {clinicImage && (
+              <div className="relative rounded-3xl overflow-hidden shadow-md border border-gray-100 bg-white group">
+                <div className="relative aspect-[16/10] sm:aspect-[16/9] w-full overflow-hidden bg-slate-900">
+                  <Image
+                    src={clinicImage.src}
+                    alt={clinicImage.alt}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 66vw"
+                    className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
+                    quality={92}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                  <div className="absolute top-4 left-4 z-10">
+                    <span 
+                      className="inline-block px-3.5 py-1.5 rounded-full text-white font-bold text-xs shadow-md backdrop-blur-md"
+                      style={{ backgroundColor: `${therapy.color}E6` }}
+                    >
+                      {clinicImage.tag}
+                    </span>
+                  </div>
+                  <div className="absolute bottom-4 left-4 right-4 z-10 text-white">
+                    <p className="text-sm sm:text-base font-medium drop-shadow-sm">
+                      {clinicImage.caption}
+                    </p>
+                  </div>
+                </div>
+              </div>
             )}
 
             {/* Benefits Grid */}

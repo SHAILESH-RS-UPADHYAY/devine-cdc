@@ -6,7 +6,7 @@ import { Phone, CalendarCheck, ShieldCheck, HeartPulse, Star } from "lucide-reac
 import { CONTACT } from "@/lib/constants";
 import Link from "next/link";
 import Image from "next/image";
-import heroImage from "../../../public/images/children_sensory_play.webp";
+import heroImage from "../../../public/images/clinic/hero_team.webp";
 
 export function HeroSection() {
   const containerVariants = {
@@ -131,16 +131,16 @@ export function HeroSection() {
               <div className="absolute inset-2 rounded-[2rem] overflow-hidden bg-slate-100">
                 <Image 
                   src={heroImage} 
-                  alt="Happy child engaging in sensory play during therapy"
+                  alt="Devine CDC clinical psychologists, therapists and founders in clinic"
                   fill
                   sizes="(max-width: 768px) 100vw, 50vw"
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  className="object-cover object-[center_60%] transition-transform duration-700 group-hover:scale-105"
                   priority
-                  quality={60}
+                  quality={90}
                   placeholder="blur"
                 />
-                {/* Elegant overlay gradient */}
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent opacity-80" />
+                {/* Subtle bottom vignette */}
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/30 via-transparent to-transparent opacity-60" />
               </div>
             </div>
 

@@ -38,12 +38,12 @@ export default function AboutPage() {
             
             <div className="relative h-full w-full rounded-[2.5rem] overflow-hidden border-4 border-white/60 shadow-2xl">
               <Image
-                src="/images/about-therapy.webp"
-                alt="Therapist helping a child in a bright clinic"
+                src="/images/clinic/clinic_team_celebration.webp"
+                alt="Devine CDC multidisciplinary therapy team celebrating at the clinic"
                 fill
-                className="object-cover transition-transform duration-1000 group-hover:scale-110"
+                className="object-cover object-center transition-transform duration-1000 group-hover:scale-105"
                 sizes="(max-width: 768px) 100vw, 50vw"
-                quality={60}
+                quality={92}
                 priority
               />
               <div className="absolute inset-0 bg-gradient-to-tr from-devine-orange/20 to-transparent mix-blend-overlay"></div>
@@ -132,6 +132,95 @@ export default function AboutPage() {
               </Card>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* Real Clinic Showcase */}
+      <section className="container mx-auto px-4 md:px-6 mt-20 mb-8">
+        <div className="text-center max-w-3xl mx-auto mb-12">
+          <h2 className="text-3xl md:text-4xl font-heading font-extrabold text-devine-orange mb-4">
+            Life Inside Our Centre
+          </h2>
+          <p className="text-gray-600 text-base md:text-lg">
+            A purposeful, child-centered environment where therapeutic milestones feel natural, engaging, and joyful.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="bg-white rounded-3xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-xl transition-all duration-300 group">
+            <div className="relative aspect-[4/5] w-full overflow-hidden">
+              <Image
+                src="/images/clinic/clinic_occupational_therapy.webp"
+                alt="Therapist guiding child in fine-motor therapy"
+                fill
+                sizes="(max-width: 768px) 100vw, 33vw"
+                className="object-cover transition-transform duration-700 group-hover:scale-105"
+                quality={90}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+              <div className="absolute bottom-4 left-4 right-4 text-white">
+                <span className="inline-block px-3 py-1 rounded-full text-xs font-bold bg-devine-orange/90 mb-1">
+                  1-on-1 Focus
+                </span>
+                <h3 className="font-heading font-bold text-lg">Personalized Therapy</h3>
+              </div>
+            </div>
+            <div className="p-5">
+              <p className="text-sm text-gray-600">
+                Individualized fine-motor, cognitive, and sensory sessions led by dedicated clinical therapists.
+              </p>
+            </div>
+          </div>
+
+          <div className="bg-white rounded-3xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-xl transition-all duration-300 group">
+            <div className="relative aspect-[4/5] w-full overflow-hidden">
+              <Image
+                src="/images/clinic/clinic_sensory_rangoli.webp"
+                alt="Sensory play and group occupational therapy"
+                fill
+                sizes="(max-width: 768px) 100vw, 33vw"
+                className="object-cover transition-transform duration-700 group-hover:scale-105"
+                quality={90}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+              <div className="absolute bottom-4 left-4 right-4 text-white">
+                <span className="inline-block px-3 py-1 rounded-full text-xs font-bold bg-emerald-600/90 mb-1">
+                  Sensory Integration
+                </span>
+                <h3 className="font-heading font-bold text-lg">Holistic Group Activities</h3>
+              </div>
+            </div>
+            <div className="p-5">
+              <p className="text-sm text-gray-600">
+                Natural textures and collaborative tactile patterns that develop joint attention and sensory regulation.
+              </p>
+            </div>
+          </div>
+
+          <div className="bg-white rounded-3xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-xl transition-all duration-300 group">
+            <div className="relative aspect-[4/5] w-full overflow-hidden">
+              <Image
+                src="/images/clinic/clinic_happy_children.webp"
+                alt="Happy children celebrating at Devine CDC"
+                fill
+                sizes="(max-width: 768px) 100vw, 33vw"
+                className="object-cover transition-transform duration-700 group-hover:scale-105"
+                quality={90}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+              <div className="absolute bottom-4 left-4 right-4 text-white">
+                <span className="inline-block px-3 py-1 rounded-full text-xs font-bold bg-violet-600/90 mb-1">
+                  Safe & Joyful
+                </span>
+                <h3 className="font-heading font-bold text-lg">Peer Bonding & Smiles</h3>
+              </div>
+            </div>
+            <div className="p-5">
+              <p className="text-sm text-gray-600">
+                A warm, cheerful sanctuary where every child feels accepted, encouraged, and celebrated.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
     </main>

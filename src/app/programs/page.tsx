@@ -1,5 +1,6 @@
 import { THERAPIES, GROUP_CLASSES } from "@/lib/constants";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, Brain, Hand, MessageCircle, BookOpen, Music, Palette, Heart } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -68,6 +69,61 @@ export default function ProgramsPage() {
                 </div>
               );
             })}
+          </div>
+        </div>
+
+        {/* Real Clinic Moments Banner in Programs */}
+        <div className="mb-20 rounded-[2.5rem] bg-white p-6 sm:p-10 md:p-12 border border-gray-100 shadow-sm">
+          <div className="max-w-2xl mb-8">
+            <span className="text-devine-orange font-bold text-xs uppercase tracking-widest">
+              Authentic Centre Experience
+            </span>
+            <h2 className="text-3xl font-heading font-bold text-gray-900 mt-2 mb-3">
+              Where Children Learn, Play &amp; Thrive
+            </h2>
+            <p className="text-gray-600">
+              Our programs merge clinical therapy goals with joyful group dynamics, sensory exploration, and creative expression.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="relative aspect-[16/11] rounded-3xl overflow-hidden shadow-md group">
+              <Image
+                src="/images/clinic/clinic_happy_children.webp"
+                alt="Children celebrating and building social bonds at Devine CDC"
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover transition-transform duration-700 group-hover:scale-105"
+                quality={90}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent" />
+              <div className="absolute bottom-4 left-4 right-4 text-white">
+                <span className="inline-block px-3 py-1 rounded-full text-xs font-bold bg-emerald-600/90 mb-1">
+                  Social Readiness
+                </span>
+                <h3 className="font-heading font-bold text-lg">Joyful Group Celebrations</h3>
+                <p className="text-xs text-white/80">Peer interaction and positive self-identity during centre events.</p>
+              </div>
+            </div>
+
+            <div className="relative aspect-[16/11] rounded-3xl overflow-hidden shadow-md group">
+              <Image
+                src="/images/clinic/clinic_sensory_rangoli.webp"
+                alt="Children engaging in floral sensory pattern therapy"
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover transition-transform duration-700 group-hover:scale-105"
+                quality={90}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent" />
+              <div className="absolute bottom-4 left-4 right-4 text-white">
+                <span className="inline-block px-3 py-1 rounded-full text-xs font-bold bg-devine-orange/90 mb-1">
+                  Sensory &amp; Motor Skills
+                </span>
+                <h3 className="font-heading font-bold text-lg">Hands-On Tactile Workshops</h3>
+                <p className="text-xs text-white/80">Developing finger dexterity, sensory integration, and collaborative focus.</p>
+              </div>
+            </div>
           </div>
         </div>
 
