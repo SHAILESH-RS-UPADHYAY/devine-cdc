@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -31,6 +32,7 @@ const formSchema = z.object({
 type FormValues = z.infer<typeof formSchema>;
 
 export function BookingFormSection() {
+  const router = useRouter();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
 
@@ -79,8 +81,8 @@ export function BookingFormSection() {
       setIsSuccess(true);
       reset();
       
-      // Reset success message after 5 seconds
-      setTimeout(() => setIsSuccess(false), 5000);
+      // Navigate to dedicated Thank You page for conversion tracking and clinical next steps
+      router.push("/thank-you");
     } catch (error) {
       console.error("Form submission error:", error);
       alert("There was an error submitting your request. Please try again or call us directly.");
