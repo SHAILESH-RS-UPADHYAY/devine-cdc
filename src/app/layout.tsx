@@ -8,6 +8,7 @@ import { FloatingContactButtons } from "@/components/ui/FloatingContactButtons";
 import { FloatingBookButton } from "@/components/ui/FloatingBookButton";
 import { GlobalBackground } from "@/components/ui/GlobalBackground";
 import { CONTACT, SITE_CONFIG, ANALYTICS_CONFIG } from "@/lib/constants";
+import { SEO_KEYWORDS } from "@/lib/seo-keywords";
 
 const nunito = Nunito({
   variable: "--font-heading",
@@ -41,6 +42,7 @@ export const metadata: Metadata = {
     "child psychologist gurgaon",
     "pediatric therapy gurgaon",
     "Devine CDC",
+    ...SEO_KEYWORDS,
   ],
   authors: [{ name: "Devine Child Development Centre" }],
   creator: "Devine CDC",
