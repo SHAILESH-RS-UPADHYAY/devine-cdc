@@ -37,29 +37,12 @@ export const ADDRESS = {
 } as const;
 
 export const HOURS = {
-  display: "9:00 AM – 6:00 PM",
+  display: "10:00 AM – 6:00 PM",
+  short: "Mon – Sat, 10:00 AM – 6:00 PM",
   days: "Monday – Saturday",
-  opens: "09:00",
+  opens: "10:00",
   closes: "18:00",
 } as const;
-
-export const FOUNDERS = [
-  {
-    name: "Komal Pahuja",
-    role: "Clinical Psychologist",
-    credentials: [
-      "M.Phil. Clinical Psychology",
-      "M.Sc. Clinical Psychology",
-      "5+ Years Experience",
-      "250+ Children Supported",
-      "Specialized in Autism & ADHD",
-      "Evidence-based Therapies",
-    ],
-    instagram: "https://www.instagram.com/komalpahuja___",
-    image: "/images/profile.webp",
-    bio: "MPhil. Msc. Clinical Psychologist with 5+ years of experience. With a passion for nurturing young minds, Komal Pahuja founded Devine CDC to create a safe, supportive environment where every child can thrive.",
-  },
-] as const;
 
 export const THERAPIES = [
   {
@@ -114,49 +97,32 @@ export const THERAPIES = [
   },
 ] as const;
 
-export const GROUP_CLASSES = [
-  {
-    id: "dance",
-    title: "Dance",
-    description: "Expressive movement therapy that builds coordination, rhythm, and social skills through fun, energising dance sessions.",
-    icon: "Music",
-    color: "#E87461",
-    href: "/programs/dance",
-  },
-  {
-    id: "clay-workshop",
-    title: "Clay Workshop",
-    description: "Hands-on creative sessions that strengthen fine motor skills, sensory awareness, and artistic expression through clay moulding.",
-    icon: "Palette",
-    color: "#E8B832",
-    href: "/programs/clay-workshop",
-  },
-  {
-    id: "yoga-for-kids",
-    title: "Yoga for Kids",
-    description: "Gentle yoga sessions designed for children to improve focus, body awareness, flexibility, and emotional regulation.",
-    icon: "Heart",
-    color: "#7BC8A4",
-    href: "/programs/yoga-for-kids",
-  },
-] as const;
-
-export const TRUST_STATS = [
-  { label: "RCI Licensed", value: "RCI", icon: "ShieldCheck", suffix: "" },
-  { label: "Therapies Offered", value: "5", icon: "Stethoscope", suffix: "+" },
-  { label: "Happy Families", value: "100", icon: "Users", suffix: "+" },
-  { label: "Years Experience", value: "5", icon: "Award", suffix: "+" },
-] as const;
-
 export const WHATSAPP_URL = `https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent(CONTACT.whatsappMessage)}`;
 
 export const NAV_LINKS = [
   { label: "Home", href: "/" },
-  { label: "Therapies", href: "/therapies" },
-  { label: "Conditions", href: "/" },
-  { label: "Programs", href: "/programs" },
-  { label: "Contact", href: "/contact" },
   { label: "About", href: "/about" },
+  { label: "Programmes", href: "/programs" },
+  { label: "Therapies", href: "/therapies" },
+  { label: "Resources", href: "/resources" },
+  { label: "Contact", href: "/contact" },
+] as const;
+
+/** Header/footer "current page" grouping: sub-pages light up their parent nav item. */
+export const NAV_SECTION: Record<string, string> = {
+  "/team": "/about",
+  "/faq": "/resources",
+};
+
+export const FOOTER_LINKS = [
+  { label: "Home", href: "/" },
+  { label: "About", href: "/about" },
+  { label: "Our Team", href: "/team" },
+  { label: "Programmes", href: "/programs" },
+  { label: "Therapies", href: "/therapies" },
+  { label: "Resources", href: "/resources" },
+  { label: "FAQ", href: "/faq" },
+  { label: "Contact", href: "/contact" },
 ] as const;
 
 export const ANALYTICS_CONFIG = {

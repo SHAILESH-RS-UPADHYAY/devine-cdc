@@ -120,8 +120,8 @@
   --sidebar-ring: #E8773A;
 
   /* ── Typography ── */
-  --font-heading: 'Nunito', sans-serif;
-  --font-sans: 'DM Sans', sans-serif;
+  --font-heading: var(--font-fraunces), Georgia, serif;
+  --font-sans: var(--font-dm-sans), system-ui, sans-serif;
 }
 
 /* ═══════════════════════════════════════

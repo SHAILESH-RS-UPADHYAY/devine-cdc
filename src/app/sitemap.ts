@@ -1,48 +1,33 @@
 import { MetadataRoute } from 'next';
-import { THERAPIES } from '@/lib/constants';
+import { SITE_CONFIG, THERAPIES } from '@/lib/constants';
+
+type Freq = MetadataRoute.Sitemap[number]['changeFrequency'];
+
+const PAGES: [path: string, priority: number, freq: Freq][] = [
+  ['', 1, 'weekly'],
+  ['/consultation', 0.9, 'monthly'],
+  ['/programs', 0.9, 'monthly'],
+  ['/therapies', 0.9, 'monthly'],
+  ['/about', 0.8, 'monthly'],
+  ['/team', 0.6, 'monthly'],
+  ['/resources', 0.7, 'weekly'],
+  ['/faq', 0.7, 'monthly'],
+  ['/contact', 0.8, 'monthly'],
+];
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://devinecdc.in';
-
-  const staticRoutes: MetadataRoute.Sitemap = [
-    {
-      url: `${baseUrl}`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 1,
-    },
-    {
-      url: `${baseUrl}/about`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/programs`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    },
-{
-      url: `${baseUrl}/contact`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/therapies`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-  ];
-
-  const therapyRoutes: MetadataRoute.Sitemap = THERAPIES.map((therapy) => ({
-    url: `${baseUrl}${therapy.href}`,
-    lastModified: new Date(),
-    changeFrequency: 'monthly',
+  const lastModified = new Date();
+  const pages = PAGES.map(([path, priority, changeFrequency]) => ({
+    url: `${SITE_CONFIG.url}${path}`,
+    lastModified,
+    changeFrequency,
+    priority,
+  }));
+  const therapyPages = THERAPIES.map((t) => ({
+    url: `${SITE_CONFIG.url}${t.href}`,
+    lastModified,
+    changeFrequency: 'monthly' as const,
     priority: 0.7,
   }));
-
-  return [...staticRoutes, ...therapyRoutes];
+  return [...pages, ...therapyPages];
 }

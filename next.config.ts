@@ -19,6 +19,15 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  async redirects() {
+    // The old group-class pages (dance, clay workshop, yoga) were retired in the October 2026
+    // redesign; keep any ad, Google or shared links landing on the programmes page.
+    return [
+      { source: "/programs/:slug", destination: "/programs", permanent: true },
+      { source: "/programmes", destination: "/programs", permanent: true },
+      { source: "/book", destination: "/consultation", permanent: true },
+    ];
+  },
   async headers() {
     return [
       {

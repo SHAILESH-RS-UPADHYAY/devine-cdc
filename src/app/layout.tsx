@@ -1,26 +1,35 @@
 import type { Metadata } from "next";
 import Script from "next/script";
-import { Nunito, DM_Sans } from "next/font/google";
+import { Fraunces, DM_Sans, Caveat } from "next/font/google";
 import "./globals.css";
-import { Navbar } from "@/components/layout/Navbar";
-import { Footer } from "@/components/layout/Footer";
-import { FloatingContactButtons } from "@/components/ui/FloatingContactButtons";
-import { FloatingBookButton } from "@/components/ui/FloatingBookButton";
-import { GlobalBackground } from "@/components/ui/GlobalBackground";
-import { CONTACT, SITE_CONFIG, ANALYTICS_CONFIG } from "@/lib/constants";
+import "./devine.css";
+import { SiteHeader } from "@/components/site/SiteHeader";
+import { SiteFooter } from "@/components/site/SiteFooter";
+import { IconSprite } from "@/components/site/Icon";
+import { RevealObserver } from "@/components/site/RevealObserver";
+import { CONTACT, SITE_CONFIG, ANALYTICS_CONFIG, HOURS } from "@/lib/constants";
 import { SEO_KEYWORDS } from "@/lib/seo-keywords";
 
-const nunito = Nunito({
-  variable: "--font-heading",
+// Approved design typography: Fraunces (headings), DM Sans (body), Caveat (handwritten notes).
+const fraunces = Fraunces({
+  variable: "--font-fraunces",
   subsets: ["latin"],
-  weight: ["400", "600", "700", "800"],
+  style: ["normal", "italic"],
+  axes: ["opsz"],
   display: "swap",
 });
 
 const dmSans = DM_Sans({
-  variable: "--font-sans",
+  variable: "--font-dm-sans",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
+  display: "swap",
+});
+
+const caveat = Caveat({
+  variable: "--font-caveat",
+  subsets: ["latin"],
+  weight: ["600", "700"],
   display: "swap",
 });
 
@@ -93,9 +102,13 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${nunito.variable} ${dmSans.variable} h-full antialiased`}
+      className={`${fraunces.variable} ${dmSans.variable} ${caveat.variable} h-full antialiased`}
+      data-scroll-behavior="smooth"
+      suppressHydrationWarning
     >
       <head>
+        {/* Lets scroll-reveal animations hide content only when JavaScript is running */}
+        <script dangerouslySetInnerHTML={{ __html: "document.documentElement.classList.add('js')" }} />
         {/* Google Tag Manager */}
         <Script
           id="google-tag-manager"
@@ -202,8 +215,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               openingHoursSpecification: {
                 "@type": "OpeningHoursSpecification",
                 dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-                opens: "09:00",
-                closes: "18:00",
+                opens: HOURS.opens,
+                closes: HOURS.closes,
               },
               priceRange: "₹₹",
               medicalSpecialty: [
@@ -229,18 +242,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             }),
           }}
         />
-        {/* Skip Navigation (Accessibility) */}
-        <a href="#main-content" className="skip-nav">
+        <IconSprite />
+        <a href="#main" className="skip">
           Skip to main content
         </a>
-        <GlobalBackground />
-        <Navbar />
-        <main id="main-content" className="flex-grow relative z-0">
+        <SiteHeader />
+        <main id="main" className="flex-grow">
           {children}
         </main>
-        <Footer />
-        <FloatingContactButtons />
-        <FloatingBookButton />
+        <SiteFooter />
+        <RevealObserver />
       </body>
     </html>
   );

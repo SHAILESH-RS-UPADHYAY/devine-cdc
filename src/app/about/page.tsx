@@ -1,228 +1,174 @@
-import { Metadata } from "next";
-import Image from "next/image";
-import { FOUNDERS, SITE_CONFIG, TRUST_STATS } from "@/lib/constants";
-import { Card, CardContent } from "@/components/ui/card";
-import { ShieldCheck, Stethoscope, Users, Award } from "lucide-react";
+import type { Metadata } from "next";
+import { PHOTOS } from "@/lib/site-content";
+import { Icon } from "@/components/site/Icon";
+import { Photo } from "@/components/site/Photo";
+import { Banner, Btn, Duo, Eyebrow, PageHero, Pillars, Quote, Section, SectionHead, Title } from "@/components/site/blocks";
 
 export const metadata: Metadata = {
   title: "About Us",
-  description: "Learn more about our mission, our founders, and our commitment to providing the best pediatric therapy in Gurgaon.",
-};
-
-const iconMap = {
-  ShieldCheck,
-  Stethoscope,
-  Users,
-  Award,
+  description:
+    "Meet Devine Child Development Centre in Gurugram: our story, mission, values, founder Mrs. Komal Pahuja (Clinical Psychologist, RCI licensed) and our multidisciplinary team.",
+  alternates: { canonical: "/about" },
 };
 
 export default function AboutPage() {
   return (
-    <main className="pt-32 pb-16 min-h-screen bg-gray-50">
-      {/* Hero Section */}
-      <section className="container mx-auto px-4 md:px-6 mb-16 text-center">
-        <h1 className="text-4xl md:text-5xl font-heading font-extrabold text-devine-orange mb-4">
-          About {SITE_CONFIG.shortName}
-        </h1>
-        <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-          We are dedicated to nurturing young minds and creating a safe, supportive environment where every child can thrive.
-        </p>
-      </section>
+    <>
+      <PageHero
+        eyebrow="About Devine"
+        before="Every child has their own way of "
+        accent="growing."
+        lead="We look beyond a diagnosis or difficulty and understand each child as a whole: their strengths, their needs and the way they experience the world."
+        actions={
+          <>
+            <Btn href="/consultation">Book a Consultation</Btn>
+            <Btn href="/team" kind="secondary">
+              Meet Our Team
+            </Btn>
+          </>
+        }
+        photo={PHOTOS.rangoli}
+        note={
+          <>
+            Small steps,
+            <br />
+            big futures
+          </>
+        }
+        chip={{ icon: "shield", title: "RCI Licensed", text: "Clinical psychologist-led" }}
+      />
 
-      {/* Mission & Vision */}
-      <section className="container mx-auto px-4 md:px-6 mb-20">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div className="relative h-[500px] rounded-[2.5rem] group">
-            {/* Glowing Edge Effect */}
-            <div className="absolute -inset-3 bg-gradient-to-r from-devine-peach via-devine-orange to-blue-400 rounded-[3rem] blur-2xl opacity-60 group-hover:opacity-100 transition-opacity duration-700"></div>
-            
-            <div className="relative h-full w-full rounded-[2.5rem] overflow-hidden border-4 border-white/60 shadow-2xl">
-              <Image
-                src="/images/clinic/clinic_team_celebration.webp"
-                alt="Devine CDC multidisciplinary therapy team celebrating at the clinic"
-                fill
-                className="object-cover object-center transition-transform duration-1000 group-hover:scale-105"
-                sizes="(max-width: 768px) 100vw, 50vw"
-                quality={92}
-                priority
-              />
-              <div className="absolute inset-0 bg-gradient-to-tr from-devine-orange/20 to-transparent mix-blend-overlay"></div>
+      <Section id="story">
+        <div className="pg-split">
+          <div className="pg-split__copy">
+            <Eyebrow>Our story</Eyebrow>
+            <Title before="Every child is different, and that’s what makes them " accent="beautifully unique." />
+            <div className="pg-prose reveal" data-d="2">
+              <p className="pg-prose__lead">
+                At Devine CDC, we believe a happy mind creates the space for meaningful growth. With compassion, understanding and an integrated approach, we
+                meet every child where they are.
+              </p>
+              <p>
+                From early developmental concerns to communication, behaviour, learning, sensory and emotional needs, we look beyond a diagnosis or difficulty
+                and understand the child as a whole.
+              </p>
+            </div>
+            <Quote text="Every child deserves to be understood before they are expected to change." />
+            <div className="pg-prose reveal">
+              <p>
+                We want every child to walk through our doors with a smile. When a child feels safe, understood and cared for, progress becomes a natural part of
+                their journey.
+              </p>
             </div>
           </div>
+          <figure className="pg-split__media reveal" data-d="1">
+            <Photo photo={PHOTOS.teamWithFamilies} sizes="(max-width: 960px) 90vw, 500px" />
+            <figcaption className="pg-note">Your safe space</figcaption>
+          </figure>
+        </div>
+      </Section>
+
+      <Section className="pg-alt">
+        <SectionHead eyebrow="Mission & vision" before="Why we " accent="do this" mode="center" />
+        <Duo
+          items={[
+            {
+              icon: "target",
+              tint: 1,
+              title: "Our Mission",
+              text: "To create a safe and compassionate space where both children and parents feel heard, understood and supported, through personalised care that respects every child’s unique needs.",
+            },
+            {
+              icon: "eye",
+              tint: 3,
+              title: "Our Vision",
+              text: "To help children make meaningful progress in the shortest time possible, with the right support for their individual needs.",
+            },
+          ]}
+        />
+      </Section>
+
+      <Section>
+        <SectionHead eyebrow="Our values" before="What guides " accent="every session" mode="center" />
+        <Pillars
+          items={[
+            { icon: "heart", tint: 1, title: "Child-Centred", text: "Every plan starts with your child." },
+            { icon: "users", tint: 2, title: "Parent-Involved", text: "Parents are part of every step." },
+            { icon: "sprout", tint: 3, title: "Compassionate", text: "Warmth and patience in every session." },
+            { icon: "puzzle", tint: 4, title: "Collaborative", text: "One team, planning together." },
+            { icon: "smile", tint: 5, title: "Inclusive", text: "Every child is welcome here." },
+          ]}
+        />
+      </Section>
+
+      <Section id="founder">
+        <div className="pg-founder">
+          <figure className="pg-founder__img reveal">
+            <Photo photo={PHOTOS.founder} sizes="(max-width: 960px) 90vw, 440px" />
+            <span className="pg-founder__badge">
+              <span className="pg-ic pg-t3">
+                <Icon name="shield" />
+              </span>
+              <span>
+                <strong>RCI Licensed</strong>
+                <span>M.Phil Clinical Psychology</span>
+              </span>
+            </span>
+          </figure>
           <div>
-            <h2 className="text-3xl font-heading font-bold text-devine-orange mb-6">Our Mission</h2>
-            <p className="text-gray-700 text-lg leading-relaxed mb-6">
-              At {SITE_CONFIG.name}, our mission is to provide evidence-based, compassionate, and highly individualized therapy for children facing developmental challenges. We believe in empowering not just the child, but the entire family through collaborative care.
-            </p>
-            <h2 className="text-3xl font-heading font-bold text-devine-orange mb-6">Our Vision</h2>
-            <p className="text-gray-700 text-lg leading-relaxed">
-              To be the leading child development centre in Gurgaon, recognized for our holistic approach, clinical excellence, and deep commitment to unlocking the full potential of every child.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Trust Stats */}
-      <section className="bg-devine-orange text-white py-16 mb-8 md:mb-20">
-        <div className="container mx-auto px-4 md:px-6">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            {TRUST_STATS.map((stat, i) => {
-              const Icon = iconMap[stat.icon as keyof typeof iconMap] || ShieldCheck;
-              return (
-                <div key={i} className="flex flex-col items-center">
-                  <div className="bg-white/10 p-4 rounded-full mb-4">
-                    <Icon className="w-8 h-8 text-devine-peach" />
-                  </div>
-                  <h3 className="text-4xl font-bold font-heading mb-2">
-                    {stat.value}
-                    {stat.suffix}
-                  </h3>
-                  <p className="text-sm uppercase tracking-wider text-white/80">{stat.label}</p>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* Founders Section */}
-      <section className="container mx-auto px-4 md:px-6">
-        <h2 className="text-3xl md:text-5xl font-heading font-extrabold text-center text-devine-orange mb-6 md:mb-16">
-          Meet Our Psychologist
-        </h2>
-        <div className="flex flex-col gap-12 max-w-7xl mx-auto">
-          {FOUNDERS.map((founder, i) => (
-            <div key={i} className="relative group">
-              {/* Colorful Glow Background */}
-              <div className="absolute inset-0 bg-gradient-to-r from-devine-peach via-devine-orange to-devine-blue rounded-[3rem] blur-xl opacity-30 group-hover:opacity-60 transition-opacity duration-500"></div>
-              
-              <Card className="relative flex flex-col md:flex-row overflow-hidden border-2 border-white/50 shadow-[0_20px_50px_rgba(0,0,0,0.1)] hover:shadow-[0_20px_50px_rgba(93,63,211,0.2)] transition-all duration-500 rounded-[3rem] bg-white/80 backdrop-blur-xl">
-                <div className="relative h-[400px] md:h-[500px] md:w-1/3 shrink-0 overflow-hidden">
-                  <Image
-                    src={founder.image}
-                    alt={founder.name}
-                    fill
-                    className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
-                    sizes="(max-width: 768px) 100vw, 33vw"
-                    quality={60}
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
-                </div>
-                <CardContent className="p-8 md:p-12 md:w-2/3 flex flex-col justify-center relative">
-                  <h3 className="text-3xl md:text-4xl font-bold font-heading text-slate-900 mb-2">{founder.name}</h3>
-                  <p className="text-xl text-devine-orange font-bold mb-6">{founder.role}</p>
-                  
-                  <div className="w-16 h-1.5 bg-gradient-to-r from-devine-peach to-devine-yellow rounded-full mb-6"></div>
-                  
-                  <p className="text-gray-700 mb-8 text-lg leading-relaxed">{founder.bio}</p>
-                  
-                  {founder.credentials.length > 0 && (
-                    <div className="grid sm:grid-cols-2 gap-4">
-                      {founder.credentials.map((cred, idx) => (
-                        <div key={idx} className="flex items-center text-sm font-semibold text-slate-800 bg-devine-orange/5 p-3 rounded-xl border border-devine-orange/10">
-                          <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center mr-3 shadow-sm shrink-0">
-                            <ShieldCheck className="w-4 h-4 text-devine-peach" />
-                          </div>
-                          <span>{cred}</span>
-                        </div>
-                      ))}
-                    </div>
-                  )}
-                </CardContent>
-              </Card>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Real Clinic Showcase */}
-      <section className="container mx-auto px-4 md:px-6 mt-20 mb-8">
-        <div className="text-center max-w-3xl mx-auto mb-12">
-          <h2 className="text-3xl md:text-4xl font-heading font-extrabold text-devine-orange mb-4">
-            Life Inside Our Centre
-          </h2>
-          <p className="text-gray-600 text-base md:text-lg">
-            A purposeful, child-centered environment where therapeutic milestones feel natural, engaging, and joyful.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div className="bg-white rounded-3xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-xl transition-all duration-300 group">
-            <div className="relative aspect-[4/5] w-full overflow-hidden">
-              <Image
-                src="/images/clinic/clinic_occupational_therapy.webp"
-                alt="Therapist guiding child in fine-motor therapy"
-                fill
-                sizes="(max-width: 768px) 100vw, 33vw"
-                className="object-cover transition-transform duration-700 group-hover:scale-105"
-                quality={90}
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-              <div className="absolute bottom-4 left-4 right-4 text-white">
-                <span className="inline-block px-3 py-1 rounded-full text-xs font-bold bg-devine-orange/90 mb-1">
-                  1-on-1 Focus
-                </span>
-                <h3 className="font-heading font-bold text-lg">Personalized Therapy</h3>
-              </div>
-            </div>
-            <div className="p-5">
-              <p className="text-sm text-gray-600">
-                Individualized fine-motor, cognitive, and sensory sessions led by dedicated clinical therapists.
+            <Eyebrow>Meet the founder</Eyebrow>
+            <Title before="Mrs. Komal " accent="Pahuja" />
+            <p className="pg-founder__role reveal">Founder &amp; Clinical Psychologist · M.Phil Clinical Psychology · RCI Licensed</p>
+            <Quote text="No two children are the same, so their support shouldn’t be either." />
+            <div className="pg-prose reveal">
+              <p>
+                My vision is to understand each child as an individual: their sensory needs, strengths, challenges, communication and the way they experience the
+                world. Then we build personalised support around them.
               </p>
-            </div>
-          </div>
-
-          <div className="bg-white rounded-3xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-xl transition-all duration-300 group">
-            <div className="relative aspect-[4/5] w-full overflow-hidden">
-              <Image
-                src="/images/clinic/clinic_sensory_rangoli.webp"
-                alt="Sensory play and group occupational therapy"
-                fill
-                sizes="(max-width: 768px) 100vw, 33vw"
-                className="object-cover transition-transform duration-700 group-hover:scale-105"
-                quality={90}
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-              <div className="absolute bottom-4 left-4 right-4 text-white">
-                <span className="inline-block px-3 py-1 rounded-full text-xs font-bold bg-emerald-600/90 mb-1">
-                  Sensory Integration
-                </span>
-                <h3 className="font-heading font-bold text-lg">Holistic Group Activities</h3>
-              </div>
-            </div>
-            <div className="p-5">
-              <p className="text-sm text-gray-600">
-                Natural textures and collaborative tactile patterns that develop joint attention and sensory regulation.
+              <p>
+                Just as importantly, parents should be a part of the process, not just observers. They deserve to understand their child, feel supported and know
+                how to continue that support beyond the therapy room.
               </p>
-            </div>
-          </div>
-
-          <div className="bg-white rounded-3xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-xl transition-all duration-300 group">
-            <div className="relative aspect-[4/5] w-full overflow-hidden">
-              <Image
-                src="/images/clinic/clinic_happy_children.webp"
-                alt="Happy children celebrating at Devine CDC"
-                fill
-                sizes="(max-width: 768px) 100vw, 33vw"
-                className="object-cover transition-transform duration-700 group-hover:scale-105"
-                quality={90}
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-              <div className="absolute bottom-4 left-4 right-4 text-white">
-                <span className="inline-block px-3 py-1 rounded-full text-xs font-bold bg-violet-600/90 mb-1">
-                  Safe & Joyful
-                </span>
-                <h3 className="font-heading font-bold text-lg">Peer Bonding & Smiles</h3>
-              </div>
-            </div>
-            <div className="p-5">
-              <p className="text-sm text-gray-600">
-                A warm, cheerful sanctuary where every child feels accepted, encouraged, and celebrated.
+              <p>
+                <strong>
+                  Through Devine CDC, I want to help create a culture of child development where therapy is purposeful, personalised and genuinely beneficial for
+                  both the child and the family.
+                </strong>
               </p>
             </div>
           </div>
         </div>
-      </section>
-    </main>
+      </Section>
+
+      <Section className="pg-alt">
+        <div className="pg-split pg-split--rev">
+          <div className="pg-split__copy">
+            <Eyebrow>Our team</Eyebrow>
+            <Title before="One team, planning " accent="together." />
+            <div className="pg-prose reveal" data-d="2">
+              <p className="pg-prose__lead">
+                Our multidisciplinary team brings together professionals from different areas of child development, working collaboratively to understand each
+                child’s needs and create personalised support plans.
+              </p>
+            </div>
+            <ul className="pg-tags reveal">
+              <li>Clinical Psychology</li>
+              <li>Speech &amp; Language Therapy</li>
+              <li>Occupational Therapy</li>
+              <li>ABA Therapy</li>
+              <li>Special Education</li>
+            </ul>
+            <div className="pg-actions reveal">
+              <Btn href="/team">Meet Our Full Team</Btn>
+            </div>
+          </div>
+          <figure className="pg-split__media reveal" data-d="1">
+            <Photo photo={PHOTOS.team} sizes="(max-width: 960px) 90vw, 500px" />
+          </figure>
+        </div>
+      </Section>
+
+      <Banner lines={["Different journeys.", "Meaningful progress.", "Together."]} action={<Btn href="/consultation" kind="light">Book a Consultation</Btn>} />
+    </>
   );
 }
