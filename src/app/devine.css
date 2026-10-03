@@ -396,7 +396,9 @@ svg.i.fill { fill: currentColor; stroke: none; }
    is fully visible, and browsers without support simply show everything. `translate` (not `transform`)
    keeps hover lifts working. */
 @keyframes reveal { from { opacity: 0; translate: 0 24px; } }
-@supports (animation-timeline: view()) {
+/* Safari's early view-timeline support leaves half-visible blocks transparent, so it gets no fade
+   (`-apple-system-body` is a WebKit-only font keyword). */
+@supports (animation-timeline: view()) and (not (font: -apple-system-body)) {
   .reveal { animation: reveal linear both; animation-timeline: view(); animation-range: entry 0% entry 35%; }
 }
 @media (prefers-reduced-motion: reduce) {
