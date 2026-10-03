@@ -118,6 +118,8 @@ export type DetailItem = {
   points: string[];
   meta?: string;
   note?: string;
+  /** Detail page, when the item has one (therapies). */
+  href?: string;
 };
 
 export const PROGRAMMES: DetailItem[] = [
@@ -144,27 +146,27 @@ export const PROGRAMMES: DetailItem[] = [
 
 export const THERAPY_DETAILS: (DetailItem & { short: string; homePoints: string[] })[] = [
   {
-    id: "speech-language-therapy", title: "Speech & Language Therapy", short: "Speech & Language Therapy", icon: "message", tint: 5, photo: PHOTOS.speech,
+    id: "speech-language-therapy", href: "/therapies/speech-therapy", title: "Speech & Language Therapy", short: "Speech & Language Therapy", icon: "message", tint: 5, photo: PHOTOS.speech,
     points: ["Speech and language development", "Understanding and expressing language", "Functional communication skills"],
     homePoints: ["Speech and language development", "Understanding and expressing language", "Functional communication skills"],
   },
   {
-    id: "occupational-therapy", title: "Occupational Therapy", short: "Occupational Therapy", icon: "hand", tint: 2, photo: PHOTOS.occupational,
+    id: "occupational-therapy", href: "/therapies/occupational-therapy", title: "Occupational Therapy", short: "Occupational Therapy", icon: "hand", tint: 2, photo: PHOTOS.occupational,
     points: ["Sensory processing and regulation", "Fine and gross motor skills", "Self-care and daily living skills"],
     homePoints: ["Sensory processing and regulation", "Fine and gross motor skills", "Self-care and daily living skills"],
   },
   {
-    id: "aba-therapy", title: "ABA Therapy", short: "ABA Therapy", icon: "puzzle", tint: 3, photo: PHOTOS.aba,
+    id: "aba-therapy", href: "/therapies/aba-therapy", title: "ABA Therapy", short: "ABA Therapy", icon: "puzzle", tint: 3, photo: PHOTOS.aba,
     points: ["Evidence-informed behavioural support to build meaningful skills", "Positive behaviour support", "Individualised programmes based on your child’s needs"],
     homePoints: ["Evidence-informed behavioural support to build meaningful skills", "Individualised programmes based on your child’s needs", "Positive behaviour support"],
   },
   {
-    id: "special-education", title: "Special Education", short: "Special Education", icon: "cap", tint: 4, photo: PHOTOS.specialEducation,
+    id: "special-education", href: "/therapies/special-education", title: "Special Education", short: "Special Education", icon: "cap", tint: 4, photo: PHOTOS.specialEducation,
     points: ["Individualised educational support for learning and development", "Helps build academic, cognitive and social skills", "Learning strategies tailored to the child"],
     homePoints: ["Individualised educational support", "Academic, cognitive and social skills", "Learning strategies tailored to the child"],
   },
   {
-    id: "psychological-intervention", title: "Psychological & Behavioural Intervention", short: "Psychological Support", icon: "brain", tint: 1, photo: PHOTOS.psychological,
+    id: "psychological-intervention", href: "/therapies/psychological-behavioral-intervention", title: "Psychological & Behavioural Intervention", short: "Psychological Support", icon: "brain", tint: 1, photo: PHOTOS.psychological,
     points: ["Social and emotional skills", "Psychological intervention", "Guidance for children and families"],
     homePoints: ["Social and emotional skills", "Psychological and behavioural intervention", "Guidance for children and families"],
   },

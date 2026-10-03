@@ -77,7 +77,7 @@ export function TherapyTabs() {
                   </li>
                 ))}
               </ul>
-              <Link href={`/therapies#${t.id}`} className="link-arrow">
+              <Link href={t.href ?? `/therapies#${t.id}`} className="link-arrow">
                 Learn more <Icon name="arrow" />
               </Link>
             </div>

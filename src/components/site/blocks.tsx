@@ -253,7 +253,7 @@ export function DetailRows({ items }: { items: DetailItem[] }) {
           </figure>
           <div className="pg-detail__body">
             {d.meta && <span className="pg-meta">{d.meta}</span>}
-            <h3>{d.title}</h3>
+            <h3>{d.href ? <SmartLink href={d.href}>{d.title}</SmartLink> : d.title}</h3>
             {d.note && <p className="pg-note pg-detail__note">{d.note}</p>}
             <ul className="pg-checks">
               {d.points.map((p) => (
@@ -264,6 +264,7 @@ export function DetailRows({ items }: { items: DetailItem[] }) {
               ))}
             </ul>
             <div className="pg-detail__more">
+              {d.href && <LinkArrow href={d.href}>Read more about {d.title}</LinkArrow>}
               <LinkArrow href="/consultation">Book a consultation</LinkArrow>
             </div>
           </div>

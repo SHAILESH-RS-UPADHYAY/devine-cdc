@@ -5,11 +5,11 @@ import { Brand } from "./Brand";
 import { Icon } from "./Icon";
 
 const THERAPY_LINKS = [
-  { label: "Speech & Language Therapy", href: "/therapies#speech-language-therapy" },
-  { label: "Occupational Therapy", href: "/therapies#occupational-therapy" },
-  { label: "ABA Therapy", href: "/therapies#aba-therapy" },
-  { label: "Special Education", href: "/therapies#special-education" },
-  { label: "Psychological Support", href: "/therapies#psychological-intervention" },
+  { label: "Speech & Language Therapy", href: "/therapies/speech-therapy" },
+  { label: "Occupational Therapy", href: "/therapies/occupational-therapy" },
+  { label: "ABA Therapy", href: "/therapies/aba-therapy" },
+  { label: "Special Education", href: "/therapies/special-education" },
+  { label: "Psychological Support", href: "/therapies/psychological-behavioral-intervention" },
   { label: "Assessment", href: "/faq#assessments" },
   { label: "Parent Training", href: "/programs#parent-training" },
   { label: "Counselling", href: "/therapies#psychological-intervention" },
