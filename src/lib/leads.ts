@@ -29,7 +29,10 @@ export const phoneField = z
 export const nameField = (message = "Please add your name.") => z.string().trim().min(2, message);
 
 export async function sendLead(source: LeadSource, fields: Record<string, string | undefined>) {
-  const id = process.env.NEXT_PUBLIC_FORMSPREE_ID?.trim();
+  // Worksheet downloads go to their own Formspree form so they never use up the consultation
+  // form's monthly quota; until that form is configured they fall back to the main one.
+  const worksheetId = source === "Worksheet download" ? process.env.NEXT_PUBLIC_FORMSPREE_WORKSHEET_ID?.trim() : undefined;
+  const id = worksheetId || process.env.NEXT_PUBLIC_FORMSPREE_ID?.trim();
   if (!id) throw new Error("NEXT_PUBLIC_FORMSPREE_ID is not set, so the enquiry would be lost");
   const endpoint = id.startsWith("http") ? id : `https://formspree.io/f/${id}`;
 
