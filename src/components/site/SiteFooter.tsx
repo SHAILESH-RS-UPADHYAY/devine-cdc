@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ADDRESS, CONTACT, FOOTER_LINKS, HOURS } from "@/lib/constants";
+import { EmailText } from "./blocks";
 import { Brand } from "./Brand";
 import { Icon } from "./Icon";
 
@@ -15,7 +16,6 @@ const THERAPY_LINKS = [
 ];
 
 export function SiteFooter() {
-  const [emailUser, emailDomain] = CONTACT.email.split("@");
   return (
     <footer className="footer">
       <div className="dv-wrap">
@@ -66,8 +66,7 @@ export function SiteFooter() {
               <li>
                 <Icon name="mail" />
                 <a href={`mailto:${CONTACT.email}`} style={{ fontSize: 14 }}>
-                  {emailUser}@<wbr />
-                  {emailDomain}
+                  <EmailText />
                 </a>
               </li>
               <li>

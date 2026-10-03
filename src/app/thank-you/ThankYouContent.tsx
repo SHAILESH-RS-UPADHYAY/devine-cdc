@@ -11,7 +11,6 @@ import {
   MapPin, 
   Calendar, 
   ShieldCheck, 
-  ArrowRight, 
   Home, 
   Sparkles, 
   ExternalLink,

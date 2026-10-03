@@ -21,7 +21,7 @@ export default function ConsultationPage() {
         accent="understanding."
         lead="Tell us about your child, your concerns and what you’ve been noticing."
         extra={
-          <ul className="pg-ticks reveal" data-d="2">
+          <ul className="pg-ticks reveal">
             <li>
               <Icon name="clock" />
               30 – 40 minute consultation, including time observing your child

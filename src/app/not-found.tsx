@@ -29,7 +29,7 @@ export default function NotFound() {
           </>
         }
         side={
-          <figure className="pg-hero__media reveal" data-d="2">
+          <figure className="pg-hero__media reveal">
             <div className="pg-hero__frame">
               <Photo photo={PHOTOS.trampoline} className="pg-hero__img" sizes="(max-width: 960px) 90vw, 520px" eager />
             </div>

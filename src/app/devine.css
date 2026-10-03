@@ -391,15 +391,16 @@ svg.i.fill { fill: currentColor; stroke: none; }
 .wa-float:hover { transform: scale(1.07); }
 .wa-float .i { font-size: 30px; }
 
-/* ═══ Reveal (motion dial 4: fade-up stagger only) ═══ */
-.js .reveal { opacity: 0; transform: translateY(24px); transition: opacity .9s var(--ease), transform .9s var(--ease); }
-.js .reveal.is-in { opacity: 1; transform: none; }
-.js .reveal[data-d="1"] { transition-delay: .08s; }
-.js .reveal[data-d="2"] { transition-delay: .16s; }
-.js .reveal[data-d="3"] { transition-delay: .24s; }
+/* ═══ Reveal: fade-up as content scrolls into view ═══
+   Pure CSS scroll-driven animation: nothing waits for JavaScript, content already on screen at load
+   is fully visible, and browsers without support simply show everything. `translate` (not `transform`)
+   keeps hover lifts working. */
+@keyframes reveal { from { opacity: 0; translate: 0 24px; } }
+@supports (animation-timeline: view()) {
+  .reveal { animation: reveal linear both; animation-timeline: view(); animation-range: entry 0% entry 35%; }
+}
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
-  .js .reveal { opacity: 1; transform: none; }
 }
 
 /* ═══ Responsive ═══ */
@@ -952,7 +953,7 @@ html { scroll-padding-top: 100px; }
 .pg-h1 em svg { position: absolute; left: 0; bottom: -.1em; width: 100%; height: .2em; }
 .pg-h2 { font-size: clamp(30px, 2.6vw + 16px, 50px); }
 .pg-hero__img { border-radius: 260px 260px var(--r-lg) var(--r-lg); box-shadow: var(--shadow-lg); }
-.pg-hero__note { transform: rotate(-6deg); }
+.pg-hero__note { transform: rotate(-6deg); text-shadow: 0 0 3px var(--cream), 0 0 10px var(--cream); }
 .pg-detail__img img { border-radius: 50%; }
 .pg-card h3 { font-family: var(--font-display); font-weight: 600; }
 .pg-detail__note { color: var(--orange-text); }
@@ -999,6 +1000,13 @@ html { scroll-padding-top: 100px; }
 @media (max-width: 480px) {
   .hero__side { padding-top: 56px; }
   .hero__badge { width: 76px; height: 76px; right: 18px; border-width: 5px; }
+}
+
+/* Phones/tablets: the hero photo's arch is nearly a semicircle, so the handwritten note ran
+   onto the photo and became hard to read. Show it just above the photo instead. */
+@media (max-width: 960px) {
+  .pg-hero__media { display: flex; flex-direction: column; }
+  .pg-hero__note { position: static; order: -1; align-self: flex-start; margin: 0 0 12px 6px; }
 }
 
 /* Study material: worksheet cards */

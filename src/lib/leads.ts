@@ -37,10 +37,13 @@ export async function sendLead(source: LeadSource, fields: Record<string, string
   for (const [key, value] of Object.entries(fields)) if (value?.trim()) body[key] = value.trim();
   if (body.phone) body.phone = normalisePhone(body.phone);
 
+  // A form-encoded body keeps this a CORS "simple request": one round trip, no preflight.
+  // keepalive lets the request finish even if the visitor leaves the page straight away.
   const res = await fetch(endpoint, {
     method: "POST",
-    headers: { "Content-Type": "application/json", Accept: "application/json" },
-    body: JSON.stringify(body),
+    headers: { Accept: "application/json" },
+    body: new URLSearchParams(body),
+    keepalive: true,
   });
   if (!res.ok) throw new Error(`Formspree responded ${res.status}`);
 }

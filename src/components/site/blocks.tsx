@@ -1,6 +1,7 @@
 // Building blocks for the inner pages of the approved design (About, Programmes, Therapies, …).
 // Pure server components: markup mirrors the approved template so its CSS applies unchanged.
 
+import { Fragment } from "react";
 import Link from "next/link";
 import { ADDRESS, CONTACT, HOURS, WHATSAPP_URL } from "@/lib/constants";
 import type { DetailItem, Photo as PhotoData, QA, Tint } from "@/lib/site-content";
@@ -67,7 +68,7 @@ const Underline = () => (
 export function Title({ as = "h2", before = "", accent, after = "", id }: { as?: "h1" | "h2"; before?: string; accent?: string; after?: string; id?: string }) {
   const Tag = as;
   return (
-    <Tag className={`${as === "h1" ? "pg-h1" : "h2 pg-h2"} reveal`} data-d="1" id={id}>
+    <Tag className={`${as === "h1" ? "pg-h1" : "h2 pg-h2"} reveal`} id={id}>
       {before}
       {accent && (
         <em>
@@ -110,7 +111,7 @@ export function SectionHead({
 }: { eyebrow: string; before: string; accent?: string; after?: string; lead?: string; mode?: "split" | "center"; id?: string }) {
   const title = <Title before={before} accent={accent} after={after} id={id} />;
   const leadEl = lead && (
-    <p className="lead reveal" data-d="2">
+    <p className="lead reveal">
       {lead}
     </p>
   );
@@ -166,17 +167,17 @@ export function PageHero({
         <div className="pg-hero__copy">
           <Eyebrow>{eyebrow}</Eyebrow>
           <Title as="h1" before={before} accent={accent} after={after} />
-          <p className="pg-hero__lead reveal" data-d="2">
+          <p className="pg-hero__lead reveal">
             {lead}
           </p>
           {extra}
-          <div className="pg-actions reveal" data-d="3">
+          <div className="pg-actions reveal">
             {actions}
           </div>
         </div>
         {side ??
           (photo && (
-            <figure className="pg-hero__media reveal" data-d="2">
+            <figure className="pg-hero__media reveal">
               <div className="pg-hero__frame">
                 <Photo photo={photo} className="pg-hero__img" sizes="(max-width: 960px) 90vw, 520px" eager />
               </div>
@@ -210,8 +211,8 @@ export type CardItem = { icon: IconName; tint: Tint; title: string; text?: strin
 export function Pillars({ items }: { items: CardItem[] }) {
   return (
     <div className="pg-pillars">
-      {items.map((p, i) => (
-        <div key={p.title} className={`pg-pillar pg-t${p.tint} reveal`} data-d={i % 4}>
+      {items.map((p) => (
+        <div key={p.title} className={`pg-pillar pg-t${p.tint} reveal`}>
           <span className="pg-ic">
             <Icon name={p.icon} />
           </span>
@@ -226,8 +227,8 @@ export function Pillars({ items }: { items: CardItem[] }) {
 export function Duo({ items }: { items: CardItem[] }) {
   return (
     <div className="pg-duo">
-      {items.map((p, i) => (
-        <article key={p.title} className={`pg-card pg-t${p.tint} reveal`} data-d={i}>
+      {items.map((p) => (
+        <article key={p.title} className={`pg-card pg-t${p.tint} reveal`}>
           <span className="pg-ic">
             <Icon name={p.icon} />
           </span>
@@ -359,7 +360,7 @@ export function Steps({ items }: { items: { title: string; text: string; icon: I
   return (
     <ol className="pg-steps">
       {items.map((s, i) => (
-        <li key={s.title} className="pg-step reveal" data-d={i}>
+        <li key={s.title} className="pg-step reveal">
           <span className="pg-step__n">{i + 1}</span>
           <div>
             <h3>{s.title}</h3>
@@ -379,8 +380,8 @@ export type Way = { icon: IconName; tint: Tint; title: string; value: React.Reac
 export function Ways({ items }: { items: Way[] }) {
   return (
     <div className="pg-ways">
-      {items.map((w, i) => (
-        <SmartLink key={w.title} href={w.href} className={`pg-way pg-t${w.tint} reveal`} data-d={i}>
+      {items.map((w) => (
+        <SmartLink key={w.title} href={w.href} className={`pg-way pg-t${w.tint} reveal`}>
           <span className="pg-ic">
             <Icon name={w.icon} fill={w.icon === "whatsapp"} />
           </span>
@@ -396,6 +397,18 @@ export function Ways({ items }: { items: Way[] }) {
 }
 
 export const TEL = `tel:${CONTACT.phone.replace(/\s/g, "")}`;
+
+/** The clinic email with line-break opportunities between its words, so narrow screens wrap it
+ *  as "Devinechilddevelopment / centre@gmail.com" instead of splitting a word. */
+export function EmailText() {
+  return CONTACT.email.split(/(?=development|centre)|(?<=@)/i).map((part, i) => (
+    <Fragment key={i}>
+      {i > 0 && <wbr />}
+      {part}
+    </Fragment>
+  ));
+}
+
 
 export function MapBlock() {
   return (
@@ -465,8 +478,8 @@ export function FaqList({ items, openFirst = false }: { items: QA[]; openFirst?:
 export function Topics({ items }: { items: { icon: IconName; tint: Tint; title: string; text: string; href: string }[] }) {
   return (
     <div className="pg-topics">
-      {items.map((t, i) => (
-        <SmartLink key={t.title} href={t.href} className={`pg-topic pg-t${t.tint} reveal`} data-d={i % 3}>
+      {items.map((t) => (
+        <SmartLink key={t.title} href={t.href} className={`pg-topic pg-t${t.tint} reveal`}>
           <span className="pg-ic">
             <Icon name={t.icon} />
           </span>

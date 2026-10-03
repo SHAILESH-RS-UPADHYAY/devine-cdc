@@ -1,7 +1,12 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import Image from "next/image";
+import Image, { type StaticImageData } from "next/image";
+import abaEarlyInterventionImg from "@/assets/clinic/clinic_aba_early_intervention.webp";
+import occupationalTherapyImg from "@/assets/clinic/clinic_occupational_therapy.webp";
+import speechExpressionImg from "@/assets/clinic/clinic_speech_expression.webp";
+import sensoryRangoliImg from "@/assets/clinic/clinic_sensory_rangoli.webp";
+import behavioralLearningImg from "@/assets/clinic/clinic_behavioral_learning.webp";
 import { THERAPIES, SITE_CONFIG, WHATSAPP_URL, CONTACT } from "@/lib/constants";
 import { THERAPY_CONTENT } from "@/lib/therapy-content";
 import {
@@ -29,33 +34,33 @@ const iconMap: Record<string, React.ElementType> = {
   HeartHandshake,
 };
 
-const THERAPY_CLINIC_IMAGES: Record<string, { src: string; alt: string; caption: string; tag: string }> = {
+const THERAPY_CLINIC_IMAGES: Record<string, { src: StaticImageData; alt: string; caption: string; tag: string }> = {
   "aba-therapy": {
-    src: "/images/clinic/clinic_aba_early_intervention.webp",
+    src: abaEarlyInterventionImg,
     alt: "Devine CDC therapists guiding a child during structured ABA therapy",
     caption: "Our therapists providing focused, compassionate early intervention at Devine CDC Gurgaon.",
     tag: "Real ABA Session"
   },
   "occupational-therapy": {
-    src: "/images/clinic/clinic_occupational_therapy.webp",
+    src: occupationalTherapyImg,
     alt: "1-on-1 Occupational Therapy fine-motor session at Devine CDC",
     caption: "Personalized fine-motor and sensory stimulation session in our Gurgaon clinic.",
     tag: "Real OT Session"
   },
   "speech-therapy": {
-    src: "/images/clinic/clinic_speech_expression.webp",
+    src: speechExpressionImg,
     alt: "Children building confident communication and expression at Devine CDC",
     caption: "Building expressive vocabulary, confidence, and joyful communication in our safe space.",
     tag: "Real Speech & Expression"
   },
   "special-education": {
-    src: "/images/clinic/clinic_sensory_rangoli.webp",
+    src: sensoryRangoliImg,
     alt: "Special education and sensory pattern learning activity at Devine CDC",
     caption: "Hands-on tactile and cognitive developmental activities tailored to individual pace.",
     tag: "Real Learning Activity"
   },
   "psychological-behavioral-intervention": {
-    src: "/images/clinic/clinic_behavioral_learning.webp",
+    src: behavioralLearningImg,
     alt: "Child psychologist conducting interactive behavioral therapy at Devine CDC",
     caption: "Targeted cognitive and behavioral support nurturing attention, social readiness, and focus.",
     tag: "Real Clinical Intervention"
@@ -173,7 +178,7 @@ export default async function TherapyDetailPage({ params }: PageProps) {
                     fill
                     sizes="(max-width: 768px) 100vw, 66vw"
                     className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
-                    quality={92}
+                    placeholder="blur"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
                   <div className="absolute top-4 left-4 z-10">

@@ -1,7 +1,7 @@
 import Image from "next/image";
 import type { Photo as PhotoData } from "@/lib/site-content";
 
-/** next/image with the export size of our clinic photos (portraits are 1200×1500). */
+/** A clinic photo: size and blur placeholder come from the static import, so a preview paints instantly. */
 export function Photo({
   photo,
   sizes,
@@ -19,10 +19,9 @@ export function Photo({
     <Image
       src={photo.src}
       alt={alt ?? photo.alt}
-      width={photo.w ?? 1200}
-      height={photo.h ?? 1500}
       sizes={sizes}
       className={className}
+      placeholder="blur"
       loading={eager ? "eager" : "lazy"}
       fetchPriority={eager ? "high" : undefined}
     />

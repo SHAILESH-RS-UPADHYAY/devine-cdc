@@ -6,7 +6,6 @@ import "./devine.css";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { IconSprite } from "@/components/site/Icon";
-import { RevealObserver } from "@/components/site/RevealObserver";
 import { CONTACT, SITE_CONFIG, ANALYTICS_CONFIG, HOURS } from "@/lib/constants";
 import { SEO_KEYWORDS } from "@/lib/seo-keywords";
 
@@ -104,11 +103,8 @@ export default function RootLayout({
       lang="en"
       className={`${fraunces.variable} ${dmSans.variable} ${caveat.variable} h-full antialiased`}
       data-scroll-behavior="smooth"
-      suppressHydrationWarning
     >
       <head>
-        {/* Lets scroll-reveal animations hide content only when JavaScript is running */}
-        <script dangerouslySetInnerHTML={{ __html: "document.documentElement.classList.add('js')" }} />
         {/* Google Tag Manager */}
         <Script
           id="google-tag-manager"
@@ -251,7 +247,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           {children}
         </main>
         <SiteFooter />
-        <RevealObserver />
       </body>
     </html>
   );

@@ -56,7 +56,7 @@ export default function ResourcesPage() {
           {WORKSHEETS.map((w) => (
             <article key={w.id} className="ws-card reveal" id={w.id}>
               <figure className="ws-card__cover">
-                <Image src={w.cover} alt={`Cover of the Devine ${w.title} for ages ${w.ageGroup}`} width={700} height={990} sizes="(max-width: 760px) 70vw, 300px" />
+                <Image src={w.cover} alt={`Cover of the Devine ${w.title} for ages ${w.ageGroup}`} placeholder="blur" sizes="(max-width: 760px) 70vw, 300px" />
                 <span className="ws-card__age">Age {w.ageGroup}</span>
               </figure>
               <div className="ws-card__body">

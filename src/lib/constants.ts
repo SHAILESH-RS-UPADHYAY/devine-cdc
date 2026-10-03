@@ -9,7 +9,8 @@ export const SITE_CONFIG = {
   tagline: "YOUR SAFE SPACE",
   description:
     "Expert child development centre offering Speech & Language Therapy, Occupational Therapy, ABA Therapy & Special Education in Gurgaon.",
-  url: "https://devinecdc.in",
+  // The live host: Vercel redirects the bare domain here, so canonicals and the sitemap point at it directly.
+  url: "https://www.devinecdc.in",
   ogImage: "/images/og-image.jpg",
 } as const;
 

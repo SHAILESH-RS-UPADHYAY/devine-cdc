@@ -4,37 +4,62 @@
 // WhatsApp answers (FAQ, consultation details) word for word.
 // ══════════════════════════════════════════════════════════
 
+import type { StaticImageData } from "next/image";
 import type { IconName } from "@/components/site/Icon";
+import sandTrayImg from "@/assets/photos/sand-tray-play.webp";
+import fineMotorImg from "@/assets/photos/fine-motor-session.webp";
+import earlyInterventionImg from "@/assets/photos/early-intervention-balance.webp";
+import oneToOneImg from "@/assets/photos/one-to-one-therapy.webp";
+import schoolReadinessImg from "@/assets/photos/school-readiness-table.webp";
+import teamImg from "@/assets/photos/devine-team.webp";
+import teamWithFamiliesImg from "@/assets/photos/team-with-families.webp";
+import speechImg from "@/assets/photos/speech-language-session.webp";
+import occupationalImg from "@/assets/photos/occupational-therapy-ball.webp";
+import abaImg from "@/assets/photos/aba-structured-task.webp";
+import specialEducationImg from "@/assets/photos/special-education-writing.webp";
+import psychologicalImg from "@/assets/photos/psychological-support-session.webp";
+import ballPitImg from "@/assets/photos/ball-pit-joy.webp";
+import rangoliImg from "@/assets/photos/rangoli-activity.webp";
+import sensoryRoomImg from "@/assets/photos/sensory-room.webp";
+import parentGuidanceImg from "@/assets/photos/parent-guidance-session.webp";
+import groupSessionImg from "@/assets/photos/group-session.webp";
+import activityBoardImg from "@/assets/photos/activity-board.webp";
+import celebrationImg from "@/assets/photos/celebration-day.webp";
+import tracingImg from "@/assets/photos/tracing-activity.webp";
+import trampolineImg from "@/assets/photos/trampoline-play.webp";
+import founderImg from "@/assets/photos/founder.webp";
+import worksheet45Cover from "@/assets/photos/worksheet-4-5-years-cover.webp";
 import { ADDRESS } from "@/lib/constants";
 
 export type Tint = 1 | 2 | 3 | 4 | 5;
 
-/** Portrait photos are exported at 1200×1500 (4:5); landscape ones carry their own size. */
-export type Photo = { src: string; alt: string; w?: number; h?: number };
+/** Clinic photos are static imports: the build hashes each file (cached for a year) and
+ *  generates its size and blur placeholder, so pages paint a preview instantly. */
+export type Photo = { src: StaticImageData; alt: string };
 
 export const PHOTOS = {
-  sandTray: { src: "/images/site/sand-tray-play.webp", alt: "A girl smiling while playing in a sensory sand tray at Devine" },
-  fineMotor: { src: "/images/site/fine-motor-session.webp", alt: "A therapist guiding a boy through a fine motor activity" },
-  earlyIntervention: { src: "/images/site/early-intervention-balance.webp", alt: "A therapist supporting a girl balancing on a therapy ball at Devine" },
-  oneToOne: { src: "/images/site/one-to-one-therapy.webp", alt: "Two therapists working one-to-one with a child" },
-  schoolReadiness: { src: "/images/site/school-readiness-table.webp", alt: "Children working on a table activity with a therapist" },
-  team: { src: "/images/site/devine-team.webp", alt: "The Devine team at the centre" },
-  teamWithFamilies: { src: "/images/site/team-with-families.webp", alt: "The Devine team celebrating with families at the centre", w: 1800, h: 1013 },
-  speech: { src: "/images/site/speech-language-session.webp", alt: "A therapist and a girl talking during a craft activity" },
-  occupational: { src: "/images/site/occupational-therapy-ball.webp", alt: "Therapists supporting a boy on a therapy ball" },
-  aba: { src: "/images/site/aba-structured-task.webp", alt: "A young person completing a structured puzzle task" },
-  specialEducation: { src: "/images/site/special-education-writing.webp", alt: "A girl practising shapes and writing with her educator" },
-  psychological: { src: "/images/site/psychological-support-session.webp", alt: "Two therapists sitting with a boy during a calm session" },
-  ballPit: { src: "/images/site/ball-pit-joy.webp", alt: "A boy laughing in the ball pit at Devine" },
-  rangoli: { src: "/images/site/rangoli-activity.webp", alt: "A girl smiling during a sensory rangoli activity at Devine" },
-  sensoryRoom: { src: "/images/site/sensory-room.webp", alt: "A boy smiling in the Devine sensory room" },
-  parentGuidance: { src: "/images/site/parent-guidance-session.webp", alt: "Parents attending a guidance session at Devine" },
-  groupSession: { src: "/images/site/group-session.webp", alt: "Children and therapists together at a Devine group session", w: 1800, h: 1013 },
-  activityBoard: { src: "/images/site/activity-board.webp", alt: "A child exploring an activity board with her therapist" },
-  celebration: { src: "/images/site/celebration-day.webp", alt: "Children smiling together at a Devine celebration" },
-  tracing: { src: "/images/site/tracing-activity.webp", alt: "A child practising a tracing activity with her therapist" },
-  trampoline: { src: "/images/site/trampoline-play.webp", alt: "A child standing on a trampoline at Devine" },
-  founder: { src: "/images/profile.webp", alt: "Mrs. Komal Pahuja, Founder and Clinical Psychologist", w: 1045, h: 1505 },
+  sandTray: { src: sandTrayImg, alt: "A girl smiling while playing in a sensory sand tray at Devine" },
+  fineMotor: { src: fineMotorImg, alt: "A therapist guiding a boy through a fine motor activity" },
+  earlyIntervention: { src: earlyInterventionImg, alt: "A therapist supporting a girl balancing on a therapy ball at Devine" },
+  oneToOne: { src: oneToOneImg, alt: "Two therapists working one-to-one with a child" },
+  schoolReadiness: { src: schoolReadinessImg, alt: "Children working on a table activity with a therapist" },
+  team: { src: teamImg, alt: "The Devine team at the centre" },
+  teamWithFamilies: { src: teamWithFamiliesImg, alt: "The Devine team celebrating with families at the centre" },
+  speech: { src: speechImg, alt: "A therapist and a girl talking during a craft activity" },
+  occupational: { src: occupationalImg, alt: "Therapists supporting a boy on a therapy ball" },
+  aba: { src: abaImg, alt: "A young person completing a structured puzzle task" },
+  specialEducation: { src: specialEducationImg, alt: "A girl practising shapes and writing with her educator" },
+  psychological: { src: psychologicalImg, alt: "Two therapists sitting with a boy during a calm session" },
+  ballPit: { src: ballPitImg, alt: "A boy laughing in the ball pit at Devine" },
+  rangoli: { src: rangoliImg, alt: "A girl smiling during a sensory rangoli activity at Devine" },
+  sensoryRoom: { src: sensoryRoomImg, alt: "A boy smiling in the Devine sensory room" },
+  parentGuidance: { src: parentGuidanceImg, alt: "Parents attending a guidance session at Devine" },
+  groupSession: { src: groupSessionImg, alt: "Children and therapists together at a Devine group session" },
+  activityBoard: { src: activityBoardImg, alt: "A child exploring an activity board with her therapist" },
+  celebration: { src: celebrationImg, alt: "Children smiling together at a Devine celebration" },
+  tracing: { src: tracingImg, alt: "A child practising a tracing activity with her therapist" },
+  trampoline: { src: trampolineImg, alt: "A child standing on a trampoline at Devine" },
+  founder: { src: founderImg, alt: "Mrs. Komal Pahuja, Founder and Clinical Psychologist" },
 } satisfies Record<string, Photo>;
 
 
@@ -236,7 +261,7 @@ export type Worksheet = {
   pages: number;
   sizeLabel: string;
   file: string;
-  cover: string;
+  cover: StaticImageData;
   topics: string[];
 };
 
@@ -249,7 +274,7 @@ export const WORKSHEETS: Worksheet[] = [
     pages: 58,
     sizeLabel: "PDF · 8.5 MB",
     file: "/resources/devine-worksheet-age-4-5.pdf",
-    cover: "/images/site/worksheet-4-5-years-cover.webp",
+    cover: worksheet45Cover,
     topics: ["Pre-writing & tracing", "Visual discrimination", "Early reading"],
   },
 ];

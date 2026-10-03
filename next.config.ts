@@ -4,20 +4,10 @@ const nextConfig: NextConfig = {
   reactStrictMode: true,
   poweredByHeader: false, // Security: hide X-Powered-By
   images: {
+    // Photos are static imports (content-hashed, cached for a year). WebP only: our sources are
+    // already WebP, and it encodes far faster than AVIF on the first request for each size.
     deviceSizes: [640, 768, 1024, 1280],
     imageSizes: [128, 256, 384, 512],
-    formats: ['image/avif', 'image/webp'],
-    qualities: [60, 75, 100],
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "i.pravatar.cc",
-      },
-      {
-        protocol: "https",
-        hostname: "images.unsplash.com",
-      },
-    ],
   },
   async redirects() {
     // The old group-class pages (dance, clay workshop, yoga) were retired in the October 2026

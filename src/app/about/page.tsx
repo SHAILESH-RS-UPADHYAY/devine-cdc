@@ -43,7 +43,7 @@ export default function AboutPage() {
           <div className="pg-split__copy">
             <Eyebrow>Our story</Eyebrow>
             <Title before="Every child is different, and that’s what makes them " accent="beautifully unique." />
-            <div className="pg-prose reveal" data-d="2">
+            <div className="pg-prose reveal">
               <p className="pg-prose__lead">
                 At Devine CDC, we believe a happy mind creates the space for meaningful growth. With compassion, understanding and an integrated approach, we
                 meet every child where they are.
@@ -61,7 +61,7 @@ export default function AboutPage() {
               </p>
             </div>
           </div>
-          <figure className="pg-split__media reveal" data-d="1">
+          <figure className="pg-split__media reveal">
             <Photo photo={PHOTOS.teamWithFamilies} sizes="(max-width: 960px) 90vw, 500px" />
             <figcaption className="pg-note">Your safe space</figcaption>
           </figure>
@@ -145,7 +145,7 @@ export default function AboutPage() {
           <div className="pg-split__copy">
             <Eyebrow>Our team</Eyebrow>
             <Title before="One team, planning " accent="together." />
-            <div className="pg-prose reveal" data-d="2">
+            <div className="pg-prose reveal">
               <p className="pg-prose__lead">
                 Our multidisciplinary team brings together professionals from different areas of child development, working collaboratively to understand each
                 child’s needs and create personalised support plans.
@@ -162,7 +162,7 @@ export default function AboutPage() {
               <Btn href="/team">Meet Our Full Team</Btn>
             </div>
           </div>
-          <figure className="pg-split__media reveal" data-d="1">
+          <figure className="pg-split__media reveal">
             <Photo photo={PHOTOS.team} sizes="(max-width: 960px) 90vw, 500px" />
           </figure>
         </div>

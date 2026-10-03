@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { ADDRESS, CONTACT, HOURS, WHATSAPP_URL } from "@/lib/constants";
 import { CONTACT_QA, PHOTOS } from "@/lib/site-content";
 import { ContactForm } from "@/components/site/forms/LeadForms";
-import { Banner, Btn, CtaPanel, FaqList, MapBlock, PageHero, Section, SectionHead, TEL, Ways, WhatsAppBtn } from "@/components/site/blocks";
+import { Banner, Btn, CtaPanel, EmailText, FaqList, MapBlock, PageHero, Section, SectionHead, TEL, Ways, WhatsAppBtn } from "@/components/site/blocks";
 
 export const metadata: Metadata = {
   title: "Contact Us",
@@ -11,7 +11,6 @@ export const metadata: Metadata = {
 };
 
 export default function ContactPage() {
-  const [user, domain] = CONTACT.email.split("@");
   return (
     <>
       <PageHero
@@ -46,12 +45,7 @@ export default function ContactPage() {
               icon: "mail",
               tint: 2,
               title: "Email Us",
-              value: (
-                <>
-                  {user}@<wbr />
-                  {domain}
-                </>
-              ),
+              value: <EmailText />,
               small: "We’ll get back to you within 1 – 2 working days",
               href: `mailto:${CONTACT.email}`,
             },

@@ -56,7 +56,7 @@ export default function Home() {
         <div className="dv-wrap">
           <div>
             <span className="eyebrow reveal">Your safe space</span>
-            <h1 className="reveal" data-d="1">
+            <h1 className="reveal">
               Every Child Has a
               <br />
               <em>
@@ -67,10 +67,10 @@ export default function Home() {
               </em>{" "}
               Tomorrow
             </h1>
-            <p className="hero__lead reveal" data-d="2">
+            <p className="hero__lead reveal">
               Compassionate, evidence-informed support for your child’s unique journey.
             </p>
-            <div className="hero__actions reveal" data-d="3">
+            <div className="hero__actions reveal">
               <a href="#lead" className="btn btn--primary hero__book">
                 Book a Consultation <Icon name="arrow" />
               </a>
@@ -78,12 +78,12 @@ export default function Home() {
                 Learn More
               </a>
             </div>
-            <p className="hero__trust reveal" data-d="3">
+            <p className="hero__trust reveal">
               <Icon name="shield" />
               RCI licensed team · 250+ children supported · Sector 51, Gurugram
             </p>
           </div>
-          <div className="hero__side reveal" data-d="2">
+          <div className="hero__side reveal">
             <Photo photo={PHOTOS.sandTray} className="hero__badge" sizes="108px" eager />
             <div className="lead-card" id="lead">
               <p className="lead-card__kicker">Book a consultation</p>
@@ -126,12 +126,12 @@ export default function Home() {
               <h2 className="h2 reveal" id="prog-h">
                 Our Programmes
               </h2>
-              <p className="lead reveal" data-d="1">
+              <p className="lead reveal">
                 Structured support for every stage of your child’s journey. Each programme is designed around your child’s individual needs, strengths and sensory
                 profile, with personalised goals, multidisciplinary support and active parent involvement.
               </p>
             </div>
-            <p className="hand reveal" data-d="2" aria-hidden="true">
+            <p className="hand reveal" aria-hidden="true">
               The right support,
               <br />
               at the right time.
@@ -139,8 +139,8 @@ export default function Home() {
           </div>
 
           <div className="bento">
-            {BENTO.map((t, i) => (
-              <article key={t.title} className={`tile ${t.variant} reveal`} data-d={i || undefined}>
+            {BENTO.map((t) => (
+              <article key={t.title} className={`tile ${t.variant} reveal`}>
                 {"photo" in t && (
                   <div className="tile__img">
                     <Photo photo={t.photo} sizes="(max-width: 640px) 92vw, (max-width: 1100px) 46vw, 420px" />
@@ -229,10 +229,10 @@ export default function Home() {
         <div className="dv-wrap">
           <div className="cg-head">
             <span className="eyebrow reveal">Common concerns</span>
-            <h2 className="h2 reveal" id="concerns-h" data-d="1">
+            <h2 className="h2 reveal" id="concerns-h">
               Support for a wide range of developmental needs
             </h2>
-            <p className="lead reveal" data-d="2">
+            <p className="lead reveal">
               Whatever you have been noticing, you don’t have to figure it out alone. A diagnosis is not needed to talk to us.
             </p>
           </div>
@@ -260,7 +260,7 @@ export default function Home() {
             <h2 className="h2 reveal" id="tx-h">
               Our Therapies
             </h2>
-            <p className="lead reveal" data-d="1">
+            <p className="lead reveal">
               Evidence-informed, compassionate and personalised. Our multidisciplinary team plans together, so your child gets joined-up support instead of
               separate sessions.
             </p>
@@ -289,11 +289,11 @@ export default function Home() {
             <h2 className="h2 reveal" id="why-h">
               Why Families Choose Devine
             </h2>
-            <p className="lead reveal" data-d="1">
+            <p className="lead reveal">
               We want every child to walk through our doors with a smile. When a child feels safe, understood and cared for, progress becomes a natural part of
               their journey.
             </p>
-            <div className="stats reveal" data-d="2">
+            <div className="stats reveal">
               {STATS.map((s) => (
                 <div className="stat" key={s.label}>
                   <b>{s.value}</b>
@@ -303,8 +303,8 @@ export default function Home() {
             </div>
           </div>
           <div className="why-grid">
-            {WHY_ITEMS.map((w, i) => (
-              <div key={w.title} className="why-item reveal" data-d={i || undefined}>
+            {WHY_ITEMS.map((w) => (
+              <div key={w.title} className="why-item reveal">
                 <span className={`bubble ${w.tone}`}>
                   <Icon name={w.icon} />
                 </span>
