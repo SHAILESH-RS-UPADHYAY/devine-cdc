@@ -112,7 +112,7 @@ export default async function TherapyDetailPage({ params }: PageProps) {
           <div className="mb-6">
             <Link
               href="/therapies"
-              className="inline-flex items-center text-devine-muted hover:text-devine-orange transition-colors font-medium text-sm"
+              className="inline-flex items-center text-devine-muted hover:text-devine-orange transition-colors font-medium text-sm py-2"
             >
               <ArrowLeft className="w-4 h-4 mr-2" />
               All Therapies

@@ -494,8 +494,8 @@ svg.i.fill { fill: currentColor; stroke: none; }
   .wa-float { right: 16px; bottom: 16px; width: 56px; height: 56px; }
 }
 
-/* Mobile tap targets: every link at least 44px tall */
-@media (max-width: 640px) {
+/* Mobile tap targets: every link at least 44px tall (portrait and landscape phones) */
+@media (max-width: 640px), (pointer: coarse) and (max-height: 500px) {
   footer a, address a, .topbar a, .overlay__foot a:not(.btn), .book__contact a, .cta__contact a, .brand { min-height: 44px; display: inline-flex; align-items: center; }
   footer li a { padding-block: 0 !important; }
 }
@@ -582,7 +582,7 @@ html { scroll-padding-top: 100px; }
 .field { display: grid; gap: 6px; align-content: start; }
 .field label { font-size: 14px; font-weight: 700; }
 .field label span { color: var(--orange-text); }
-.field input, .field select { width: 100%; min-height: 50px; padding: 12px 14px; border-radius: 14px; border: 1.5px solid var(--line); background: var(--cream); font: 500 15.5px var(--font-body); color: var(--ink); transition: border-color .25s, box-shadow .25s; }
+.field input, .field select { width: 100%; min-height: 50px; padding: 12px 14px; border-radius: 14px; border: 1.5px solid var(--line); background: var(--cream); font: 500 16px var(--font-body); color: var(--ink); transition: border-color .25s, box-shadow .25s; }
 .field input:focus, .field select:focus { outline: none; border-color: var(--orange); box-shadow: 0 0 0 4px rgba(232, 119, 58, .16); background: var(--paper); }
 .field .err { font-size: 13px; color: var(--coral-ink); }
 .field.invalid input { border-color: var(--coral); background: #FFF6F3; }
@@ -781,7 +781,7 @@ html { scroll-padding-top: 100px; }
 .pg-field label { font-size: 14px; font-weight: 600; color: var(--pg-ink); }
 .pg-field label span { color: var(--pg-accent-ink); }
 .pg-field label em { font-style: normal; font-weight: 500; color: var(--pg-muted); font-size: 13px; }
-.pg-field input, .pg-field select, .pg-field textarea, .pg-news input, .pg-search input { width: 100%; min-height: 50px; padding: 12px 15px; border-radius: 14px; border: 1.5px solid var(--pg-line); background: var(--pg-field-bg); font: 500 15.5px var(--pg-body); color: var(--pg-ink); transition: border-color .25s, box-shadow .25s, background-color .25s; }
+.pg-field input, .pg-field select, .pg-field textarea, .pg-news input, .pg-search input { width: 100%; min-height: 50px; padding: 12px 15px; border-radius: 14px; border: 1.5px solid var(--pg-line); background: var(--pg-field-bg); font: 500 16px var(--pg-body); color: var(--pg-ink); transition: border-color .25s, box-shadow .25s, background-color .25s; }
 .pg-field textarea { min-height: 104px; resize: vertical; }
 .pg-field input:focus, .pg-field select:focus, .pg-field textarea:focus, .pg-news input:focus, .pg-search input:focus { outline: none; border-color: var(--pg-accent); box-shadow: 0 0 0 4px rgba(232, 119, 58, .16); background: var(--pg-surface); }
 .pg-err { display: block; min-height: 18px; line-height: 18px; font-size: 12.5px; color: #A8321E; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
