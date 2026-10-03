@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     template: "%s | Devine CDC",
   },
   description:
-    "Devine Child Development Centre offers expert Speech & Language Therapy, Occupational Therapy, ABA Therapy & Special Education for children with Autism, ADHD, and Speech Delay in Gurgaon. RCI licensed professionals. Book your free assessment today.",
+    "Devine Child Development Centre offers expert Speech & Language Therapy, Occupational Therapy, ABA Therapy & Special Education for children with Autism, ADHD, and Speech Delay in Gurgaon. RCI licensed professionals. Book a consultation today.",
   keywords: [
     "child development centre gurgaon",
     "speech therapy gurgaon",
@@ -75,7 +75,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Devine Child Development Centre | Gurgaon",
-    description: "Expert Speech, OT & ABA Therapy for children. Book your free assessment today.",
+    description: "Expert Speech, OT & ABA Therapy for children. Book a consultation today.",
   },
   robots: {
     index: true,

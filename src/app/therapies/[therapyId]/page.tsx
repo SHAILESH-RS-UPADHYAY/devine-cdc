@@ -87,10 +87,14 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: `${therapy.fullTitle} for Children in Gurgaon`,
     description: content?.whatIs?.slice(0, 155) || therapy.shortDescription,
+    alternates: { canonical: therapy.href },
+    // A page-level openGraph replaces the layout's, so the share image is restated here.
     openGraph: {
       title: `${therapy.fullTitle} | ${SITE_CONFIG.name}`,
       description: therapy.shortDescription,
       type: "article",
+      url: therapy.href,
+      images: [{ url: SITE_CONFIG.ogImage, width: 1200, height: 630, alt: SITE_CONFIG.name }],
     },
   };
 }

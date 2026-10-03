@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { CONTACT, HOURS, WHATSAPP_URL } from "@/lib/constants";
 import { CONCERNS, PHOTOS, PROMISES, STATS, WHY_ITEMS } from "@/lib/site-content";
@@ -5,8 +6,9 @@ import { Icon } from "@/components/site/Icon";
 import { Photo } from "@/components/site/Photo";
 import { TherapyTabs } from "@/components/site/TherapyTabs";
 import { HeroLeadForm } from "@/components/site/forms/LeadForms";
+import { TEL } from "@/components/site/blocks";
 
-const TEL = `tel:${CONTACT.phone.replace(/\s/g, "")}`;
+export const metadata: Metadata = { alternates: { canonical: "/" } };
 
 const BENTO = [
   {
