@@ -1,5 +1,5 @@
 import { CONTACT, ADDRESS } from "@/lib/constants";
-import { Eyebrow, Section } from "./blocks";
+import { EmailText, Eyebrow, Section } from "./blocks";
 
 export type LegalSection = { title: string; body: React.ReactNode };
 
@@ -23,7 +23,7 @@ export function LegalPage({ eyebrow, title, updated, intro, sections }: { eyebro
           <p>
             Devine Child Development Centre, {ADDRESS.full.replace(" — ", " ")}
             <br />
-            Phone: <a href={`tel:${CONTACT.phone.replace(/\s/g, "")}`}>{CONTACT.phoneDisplay}</a> · Email: <a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a>
+            Phone: <a href={`tel:${CONTACT.phone.replace(/\s/g, "")}`}>{CONTACT.phoneDisplay}</a> · Email: <a href={`mailto:${CONTACT.email}`}><EmailText /></a>
           </p>
         </section>
       </div>
