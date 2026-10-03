@@ -1011,6 +1011,11 @@ html { scroll-padding-top: 100px; }
   .pg-hero__note { position: static; order: -1; align-self: flex-start; margin: 0 0 12px 6px; }
 }
 
+/* Therapy detail: signs to watch */
+.pg-signs { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 12px; margin: 0 0 clamp(28px, 4vw, 44px); padding: 0; list-style: none; }
+.pg-signs li { display: flex; gap: 12px; align-items: flex-start; padding: 16px 18px; border-radius: var(--r); background: var(--paper); border: 1px solid var(--line); line-height: 1.5; }
+.pg-signs .i { flex-shrink: 0; margin-top: 3px; color: var(--mint-ink); }
+
 /* Privacy policy and terms */
 .pg-legal__meta { margin: 8px 0 28px; color: var(--pg-muted); font-size: 14px; }
 .pg-legal { display: grid; gap: 26px; color: var(--pg-ink); line-height: 1.7; }
