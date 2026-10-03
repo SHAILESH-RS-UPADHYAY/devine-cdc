@@ -12,6 +12,8 @@ const PAGES: [path: string, priority: number, freq: Freq][] = [
   ['/team', 0.6, 'monthly'],
   ['/resources', 0.7, 'weekly'],
   ['/faq', 0.7, 'monthly'],
+  ['/privacy', 0.2, 'yearly'],
+  ['/terms', 0.2, 'yearly'],
   ['/contact', 0.8, 'monthly'],
 ];
 

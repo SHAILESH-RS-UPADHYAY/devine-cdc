@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import { LEAD_FLAG } from "@/lib/leads";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { 
@@ -56,6 +57,12 @@ const NEXT_STEPS = [
 export function ThankYouContent() {
   // Fire conversion tracking signals on page mount
   useEffect(() => {
+    // Count only a real form submission, and only once: refreshing this page, coming back to it
+    // or opening /thank-you directly must not report another lead to Google Ads or Meta.
+    const leadId = sessionStorage.getItem(LEAD_FLAG);
+    if (!leadId) return;
+    sessionStorage.removeItem(LEAD_FLAG);
+
     // 1. Google Analytics / GTM custom event
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({
@@ -81,7 +88,7 @@ export function ThankYouContent() {
 
     // 4. Meta Pixel Lead event
     if (typeof window.fbq === "function") {
-      window.fbq("track", "Lead");
+      window.fbq("track", "Lead", {}, { eventID: `lead-${leadId}` });
     }
   }, []);
 

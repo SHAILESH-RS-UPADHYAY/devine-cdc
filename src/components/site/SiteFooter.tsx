@@ -82,6 +82,9 @@ export function SiteFooter() {
         </div>
         <div className="footer__bottom">
           <p>© {new Date().getFullYear()} Devine Child Development Centre. All rights reserved.</p>
+          <p className="footer__legal">
+            <Link href="/privacy">Privacy Policy</Link> · <Link href="/terms">Terms of Use</Link>
+          </p>
           <p className="made">
             Designed for brighter tomorrows <Icon name="heart" fill />
           </p>

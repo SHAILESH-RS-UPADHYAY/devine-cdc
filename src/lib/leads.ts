@@ -51,8 +51,13 @@ export async function sendLead(source: LeadSource, fields: Record<string, string
   if (!res.ok) throw new Error(`Formspree responded ${res.status}`);
 }
 
+/** Key the thank-you page checks so ad conversions count real submissions only, exactly once. */
+export const LEAD_FLAG = "devine-lead-submitted";
+
 export function trackConsultationLead(source: LeadSource, concern?: string) {
-  window.fbq?.("track", "Lead");
+  // Meta "Lead" and the Google Ads conversion fire on /thank-you (once, guarded by this flag),
+  // so a single enquiry is never counted twice and refreshes or direct visits never count.
+  sessionStorage.setItem(LEAD_FLAG, String(Date.now()));
   (window.dataLayer ||= []).push({ event: "lead_submit", form_name: source, service: concern || "not specified" });
 }
 
