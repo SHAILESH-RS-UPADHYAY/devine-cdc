@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { FEATURED_READS, LIBRARY, PHOTOS, WORKSHEETS, type LibraryItem } from "@/lib/site-content";
+import { FEATURED_READS, LIBRARY, PHOTOS, WORKSHEETS } from "@/lib/site-content";
+import { LibraryBrowser } from "@/components/site/LibraryBrowser";
 import { Photo } from "@/components/site/Photo";
 import { Icon } from "@/components/site/Icon";
 import { WorksheetDownload } from "@/components/site/forms/WorksheetDownload";
@@ -12,22 +13,6 @@ export const metadata: Metadata = {
     "Free printable worksheets for ages 2 – 10, activity books, daily routine and visual schedule printables, and research reads for parents from Devine Child Development Centre, Gurugram.",
   alternates: { canonical: "/resources" },
 };
-
-/** One free resource: opens or downloads straight away (no form, unlike worksheets). */
-function LibraryLink({ item }: { item: LibraryItem }) {
-  const paper = item.kind === "Research paper";
-  return (
-    <a className="lib-item" href={item.file} {...(paper ? { target: "_blank", rel: "noopener" } : { download: "" })}>
-      <span className="lib-item__kind">{item.kind}</span>
-      <strong>{item.title}</strong>
-      <span className="lib-item__text">{item.summary}</span>
-      {item.source && <span className="lib-item__source">{item.source}</span>}
-      <span className="lib-item__go">
-        {paper ? "Read paper" : "Download PDF"} · {item.pages} {item.pages === 1 ? "page" : "pages"}, {item.sizeLabel} <Icon name={paper ? "arrow" : "download"} />
-      </span>
-    </a>
-  );
-}
 
 export default function ResourcesPage() {
   return (
@@ -124,28 +109,7 @@ export default function ResourcesPage() {
           ))}
         </div>
 
-        <div className="lib-topics">
-          {LIBRARY.map((t) => (
-            <section key={t.id} id={t.id} className={`lib-topic pg-t${t.tint} reveal`} aria-labelledby={`${t.id}-h`}>
-              <header>
-                <span className="pg-ic">
-                  <Icon name={t.icon} />
-                </span>
-                <h3 id={`${t.id}-h`}>{t.title}</h3>
-                <p>{t.text}</p>
-              </header>
-              {t.items.length ? (
-                <div className="lib-topic__items">
-                  {t.items.map((item) => (
-                    <LibraryLink key={item.file} item={item} />
-                  ))}
-                </div>
-              ) : (
-                <p className="lib-topic__soon">Coming soon. Our team is preparing material for this topic.</p>
-              )}
-            </section>
-          ))}
-        </div>
+        <LibraryBrowser topics={LIBRARY} />
       </Section>
 
       <Section className="pg-sec--tight">

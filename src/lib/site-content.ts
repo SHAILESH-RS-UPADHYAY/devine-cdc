@@ -32,6 +32,9 @@ import worksheet23Cover from "@/assets/photos/worksheet-2-3-years-cover.webp";
 import worksheet45Cover from "@/assets/photos/worksheet-4-5-years-cover.webp";
 import worksheet68Cover from "@/assets/photos/worksheet-6-8-years-cover.webp";
 import worksheet710Cover from "@/assets/photos/worksheet-7-10-years-cover.webp";
+import sensoryActivitiesCover from "@/assets/photos/sensory-activities-cover.webp";
+import monthlyPlannerCover from "@/assets/photos/monthly-planner-cover.webp";
+import visualScheduleCover from "@/assets/photos/visual-schedule-cover.webp";
 import { ADDRESS } from "@/lib/constants";
 
 export type Tint = 1 | 2 | 3 | 4 | 5;
@@ -328,6 +331,8 @@ export type LibraryItem = {
   file: string;
   pages: number;
   sizeLabel: string;
+  /** First page of the PDF, shown for printables and activity books. */
+  cover?: StaticImageData;
 };
 
 export type LibraryTopic = { id: string; title: string; text: string; icon: IconName; tint: Tint; items: LibraryItem[] };
@@ -384,6 +389,7 @@ export const LIBRARY: LibraryTopic[] = [
         summary: "Kinetic sand, finger painting, tracing, swings, balance, yoga, blowing games and calm-down spaces, with a picture for every activity.",
         kind: "Activity book",
         file: "/resources/devine-sensory-regulation-activities.pdf",
+        cover: sensoryActivitiesCover,
         pages: 47,
         sizeLabel: "9.1 MB",
       },
@@ -403,6 +409,7 @@ export const LIBRARY: LibraryTopic[] = [
         summary: "A monthly planner with goals, fun things to do and space for notes, to build structure at home.",
         kind: "Printable",
         file: "/resources/devine-monthly-planner.pdf",
+        cover: monthlyPlannerCover,
         pages: 5,
         sizeLabel: "969 KB",
       },
@@ -411,6 +418,7 @@ export const LIBRARY: LibraryTopic[] = [
         summary: "A picture schedule from waking up to play time that helps children follow their day independently.",
         kind: "Printable",
         file: "/resources/devine-visual-schedule.pdf",
+        cover: visualScheduleCover,
         pages: 2,
         sizeLabel: "412 KB",
       },
