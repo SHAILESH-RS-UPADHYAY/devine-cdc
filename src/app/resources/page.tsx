@@ -14,6 +14,13 @@ export const metadata: Metadata = {
   alternates: { canonical: "/resources" },
 };
 
+// Reads featured above are not repeated in the library below; a topic whose only reads are
+// featured drops out of the filter, while topics still being prepared stay as "coming soon".
+const featuredFiles = new Set(FEATURED_READS.map((f) => f.item.file));
+const LIBRARY_WITHOUT_FEATURED = LIBRARY.map((t) => ({ ...t, items: t.items.filter((i) => !featuredFiles.has(i.file)) })).filter(
+  (t, i) => t.items.length > 0 || LIBRARY[i].items.length === 0,
+);
+
 export default function ResourcesPage() {
   return (
     <>
@@ -109,7 +116,7 @@ export default function ResourcesPage() {
           ))}
         </div>
 
-        <LibraryBrowser topics={LIBRARY} />
+        <LibraryBrowser topics={LIBRARY_WITHOUT_FEATURED} />
       </Section>
 
       <Section className="pg-sec--tight">
