@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ADDRESS, CONTACT, HOURS, NAV_LINKS, NAV_SECTION } from "@/lib/constants";
+import { NAV_LINKS, NAV_SECTION } from "@/lib/constants";
 import { Brand } from "./Brand";
 import { Icon } from "./Icon";
 
@@ -52,61 +52,35 @@ export function SiteHeader() {
   const headerClass = ["header", scrolled && "is-scrolled", open && "is-open", hidden && !open && "is-hidden"].filter(Boolean).join(" ");
 
   return (
-    <>
-      <div className="topbar">
-        <div className="dv-wrap">
-          <div className="topbar__group">
-            <a href={`tel:${CONTACT.phone.replace(/\s/g, "")}`}>
-              <Icon name="phone" />
-              {CONTACT.phoneDisplay}
-            </a>
-            <span className="topbar__hide">
-              <Icon name="clock" />
-              {HOURS.short}
-            </span>
-          </div>
-          <div className="topbar__group topbar__hide">
-            <span>
-              <Icon name="pin" />
-              {ADDRESS.short}
-            </span>
-            <a href={CONTACT.instagram} target="_blank" rel="noopener noreferrer">
-              <Icon name="instagram" />@{CONTACT.instagramHandle}
-            </a>
-          </div>
+    <header className={headerClass} id="header">
+      <div className="dv-wrap">
+        <Brand eager onNavigate={() => setOpen(false)} />
+        <nav className="nav" id="site-nav" aria-label="Primary">
+          {NAV_LINKS.map((link) => (
+            <Link key={link.href} href={link.href} aria-current={isCurrent(link.href) ? "page" : undefined} onClick={() => setOpen(false)}>
+              {link.label}
+            </Link>
+          ))}
+          <Link href={ctaHref} className="btn btn--primary btn--sm" hidden={!open} onClick={() => setOpen(false)}>
+            Book a Consultation
+          </Link>
+        </nav>
+        <div className="header__cta">
+          <Link href={ctaHref} className="btn btn--primary btn--sm">
+            Book a Consultation <Icon name="arrow" />
+          </Link>
+          <button
+            className="menu-btn"
+            type="button"
+            aria-label={open ? "Close menu" : "Open menu"}
+            aria-expanded={open}
+            aria-controls="site-nav"
+            onClick={() => setOpen((v) => !v)}
+          >
+            <Icon name={open ? "close" : "menu"} />
+          </button>
         </div>
       </div>
-
-      <header className={headerClass} id="header">
-        <div className="dv-wrap">
-          <Brand eager onNavigate={() => setOpen(false)} />
-          <nav className="nav" id="site-nav" aria-label="Primary">
-            {NAV_LINKS.map((link) => (
-              <Link key={link.href} href={link.href} aria-current={isCurrent(link.href) ? "page" : undefined} onClick={() => setOpen(false)}>
-                {link.label}
-              </Link>
-            ))}
-            <Link href={ctaHref} className="btn btn--primary btn--sm" hidden={!open} onClick={() => setOpen(false)}>
-              Book a Consultation
-            </Link>
-          </nav>
-          <div className="header__cta">
-            <Link href={ctaHref} className="btn btn--primary btn--sm">
-              Book a Consultation <Icon name="arrow" />
-            </Link>
-            <button
-              className="menu-btn"
-              type="button"
-              aria-label={open ? "Close menu" : "Open menu"}
-              aria-expanded={open}
-              aria-controls="site-nav"
-              onClick={() => setOpen((v) => !v)}
-            >
-              <Icon name={open ? "close" : "menu"} />
-            </button>
-          </div>
-        </div>
-      </header>
-    </>
+    </header>
   );
 }
