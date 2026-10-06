@@ -264,8 +264,14 @@ export function DetailRows({ items }: { items: DetailItem[] }) {
               ))}
             </ul>
             <div className="pg-detail__more">
-              {d.href && <LinkArrow href={d.href}>Read more about {d.title}</LinkArrow>}
-              <LinkArrow href="/consultation">Book a consultation</LinkArrow>
+              <SmartLink href="/consultation" className="btn btn--primary btn--sm">
+                Book a Consultation <Icon name="arrow" />
+              </SmartLink>
+              {d.href && (
+                <SmartLink href={d.href} className="link-arrow">
+                  Explore therapy details <Icon name="arrow" />
+                </SmartLink>
+              )}
             </div>
           </div>
         </article>

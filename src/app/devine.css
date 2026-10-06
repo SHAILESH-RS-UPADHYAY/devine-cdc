@@ -98,8 +98,8 @@ svg.i.fill { fill: currentColor; stroke: none; }
 .btn--wa { background: #1F9D4F; color: var(--paper); }
 .btn--wa:hover { background: #17863F; transform: translateY(-2px); }
 .btn--sm { min-height: 46px; padding: 0 22px; font-size: 15px; }
-.link-arrow { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; font-weight: 700; color: var(--orange-text); }
-.link-arrow .i { transition: transform .35s var(--ease); }
+.link-arrow { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; font-weight: 700; color: var(--orange-text); white-space: nowrap; }
+.link-arrow .i { flex-shrink: 0; transition: transform .35s var(--ease); }
 .link-arrow:hover .i { transform: translateX(4px); }
 
 /* ── Pastel icon bubbles (wireframe language) ── */
@@ -746,7 +746,7 @@ html { scroll-padding-top: 100px; }
 .pg-checks { display: grid; gap: 10px; margin: 0; padding: 0; list-style: none; }
 .pg-checks li { display: flex; gap: 12px; align-items: flex-start; font-size: 16.5px; color: var(--pg-muted); }
 .pg-checks .i { color: var(--pg-check, var(--pg-accent-ink)); margin-top: 4px; flex-shrink: 0; }
-.pg-detail__more { padding-top: 4px; }
+.pg-detail__more { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 24px; padding-top: 8px; }
 
 /* Steps */
 .pg-steps { display: grid; gap: 14px; max-width: 860px; margin: 0 auto; padding: 0; list-style: none; }
