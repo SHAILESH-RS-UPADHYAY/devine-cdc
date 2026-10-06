@@ -773,7 +773,7 @@ html { scroll-padding-top: 100px; }
 .pg-field--full { grid-column: 1 / -1; }
 .pg-field label { font-size: 14px; font-weight: 600; color: var(--pg-ink); }
 .pg-field label span { color: var(--pg-accent-ink); }
-.pg-field label em { font-style: normal; font-weight: 500; color: var(--pg-muted); font-size: 13px; }
+.pg-field label em { font-style: normal; font-weight: 500; color: var(--pg-muted); font-size: 13px; white-space: nowrap; }
 .pg-field input, .pg-field select, .pg-field textarea, .pg-news input, .pg-search input { width: 100%; min-height: 50px; padding: 12px 15px; border-radius: 14px; border: 1.5px solid var(--pg-line); background: var(--pg-field-bg); font: 500 16px var(--pg-body); color: var(--pg-ink); transition: border-color .25s, box-shadow .25s, background-color .25s; }
 .pg-field textarea { min-height: 104px; resize: vertical; }
 .pg-field input:focus, .pg-field select:focus, .pg-field textarea:focus, .pg-news input:focus, .pg-search input:focus { outline: none; border-color: var(--pg-accent); box-shadow: 0 0 0 4px rgba(232, 119, 58, .16); background: var(--pg-surface); }

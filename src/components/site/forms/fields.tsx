@@ -75,11 +75,15 @@ export function TextArea({ placeholder, ...props }: Common & { placeholder?: str
   );
 }
 
-export function SelectField({ options, ...props }: Common & { options: readonly string[] }) {
+export function SelectField({
+  options,
+  placeholder = "Choose an option",
+  ...props
+}: Common & { options: readonly string[]; placeholder?: string }) {
   return (
     <Shell {...props}>
       <select id={props.id} aria-describedby={`${props.id}-e`} defaultValue="" {...props.registration}>
-        <option value="">Choose one (optional)</option>
+        <option value="">{placeholder}</option>
         {options.map((o) => (
           <option key={o}>{o}</option>
         ))}

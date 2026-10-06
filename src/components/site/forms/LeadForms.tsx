@@ -51,7 +51,7 @@ export function HeroLeadForm() {
       <TextField variant="hero" id="lead-child" label="Child’s name" registration={register("childName")} error={e.childName} />
       <TextField variant="hero" id="lead-phone" label="Phone" type="tel" inputMode="numeric" autoComplete="tel" placeholder="10-digit mobile" registration={register("phone")} error={e.phone} />
       <TextField variant="hero" id="lead-age" label="Child’s age" placeholder="e.g. 3 years" registration={register("childAge")} error={e.childAge} />
-      <SelectField variant="hero" id="lead-concern" label="What are you noticing?" optional full options={CONCERN_OPTIONS} registration={register("concern")} />
+      <SelectField variant="hero" id="lead-concern" label="Primary concern" optional full options={CONCERN_OPTIONS} registration={register("concern")} />
       <FormError message={error} />
       <button className="btn btn--primary" type="submit" disabled={formState.isSubmitting}>
         {formState.isSubmitting ? "Sending…" : "Book a Consultation"} <Icon name="arrow" />
@@ -85,7 +85,7 @@ export function ConsultationForm() {
       <TextField variant="page" id="cq-phone" label="Phone" type="tel" inputMode="numeric" autoComplete="tel" placeholder="10-digit mobile" registration={register("phone")} error={e.phone} />
       <TextField variant="page" id="cq-email" label="Email" type="email" autoComplete="email" placeholder="you@example.com" optional registration={register("email")} error={e.email} />
       <TextField variant="page" id="cq-age" label="Child’s age" placeholder="e.g. 3 years" registration={register("childAge")} error={e.childAge} />
-      <SelectField variant="page" id="cq-concern" label="What are you noticing?" optional options={CONCERN_OPTIONS} registration={register("concern")} />
+      <SelectField variant="page" id="cq-concern" label="Primary concern" optional options={CONCERN_OPTIONS} registration={register("concern")} />
       <TextArea variant="page" id="cq-message" label="How can we help?" full placeholder="Tell us about your child, your concerns and what you’ve been noticing" registration={register("message")} error={e.message} />
       <FormError message={error} />
       <button className="btn btn--primary pg-submit" type="submit" disabled={formState.isSubmitting}>
