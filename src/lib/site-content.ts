@@ -28,7 +28,10 @@ import celebrationImg from "@/assets/photos/celebration-day.webp";
 import tracingImg from "@/assets/photos/tracing-activity.webp";
 import trampolineImg from "@/assets/photos/trampoline-play.webp";
 import founderImg from "@/assets/photos/founder.webp";
+import worksheet23Cover from "@/assets/photos/worksheet-2-3-years-cover.webp";
 import worksheet45Cover from "@/assets/photos/worksheet-4-5-years-cover.webp";
+import worksheet68Cover from "@/assets/photos/worksheet-6-8-years-cover.webp";
+import worksheet710Cover from "@/assets/photos/worksheet-7-10-years-cover.webp";
 import { ADDRESS } from "@/lib/constants";
 
 export type Tint = 1 | 2 | 3 | 4 | 5;
@@ -267,16 +270,161 @@ export type Worksheet = {
   topics: string[];
 };
 
+/** Printable worksheets: the only downloads that ask for a parent's name and number (client request). */
 export const WORKSHEETS: Worksheet[] = [
+  {
+    id: "worksheet-age-2-3",
+    title: "Learning Worksheet",
+    ageGroup: "2 – 3 years",
+    description: "52 playful pages for little hands: tracing circles and lines, counting and matching, colouring and first letters.",
+    pages: 52,
+    sizeLabel: "PDF · 5.7 MB",
+    file: "/resources/devine-worksheet-age-2-3.pdf",
+    cover: worksheet23Cover,
+    topics: ["Tracing & pre-writing", "Counting & matching", "Colouring"],
+  },
   {
     id: "worksheet-age-4-5",
     title: "Learning Worksheet",
     ageGroup: "4 – 5 years",
     description: "58 colourful activity pages to practise at home: tracing, finding the odd one out, reading and simple comprehension.",
     pages: 58,
-    sizeLabel: "PDF · 8.5 MB",
+    sizeLabel: "PDF · 8.7 MB",
     file: "/resources/devine-worksheet-age-4-5.pdf",
     cover: worksheet45Cover,
     topics: ["Pre-writing & tracing", "Visual discrimination", "Early reading"],
   },
+  {
+    id: "worksheet-age-6-8",
+    title: "Learning Worksheet",
+    ageGroup: "6 – 8 years",
+    description: "52 pages of practice: shapes, emotions, healthy food, addition and times tables, and simple sentence writing.",
+    pages: 52,
+    sizeLabel: "PDF · 6.4 MB",
+    file: "/resources/devine-worksheet-age-6-8.pdf",
+    cover: worksheet68Cover,
+    topics: ["Maths & tables", "Emotions", "Reading & writing"],
+  },
+  {
+    id: "worksheet-age-7-10",
+    title: "Learning Worksheet",
+    ageGroup: "7 – 10 years",
+    description: "47 pages building school skills: grammar and spelling, vowels and opposites, number puzzles, time of day and family words.",
+    pages: 47,
+    sizeLabel: "PDF · 6.7 MB",
+    file: "/resources/devine-worksheet-age-7-10.pdf",
+    cover: worksheet710Cover,
+    topics: ["Grammar & spelling", "Number skills", "Everyday concepts"],
+  },
+];
+
+/** Free material: downloads straight away, no form. */
+export type LibraryItem = {
+  title: string;
+  summary: string;
+  kind: "Activity book" | "Printable" | "Research paper";
+  /** Authors and source, shown for research papers. */
+  source?: string;
+  file: string;
+  pages: number;
+  sizeLabel: string;
+};
+
+export type LibraryTopic = { id: string; title: string; text: string; icon: IconName; tint: Tint; items: LibraryItem[] };
+
+const READS = {
+  earlyIntervention: {
+    title: "Parent-mediated early intervention for young children with autism",
+    summary: "A Cochrane review of programmes where parents learn to support their child’s development at home.",
+    kind: "Research paper",
+    source: "Diggle, McConachie & Randle · Cochrane Review, 2003",
+    file: "/resources/research/parent-mediated-early-intervention-autism.pdf",
+    pages: 26,
+    sizeLabel: "395 KB",
+  },
+  autismSigns: {
+    title: "Early identification of autism: early signs and onset of symptoms",
+    summary: "What early characteristics of autism look like, when they appear and how stable an early diagnosis is.",
+    kind: "Research paper",
+    source: "Sara Jane Webb et al. · Research review",
+    file: "/resources/research/early-identification-of-autism.pdf",
+    pages: 22,
+    sizeLabel: "124 KB",
+  },
+  sensoryCircleTime: {
+    title: "Sensory circle time to improve sensory-motor skills",
+    summary: "A study of sensory play activities and how they support sensory-motor development in early childhood.",
+    kind: "Research paper",
+    source: "Winda Sherly Utami et al. · Research study",
+    file: "/resources/research/sensory-circle-time-early-childhood.pdf",
+    pages: 10,
+    sizeLabel: "1.1 MB",
+  },
+  sensoryEverydayLife: {
+    title: "Supporting children in everyday life using sensory processing knowledge",
+    summary: "How understanding a child’s sensory patterns helps families shape daily routines that work.",
+    kind: "Research paper",
+    source: "Winnie Dunn · Infants & Young Children, 2007",
+    file: "/resources/research/sensory-processing-everyday-life.pdf",
+    pages: 18,
+    sizeLabel: "222 KB",
+  },
+} satisfies Record<string, LibraryItem>;
+
+export const LIBRARY: LibraryTopic[] = [
+  {
+    id: "sensory-regulation",
+    title: "Sensory & Regulation",
+    text: "Learn about sensory needs",
+    icon: "waves",
+    tint: 3,
+    items: [
+      {
+        title: "Sensory & Regulation Activity Book",
+        summary: "Kinetic sand, finger painting, tracing, swings, balance, yoga, blowing games and calm-down spaces, with a picture for every activity.",
+        kind: "Activity book",
+        file: "/resources/devine-sensory-regulation-activities.pdf",
+        pages: 47,
+        sizeLabel: "9.1 MB",
+      },
+      READS.sensoryEverydayLife,
+      READS.sensoryCircleTime,
+    ],
+  },
+  {
+    id: "therapy-at-home",
+    title: "Therapy at Home",
+    text: "Activities and strategies",
+    icon: "home",
+    tint: 4,
+    items: [
+      {
+        title: "Daily Routine Template",
+        summary: "A monthly planner with goals, fun things to do and space for notes, to build structure at home.",
+        kind: "Printable",
+        file: "/resources/devine-monthly-planner.pdf",
+        pages: 5,
+        sizeLabel: "969 KB",
+      },
+      {
+        title: "Visual Schedule",
+        summary: "A picture schedule from waking up to play time that helps children follow their day independently.",
+        kind: "Printable",
+        file: "/resources/devine-visual-schedule.pdf",
+        pages: 2,
+        sizeLabel: "412 KB",
+      },
+    ],
+  },
+  { id: "parent-guides", title: "Parent Guides", text: "Practical tips for everyday life", icon: "book", tint: 1, items: [READS.earlyIntervention] },
+  { id: "development-milestones", title: "Development & Milestones", text: "Understand key stages", icon: "sprout", tint: 5, items: [READS.autismSigns] },
+  { id: "behaviour-support", title: "Behaviour Support", text: "Guidance for common challenges", icon: "heart", tint: 2, items: [] },
+  { id: "communication-speech", title: "Communication & Speech", text: "Ideas to support speech and language", icon: "message", tint: 1, items: [] },
+];
+
+/** Handpicked reads shown with a photo above the library (ticked in the client's review). */
+export const FEATURED_READS = [
+  { tag: "Guide", title: "A parent’s guide to early intervention", text: "Learn how early support at home can make a big difference.", photo: PHOTOS.earlyIntervention, item: READS.earlyIntervention },
+  { tag: "Article", title: "Early signs of autism: what parents should look for", text: "Early characteristics, and when to talk to a professional.", photo: PHOTOS.oneToOne, item: READS.autismSigns },
+  { tag: "Tips", title: "Sensory play ideas for different ages", text: "Fun and meaningful sensory activities for home.", photo: PHOTOS.occupational, item: READS.sensoryCircleTime },
 ];

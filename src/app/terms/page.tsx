@@ -25,7 +25,7 @@ export default function TermsPage() {
         },
         {
           title: "Worksheets and content",
-          body: <p>Worksheets and other material on this site belong to Devine Child Development Centre. You may download and print them for your own family’s use. Please do not resell them or publish them elsewhere without permission.</p>,
+          body: <p>Worksheets and other material on this site belong to Devine Child Development Centre. You may download and print them for your own family’s use. Please do not resell them or publish them elsewhere without permission. Research papers in our resources library belong to their authors and publishers and are shared for parents’ personal reading.</p>,
         },
         {
           title: "Using the website",

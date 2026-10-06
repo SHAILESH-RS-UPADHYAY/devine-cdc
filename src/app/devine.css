@@ -1001,6 +1001,37 @@ html { scroll-padding-top: 100px; }
   .pg-hero__note { position: static; order: -1; align-self: flex-start; margin: 0 0 12px 6px; }
 }
 
+.ws-quick { display: grid; gap: 8px; width: 100%; max-width: 560px; margin-top: 6px; padding-top: 18px; border-top: 1px dashed var(--line); }
+.ws-quick .pg-form__note { text-align: left; }
+.ws-quick__change { padding: 0; border: 0; background: none; font: inherit; font-weight: 700; color: var(--orange-text); text-decoration: underline; cursor: pointer; }
+
+/* Resources: featured reads and the free library, grouped by topic */
+.lib-featured { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: clamp(16px, 2vw, 24px); margin-bottom: clamp(36px, 5vw, 56px); }
+.lib-feature { display: grid; grid-template-rows: auto 1fr; overflow: hidden; border-radius: var(--r-lg); background: var(--paper); border: 1px solid var(--line); box-shadow: var(--shadow-sm); transition: transform .5s var(--ease), box-shadow .5s var(--ease); }
+.lib-feature:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+.lib-feature figure { position: relative; margin: 0; aspect-ratio: 4 / 3; overflow: hidden; }
+.lib-feature figure img { width: 100%; height: 100%; object-fit: cover; }
+.lib-feature__tag { position: absolute; left: 14px; top: 14px; padding: 5px 12px; border-radius: var(--r-pill); background: rgba(255, 253, 250, .95); font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--orange-text); }
+.lib-feature > div { display: grid; gap: 8px; align-content: start; padding: 20px 22px 24px; }
+.lib-feature h3 { margin: 0; font-family: var(--font-display); font-size: 22px; line-height: 1.2; }
+.lib-feature p { margin: 0; color: var(--ink-soft); }
+.lib-feature .link-arrow { margin-top: 4px; }
+.lib-topics { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: clamp(14px, 1.8vw, 22px); align-items: start; }
+.lib-topic { display: grid; gap: 14px; padding: clamp(20px, 2.4vw, 28px); border-radius: var(--r-lg); background: var(--tbg); }
+.lib-topic header { display: grid; gap: 4px; justify-items: start; }
+.lib-topic .pg-ic { background: var(--paper); margin-bottom: 8px; }
+.lib-topic h3 { margin: 0; font-size: 21px; }
+.lib-topic header p { margin: 0; color: var(--ink-soft); }
+.lib-topic__items { display: grid; gap: 10px; }
+.lib-topic__soon { margin: 0; padding: 14px 16px; border-radius: var(--r); background: rgba(255, 253, 250, .6); color: var(--ink-soft); font-size: 15px; }
+.lib-item { display: grid; gap: 4px; padding: 14px 16px; border-radius: var(--r); background: var(--paper); box-shadow: var(--shadow-sm); transition: transform .4s var(--ease); overflow-wrap: anywhere; }
+.lib-item:hover { transform: translateX(3px); }
+.lib-item__kind { font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--tfg); }
+.lib-item strong { font-size: 16.5px; line-height: 1.3; color: var(--ink); }
+.lib-item__text { font-size: 14.5px; line-height: 1.5; color: var(--ink-soft); }
+.lib-item__source { font-size: 13px; font-style: italic; color: var(--ink-soft); }
+.lib-item__go { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 6px; margin-top: 4px; font-size: 14px; font-weight: 700; color: var(--orange-text); }
+
 /* Therapy detail: signs to watch */
 .pg-signs { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 12px; margin: 0 0 clamp(28px, 4vw, 44px); padding: 0; list-style: none; }
 .pg-signs li { display: flex; gap: 12px; align-items: flex-start; padding: 16px 18px; border-radius: var(--r); background: var(--paper); border: 1px solid var(--line); line-height: 1.5; }

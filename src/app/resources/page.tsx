@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { PHOTOS, WORKSHEETS } from "@/lib/site-content";
+import { FEATURED_READS, LIBRARY, PHOTOS, WORKSHEETS, type LibraryItem } from "@/lib/site-content";
+import { Photo } from "@/components/site/Photo";
 import { Icon } from "@/components/site/Icon";
 import { WorksheetDownload } from "@/components/site/forms/WorksheetDownload";
 import { Btn, CtaPanel, PageHero, Quote, Section, SectionHead, WhatsAppBtn } from "@/components/site/blocks";
@@ -8,12 +9,25 @@ import { Btn, CtaPanel, PageHero, Quote, Section, SectionHead, WhatsAppBtn } fro
 export const metadata: Metadata = {
   title: "Resources for Parents",
   description:
-    "Free printable worksheets and study material for parents from the Devine Child Development Centre team in Gurugram, starting with a 58-page learning worksheet for ages 4 – 5.",
+    "Free printable worksheets for ages 2 – 10, activity books, daily routine and visual schedule printables, and research reads for parents from Devine Child Development Centre, Gurugram.",
   alternates: { canonical: "/resources" },
 };
 
-// Categories the clinic will publish into (client: worksheets and articles as study material for parents).
-const COMING_NEXT = ["Parent guides", "Development & milestones", "Therapy at home", "Behaviour support", "Sensory & regulation", "Communication & speech"];
+/** One free resource: opens or downloads straight away (no form, unlike worksheets). */
+function LibraryLink({ item }: { item: LibraryItem }) {
+  const paper = item.kind === "Research paper";
+  return (
+    <a className="lib-item" href={item.file} {...(paper ? { target: "_blank", rel: "noopener" } : { download: "" })}>
+      <span className="lib-item__kind">{item.kind}</span>
+      <strong>{item.title}</strong>
+      <span className="lib-item__text">{item.summary}</span>
+      {item.source && <span className="lib-item__source">{item.source}</span>}
+      <span className="lib-item__go">
+        {paper ? "Read paper" : "Download PDF"} · {item.pages} {item.pages === 1 ? "page" : "pages"}, {item.sizeLabel} <Icon name={paper ? "arrow" : "download"} />
+      </span>
+    </a>
+  );
+}
 
 export default function ResourcesPage() {
   return (
@@ -48,7 +62,7 @@ export default function ResourcesPage() {
           eyebrow="Study material for parents"
           before="Worksheets for "
           accent="learning at home."
-          lead="Free, printable activities prepared by our team. Share your number to download, and we’ll let you know when new material is added."
+          lead="Free, printable activities prepared by our team for ages 2 to 10. Share your number once to download, and we’ll let you know when new material is added."
           mode="split"
         />
 
@@ -87,19 +101,51 @@ export default function ResourcesPage() {
           ))}
         </div>
 
-        <div className="ws-next reveal">
-          <div>
-            <h3>More study material is on its way</h3>
-            <p>Our team is adding worksheets and parent articles step by step. Topics coming next:</p>
-          </div>
-          <ul className="pg-tags">
-            {COMING_NEXT.map((t) => (
-              <li key={t}>{t}</li>
-            ))}
-          </ul>
+        <Quote text="Small steps, supported by the right information, can make a big difference." />
+      </Section>
+
+      <Section id="library" className="pg-alt">
+        <SectionHead eyebrow="Guides and research" before="Handpicked to support " accent="your journey." lead="Reading our team recommends to parents. Free to open, no sign-up needed." mode="split" />
+        <div className="lib-featured">
+          {FEATURED_READS.map((f) => (
+            <a key={f.title} className="lib-feature reveal" href={f.item.file} target="_blank" rel="noopener">
+              <figure>
+                <Photo photo={f.photo} sizes="(max-width: 760px) 90vw, 380px" />
+                <span className="lib-feature__tag">{f.tag}</span>
+              </figure>
+              <div>
+                <h3>{f.title}</h3>
+                <p>{f.text}</p>
+                <span className="link-arrow">
+                  Read guide <Icon name="arrow" />
+                </span>
+              </div>
+            </a>
+          ))}
         </div>
 
-        <Quote text="Small steps, supported by the right information, can make a big difference." />
+        <div className="lib-topics">
+          {LIBRARY.map((t) => (
+            <section key={t.id} id={t.id} className={`lib-topic pg-t${t.tint} reveal`} aria-labelledby={`${t.id}-h`}>
+              <header>
+                <span className="pg-ic">
+                  <Icon name={t.icon} />
+                </span>
+                <h3 id={`${t.id}-h`}>{t.title}</h3>
+                <p>{t.text}</p>
+              </header>
+              {t.items.length ? (
+                <div className="lib-topic__items">
+                  {t.items.map((item) => (
+                    <LibraryLink key={item.file} item={item} />
+                  ))}
+                </div>
+              ) : (
+                <p className="lib-topic__soon">Coming soon. Our team is preparing material for this topic.</p>
+              )}
+            </section>
+          ))}
+        </div>
       </Section>
 
       <Section className="pg-sec--tight">

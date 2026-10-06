@@ -45,7 +45,7 @@ export default function PrivacyPage() {
         },
         {
           title: "Cookies",
-          body: <p>Analytics and advertising cookies help us measure our website. You can block or delete cookies in your browser settings; the site will still work.</p>,
+          body: <p>Analytics and advertising cookies help us measure our website. You can block or delete cookies in your browser settings; the site will still work. When you download a worksheet, your name and number are also remembered in your own browser, so you don’t have to type them again; clearing your browser data removes them.</p>,
         },
         {
           title: "How long we keep it",
