@@ -35,6 +35,8 @@ import worksheet710Cover from "@/assets/photos/worksheet-7-10-years-cover.webp";
 import sensoryActivitiesCover from "@/assets/photos/sensory-activities-cover.webp";
 import monthlyPlannerCover from "@/assets/photos/monthly-planner-cover.webp";
 import visualScheduleCover from "@/assets/photos/visual-schedule-cover.webp";
+import therapyAtHomeCover from "@/assets/photos/therapy-at-home-cover.webp";
+import milestoneChecklistCover from "@/assets/photos/milestone-checklist-cover.webp";
 import { ADDRESS } from "@/lib/constants";
 
 export type Tint = 1 | 2 | 3 | 4 | 5;
@@ -409,6 +411,15 @@ export const LIBRARY: LibraryTopic[] = [
     tint: 4,
     items: [
       {
+        title: "Therapy at Home Activity Guide",
+        summary: "Step-by-step home practice for speech, OT, sensory, social skills, school readiness, attention, fine motor and parent-led play, with an example for every activity.",
+        kind: "Activity book",
+        file: "/resources/devine-therapy-at-home-activities.pdf",
+        cover: therapyAtHomeCover,
+        pages: 22,
+        sizeLabel: "5.2 MB",
+      },
+      {
         title: "Daily Routine Template",
         summary: "A monthly planner with goals, fun things to do and space for notes, to build structure at home.",
         kind: "Printable",
@@ -429,7 +440,25 @@ export const LIBRARY: LibraryTopic[] = [
     ],
   },
   { id: "parent-guides", title: "Parent Guides", text: "Practical tips for everyday life", icon: "book", tint: 1, items: [READS.earlyIntervention] },
-  { id: "development-milestones", title: "Development & Milestones", text: "Understand key stages", icon: "sprout", tint: 5, items: [READS.autismSigns] },
+  {
+    id: "development-milestones",
+    title: "Development & Milestones",
+    text: "Understand key stages",
+    icon: "sprout",
+    tint: 5,
+    items: [
+      {
+        title: "Developmental Milestone Checklist",
+        summary: "Track gross motor, fine motor, speech and social milestones with expected ages, and note areas to discuss with a professional.",
+        kind: "Printable",
+        file: "/resources/devine-developmental-milestone-checklist.pdf",
+        cover: milestoneChecklistCover,
+        pages: 4,
+        sizeLabel: "223 KB",
+      },
+      READS.autismSigns,
+    ],
+  },
   { id: "behaviour-support", title: "Behaviour Support", text: "Guidance for common challenges", icon: "heart", tint: 2, items: [] },
   { id: "communication-speech", title: "Communication & Speech", text: "Ideas to support speech and language", icon: "message", tint: 1, items: [] },
 ];
@@ -440,3 +469,13 @@ export const FEATURED_READS = [
   { tag: "Article", title: "Early signs of autism: what parents should look for", text: "Early characteristics, and when to talk to a professional.", photo: PHOTOS.oneToOne, item: READS.autismSigns },
   { tag: "Tips", title: "Sensory play ideas for different ages", text: "Fun and meaningful sensory activities for home.", photo: PHOTOS.occupational, item: READS.sensoryCircleTime },
 ];
+
+/** Site-wide offer strip. Shows only between `from` and `until` (inclusive, India time), then hides by itself. */
+export const OFFER = {
+  from: "2026-10-10",
+  until: "2026-10-20",
+  label: "Navratri Special",
+  text: "Free consultation, up to 30% off monthly therapy packages + ₹2,000 off your first month. 10 – 20 Oct.",
+  cta: "Book now",
+  href: "/consultation",
+};
