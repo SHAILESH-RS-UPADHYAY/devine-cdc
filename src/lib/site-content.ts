@@ -472,7 +472,7 @@ export const FEATURED_READS = [
 
 /** Site-wide offer strip. Shows only between `from` and `until` (inclusive, India time), then hides by itself. */
 export const OFFER = {
-  from: "2026-10-10",
+  from: "2026-10-07",
   until: "2026-10-20",
   label: "Navratri Special",
   text: "Free consultation, up to 30% off monthly therapy packages + ₹2,000 off your first month. 10 – 20 Oct.",
