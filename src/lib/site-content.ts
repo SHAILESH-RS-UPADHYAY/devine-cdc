@@ -474,8 +474,9 @@ export const FEATURED_READS = [
 export const OFFER = {
   from: "2026-10-07",
   until: "2026-10-20",
-  label: "Navratri Special",
-  text: "Free consultation, up to 30% off monthly therapy packages + ₹2,000 off your first month. 10 – 20 Oct.",
+  label: "Navratri Special (10 – 20 Oct)",
+  perks: ["Free consultation", "Up to 30% off on monthly packages", "₹2,000 off on first month"],
+  terms: "T&C apply",
   cta: "Book now",
   href: "/consultation",
 };

@@ -19,10 +19,15 @@ export function OfferBar() {
     <aside className="offer-bar" aria-label="Current offer">
       <div className="dv-wrap">
         <span className="offer-bar__tag">{OFFER.label}</span>
-        <span>{OFFER.text}</span>
+        <ul className="offer-bar__perks">
+          {OFFER.perks.map((perk) => (
+            <li key={perk}>{perk}</li>
+          ))}
+        </ul>
         <Link href={OFFER.href}>
           {OFFER.cta} <Icon name="arrow" />
         </Link>
+        <small className="offer-bar__terms">*{OFFER.terms}</small>
       </div>
     </aside>
   );
