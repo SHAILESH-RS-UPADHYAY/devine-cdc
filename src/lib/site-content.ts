@@ -476,7 +476,14 @@ export const OFFER = {
   until: "2026-10-20",
   label: "Navratri Special (10 – 20 Oct)",
   perks: ["Free consultation", "Up to 30% off on monthly packages", "₹2,000 off on first month"],
-  terms: "T&C apply",
+  terms: [
+    "Valid on consultations and therapy packages booked between 10 and 20 October 2026.",
+    "Free consultation: the consultation fee is waived for bookings made during the offer period.",
+    "Up to 30% off applies to monthly therapy packages. The exact discount depends on the package and is confirmed by our team before you book.",
+    "₹2,000 off applies to the first month of a new monthly therapy package.",
+    "Cannot be combined with other offers or discounts, and cannot be exchanged for cash.",
+    "Devine Child Development Centre may change or end the offer at any time.",
+  ],
   cta: "Book now",
   href: "/consultation",
 };

@@ -1055,7 +1055,11 @@ html { scroll-padding-top: 100px; }
 .offer-bar a { display: inline-flex; align-items: center; gap: 6px; min-height: 32px; padding: 4px 14px; border-radius: var(--r-pill); background: #FFFDFA; color: var(--orange-text); font-weight: 700; white-space: nowrap; }
 .offer-bar__perks { display: flex; flex-wrap: wrap; justify-content: center; gap: 2px 0; margin: 0; padding: 0; list-style: none; font-weight: 600; }
 .offer-bar__perks li + li::before { content: "•"; margin: 0 10px; opacity: .6; }
-.offer-bar__terms { font-size: 11px; opacity: .8; }
+.offer-bar__terms { min-height: 32px; padding: 0 4px; border: 0; background: none; font: inherit; font-size: 12px; color: inherit; text-decoration: underline; text-underline-offset: 3px; opacity: .9; cursor: pointer; }
+.offer-terms { width: min(480px, calc(100vw - 32px)); margin: auto; padding: 24px; border: 0; border-radius: var(--r-lg); background: var(--paper); color: var(--ink); box-shadow: var(--shadow-lg); text-align: left; }
+.offer-terms::backdrop { background: rgba(45, 43, 58, .45); }
+.offer-terms strong { display: block; margin-bottom: 10px; font-family: var(--font-display); font-size: 20px; }
+.offer-terms ol { display: grid; gap: 8px; list-style: decimal; margin: 0 0 18px; padding-left: 20px; font-size: 14.5px; line-height: 1.55; color: var(--ink-soft); }
 @media (max-width: 640px) {
   .offer-bar { font-size: 13px; }
   .offer-bar .dv-wrap { gap: 6px 10px; }

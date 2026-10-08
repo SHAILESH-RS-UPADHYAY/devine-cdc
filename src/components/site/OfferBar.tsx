@@ -27,7 +27,21 @@ export function OfferBar() {
         <Link href={OFFER.href}>
           {OFFER.cta} <Icon name="arrow" />
         </Link>
-        <small className="offer-bar__terms">*{OFFER.terms}</small>
+        {/* Native popover: opens on tap, closes on outside tap or Esc, no extra script. */}
+        <button type="button" className="offer-bar__terms" popoverTarget="offer-terms">
+          *T&amp;C apply
+        </button>
+        <div id="offer-terms" popover="auto" className="offer-terms" aria-label="Offer terms and conditions">
+          <strong>{OFFER.label}: terms &amp; conditions</strong>
+          <ol>
+            {OFFER.terms.map((t) => (
+              <li key={t}>{t}</li>
+            ))}
+          </ol>
+          <button type="button" popoverTarget="offer-terms" popoverTargetAction="hide" className="btn btn--primary">
+            Got it
+          </button>
+        </div>
       </div>
     </aside>
   );
