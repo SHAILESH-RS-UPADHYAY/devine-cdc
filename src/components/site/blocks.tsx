@@ -163,7 +163,7 @@ export function PageHero({
 }) {
   return (
     <section className="pg-hero">
-      <div className="dv-wrap pg-hero__grid">
+      <div className={`dv-wrap pg-hero__grid${side || photo ? "" : " pg-hero__grid--solo"}`}>
         <div className="pg-hero__copy">
           <Eyebrow>{eyebrow}</Eyebrow>
           <Title as="h1" before={before} accent={accent} after={after} />

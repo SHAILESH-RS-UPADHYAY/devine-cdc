@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { FEATURED_READS, LIBRARY, PHOTOS, WORKSHEETS } from "@/lib/site-content";
+import { FEATURED_READS, LIBRARY, WORKSHEETS } from "@/lib/site-content";
 import { LibraryBrowser } from "@/components/site/LibraryBrowser";
 import { Photo } from "@/components/site/Photo";
 import { Icon } from "@/components/site/Icon";
@@ -35,16 +35,6 @@ export default function ResourcesPage() {
             <Btn href="/consultation" kind="secondary">
               Book a Consultation
             </Btn>
-          </>
-        }
-        photo={PHOTOS.tracing}
-        note={
-          <>
-            Learn.
-            <br />
-            Grow.
-            <br />
-            Thrive.
           </>
         }
       />
