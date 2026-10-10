@@ -4,6 +4,7 @@ import { Fraunces, DM_Sans, Caveat } from "next/font/google";
 import "./globals.css";
 import "./devine.css";
 import { OfferBar } from "@/components/site/OfferBar";
+import { VisitSource } from "@/components/site/VisitSource";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { IconSprite } from "@/components/site/Icon";
@@ -244,6 +245,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           Skip to main content
         </a>
         <OfferBar />
+        <VisitSource />
         <SiteHeader />
         <main id="main" className="flex-grow">
           {children}

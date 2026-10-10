@@ -519,7 +519,9 @@ h1, h2, h3 { overflow-wrap: break-word; hyphens: manual; }
 .dv-wrap { padding-inline: clamp(16px, 4vw, 24px); }
 .dv-wrap .dv-wrap { padding-inline: 0; }
 img { height: auto; }
-@media (min-width: 1680px) { :root { --container: 1320px; } }
+/* Wider screens use more of the width (phones and tablets are unaffected: this only applies above 1440px) */
+@media (min-width: 1440px) { :root { --container: 1360px; } }
+@media (min-width: 1680px) { :root { --container: 1480px; } }
 
 .h2 { font-size: clamp(30px, 4.2vw + 12px, 50px); }
 .hero h1 { font-size: clamp(38px, 5.5vw + 14px, 70px); }

@@ -5,6 +5,7 @@
 // never count as a consultation conversion.
 
 import * as z from "zod";
+import { channelOf, readVisitSource } from "./attribution";
 
 declare global {
   interface Window {
@@ -40,6 +41,11 @@ export async function sendLead(source: LeadSource, fields: Record<string, string
   for (const [key, value] of Object.entries(fields)) if (value?.trim()) body[key] = value.trim();
   if (body.phone) body.phone = normalisePhone(body.phone);
 
+  // Where this visitor came from (UTM / ad click), so the clinic can see which ads bring enquiries.
+  const visit = readVisitSource();
+  Object.assign(body, { channel: channelOf(visit) }, visit);
+  sendToSheet(body);
+
   // A form-encoded body keeps this a CORS "simple request": one round trip, no preflight.
   // keepalive lets the request finish even if the visitor leaves the page straight away.
   const res = await fetch(endpoint, {
@@ -63,4 +69,15 @@ export function trackConsultationLead(source: LeadSource, concern?: string) {
 
 export function trackWorksheetDownload(worksheetId: string) {
   (window.dataLayer ||= []).push({ event: "worksheet_download", worksheet: worksheetId });
+}
+
+/** Copies every lead into the clinic's Google Sheet (NEXT_PUBLIC_LEADS_SHEET_URL, a Google Apps
+ *  Script web app; see docs/leads-google-sheet.md). Fire-and-forget: the email via Formspree stays
+ *  the main delivery, so a sheet problem never blocks or loses an enquiry. */
+function sendToSheet(body: Record<string, string>) {
+  const url = process.env.NEXT_PUBLIC_LEADS_SHEET_URL?.trim();
+  if (!url) return;
+  const { _subject, ...lead } = body; // eslint-disable-line @typescript-eslint/no-unused-vars -- email-only field
+  const row = { submitted_at: new Date().toLocaleString("en-IN", { timeZone: "Asia/Kolkata" }), ...lead };
+  fetch(url, { method: "POST", mode: "no-cors", body: new URLSearchParams(row), keepalive: true }).catch(() => {});
 }
