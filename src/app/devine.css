@@ -1052,7 +1052,6 @@ html { scroll-padding-top: 100px; }
 .offer-bar { position: relative; z-index: 60; background: linear-gradient(90deg, var(--orange-text), #C2410C); color: #FFFDFA; font-size: 14px; }
 .offer-bar .dv-wrap { display: flex; align-items: center; justify-content: center; gap: 10px 14px; flex-wrap: wrap; min-height: 42px; padding-block: 8px; text-align: center; }
 .offer-bar__tag { padding: 3px 10px; border-radius: var(--r-pill); background: rgba(255, 253, 250, .2); font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
-.offer-bar a { display: inline-flex; align-items: center; gap: 6px; min-height: 32px; padding: 4px 14px; border-radius: var(--r-pill); background: #FFFDFA; color: var(--orange-text); font-weight: 700; white-space: nowrap; }
 .offer-bar__perks { display: flex; flex-wrap: wrap; justify-content: center; gap: 2px 0; margin: 0; padding: 0; list-style: none; font-weight: 600; }
 .offer-bar__perks li + li::before { content: "•"; margin: 0 10px; opacity: .6; }
 .offer-bar__terms { min-height: 32px; padding: 0 4px; border: 0; background: none; font: inherit; font-size: 12px; color: inherit; text-decoration: underline; text-underline-offset: 3px; opacity: .9; cursor: pointer; }

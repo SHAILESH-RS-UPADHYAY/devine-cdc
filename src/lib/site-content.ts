@@ -484,6 +484,4 @@ export const OFFER = {
     "Cannot be combined with other offers or discounts, and cannot be exchanged for cash.",
     "Devine Child Development Centre may change or end the offer at any time.",
   ],
-  cta: "Book now",
-  href: "/consultation",
 };

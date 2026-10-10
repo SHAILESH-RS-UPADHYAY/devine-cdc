@@ -1,9 +1,7 @@
 "use client";
 
 import { useSyncExternalStore } from "react";
-import Link from "next/link";
 import { OFFER } from "@/lib/site-content";
-import { Icon } from "./Icon";
 
 // Today's date in India, so the strip switches on and off at Indian midnight whatever the visitor's clock zone.
 const todayInIndia = () => new Date().toLocaleDateString("en-CA", { timeZone: "Asia/Kolkata" });
@@ -24,9 +22,6 @@ export function OfferBar() {
             <li key={perk}>{perk}</li>
           ))}
         </ul>
-        <Link href={OFFER.href}>
-          {OFFER.cta} <Icon name="arrow" />
-        </Link>
         {/* Native popover: opens on tap, closes on outside tap or Esc, no extra script. */}
         <button type="button" className="offer-bar__terms" popoverTarget="offer-terms">
           *T&amp;C apply
