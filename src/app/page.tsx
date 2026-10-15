@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { CONTACT, HOURS, WHATSAPP_URL } from "@/lib/constants";
-import { CONCERNS, PHOTOS, PROMISES, STATS, WHY_ITEMS } from "@/lib/site-content";
+import { CONCERNS, PHOTOS, PROMISES, REVIEWS, STATS, WHY_ITEMS } from "@/lib/site-content";
 import { Icon } from "@/components/site/Icon";
 import { Photo } from "@/components/site/Photo";
 import { TherapyTabs } from "@/components/site/TherapyTabs";
@@ -318,7 +318,39 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Parent stories are switched off until the clinic shares real reviews (with consent). */}
+      {/* ═══ PARENT REVIEWS (Google) ═══ */}
+      <section className="section stories" aria-labelledby="stories-h">
+        <div className="dv-wrap">
+          <div className="stories__head reveal">
+            <div>
+              <span className="eyebrow">Google Reviews</span>
+              <h2 className="h2" id="stories-h">
+                What Parents Say
+              </h2>
+              <p className="lead">Every review is 5 stars, in families’ own words.</p>
+            </div>
+          </div>
+          <div className="track" tabIndex={0} aria-label="Parent reviews, scroll sideways for more">
+            {REVIEWS.map((r) => (
+              <figure className="quote-card" key={r.name}>
+                <div className="quote-card__stars" role="img" aria-label="5 out of 5 stars">
+                  ★★★★★
+                </div>
+                <blockquote>{r.text}</blockquote>
+                <figcaption>
+                  <span className={`bubble ${r.tone}`} aria-hidden="true">
+                    {r.name[0]}
+                  </span>
+                  <span>
+                    <strong>{r.name}</strong>
+                    <span>Google review · {r.when}</span>
+                  </span>
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* ═══ CTA ═══ */}
       <section className="section section--flush" id="contact" aria-labelledby="cta-h">

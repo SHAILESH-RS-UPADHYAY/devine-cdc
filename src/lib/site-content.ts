@@ -108,6 +108,16 @@ export const WHY_ITEMS: { icon: IconName; tone: string; title: string; text: str
   { icon: "sprout", tone: "t-peach", title: "Focus on Everyday Progress", text: "Therapy with a clear purpose: a happier, more confident, more independent child." },
 ];
 
+/** Google reviews the clinic shared (October 2026), transcribed from the screenshots. All 5 stars. */
+export const REVIEWS = [
+  { name: "Ruchi Wadhwa", when: "2 weeks ago", tone: "t-peach", text: "This centre has truly made a positive difference in our journey. Special thanks to Komal ma’am & Chahat ma’am. The therapists are not only skilled but also very kind and understanding. They treat every child with patience and love, making therapy enjoyable. Seeing the progress has been incredibly satisfying. Grateful for their dedication and support — visible change in my child. Thank you so much, Devine Child Development Centre." },
+  { name: "Yogita", when: "Recently", tone: "t-mint", text: "A wonderfully supportive environment for kids! Devine has been a blessing for my daughter Sharvi. The therapists here — especially Komal ma’am and Akansha ma’am — are extremely patient, caring and dedicated. Sharvi enjoys her sessions and we are so grateful for their warm and loving guidance. Highly recommended." },
+  { name: "Shubham Thwal", when: "2 months ago", tone: "t-blue", text: "I had a very positive experience at Devine Child Development Centre. The team is warm, caring and genuinely committed to the well-being and development of every child. I especially appreciated the personalised attention, professional approach and the supportive environment they create for both children and parents. Chahat and the entire team are doing a wonderful job, and I would definitely recommend Devine to families looking for compassionate and dedicated child development support." },
+  { name: "Pooja Singh", when: "2 weeks ago", tone: "t-gold", text: "Best place for kids. They understood the needs of my child and supported them accordingly." },
+  { name: "Kamya Bajaj", when: "2 months ago", tone: "t-coral", text: "I visited for my relative’s admission and found it to be a perfect place, designed very thoughtfully with the right curriculum. Rooms are well equipped keeping in mind all aspects, and there’s a beautiful play area that keeps children engaged. Truly a lovely experience." },
+  { name: "Anjali Y", when: "2 months ago", tone: "t-peach", text: "It’s a great place for kids — very good environment and positive vibes everywhere ✨ Great experience with the team." },
+];
+
 export const STATS = [
   { value: "RCI", label: "Licensed professionals" },
   { value: "5+", label: "Years of experience" },

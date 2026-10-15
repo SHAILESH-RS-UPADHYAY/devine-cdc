@@ -326,12 +326,18 @@ svg.i.fill { fill: currentColor; stroke: none; }
 .track { display: flex; gap: 24px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; padding: 6px 4px 24px; margin: 0 -4px; }
 .track::-webkit-scrollbar { display: none; }
 .quote-card { scroll-snap-align: start; flex: 0 0 calc((100% - 48px) / 3); background: var(--paper); border-radius: var(--r-lg); padding: 34px 32px 28px; box-shadow: var(--shadow-sm); display: flex; flex-direction: column; gap: 22px; }
-.quote-card__stars { display: flex; gap: 3px; color: var(--gold); font-size: 18px; }
-.quote-card blockquote { font-family: var(--font-display); font-size: 20px; line-height: 1.5; font-weight: 500; flex: 1; }
+.quote-card__stars { display: flex; gap: 3px; color: var(--gold); font-size: 22px; letter-spacing: 2px; line-height: 1; }
+.quote-card blockquote { font-family: var(--font-display); font-size: 18px; line-height: 1.55; font-weight: 500; flex: 1; }
+.quote-card blockquote::before { content: "“"; display: block; font-size: 64px; line-height: .5; height: 26px; color: var(--orange); }
 .quote-card figcaption { display: flex; align-items: center; gap: 14px; padding-top: 20px; border-top: 1px solid var(--line); }
 .quote-card figcaption .bubble { width: 46px; height: 46px; font-family: var(--font-display); font-size: 18px; font-weight: 600; }
 .quote-card figcaption strong { display: block; font-size: 16px; }
 .quote-card figcaption span span { font-size: 14px; color: var(--ink-soft); }
+/* Wide screens: all reviews at once, masonry columns instead of a sideways scroll. */
+@media (min-width: 961px) {
+  .stories .track { display: block; columns: 3; column-gap: 24px; overflow: visible; }
+  .stories .quote-card { break-inside: avoid; margin-bottom: 24px; }
+}
 .dots { display: flex; justify-content: center; gap: 2px; margin-top: 8px; }
 .dots button { width: 32px; height: 44px; padding: 0; border: 0; background: none; cursor: pointer; display: grid; place-items: center; }
 .dots button::before { content: ""; width: 10px; height: 10px; border-radius: var(--r-pill); background: rgba(45, 43, 58, .2); transition: width .45s var(--ease), background-color .3s; }
