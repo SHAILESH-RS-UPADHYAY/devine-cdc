@@ -14,6 +14,8 @@ export const SITE_CONFIG = {
   ogImage: "/images/og-image.jpg",
 } as const;
 
+export const PARENT_LOGIN_URL = "https://app.devinecdc.in/login";
+
 export const CONTACT = {
   phone: "+91 87440 97777", 
   phoneDisplay: "+91 87440 97777",

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ADDRESS, CONTACT, FOOTER_LINKS, HOURS } from "@/lib/constants";
+import { ADDRESS, CONTACT, FOOTER_LINKS, HOURS, PARENT_LOGIN_URL } from "@/lib/constants";
 import { EmailText } from "./blocks";
 import { Brand } from "./Brand";
 import { Icon } from "./Icon";
@@ -83,7 +83,7 @@ export function SiteFooter() {
         <div className="footer__bottom">
           <p>© {new Date().getFullYear()} Devine Child Development Centre. All rights reserved.</p>
           <p className="footer__legal">
-            <Link href="/privacy">Privacy Policy</Link> · <Link href="/terms">Terms of Use</Link>
+            <Link href="/privacy">Privacy Policy</Link> · <Link href="/terms">Terms of Use</Link> · <a href={PARENT_LOGIN_URL} aria-label="Parent login to the Devine parent app">Parent login</a>
           </p>
           <p className="made">
             Designed for brighter tomorrows <Icon name="heart" fill />

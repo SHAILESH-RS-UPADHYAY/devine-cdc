@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { NAV_LINKS, NAV_SECTION } from "@/lib/constants";
+import { NAV_LINKS, NAV_SECTION, PARENT_LOGIN_URL } from "@/lib/constants";
 import { Brand } from "./Brand";
 import { Icon } from "./Icon";
 
@@ -61,11 +61,17 @@ export function SiteHeader() {
               {link.label}
             </Link>
           ))}
+          <a href={PARENT_LOGIN_URL} className="btn btn--ghost btn--sm" hidden={!open} aria-label="Parent login to the Devine parent app">
+            Parent login
+          </a>
           <Link href={ctaHref} className="btn btn--primary btn--sm" hidden={!open} onClick={() => setOpen(false)}>
             Book a Consultation
           </Link>
         </nav>
         <div className="header__cta">
+          <a href={PARENT_LOGIN_URL} className="btn btn--ghost btn--sm" aria-label="Parent login to the Devine parent app">
+            Parent login
+          </a>
           <Link href={ctaHref} className="btn btn--primary btn--sm">
             Book a Consultation <Icon name="arrow" />
           </Link>

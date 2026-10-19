@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { CONTACT, HOURS, WHATSAPP_URL } from "@/lib/constants";
+import { CONTACT, HOURS, PARENT_LOGIN_URL, WHATSAPP_URL } from "@/lib/constants";
 import { CONCERNS, PHOTOS, PROMISES, REVIEWS, STATS, WHY_ITEMS } from "@/lib/site-content";
 import { Icon } from "@/components/site/Icon";
 import { Photo } from "@/components/site/Photo";
@@ -84,6 +84,9 @@ export default function Home() {
               <Icon name="shield" />
               RCI licensed team · 250+ children supported · Sector 51, Gurugram
             </p>
+            <a href={PARENT_LOGIN_URL} className="link-arrow reveal" aria-label="Parent login to the Devine parent app">
+              Already a Devine parent? Parent login <Icon name="arrow" />
+            </a>
           </div>
           <div className="hero__side reveal">
             <Photo photo={PHOTOS.sandTray} className="hero__badge" sizes="108px" eager />
