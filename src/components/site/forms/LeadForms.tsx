@@ -56,7 +56,6 @@ export function HeroLeadForm() {
       <button className="btn btn--primary" type="submit" disabled={formState.isSubmitting}>
         {formState.isSubmitting ? "Sending…" : "Book a Consultation"} <Icon name="arrow" />
       </button>
-      <p className="form__note">Consultation fee ₹1,000 · In person or online</p>
     </form>
   );
 }
@@ -91,7 +90,6 @@ export function ConsultationForm() {
       <button className="btn btn--primary pg-submit" type="submit" disabled={formState.isSubmitting}>
         {formState.isSubmitting ? "Sending…" : "Request a Consultation"} <Icon name="arrow" />
       </button>
-      <p className="pg-form__note">Consultation fee ₹1,000 · In person or online</p>
     </form>
   );
 }
