@@ -36,6 +36,7 @@ import sensoryActivitiesCover from "@/assets/photos/sensory-activities-cover.web
 import monthlyPlannerCover from "@/assets/photos/monthly-planner-cover.webp";
 import visualScheduleCover from "@/assets/photos/visual-schedule-cover.webp";
 import therapyAtHomeCover from "@/assets/photos/therapy-at-home-cover.webp";
+import brainGymCover from "@/assets/photos/brain-gym-cover.webp";
 import milestoneChecklistCover from "@/assets/photos/milestone-checklist-cover.webp";
 import { ADDRESS } from "@/lib/constants";
 
@@ -408,6 +409,15 @@ export const LIBRARY: LibraryTopic[] = [
         cover: sensoryActivitiesCover,
         pages: 47,
         sizeLabel: "9.1 MB",
+      },
+      {
+        title: "Brain Gym for Kids",
+        summary: "Simple movement activities that build focus, coordination and the brain-body connection, with a picture for every exercise.",
+        kind: "Activity book",
+        file: "/resources/devine-brain-gym-for-kids.pdf",
+        cover: brainGymCover,
+        pages: 17,
+        sizeLabel: "4.6 MB",
       },
       READS.sensoryEverydayLife,
       READS.sensoryCircleTime,
