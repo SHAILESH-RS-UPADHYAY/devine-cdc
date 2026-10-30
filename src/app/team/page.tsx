@@ -10,6 +10,9 @@ export const metadata: Metadata = {
   alternates: { canonical: "/team" },
 };
 
+const careerUrl = (role: string) =>
+  `https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent(`Hi, I'd like to apply for ${role} at Devine CDC`)}`;
+
 export default function TeamPage() {
   return (
     <>
@@ -69,14 +72,19 @@ export default function TeamPage() {
 
       <Banner lines={["A brighter tomorrow", "is a team effort."]} photo={PHOTOS.teamWithFamilies} />
 
-      <Section className="pg-sec--tight">
+      <Section className="pg-sec--tight" id="careers">
         <CtaPanel
           title="Join our team"
-          text="Passionate about making a difference? We’d love to hear from you."
+          text={`Internship (if you are a fresher) or a job: send your CV on WhatsApp at ${CONTACT.phoneDisplay.replaceAll(" ", " ")}.`}
           actions={
-            <Btn href={`mailto:${CONTACT.email}?subject=Career%20enquiry`} kind="light">
-              Share Your CV
-            </Btn>
+            <>
+              <Btn href={careerUrl("an internship")} kind="wa">
+                Internship (Freshers)
+              </Btn>
+              <Btn href={careerUrl("a job")} kind="wa">
+                Job
+              </Btn>
+            </>
           }
         />
         <Quote text="It takes a team of caring people to help a child shine." cite="— The Devine team" />

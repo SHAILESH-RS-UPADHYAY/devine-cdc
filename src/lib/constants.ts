@@ -125,6 +125,7 @@ export const FOOTER_LINKS = [
   { label: "Therapies", href: "/therapies" },
   { label: "Resources", href: "/resources" },
   { label: "FAQ", href: "/faq" },
+  { label: "Careers / Join our team", href: "/team#careers" },
   { label: "Contact", href: "/contact" },
 ] as const;
 

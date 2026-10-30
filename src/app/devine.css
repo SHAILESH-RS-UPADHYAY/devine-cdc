@@ -934,6 +934,7 @@ html { scroll-padding-top: 100px; }
   .pg-news__form { grid-template-columns: 1fr; }
   .pg-news__form .pg-submit { width: 100%; }
   .pg-cta .pg-actions .btn, .pg-hero .pg-actions .btn { flex: 1 1 100%; justify-content: space-between; }
+  .pg-cta .pg-actions .btn--wa { justify-content: center; }
   .pg-cta__note { position: static; transform: none; }
   .pg-map { min-height: 260px; }
 }
