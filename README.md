@@ -1,4 +1,5 @@
 <div align="center">
+<img src=".github/logo.svg" width="88" height="88" alt="Devine CDC logo">
 
 # 🌟 Devine CDC - Pediatric Therapy Clinic Platform
 
